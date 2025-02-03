@@ -45,7 +45,7 @@ Bsp. Sparschwein: Jeden Monat die Hälfte des Inhalts dazu und $2$ Euro entnehme
 
 ## Eigenschaften von Folgen
 - (Streng-) Monotonie wie bei Funktionen
-- Beschränkheit nach oben/unten wenn es ein $S/s$ gibt, dass nie über-/unterschritten wird
+- Beschränktheit nach oben/unten wenn es ein $S/s$ gibt, dass nie über-/unterschritten wird
 - "Beschränkt" nur bei Existenz beider Schranken
 
 ## Nachweis von Monotonie / Beschränktheit
@@ -55,6 +55,7 @@ $$a_n=\frac{4n}{n+3}$$
 **Behauptung: $a_n$ ist SMS (Streng-Monoton-Steigend)**
  
 Beweis dass $a_{n+1}-a_n>0$
+
 $$ \frac{4(n+1)}{(n+1)+3} - \frac{4n}{n+3} = \frac{4(n+1)\cdot(n+3)}{(n+4)\cdot(n+3)} - \frac{4n\cdot (n+4)}{(n+3) \cdot (n+4)} = \frac{12}{(n+3)(n+4)} > 0$$
 
 ### Geschicktes Abschätzen
