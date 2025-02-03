@@ -1,7 +1,7 @@
 # Mengen 
 Eine Menge ist eine Zusammenfassung bestimmter unterschiedlicher Objekte (sog. Elemente) zu einem Ganzen
-$$A = \left\{ 8; 12; 20 \right\}$$
-$$B = \left\{ 4; 8; 12; \ldots \right\} = \left\{ x \in \mathbb{N} \mid \text{ist teilbar durch} \, 4 \right\} $$
+$$A = \{ 8; 12; 20 \}$$
+$$B = \{ 4; 8; 12; \ldots \} = \{ x \in \mathbb{N} \mid \text{ist teilbar durch} \, 4 \} $$
 Schreibweise $200 \in B; 201 \notin B$
 
 ## Teilmengen
