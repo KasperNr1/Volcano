@@ -1,5 +1,5 @@
 # Definition
-Eine Zahl $g$ ist dann Grenzwert einer Folge, wenn zu jedem $\varepsilon > 0$ eine Zahl $n_0$ existiert, so dass $|a_n-g| < \varepsilon$ für jedes $n > n_0$.
+Eine Zahl $g$ ist dann Grenzwert einer [Folge](Folgen.md), wenn zu jedem $\varepsilon > 0$ eine Zahl $n_0$ existiert, so dass $|a_n-g| < \varepsilon$ für jedes $n > n_0$.
 
 Die Folge kann also einen beliebigen, stetig kleiner werdenden Abstand zu $g$ erreichen.
 
