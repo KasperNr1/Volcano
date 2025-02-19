@@ -94,3 +94,39 @@ a_{23} \cdot
 Das Vorzeichen des ausgeklammerten a hängt davon ab, ob die Indexsumme gerade ist.
 Gerade $\rightarrow +$
 Ungerade $\rightarrow -$
+
+## Allgemeine Determinante
+Durch Streichen der $i$-ten Zeile und der $k$-ten Spalte entsteht aus der $n$-reihigen Quadratischen Matrix $A$ eine $(n-1)$-reihige quadratische Untermatrix mit der zugehörigen $(n-1)$-reihigen Unterdeterminante $U_{ik}$ ("Reihe" als Oberbegriff für Zeile und Spalte)
+
+Als Adjunkte $A_{ik}$ des Elements $a_{ik}$ bezeichnet man den Ausdruck
+$$
+A_{ik}=(-1)^{i+k} \cdot U_{ik} \quad \begin{Bmatrix} i & = & 1,2,3 \\ k & = & 1,2,3 \end{Bmatrix}
+$$
+Die Vorzeichen der Adjunkte sind also Schachbrett-artig angeordnet
+$$
+\begin{pmatrix} + & - & + \\ - & + & - \\ + & - & + \end{pmatrix}
+$$ Anhand des Beispiels von oben mit
+$$
+A=
+\begin{pmatrix}
+1 & 3 & 4 \\
+2 & 0 & 1 \\
+3 & 1 & 2
+\end{pmatrix}
+$$
+gilt für die Adjunkte der ersten Spalte also:
+$$
+\begin{array}{}
+A_{11} =& (-1)^{1+1} \cdot
+\begin{vmatrix} 0 & 1 \\ 1 & 2 \end{vmatrix} =& -1 \\
+\\
+A_{12} =& (-1)^{1+2} \cdot
+\begin{vmatrix} 2 & 1 \\ 3 & 2 \end{vmatrix} =& -1 \\
+\\
+A_{13} =& (-1)^{1+3} \cdot
+\begin{vmatrix} 2 & 0 \\ 3 & 1 \end{vmatrix} =& 2 \\
+\end{array}$$
+## Cramer'sche Regel für ein (3x3)-System
+Auch hier ist die Regel [analog](#Cramer'sche%20Regel%20für%20ein%20(2x2)-System) zur $(2\times2)$ Matrix anwendbar.
+Die "rechte" Seite des LGS wird für die Spalten eingesetzt und die Determinante bestimmt. So erhält man die Determinanten $D; D_1; D_2; D_3$ und mit ihnen die Lösungen des LGS
+$$x_1=\frac{D_1}{D} \qquad x_2=\frac{D_2}{D} \qquad x_3=\frac{D_3}{D}$$
