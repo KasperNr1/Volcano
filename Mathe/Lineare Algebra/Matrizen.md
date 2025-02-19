@@ -85,3 +85,41 @@ Es gilt:
 - $(A^T)^T = A$  
 - $(A * B)^T = B^T * A^T$
 - **NICHT** $(A*B)^T=A^T*B^T$ 
+
+## Spezielle Matrizen
+Eine Quadratische Matrix heißt "symmetrisch", falls $A=A^T$, also $a_{ik}=a_{ki}$ für alle $k,i$ 
+Sie ist "schiefsymmetrisch" wenn $B^T=-B$. Somit muss die Hauptdiagonale mit $0$ belegt sein, da keine andere Zahl ihr eigenes additives Invers ist.
+$$
+A=
+\begin{pmatrix}
+-2 & 1 & 4 \\
+1 & 12 & 0 \\
+4 & 0 & -3
+\end{pmatrix}
+\quad
+B=
+\begin{pmatrix}
+0 & -2 & 1 \\
+2 & 0 & 8 \\
+-1 & -8 & 0
+\end{pmatrix}
+$$
+
+Eine quadratische Matrix die $\frac{\text{oberhalb}}{\text{unterhalb}}$ der Hauptdiagonalen nur Nullen enthält, heißt eine $\frac{\text{obere}}{\text{untere}}$ Dreiecksmatrix.
+$$
+\begin{pmatrix}
+2 & 0 & 0 \\
+1 & 1 & 0 \\
+-6 & 3 & 10
+\end{pmatrix}
+$$
+Eine Matrix die nur in der Nähe der Hauptdiagonalen Werte ungleich $0$ enthält, heißt Bandmatrix.
+$$
+\begin{pmatrix}
+1 & 2 & 0 & 0 & 0 \\
+-3 & 5 & 8 & 0 & 0\\
+0 & 6 & 7 & 1 & 0 \\
+0 & 0 & 4 & 13 & 2\\
+0 & 0 & 0 & 1 & -1\\
+\end{pmatrix}
+$$
