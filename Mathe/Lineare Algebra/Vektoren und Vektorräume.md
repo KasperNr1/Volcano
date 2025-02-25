@@ -17,7 +17,7 @@ Durch Umstellen der Gleichung ist ersichtlich, dass kein Vektor einer linear una
 ### Definition Maximale Menge an Vektoren
 Eine Menge linear unabhängiger Vektoren heißt maximal, wenn kein weiterer Vektor hinzugefügt werden kann, ohne dass die Lineare Unabhängigkeit verloren geht.
 
-Die Basis eines Vektorraumes entspricht einem "Minimalen Erzeugenden-system"
+Die Basis eines Vektorraumes entspricht einem "Minimalen Erzeugenden-System"
 
 | **minimal**           | Basis besteht aus so wenig Vektoren wie möglich                                                                                                                                                                                 |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

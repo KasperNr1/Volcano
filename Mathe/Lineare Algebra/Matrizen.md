@@ -19,7 +19,7 @@ x_3
 \end{pmatrix}
 
 $$
-Wenn $x=\begin{pmatrix}1 \\1 \\1\end{pmatrix}$ wird durch Anwenden von $A$ der Vektor $y=\begin{pmatrix}8 \\-5 \end{pmatrix}$ generiert. Anwenden bedeutet, die Koordinaten des [Vektors](Vektoren%20und%20Vektorräume.md) in das durch $A$ beschriebene LGS einzusetzen.
+Wenn $x=\begin{pmatrix}1 \\1 \\1\end{pmatrix}$ wird durch Anwenden von $A$ der Vektor $y=\begin{pmatrix}8 \\-5 \end{pmatrix}$ generiert. Anwenden bedeutet, die Koordinaten des [Vektors](Vektoren%20und%20Vektorräume.md) in das durch $A$ beschriebene [LGS](Lineare%20Gleichungssysteme.md) einzusetzen.
 
 Für eine allgemeine Matrix gilt:
 $$

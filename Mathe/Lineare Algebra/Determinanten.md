@@ -28,7 +28,7 @@ Determinante $D = det \begin{pmatrix}a_{11} & a_{12} \\ a_{21} & a_{22} \end{pma
 Für die Zähler gilt $D_1 = \begin{vmatrix} b_{1} & a_{12} \\ b_{2} & a_{22} \end{vmatrix}$ und $D_2 = \begin{vmatrix} a_{11} & b_{1} \\ a_{21} & b_{2} \end{vmatrix}$ 
 
 ## Cramer'sche Regel für ein (2x2)-System
-Die Lösungen des LGS sind mit den obigen Definitionen 
+Die Lösungen des [LGS](Lineare%20Gleichungssysteme.md) sind mit den [obigen](#Zweireihige%20Determinanten%20Determinante%202.%20Ordnung) Definitionen 
 $$x_1=\frac{D_1}{D} \qquad x_2=\frac{D_2}{D}$$
 ### Kriterien zur Lösbarkeit
 $D\neq0 \rightarrow$ Genau eine Lösung
@@ -37,7 +37,7 @@ $D=0$ und $(D_1 \vee D_2) \neq 0 \rightarrow$ Keine Lösung ($D=0$ und nicht all
 
 # Determinanten 3. und höherer Ordnung
 ## 3. Ordnung
-In einem $(3\times3)$ LGS lässt sich die Determinante analog zum $(2\times2)$ System herleiten.
+In einem $(3\times3)$ [LGS](Lineare%20Gleichungssysteme.md) lässt sich die Determinante analog zum $(2\times2)$ System herleiten.
 $$
 \begin{array}{rlrl}
 a_{11} \cdot x_1 + a_{12} \cdot x_2 + a_{13} \cdot x_3 &= b_1  \\
@@ -128,5 +128,5 @@ A_{13} =& (-1)^{1+3} \cdot
 \end{array}$$
 ## Cramer'sche Regel für ein (3x3)-System
 Auch hier ist die Regel [analog](#Cramer'sche%20Regel%20für%20ein%20(2x2)-System) zur $(2\times2)$ Matrix anwendbar.
-Die "rechte" Seite des LGS wird für die Spalten eingesetzt und die Determinante bestimmt. So erhält man die Determinanten $D; D_1; D_2; D_3$ und mit ihnen die Lösungen des LGS
+Die "rechte" Seite des [LGS](Lineare%20Gleichungssysteme.md) wird für die Spalten eingesetzt und die Determinante bestimmt. So erhält man die Determinanten $D; D_1; D_2; D_3$ und mit ihnen die Lösungen des [LGS](Lineare%20Gleichungssysteme.md)
 $$x_1=\frac{D_1}{D} \qquad x_2=\frac{D_2}{D} \qquad x_3=\frac{D_3}{D}$$
