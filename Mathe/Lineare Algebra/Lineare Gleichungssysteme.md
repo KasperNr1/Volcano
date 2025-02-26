@@ -204,6 +204,6 @@ $$
 | --------------- | ------------------------------------------------ | ------------------------------------------------------------------- |
 | $det(A) \neq 0$ | Eindeutig lösbar                                 | Nur triviale Lösung $0$                                             |
 | $det(A)=0$      | Entweder Unendlich viele Lösungen oder gar keine | Unendendlich viele, nicht-triviale Lösungen und die triviale Lösung |
-Gauß-Algorithmus ist auf jedes $(n\times m)$-System anwendbar, Cramer'sche Regel nur im Sonderfall $n=m$ anwendbar.
-Für $n>3$ wird der Rechenaufwand zur Bestimmung der Determinanten zu groß.
+[Der Gauß-Algorithmus](#Der%20Gauß-Algorithmus%20zum%20Lösen%20eines%20LGS) ist auf jedes $(n\times m)$-System anwendbar, [Cramer'sche Regel](Determinanten.md#Cramer'sche%20Regel%20für%20ein%20(2x2)-System) nur im Sonderfall $n=m$ anwendbar.
+Für $n>3$ wird der Rechenaufwand zur Bestimmung der [Determinanten](Determinanten.md) zu groß.
 $\rightarrow$ Gauß Algo ist dann deutlich schneller / bzw. besser.
