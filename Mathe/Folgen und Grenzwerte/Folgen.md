@@ -1,6 +1,6 @@
 # Begriff
 ## Definition
-Eine Zuordnung mit der Definitionsmenge $D = \mathbb{N}$ heißt Folge
+Eine Zuordnung mit der [Definitionsmenge](Intervalle%20und%20Mengen.md) $D = \mathbb{N}$ heißt Folge
 
 ## Schreibweise
 $(a_{n}); \qquad a_{5}: 5\text{-tes Folgeglied}$
