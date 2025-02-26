@@ -157,3 +157,53 @@ Falls das LGS überhaupt lösbar ist, hat es unendlich viele Lösungen da mindes
 
 ### 5. Überbestimmtes LGS
 Ein LGS ist dann überbestimmt, wenn es mehr Gleichungen als Unbekannte besitzt. Zum Lösen werden bei $n$ Unbekannten die ersten $n$ beliebigen Gleichungen verwendet. Anschließend müssen die Lösungen mit allen Gleichungen verifiziert werden, ein einzelner Widerspruch führt zur Ungültigkeit der Ergebnisse.
+
+### 6. LGS mit Parametern
+$$
+\begin{array}{l}
+\begin{pmatrix}
+1 & -1 & \frac r3 & 1 & (a) \\
+0 & 3 & -r & 0 & (b) \\
+3 & -3 & r^2 & r+2 & (c)
+\end{pmatrix}
+&
+c^* = c-3*a
+\\\\
+\begin{pmatrix}
+1 & -1 & \frac r3 & 1 & (a) \\
+0 & 3 & -r & 0 & (b) \\
+0 & 0 & (r^2-r) & r-1 & (c^*)
+\end{pmatrix}
+&
+x_3 = \frac{r-1}{r^2 -r} \rightarrow r \neq \{0;1\}
+\\\\
+\rightarrow x_3 = \frac{r-1}{r^2-r} = \frac{r-1}{r*(r-1)} = \frac 1r
+\\\\
+\rightarrow x_2 -r * \left( \frac 1r \right) = 0
+\\
+\rightarrow x_2 = \frac 13
+\\\\
+\rightarrow x_1 - \frac 13 + \frac r3 * \left( \frac 1r \right) = 1 \\
+\rightarrow x_1 = 1 \\
+\\\\
+L_r=\left\{ \left( 1; \frac 13; \frac 1r \right)\right\}
+\\
+r=0 \text{ führt in $c^*$ zu einem Widerspruch}
+\\\\
+L_0 = \{\}
+\\\\
+r=1 \text{ führt in $c^*$ zu einer Tautologie}\\
+\dots \\
+L_1 = \left\{ \left( 1; \frac 13t; t \right) t \in \mathbb{R} \right\}
+\end{array}
+$$
+
+# Zusammenfassung
+
+|                 | $A+x=b \qquad b\neq 0$<br>Inhomogen              | $A*x=0$<br>Homogen                                                  |
+| --------------- | ------------------------------------------------ | ------------------------------------------------------------------- |
+| $det(A) \neq 0$ | Eindeutig lösbar                                 | Nur triviale Lösung $0$                                             |
+| $det(A)=0$      | Entweder Unendlich viele Lösungen oder gar keine | Unendendlich viele, nicht-triviale Lösungen und die triviale Lösung |
+Gauß-Algorithmus ist auf jedes $(n\times m)$-System anwendbar, Cramer'sche Regel nur im Sonderfall $n=m$ anwendbar.
+Für $n>3$ wird der Rechenaufwand zur Bestimmung der Determinanten zu groß.
+$\rightarrow$ Gauß Algo ist dann deutlich schneller / bzw. besser.
