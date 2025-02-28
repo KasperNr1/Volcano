@@ -7,9 +7,10 @@ Der Grenzwert einer Zahl ist die Zahl, der die Funktionswerte beliebig nahe komm
 
 ## Schreibweise
 $$
-\lim_{n \to \infty}(f(x))=g $$$$
+\lim_{n \to \infty}(f(x))=g
 \lim_{n \to 0}(2n+1)=1
 $$
+
 # Lineare Funktionen
 Sind Funktionen der Form $f(x)=mx+b$ 
 Die Steigung $m$ ist hierbei konstant, wodurch ihr Schaubild stehts eine gerade Linie darstellt. 
@@ -30,9 +31,11 @@ $n =$ Grad der Funktion
 $a_0 =$ Abschlussglied
 
 # Symmetrie
+
 ## Achsensymmetrie zur $Y$-Achse
 Ist gegeben wenn für jeden Punkt auf einer Funktion $f$ gilt:
 $$f(x)=f(-x)$$ 
+
 ## Punktsymmetrie
 Die Funktion ist symmetrisch in einem Punkt $P(x_0|y_0)$ wenn folgende Bedingung stets erfüllt ist:
 $$
@@ -73,6 +76,7 @@ Ansatz über Ausklammern der höchsten Potenz
    Verhalten grob wie $f(x)=a*x^{n-m}$ 
    Schiefe Asymptote
    Näherungsfunktion lässt sich durch Polynomdivision berechnen.
+
 ### Beispiel zu 3.
 $$
 f(x) = \frac{x^2+1.5x}{2x-1}
@@ -127,6 +131,7 @@ Punktsymmetrisch zu $(0|0)$ und jeder anderen Nullstelle
 | Sin      | $0$             | $0.5$               | $\dfrac12\sqrt2$  | $\dfrac12\sqrt3$ | $1$              |
 | Cos      | $1$             | $\dfrac12 \sqrt3$   | $\dfrac12 \sqrt2$ | $0.5$            | $0$              |
 | Tan      | $0$             | $\dfrac{1}{\sqrt3}$ | $1$               | $\sqrt3$         | $\bot$           |
+
 ## Arkusfunktionen
 Sind die Umkehrfunktionen von Sin, Cos und Tan. 
 $\text{Sin}^{-1}(x)$ im TR. Sie geben zu jedem Wert $A$ zwischen $-1$ und $1$ den kleinstmöglichen Winkel $\alpha$ sodass $sin(\alpha)=A$ 
@@ -163,7 +168,8 @@ Da $$b=e^{\ln{(b)}}$$ gilt ist $$b^x = e^{\ln{(b)}^x}$$
 also
 $$
 e^{x*\ln{(b)}}
-$$ Dabei sind $e$ und $\ln{(b)}$ Konstanten
+$$ 
+Dabei sind $e$ und $\ln{(b)}$ Konstanten
 
 # Logarithmusfunktionen
 Sind Asymptotisch zur $y$-Achse
