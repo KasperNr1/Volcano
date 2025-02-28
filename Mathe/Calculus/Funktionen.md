@@ -8,7 +8,7 @@ Der Grenzwert einer Zahl ist die Zahl, der die Funktionswerte beliebig nahe komm
 ## Schreibweise
 $$
 \lim_{n \to \infty}(f(x))=g $$$$
-$ \lim_{n \to 0}(2n+1)=1
+\lim_{n \to 0}(2n+1)=1
 $$
 # Lineare Funktionen
 Sind Funktionen der Form $f(x)=mx+b$ 
