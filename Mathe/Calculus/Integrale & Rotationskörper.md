@@ -48,4 +48,20 @@ Daher ist das Volumen des Körpers der durch Rotation um die $y$-Achse entsteht 
 Beschreibt die Länge des Funktionsgraphen in einem bestimmten Intervall $[a;b]$.
 
 ## Überlegung
-
+$dx$ und $dy$ bilden ein Rechtwinkliges Dreieck, das einen Teil der Bogenlänge als Hypotenuse hat.
+$$
+s^2 = (\Delta x)^2(\Delta y)^2
+$$
+Auflösen nach $s$ ergibt:
+$$
+s = \sqrt{(\Delta x)^2(\Delta y)^2} = \sqrt{(\Delta x)^2*\left( 1+\dfrac{\Delta y^2}{\Delta x^2} \right)} = \Delta x*\sqrt{1+\dfrac{\Delta y^2}{\Delta x^2}}
+$$
+Die Annäherung wird besser wenn $\Delta x$ kleiner wird, $\Delta x$ geht also gegen $0$.
+Das Sehnenstück $s$ wird damit zum Differential $ds$ 
+$$
+ds = \sqrt{1+\left(\frac{\Delta y}{\Delta x}\right)^2} * \Delta x = \sqrt{1+f'(x)^2} * \Delta x
+$$
+Die Summe all dieser beliebig kurzen Sehnenstücke $ds$ ist die gesamte Bogenlänge $l$.
+$$
+l = \int_a^b \sqrt{1+f'(x)^2} \, dx
+$$
