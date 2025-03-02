@@ -1,34 +1,30 @@
-# Addition und Multiplikation in $\Bbb{Z}_n$ 
-## Definition
-$$\Bbb{Z}_n = \{ 0;1;2;3;4;\dots;(n-1)\}$$
-Ist die Menge aller möglichen Reste
-$\Bbb{Z}_2 = \{0;1\}$ 
+# Verschiedene Strukturen von Mengen
+Sei $G$ eine [Menge](Intervalle%20und%20Mengen.md) und $\circ$ eine Verknüpfung, die je zwei Elemente $a,b \in G$ ein Element $a \circ b \in G$ zugeordnet.
+$(G,\circ)$ heißt "Gruppe" wenn gilt:
+1. $(a \circ b) \circ c = a \circ (b \circ c)$ für alle $a,b,c \in G$ 
+2. Es existiert ein neutrales Element $n \in G$ für das gilt:
+   $n \circ a = a \circ n = a$ für alle $a \in G$ 
+3. Zu jedem $a \in G$ existiert ein inverses Element $i(a) \in G$ für dass gilt:
+   $a \circ i(a) = i(a) \circ a = n$ 
+4. Gilt zusätzlich
+   $a \circ b = b \circ a$ für alle $a,b \in G$ so heißt $(G, \circ)$ "kommutative Gruppe" bzw. "abelsche Gruppe"
 
-## Addition und Multiplikation in $\Bbb{Z}_5$ 
-Damit die Ergebnisse auch innerhalb des erlaubten Zahlenbereichs sind, werden sie $\mod5$ genommen. Für $\Bbb{Z}_5$ entsteht so folgende Verteilung
-
-| **+** | **0** | **1** | **2** | **3** | **4** |
-| ----- | ----- | ----- | ----- | ----- | ----- |
-| 0     | 0     | 1     | 2     | 3     | 4     |
-| 1     | 1     | 2     | 3     | 4     | 0     |
-| 2     | 2     | 3     | 4     | 0     | 1     |
-| 3     | 3     | 4     | 0     | 1     | 2     |
-| 4     | 4     | 0     | 1     | 2     | 3     |
-
-| *   | **0** | **1** | **2** | **3** | **4** |
-| --- | ----- | ----- | ----- | ----- | ----- |
-| 0   | 0     | 0     | 0     | 0     | 0     |
-| 1   | 0     | 1     | 2     | 3     | 4     |
-| 2   | 0     | 2     | 4     | 1     | 3     |
-| 3   | 0     | 3     | 1     | 4     | 2     |
-| 4   | 0     | 4     | 3     | 2     | 1     |
-### Addition
-Man erkennt $4+1=0 \mod 5$ 
-Daher betrachtet man $1$ als das Negative Element zu $4$.
-
-#### Definition
-Für eine Zahl $e \in \Bbb{Z}$ ist die Zahl $d$ das additive Invers zu $e$, wenn $e+d=0 \mod m$ und $d \in \Bbb{Z}_n$ 
-Es gilt $d = n-e$ 
-Es kann Zahlen geben die ihr eigenes  Invers sind.
-
-### Multiplikation
+## Beispiele
+### Verknüpfung: Addition
+- $(\Bbb{Z}, +)$ ist eine kommutative Gruppe, denn
+  1. $a+(b+c) = (a + b) + c$
+  2. $n=0: \; a+0=0+a=a$ 
+  3. $i(a) = -a: \; a+(-a) = (-a)+a = 0$
+  4. $a+b = b+a$
+- $(\Bbb{Z}_m, +)$ $m$ beliebig, $(\Bbb{Q},+); (\Bbb{R}, +)$ 
+- $(\Bbb{N}_0,+)$ keine Gruppe, da inverse Elemente fehlen
+- gerade Zahlen $h = \{2n \mid n \in \Bbb{Z}\} \subset \Bbb{Z}$ bilden eine Untergruppe $(h,+)$ von $(\Bbb{Z}, +)$ 
+### Verknüpfung Multiplikation
+- $(\Bbb{Q},*)$ ist eine komplexe Gruppe, da
+  1. $a * (b * c) = (a * b) * c$
+  2. $n=1: \; a * 1 = 1 * a = a$
+  3. $i(a) = \dfrac1a: \;$ da $\dfrac1a * a = a * \dfrac1a = 1$ für $a \neq 0$ 
+  4. $a * b = b * a$
+- $(\Bbb{Z}_p \setminus \{0\}, *) p=$ Primzahl und $(\Bbb{R}\setminus , * )$ sind kommutative Gruppen
+- $(\Bbb{N}, * )$ ist keine Gruppe, da keine Inversen Elemente existieren
+  Bsp: $a=3 \quad i(a)=\frac13 \notin \Bbb{N}$ 
