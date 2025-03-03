@@ -1,4 +1,11 @@
 Integrale sind das Gegenstück zur [Ableitung](Differentialrechnung.md#Ableitung). Statt der Steigung der [Funktionen](Funktionen.md)beschreiben sie die Fläche unter den Funktionsgraphen. 
+
+# Stammfunktion
+$F(x)$ sei eine Funktion mit der Ableitung $F'(x)$.
+Sei weiterhin $f(x)$ eine Funktion mit $f(x) = F'(x)$.
+$F(x)$ ist eine Stammfunktion von $f(x)$.
+Im Allgemeinen besitzt jede differenzierbare Funktion mehrere Stammfunktionen, die sich mindestens um einen konstanten Summanden unterscheiden.
+
 # Hauptsatz der Differential und Integralrechnung
 $$
 \int_a^bf(x)\,dx = \left[ F(x) \right]^b_a = F(b)-F(a)
@@ -48,4 +55,20 @@ Daher ist das Volumen des Körpers der durch Rotation um die $y$-Achse entsteht 
 Beschreibt die Länge des Funktionsgraphen in einem bestimmten Intervall $[a;b]$.
 
 ## Überlegung
-
+$dx$ und $dy$ bilden ein Rechtwinkliges Dreieck, das einen Teil der Bogenlänge als Hypotenuse hat.
+$$
+s^2 = (\Delta x)^2(\Delta y)^2
+$$
+Auflösen nach $s$ ergibt:
+$$
+s = \sqrt{(\Delta x)^2(\Delta y)^2} = \sqrt{(\Delta x)^2*\left( 1+\dfrac{\Delta y^2}{\Delta x^2} \right)} = \Delta x*\sqrt{1+\dfrac{\Delta y^2}{\Delta x^2}}
+$$
+Die Annäherung wird besser wenn $\Delta x$ kleiner wird, $\Delta x$ geht also gegen $0$.
+Das Sehnenstück $s$ wird damit zum Differential $ds$ 
+$$
+ds = \sqrt{1+\left(\frac{\Delta y}{\Delta x}\right)^2} * \Delta x = \sqrt{1+f'(x)^2} * \Delta x
+$$
+Die Summe all dieser beliebig kurzen Sehnenstücke $ds$ ist die gesamte Bogenlänge $l$.
+$$
+l = \int_a^b \sqrt{1+f'(x)^2} \, dx
+$$
