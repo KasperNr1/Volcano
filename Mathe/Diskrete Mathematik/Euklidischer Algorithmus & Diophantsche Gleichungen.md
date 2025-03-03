@@ -1,4 +1,4 @@
-Ziel: Verbessertes Verfahren zur Bestimmung des [multiplikativen Invers](Gruppen%20Ringe%20und%20Körper.md) in $\mathbb{Z}_n$ 
+Ziel: Verbessertes Verfahren zur Bestimmung des [Modulare Arithmetik](Modulare%20Arithmetik.md#Multiplikation) in $\mathbb{Z}_n$ 
 (Besser = besser als probieren)
 # Euklidischer Algorithmus
 Verfahren zur Bestimmung des größten gemeinsamen Teilers (ggT)
