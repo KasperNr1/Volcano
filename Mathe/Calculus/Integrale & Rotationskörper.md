@@ -1,4 +1,11 @@
 Integrale sind das Gegenstück zur [Ableitung](Differentialrechnung.md#Ableitung). Statt der Steigung der [Funktionen](Funktionen.md)beschreiben sie die Fläche unter den Funktionsgraphen. 
+
+# Stammfunktion
+$F(x)$ sei eine Funktion mit der Ableitung $F'(x)$.
+Sei weiterhin $f(x)$ eine Funktion mit $f(x) = F'(x)$.
+$F(x)$ ist eine Stammfunktion von $f(x)$.
+Im Allgemeinen besitzt jede differenzierbare Funktion mehrere Stammfunktionen, die sich mindestens um einen konstanten Summanden unterscheiden.
+
 # Hauptsatz der Differential und Integralrechnung
 $$
 \int_a^bf(x)\,dx = \left[ F(x) \right]^b_a = F(b)-F(a)
