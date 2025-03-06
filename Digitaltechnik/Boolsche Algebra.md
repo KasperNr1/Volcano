@@ -63,7 +63,7 @@ Ist das direkte Gegenstück zu [AND](#AND). Die Ausgaben sind jeweils negiert, s
 | 1   | 0   | 1   |
 | 1   | 1   | 0   |
 
-Da mit diesem Baustein die Funktion des [NOT](#NOT) simuliert werden kann, ist das NAND alleine ausreichend um jegliche Schaltung zu konstruieren.
+Da mit diesem Baustein die Funktion des [NOT](#NOT) simuliert werden kann, ist das NAND alleine ausreichend um jegliche Schaltung zu [konstruieren](Umformung%20boolscher%20Ausdrücke.md)
 Dies kann eventuell sogar mit weniger Gattern gelingen, als wenn man die Klassischen verwendet. In manchen Fällen ist es jedoch auch deutlich komplexer. Die Entscheidung zur Verwendung der Gatter kann also nicht allgemein getroffen werden.
 
 ## NOR
@@ -181,12 +181,19 @@ Die Unterstreichung soll hier darauf hinweisen, dass der Term vervielfacht wurde
 
 # Benannte Schaltungen (2 Eingaben)
 
-| A   | B   | Y0  | Y1  | Y2  | Y3  | Y4  | Y5  | Y6  | Y7  | Y8  | Y9  | Y10 | Y11 | Y12 | Y13 | Y14 | Y15 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $1$ | $1$ | $1$ | $1$ | $1$ | $1$ | $1$ | $1$ |
-| $0$ | $1$ | $0$ | $0$ | $0$ | $0$ | $1$ | $1$ | $1$ | $1$ | $0$ | $0$ | $0$ | $0$ | $1$ | $1$ | $1$ | $1$ |
-| $1$ | $0$ | $0$ | $0$ | $1$ | $1$ | $0$ | $0$ | $1$ | $1$ | $0$ | $0$ | $1$ | $1$ | $0$ | $0$ | $1$ | $1$ |
-| $1$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ |
+| A   | B   | Y0  | Y1  | Y2  | Y3  | Y4  | Y5  | Y6  | Y7  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ | $0$ |
+| $0$ | $1$ | $0$ | $0$ | $0$ | $0$ | $1$ | $1$ | $1$ | $1$ |
+| $1$ | $0$ | $0$ | $0$ | $1$ | $1$ | $0$ | $0$ | $1$ | $1$ |
+| $1$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ |
+
+| A   | B   | Y8  | Y9  | Y10 | Y11 | Y12 | Y13 | Y14 | Y15 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| $0$ | $0$ | $1$ | $1$ | $1$ | $1$ | $1$ | $1$ | $1$ | $1$ |
+| $0$ | $1$ | $0$ | $0$ | $0$ | $0$ | $1$ | $1$ | $1$ | $1$ |
+| $1$ | $0$ | $0$ | $0$ | $1$ | $1$ | $0$ | $0$ | $1$ | $1$ |
+| $1$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ | $0$ | $1$ |
 
 | Y0  | Nullfunktion           | $=0$                                             |
 | --- | ---------------------- | ------------------------------------------------ |
