@@ -44,3 +44,8 @@ Ist Teil des Betriebssystems und kümmert sich um die Verwaltung von Prozessen. 
 Auch "Lighweight-Processes" genannt haben sehr ähnliche Eigenschaften wie ein [Prozess](#Prozess).
 Größter Unterschied ist, dass Threads sich Heap-Speicher Teilen, während jeder Prozess seinen eigenen Heap besitzt.
 Sie sind leichter zu erstellen und haben die Möglichkeit in dedizierte Wartezustände überzugehen. Wenn ein Thread nicht weiter rechnen kann, da eine benötigte Ressource belegt ist oder er von einer [Kontrollstruktur](Prozessverwaltung.md#Kontrollstrukturen) geblockt wird, erhält er die Markierung "Waiting". So kann der [Scheduler](#Scheduler) schneller prüfen ob es sinnvoll ist dem Thread Rechenzeit zuzuteilen.
+
+# Synchronisation
+Der Einsatz mehrerer Threads sollte möglichst wenig Überschneidung in den verwendeten Ressourcen haben. Um [Race-Conditions](Parallele%20Probleme.md#Race-Conditions) zu vermeiden gibt es viele Möglichkeiten Threads zu synchronisieren.
+Dabei wird eine Markierung verwendet die die aktuelle Verwendung signalisieren und Andere einschränken oder bis zur erneuten Freigabe aussperren.
+Unterschiedliche [Kontrollstrukturen](Prozessverwaltung.md#Kontrollstrukturen) bieten hier Möglichkeiten verschiedenste Verhaltensweisen zu implementieren.

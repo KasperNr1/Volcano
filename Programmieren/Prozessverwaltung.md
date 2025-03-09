@@ -14,3 +14,19 @@ Die Berechtigungen der Kinder können auf ein absolutes Minimum eingeschränkt w
 ## Nachteile
 Anzahl der benötigten Kind-Prozesse ist variabel und stets unsicher.
 Der Vater muss so regelmäßig neue Prozesse anlegen und alte töten um die Menge wartender Kinder konstant zu halten.
+
+# Kontrollstrukturen
+## Locks
+### Klassische Locks
+Ein geteiltes "Lock-Objekt" wird an alle beteiligten [Threads](Paraprog-Basics.md#Threads) übergeben.
+Lock.lock() ist ein Methode die von jedem Thread aufgerufen werden kann, aber nur falls das Lock verfügbar ist.
+Wenn es bereits verwendet wird, so muss die Ausführung an der aufrufenden Stelle pausieren bis das Lock wieder freigegeben wird.
+Da keine Begrenzung auf die Wartezeit existiert, sollte die Freigabe des Locks in einem ```finally{}``` Block stattfinden, um auch im Falle einer Exception im blockierenden Threads den Anderen die weitere Ausführung erlaubt.
+
+Locks können reentrant sein, dass bedeutet rekursiven Aufrufen ein wiederholtes passieren des Locks zu gestatten.
+
+### Read-Write Locks
+Das gleichzeitige Lesen eines Wertes ist unproblematisch. [Probleme](Parallele%20Probleme.md) entstehen bei Überschneidung von mindestens einer Schreibenden Operation.
+Um Programme nicht unnötig zu verlangsamen kann zwischen Read- und Write Zugriff unterschieden werden.
+So werden beliebig viele Aufrufe von ``readLock()`` toleriert, nur bei ``writeLock()`` wird der entsprechende Bereich tatsächlich abgesperrt. Es wird gewartet bis alle Lesevorgänge beendet wurden und dann der Zugriff für den Schreiber gestattet. 
+Die tatsächliche Zugriffsart der Programmabschnitte muss manuell überprüft und eingehalten werden.
