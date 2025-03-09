@@ -16,3 +16,5 @@ Die Prozesse $i; j; k$ teilen sich die Objekte $x;y;z$.
 Ein Pfeil $P_j \overset{y}{\rightarrow} P_k$ bedeutet hier, dass $P_j$ auf $y$ wartet, was aber bereits von $P_k$ verwendet werden könnte.
 Ein Zyklus beliebiger Größe in einem solchen Diagramm zeigt die Möglichkeit eines Deadlocks auf.
 
+Zur Vorbeugung sollten Sperren immer in einer festgelegten Reihenfolge angefordert werden. Am Beispiel einer Banküberweisung wurde immer erst das Konto mit der höheren Kontonummer gesperrt, um einen Transaktion zu verbuchen. Somit kommt es bei zwei Transaktionen in entgegengesetzte Richtungen nicht zu einem Deadlock.
+Thread 1 fordert Sperren für die Konten 101 und 100 an. Thread 2 Ebenfalls. Da die Konten nach numerisch sortiert sind, wird Thread 1 beide Sperren erhalten, da Thread 2 keine Sperre auf 100 anfragen kann bevor er nicht die Sperre auf 101 erhält.
