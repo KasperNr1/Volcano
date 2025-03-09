@@ -173,6 +173,7 @@ $$
 w = \underline{abc} \vee \overline{a}bc \vee a\overline{b}c \vee ab\overline{c} \\
 w = \underline{abc} \vee \overline{a}bc \vee \underline{abc} \vee a\overline{b}c \vee \underline{abc} \vee ab\overline{c} \\
 w = ab \vee (c\overline{c}) \vee ac \vee (b\overline{b}) \vee bc \vee (a\overline{a}) \\
+w = ab \vee ac \vee bc \\
 \end{array}
 $$
 
