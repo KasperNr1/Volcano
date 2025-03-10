@@ -17,7 +17,7 @@ Die Zeichnungen wurden mit folgendem Latex-Code generiert:
 ## AND
 Schreibweise: $Y = A \wedge B$ 
 Resultiert nur in $1$ wenn beide Eingänge mit $1$ belegt sind. 
-![](AndGate.pdf)
+![](AndGate.png)
 
 | A   | B   | $A\wedge B$ |
 | --- | --- | ----------- |
@@ -28,7 +28,7 @@ Resultiert nur in $1$ wenn beide Eingänge mit $1$ belegt sind.
 
 ## OR
 Liefert $1$ wenn mindestens ein Wert $1$ ist
-![](OrGate.pdf)
+![](OrGate.png)
 
 | A   | B   | $A \vee B$ |
 | --- | --- | ---------- |
@@ -39,7 +39,7 @@ Liefert $1$ wenn mindestens ein Wert $1$ ist
 
 ## NOT
 Negiert die Eingabe
-![](NotGate.pdf)
+![](NotGate.png)
 
 | A   | $\neg A$ |
 | --- | -------- |
@@ -54,7 +54,7 @@ Außerdem ist es teilweise möglich, die Grundbausteine mit ihnen abzubilden. So
 
 ## NAND
 Ist das direkte Gegenstück zu [AND](#AND). Die Ausgaben sind jeweils negiert, so dass immer das Gegenteil zu AND resultiert.
-![](NandGate.pdf)
+![](NandGate.png)
 
 | A   | B   | OUT |
 | --- | --- | --- |
@@ -68,7 +68,7 @@ Dies kann eventuell sogar mit weniger Gattern gelingen, als wenn man die Klassis
 
 ## NOR
 Ist das Gegenteil zu [OR](#OR).
-![](NorGate.pdf)
+![](NorGate.png)
 
 | A   | B   | OUT |
 | --- | --- | --- |
@@ -81,7 +81,7 @@ NOR ist wie [NAND](#NAND) ebenfalls vollständig.
 
 ## XOR
 Das exklusive Oder gibt nur dann wahr aus, wenn exakt eine Eingabe wahr ist. 
-![](XorGate.pdf)
+![](XorGate.png)
 
 | A   | B   | OUT |
 | --- | --- | --- |
@@ -93,7 +93,7 @@ Das exklusive Oder gibt nur dann wahr aus, wenn exakt eine Eingabe wahr ist.
 ## XNOR
 Ist das Gegenteil zu [XOR](#XOR)
 Die Schaltung gibt also genau dann $1$ aus, wenn beide Eingaben übereinstimmen.
-![](XNorGate.pdf)
+![](XNorGate.png)
 
 | A   | B   | OUT |
 | --- | --- | --- |
