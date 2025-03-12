@@ -22,7 +22,7 @@ $$
 \overline{A} \vee B \vee \overline{C}
 $$
 
-Ein Excel Tool sollte hier [hier](C:\Users\dh10mbo\OneDrive - Durr Group\Documents\Uni\S1\Digitaltechnik\KV_Diagramme.xls) liegen:
+Ein Excel Tool sollte [hier](C:\Users\dh10mbo\OneDrive - Durr Group\Documents\Uni\S1\Digitaltechnik\KV_Diagramme.xls) liegen:
 ```
 "C:\Users\dh10mbo\OneDrive - Durr Group\Documents\Uni\S1\Digitaltechnik\KV_Diagramme.xlsx"
 ```
@@ -49,5 +49,3 @@ w = \overline{\overline{(a (\overline{\overline{b} \; \overline{c}}))} \overline
 \end{array}
 $$
 Es ist nicht zwingend notwendig den gesamten Term zu negieren, alternativ kann die Anwendung auch direkt an einzelnen Verknüpfungen stattfinden.
-
-
