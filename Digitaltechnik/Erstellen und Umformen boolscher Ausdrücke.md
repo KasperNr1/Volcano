@@ -6,7 +6,26 @@ Mit Hilfe eines [KV-Diagramms](#KV-Diagramm) kann man schnell Terme erstellen di
 So spart man sich Arbeit da ein Vereinfachen der Terme nicht mehr notwendig ist.
 
 ## KV-Diagramm
-TODO
+Hier dargestellt ist ein KV-Diagramm (Erfinder Karnaugh & Veitch) für Abhängigkeit von 4 Variablen.
+Die geforderten Outputs werden der Reihenfolge entsprechend in die Felder eingetragen. Dabei ist die Nummer gleich der Binärzahl ABCD + 1.
+![](KVDiagramm.png)
+Zustände die nicht vorkommen können oder deren Ergebnis irrelevant ist, werden mit einem Eintrag 'x' als solche markiert.
+
+Vollständig ausgefüllt könnte es folgendermaßen aussehen:
+![](KvDiagramm2.png)
+Um aus dieser Matrix nun die Schaltung zu bestimmen, versuch man alle $1$en mit mindestens einem Rechteck abzudecken. Dabei können die Seitenlängen nur 2er-Potenzen sein, bei einem $4\times4$ Diagramm also nur die Werte $1;2;4$. 
+Jede $1$ muss abgedeckt sein, während keine $0$ enthalten sein darf.
+$X$ ist egal, kann abgedeckt werden wenn dadurch ein größeres Rechteck verwendet werden kann. Die Linken & Rechten, bzw. oberen und unteren Ränder sind "verbunden", wie man am blauen Ramen erkennen kann.
+
+Nach dem Einrahmen lässt sich der Term einfach ablesen.
+$$
+\overline{A} \vee B \vee \overline{C}
+$$
+
+Ein Excel Tool sollte hier [hier](C:\Users\dh10mbo\OneDrive - Durr Group\Documents\Uni\S1\Digitaltechnik\KV_Diagramme.xls) liegen:
+```
+"C:\Users\dh10mbo\OneDrive - Durr Group\Documents\Uni\S1\Digitaltechnik\KV_Diagramme.xlsx"
+```
 
 # Gezielte Umformung
 Wenn man eine bestimmte Art elektrotechnischer Bausteine verwenden möchte, kann man logische Ausdrücke gezielt umformen um bestimmte [Verknüpfungen](Boolsche%20Algebra.md#Verknüpfungen) zu verenden.
