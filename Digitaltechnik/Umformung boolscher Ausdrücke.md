@@ -1,1 +1,0 @@
-Wenn man eine bestimmte Art elektrotechnischer Bausteine verwenden möchte, kann man logische Ausdrücke gezielt umformen um bestimmte [Boolsche Algebra](Boolsche%20Algebra.md#Verknüpfungen)Verknüpfungen zu verenden.

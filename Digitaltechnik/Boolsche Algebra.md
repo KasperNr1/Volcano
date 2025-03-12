@@ -14,6 +14,28 @@ Die Zeichnungen wurden mit folgendem Latex-Code generiert:
 	\end{circuitikz}
 \end{document}
 ```
+Und anschließend mit einem Python Skript zu als Bilder gerendert.
+```
+import os
+import fitz  # PyMuPDF
+
+def convert_pdfs_to_images(directory, zoom=2.0):
+    for filename in os.listdir(directory):
+        if filename.endswith(".pdf"):
+            file_path = os.path.join(directory, filename)
+            pdf_document = fitz.open(file_path)
+            for page_number in range(pdf_document.page_count):
+                page = pdf_document.load_page(page_number)
+                zoom_matrix = fitz.Matrix(zoom, zoom)
+                pix = page.get_pixmap(matrix=zoom_matrix)
+                image_filename = f"{os.path.splitext(filename)[0]}_page{page_number + 1}.png"
+                image_path = os.path.join(directory, image_filename)
+                pix.save(image_path)
+                print(f"Saved {image_path}")
+
+directory = os.getcwd()
+convert_pdfs_to_images(directory, zoom=20.0)
+```
 ## AND
 Schreibweise: $Y = A \wedge B$ 
 Resultiert nur in $1$ wenn beide Eingänge mit $1$ belegt sind. 
@@ -63,7 +85,7 @@ Ist das direkte Gegenstück zu [AND](#AND). Die Ausgaben sind jeweils negiert, s
 | 1   | 0   | 1   |
 | 1   | 1   | 0   |
 
-Da mit diesem Baustein die Funktion des [NOT](#NOT) simuliert werden kann, ist das NAND alleine ausreichend um jegliche Schaltung zu [konstruieren](Umformung%20boolscher%20Ausdrücke.md)
+Da mit diesem Baustein die Funktion des [NOT](#NOT) simuliert werden kann, ist das NAND alleine ausreichend um jegliche Schaltung zu [konstruieren](Erstellen%20und%20Umformen%20boolscher%20Ausdrücke.md#Gezielte%20Umformung)
 Dies kann eventuell sogar mit weniger Gattern gelingen, als wenn man die Klassischen verwendet. In manchen Fällen ist es jedoch auch deutlich komplexer. Die Entscheidung zur Verwendung der Gatter kann also nicht allgemein getroffen werden.
 
 ## NOR
@@ -143,6 +165,16 @@ $$
 - $a \vee 1= 1$
 - $a = \overline{\overline{a}}$ 
 
+## De-Morgansche Gesetze
+Diese Regeln beschreiben den Zusammenhang [AND](#AND), [NOT](#NOT) und [OR](#OR).
+Sie sind grundlegend um Schaltungen gezielt nach einer Bestimmten [Verknüpfungen umzuformen](Erstellen%20und%20Umformen%20boolscher%20Ausdrücke.md#Gezielte%20Umformung) 
+
+$$
+\begin{array}{l}
+\overline{(A \vee B)} \Longleftrightarrow \overline{A} \wedge \overline{B} \\
+\overline{(A \wedge B)} \Longleftrightarrow \overline{A} \vee \overline{B}
+\end{array}
+$$
 # Anwendung
 ## 2 aus 3 Schaltung
 3 Gäste sitzen an der Bar, der Wirt soll nächstes Bier bringen, wenn mindestens 2 der Gäste ein leeres Glas haben.
@@ -164,7 +196,7 @@ $w$ als Ausgabe, wobei eine $1$ bedeutet, dass der Wirt die nächste Runde verte
 | 1   | 0   | 1   | 1   |
 | 1   | 1   | 0   | 1   |
 | 1   | 1   | 1   | 1   |
-Die Tabelle wird für jede Kombinationsmöglichkeit der Eingaben ausgefüllt. Anschließend kann man alle Belegungen die zu $1$ führen disjunkt (mit ODER) vereinen.
+Die Tabelle wird für jede Kombinationsmöglichkeit der Eingaben ausgefüllt. Anschließend kann man alle Belegungen die zu $1$ führen [disjunktiv](DigitaltechnischeBegriffe.md#Disjunktiv) vereinen.
 Man erhält einen Ausdruck der exakt die Tabelle widerspiegelt.
 Eventuell kann man diesen zusätzlich noch vereinfachen.
 
