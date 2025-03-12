@@ -46,3 +46,15 @@ KNF:
 $$
 (A \vee B \vee C) \wedge (A \vee B \vee \overline{C}) \wedge (\overline{A} \vee B \vee C) \wedge (\overline{A} \vee \overline{B} \vee C)
 $$
+
+# Komplement
+Beschreibt das fehlende hin zu einem Ganzen, z.B. Komplementärfarben.
+
+## 1er-Komplement
+Ist eine arithmetische Operation bei der die Bits / Ziffern einer Zahl umgekehrt werden.
+Die Umkehrung einer Ziffer $Z$ die Ziffer $z$, bei der gilt $Z + z =b-1$.
+Dabei ist $b$ die Basis des [Zahlensystems](Umrechnung%20von%20Zahlensystemen.md#Zahlensysteme).
+Vergleichbar ist die Operation mit dem [additiven Invers](Modulare%20Arithmetik.md#Addition) in $\Bbb{Z}_n$
+
+Für $110001_2$ ist das 1er-Komplement also $001110_2$ oder $1110_2$
+Bei $123890_{10}$ ist es $876109_{10}$ da die beiden Zahlen jeweils $111111_2$ oder $999999_{10}$ als Summ haben.
