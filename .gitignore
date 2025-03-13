@@ -1,1 +1,4 @@
 **/.obsidian/**
+*.aux
+*.log
+*.pdf
