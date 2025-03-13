@@ -58,3 +58,6 @@ Vergleichbar ist die Operation mit dem [additiven Invers](Modulare%20Arithmetik.
 
 Für $110001_2$ ist das 1er-Komplement also $001110_2$ oder $1110_2$
 Bei $123890_{10}$ ist es $876109_{10}$ da die beiden Zahlen jeweils $111111_2$ oder $999999_{10}$ als Summ haben.
+
+## 2er Komplement
+TODO

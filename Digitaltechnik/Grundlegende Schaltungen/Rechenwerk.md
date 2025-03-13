@@ -36,4 +36,9 @@ C &= A \wedge (B \vee C) \vee BC \\
 $$
 $C$ ist hier exakt die [2 aus 3 Schaltung](Boolsche%20Algebra.md#2%20aus%203%20Schaltung).
 
+## Subtraktion
+Zur Subtraktion kann analog eine eigene Schaltung entwickelt werden, jedoch ist es wünschenswert beide Funktionalitäten in einem Rechenwerk zu vereinen.
+Bei Binärzahlen ist kann das Ergebnis einer Subtraktion auch durch Addition erreicht werden.
+Hierfür wird vom Subtrahend das [2er Komplement](DigitaltechnischeBegriffe.md#2er%20Komplement) gebildet. Unter Weglassen eines eventuellen Übertrags wird der ursprüngliche Minuend und das neu gebildete Komplement addiert.
+
 TODO
