@@ -1,5 +1,6 @@
 import os
 import fitz  # PyMuPDF
+from tkinter import filedialog
 
 def convert_pdfs_to_images(directory, zoom=2.0):
     # Iterate through all files in the given directory
@@ -17,14 +18,16 @@ def convert_pdfs_to_images(directory, zoom=2.0):
                 # Render the page to an image with the zoom factor
                 pix = page.get_pixmap(matrix=zoom_matrix)
                 # Construct the image filename, preserving the original PDF name
-                image_filename = f"{os.path.splitext(filename)[0]}_page{page_number + 1}.png"
+                if page_number > 0:
+                    image_filename = f"{os.path.splitext(filename)[0]}_page{page_number + 1}.png"
+                else:
+                    image_filename = f"{os.path.splitext(filename)[0]}.png"
+
                 image_path = os.path.join(directory, image_filename)
                 # Save the image
                 pix.save(image_path)
                 print(f"Saved {image_path}")
 
-# Set the directory to the current working directory
-directory = os.getcwd()
-
+directory = filedialog.askdirectory(initialdir=os.getcwd())
 # Call the function to convert PDFs to images with a zoom factor of 2.0 (adjust as needed)
 convert_pdfs_to_images(directory, zoom=20.0)
