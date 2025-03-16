@@ -30,3 +30,15 @@ Das gleichzeitige Lesen eines Wertes ist unproblematisch. [Probleme](Parallele%2
 Um Programme nicht unnötig zu verlangsamen kann zwischen Read- und Write Zugriff unterschieden werden.
 So werden beliebig viele Aufrufe von ``readLock()`` toleriert, nur bei ``writeLock()`` wird der entsprechende Bereich tatsächlich abgesperrt. Es wird gewartet bis alle Lesevorgänge beendet wurden und dann der Zugriff für den Schreiber gestattet. 
 Die tatsächliche Zugriffsart der Programmabschnitte muss manuell überprüft und eingehalten werden.
+
+## Synchronised
+Einige Sprachen implementieren spezielle Keywords um Synchronisierung zu ermöglichen.
+Darunter auch [Synchronised](Parallelisierung%20in%20Java.md#Synchronised)
+
+## Semaphore
+TODO
+## Latch
+TODO
+
+## Barrier
+TODO
