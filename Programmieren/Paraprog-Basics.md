@@ -3,12 +3,15 @@ Man unterscheidet primär zwischen Aufteilung der einzelnen Arbeitsschritte oder
 Beim Kochen kann beispielsweise nach Zubereitung der einzelnen Gerichten aufgeteilt werden, oder nach den einzelnen Aufgaben in der Erstellung eines Gerichts.
 4 Köche sollen 100 Burger zubereiten. Anhand dieses Beispiels wird der Unterschied anschaulich erklärt.
 ## Datenparallelismus
-Jeder Koch bereitet 25 Burger zu. Er 
+Jeder Koch bereitet 25 Burger zu.
 ![](Datentrennung.jpg)
-
+Eventuell kann es hier zu Wartezeiten bei den geteilten Ressourcen kommen.
+Diese Aufteilung ist robuster, da Ausfälle kompensiert werden können. Jeder Koch ist in der Lage die Aufgabe alleine zu beenden und kann eventuell die Arbeit eines anderen zu vervollständigen.
 ## Aufgabenparallelismus
 ![](Aufgabentrennung.jpg)
-
+Jeder Koch hat eine spezielle Aufgabe die er für alle 100 Burger ausführt. Beispielsweise die Brötchen oder das Fleisch vorzubereiten.
+Diese Art der Aufteilung bietet sich an, wenn es für die einzelnen Aufgaben Optimierungsstrategien gibt, bzw. Vorteile entstehen mehrere auf einmal zu bearbeiten. Eventuell können Rechenergebnisse wiederverwendet werden.
+Allerdings können Fehler in einem Produktionsschritt nicht ausgeglichen werden.
 # Prozess
 Jeder Prozess besitzt:
 - Programm
@@ -38,6 +41,10 @@ Man spricht nur von Parallelität wenn sie völlig isoliert von einander arbeite
 - Dateien
 Zugriff auf diese wird vom Betriebssystem verwaltet.
 
+# Pipes
+Sind eine Möglichkeit um mit laufenden Programmen zu kommunizieren. Eine Pipe hat ein schreibendes und ein lesendes Ende.
+Beide Enden sind gepuffert und werden blockierend verwaltet, sodass keine Daten verloren gehen. Wenn kein Platz im Puffer verfügbar ist  wird der Eingang blockiert.
+Man spricht von einer "Broken Pipe" wenn nicht beide Enden verwendet werden, also Daten in einer Pipe landen die nie gelesen werden.
 # Scheduler
 Ist Teil des Betriebssystems und kümmert sich um die Verwaltung von Prozessen. Dabei sind einige Informationen über die Prozesse relevant:
 - OS-Syscalls die beschreiben, ob der Prozess in seinem aktuellen Zustand unterbrechbar ist.

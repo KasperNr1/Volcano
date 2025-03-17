@@ -53,6 +53,7 @@ Funktionieren analog zum [Pre-Fork Modell](#Pre-Fork%20Modell). Eine Sammlung Wo
 Eine Liste mit Aufgaben wird bearbeitet, jeder einzelne Thread darf seine Aufgabe erst dann beenden, wenn sie fertig ist.
 Falls Ressourcen geteilt werden kann es sein dass die Bearbeitung der Aufgaben im [Konflikt](Paraprog-Basics.md#Mutex) zueinander steht.
 Um wartende Threads im Pool zu verhindern gibt es eine Variante mit "Work-Stealing".
+Rekursive Berechnungen die eine neue Aufgabe an den Threadpool übergeben können [Deadlocks](Parallele%20Probleme.md#Deadlocks) verursachen, da der aktuelle Thread auf das Ergebnis wartet. Das kann aber nicht berechnet werden bevor die vorherigen Aufgaben nicht abgeschlossen sind um den Thread freizugeben.
 
 ## Thread-Pools mit Work Stealing
 Hier können Threads deren aktuelle Aufgabe gerade blockiert wird eine neue Aufgabe beginnen statt zu warten. Die neue Aufgabe erhält dabei keine Priorität. Sobald die blockierte Ressource freigegeben wird, bearbeitet er die ursprüngliche Aufgabe und legt die angefangene zweite Aufgabe wieder nieder. Sinnvoll ist dieses Vorgehen nur dann, wenn Zwischenschritte einzeln gegangen und deren Ergebnisse wieder abgespeichert werden können.
@@ -60,4 +61,9 @@ Hier können Threads deren aktuelle Aufgabe gerade blockiert wird eine neue Aufg
 ## Anwendung
 Webserver die große Mengen simpler Aufgaben bearbeiten sind häufige Einsatzorte von Threadpools. Sie sind extrem vielseitig einsetzbar.
 
+## Optimale Größe
+Die Menge an [Threads](Paraprog-Basics.md#Threads) zu optimieren ist schwierig. Sie hängt stark von der aktiven Rechenzeit pro Aufgabe ab.
+Bei Aufgaben die keine Wartezeiten haben, sollte ein Thread pro CPU-Kern verwendet werden.
+Bei mehr Wartezeit empfiehlt es sich auch mehr Threads zu verwenden.
 
+Bei $n$ CPU-Kernen und $p\%$ aktiver Rechenzeit ist als Richtwert der Einsatz von $n * \frac1p$ Threads zu empfehlen.

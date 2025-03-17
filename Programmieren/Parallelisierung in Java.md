@@ -50,3 +50,9 @@ public Class Demo{
 	}
 }
 ```
+
+# Futures
+Dienen als Speicher für Ergebnisse von Hintergrundprozessen.
+Das Future-Objekt kann übergeben werden und besitzt eine `future.get()` Methode die auf den tatsächlichen Wert zugreift.
+Berechnet wird dieser zu einem beliebigen Zeitpunkt ab der Instanziierung des Objekts, wenn der [Scheduler](Paraprog-Basics.md#Scheduler) ihm Rechenzeit zuweist.
+Spätestens beim Aufruf von `get()` wird jedoch definitiv bestimmt.
