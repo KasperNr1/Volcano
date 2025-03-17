@@ -16,6 +16,9 @@ Anzahl der benötigten Kind-Prozesse ist variabel und stets unsicher.
 Der Vater muss so regelmäßig neue Prozesse anlegen und alte töten um die Menge wartender Kinder konstant zu halten.
 
 # Kontrollstrukturen
+Diese Kontrollstrukturen sind allgemeine Konzepte und nicht exklusiv in Java verfügbar. Sie alle bieten Möglichkeiten die zeitliche Ausführung von Threads zu verwalten. 
+Die Seltenheit in der praktischen Anwendung steigt hier mit der Reihenfolge in der Auflistung.
+
 ## Locks
 ### Klassische Locks
 Ein geteiltes "Lock-Objekt" wird an alle beteiligten [Threads](Paraprog-Basics.md#Threads) übergeben.
@@ -36,9 +39,25 @@ Einige Sprachen implementieren spezielle Keywords um Synchronisierung zu ermögl
 Darunter auch [Synchronised](Parallelisierung%20in%20Java.md#Synchronised)
 
 ## Semaphore
-TODO
+Begrenzt die Menge an Threads in einem Bereich auf einen maximalen Wert. Abgesehen von den Selbstkosten der Verwaltung des Semaphores hat diese Struktur keinen Einfluss auf den Fluss des Programms falls die Schranke $n$ an erlaubter Threads größer ist als die Anzahl an Threads.n
+
 ## Latch
-TODO
+Funktioniert als Untergrenze für eine Anzahl Threads in einem bestimmten Bereich.
+Die ersten $n-1$ Threads werden am Beginn des Blocks aufgehalten bis $n$ Threads den Eingang erreicht haben. Sobald das Limit erreicht ist, werden alle wartenden und zukünftigen Threads nicht weiter aufgehalten. 
 
 ## Barrier
-TODO
+Lässt Threads salvenweise arbeiten. Wie bei einem [Latch](#Latch) werden die ersten paar aufgehalten, jedoch setzt sich das System nach dem Durchlassen der Wartenden selbst zurück. So können zukünftige Threads nicht ungehindert fortfahren und müssen wieder warten um Teil der nächsten Gruppe zu sein.
+
+# Thread-Pools
+Funktionieren analog zum [Pre-Fork Modell](#Pre-Fork%20Modell). Eine Sammlung Worker-Threads wird bereitgehalten um anfallende Aufgaben zu bearbeiten. Besonders wenn die Workload aus vielen simplen Aufgaben besteht ist das ständige Erzeugen und beenden von Threads ein Faktor der die Laufzeit beeinflusst.
+Eine Liste mit Aufgaben wird bearbeitet, jeder einzelne Thread darf seine Aufgabe erst dann beenden, wenn sie fertig ist.
+Falls Ressourcen geteilt werden kann es sein dass die Bearbeitung der Aufgaben im [Konflikt](Paraprog-Basics.md#Mutex) zueinander steht.
+Um wartende Threads im Pool zu verhindern gibt es eine Variante mit "Work-Stealing".
+
+## Thread-Pools mit Work Stealing
+Hier können Threads deren aktuelle Aufgabe gerade blockiert wird eine neue Aufgabe beginnen statt zu warten. Die neue Aufgabe erhält dabei keine Priorität. Sobald die blockierte Ressource freigegeben wird, bearbeitet er die ursprüngliche Aufgabe und legt die angefangene zweite Aufgabe wieder nieder. Sinnvoll ist dieses Vorgehen nur dann, wenn Zwischenschritte einzeln gegangen und deren Ergebnisse wieder abgespeichert werden können.
+
+## Anwendung
+Webserver die große Mengen simpler Aufgaben bearbeiten sind häufige Einsatzorte von Threadpools. Sie sind extrem vielseitig einsetzbar.
+
+
