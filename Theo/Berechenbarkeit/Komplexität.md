@@ -1,1 +1,7 @@
-# P-NP
+# NP-Schwere
+
+# NP-Vollständigkeit
+
+# P vs NP
+
+# Halteproblem

@@ -1,0 +1,7 @@
+# Zustandsautomaten
+
+## DEA
+
+## NEA
+
+# Turingmaschine
