@@ -16,7 +16,7 @@ Wenn $a=b \mod m$ und $c=d \mod m$ dann gilt:
 Dabei ist nicht erforderlich, dass $a$ und $c$ der gleichen Restklasse angehören.
 		
 # Anwendungen
-1. [Hash](Hash.md)-Funktionen
+1. [Hash](Hashing.md)-Funktionen
 2. Prüfziffern (ISBN, EAN, IBAN, $\dots$ )
 
 # Addition und Multiplikation in $\Bbb{Z}_n$ 
