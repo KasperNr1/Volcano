@@ -1,3 +1,14 @@
+# Arten der Aufgabenteilung
+Man unterscheidet primär zwischen Aufteilung der einzelnen Arbeitsschritte oder der Aufgaben.
+Beim Kochen kann beispielsweise nach Zubereitung der einzelnen Gerichten aufgeteilt werden, oder nach den einzelnen Aufgaben in der Erstellung eines Gerichts.
+4 Köche sollen 100 Burger zubereiten. Anhand dieses Beispiels wird der Unterschied anschaulich erklärt.
+## Datenparallelismus
+Jeder Koch bereitet 25 Burger zu. Er 
+![](Datentrennung.jpg)
+
+## Aufgabenparallelismus
+![](Aufgabentrennung.jpg)
+
 # Prozess
 Jeder Prozess besitzt:
 - Programm
@@ -49,3 +60,9 @@ Sie sind leichter zu erstellen und haben die Möglichkeit in dedizierte Wartezus
 Der Einsatz mehrerer Threads sollte möglichst wenig Überschneidung in den verwendeten Ressourcen haben. Um [Race-Conditions](Parallele%20Probleme.md#Race-Conditions) zu vermeiden gibt es viele Möglichkeiten Threads zu synchronisieren.
 Dabei wird eine Markierung verwendet die die aktuelle Verwendung signalisieren und Andere einschränken oder bis zur erneuten Freigabe aussperren.
 Unterschiedliche [Kontrollstrukturen](Prozessverwaltung.md#Kontrollstrukturen) bieten hier Möglichkeiten verschiedenste Verhaltensweisen zu implementieren.
+
+# Mutex
+Kurz für ''mutual exclusion'' beschreibt mehrere Instanzen die sich gegenseitig vom Zugriff auf Ressourcen ausschließen können. Die Implementierung kann mittels unterschiedlicher [Kontrollstrukturen](Prozessverwaltung.md#Kontrollstrukturen) erfolgen.
+
+# Tests
+Automatisierte Tests von Nebenläufigkeit ist quasi nicht-existent/unmöglich
