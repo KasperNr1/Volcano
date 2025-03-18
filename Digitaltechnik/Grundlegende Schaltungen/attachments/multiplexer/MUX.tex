@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+
+\begin{circuitikz}
+
+    % Multiplexer block
+    \draw (4,0) node[draw, minimum width=3cm, minimum height=3cm] (Mux) {Multiplexer};
+    \coordinate (mux-left-top) at ($(Mux.west) + (0,1)$);
+    \coordinate (mux-left-bottom) at ($(Mux.west) + (0,-1)$);
+    \coordinate (mux-left-middle) at ($(Mux.west) + (0,0)$);
+
+    % Inputs
+    \draw (mux-left-top) -| (0,1) node[left] (D0) {$D_0$};
+    \draw (mux-left-bottom) -| (0,-1) node[left] (D1) {$D_1$};
+    \draw (mux-left-middle) -| (0,0) node[left] (S) {Select};
+
+    % Output
+    \draw (Mux.east) -| (8,0) node[right] (Y) {Y};
+
+    % Control lines
+    \draw (0,0) -| (mux-left-middle);
+    \draw (0,1) -| (mux-left-top);
+    \draw (0,-1) -| (mux-left-bottom);
+
+\end{circuitikz}
+
+\end{document}

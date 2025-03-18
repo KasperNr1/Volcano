@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+
+\begin{circuitikz}
+
+    % Demultiplexer block
+    \draw (4,0) node[draw, minimum width=3cm, minimum height=3cm] (Demux) {Demultiplexer};
+    \coordinate (demux-right-top) at ($(Demux.east) + (0,1)$);
+    \coordinate (demux-right-bottom) at ($(Demux.east) + (0,-1)$);
+    \coordinate (demux-left-middle) at ($(Demux.west) + (0,0)$);
+
+    % Input
+    \draw (demux-left-middle) -| (0,0) node[left] (D) {$D$};
+
+    % Control line
+    \draw (4,-2) node[below] (S) {Select} -- (Demux.south);
+
+    % Outputs
+    \draw (demux-right-top) -| (8,1) node[right] (Y0) {$Y_0$};
+    \draw (demux-right-bottom) -| (8,-1) node[right] (Y1) {$Y_1$};
+
+    % Connections
+    \draw (0,0) -- (demux-left-middle);
+    
+\end{circuitikz}
+
+\end{document}
