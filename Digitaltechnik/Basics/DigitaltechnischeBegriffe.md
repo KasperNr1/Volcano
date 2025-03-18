@@ -61,3 +61,5 @@ Bei $123890_{10}$ ist es $876109_{10}$ da die beiden Zahlen jeweils $111111_2$ o
 
 ## 2er Komplement
 TODO
+
+# Parity

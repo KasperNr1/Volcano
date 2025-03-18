@@ -1,6 +1,13 @@
 # 🌋Obsidian🌋Main-Vault🌋
 Heimat von Bildung, Ideen und sonstigen gedanklichen Feuerwerken
 
+# TODO
+- [2er Komplement](DigitaltechnischeBegriffe.md#2er%20Komplement)
+- [Parity](DigitaltechnischeBegriffe.md#Parity)
+- Theo alles
+- Mathe 3. Semester
+- [Codes](Codes.md)
+
 # How2Markdown
 Markdown ist ein Format das mit wenigen Zeichen die meisten Formatierungsarten möglich macht.
 
