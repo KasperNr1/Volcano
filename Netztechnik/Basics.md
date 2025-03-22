@@ -78,3 +78,16 @@ Computer sind in einer hierarchischen Struktur miteinander verbunden.
 ## Stern-Stern
 Router werden [Stern-artig](#Stern) angeordnet, Endgeräte ebenfalls Sternmäßig mit den einzelnen Routern verbunden. Wird in der Praxis häufig für lokale Netzwerke verwendet.
 ![](StarStar.png)
+# Übertragungsarten
+## Simplex
+Verbindung von $A$ nach $B$ mit Kommunikation in einer festen Richtung
+
+## Halbduplex
+Übertragung zwischen $A$ und $B$ abwechselnd in beide Richtungen (Walkie-Talkie)
+
+## Vollduplex
+Gleichzeitige Übertragung in beide Richtungen
+
+## Multiplex
+[(De-)Multiplexer](De-Multiplexer.md) sind eine Möglichkeit mehrere Signale zu bündeln um die Effizienz der Kommunikation zu steigern.
+Dabei wird in verschiedene
