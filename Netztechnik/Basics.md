@@ -89,5 +89,18 @@ Verbindung von $A$ nach $B$ mit Kommunikation in einer festen Richtung
 Gleichzeitige Übertragung in beide Richtungen
 
 ## Multiplex
-[(De-)Multiplexer](De-Multiplexer.md) sind eine Möglichkeit mehrere Signale zu bündeln um die Effizienz der Kommunikation zu steigern.
-Dabei wird in verschiedene
+Multiplexverfahren sind eine Möglichkeit mehrere Signale zu bündeln um die Effizienz der Kommunikation zu steigern.
+Dabei werden verschiedene Arten unterschieden.
+### Raummultiplex
+Jedes Signal erhält eine eigene Leitung. So kann ohne Interferenz oder Wartezeit gleichzeitig von mehreren Kanälen gesendet werden. Dieser Ansatz ist jedoch besonders bei sehr großen Netzwerken schwer zu skalieren.
+## Zeitmultiplex
+Jeder Benutzer erhält einen Zeitraum in dem er berechtigt ist Daten zu versenden. Die Kommunikation erfolgt so strikt abwechselnd. Eventuell entstehen kleine Verzögerungen.
+Diese Variante ist ähnlich der [Multiplexer](De-Multiplexer.md) Schaltungen, die einen ausgewählten Kanal zur Kommunikation freigeben.
+## Frequenzmultiplex
+Verschiedene Sender kommunizieren auf individuellen Wellenlängen. Das entstehende Mischsignal kann durch [Fourier Transformation](https://en.wikipedia.org/wiki/Fourier_transform) wieder zerlegt werden.
+## Codemultiplex
+Verwendung unterschiedlicher Codierungen
+
+# Adressierungsarten
+TODO 
+Ab Seite 33 Foliensatz 1
