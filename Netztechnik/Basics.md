@@ -77,3 +77,4 @@ Computer sind in einer hierarchischen Struktur miteinander verbunden.
 - Ausfall eines Verteilers legt Sub-Baum lahm
 ## Stern-Stern
 Router werden [Stern-artig](#Stern) angeordnet, Endgeräte ebenfalls Sternmäßig mit den einzelnen Routern verbunden. Wird in der Praxis häufig für lokale Netzwerke verwendet.
+![](StarStar.png)
