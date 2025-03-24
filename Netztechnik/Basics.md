@@ -163,6 +163,7 @@ Sind benötigt für:
 - Sicherheit
 - Kostensenkung
 - Globalisierung
+
 ![](standards.png)
 ## Standard
 - Etablierte Richtlinien
