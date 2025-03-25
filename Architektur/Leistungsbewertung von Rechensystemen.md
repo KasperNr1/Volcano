@@ -64,9 +64,9 @@ Beispiel: Für die Rechner $A$, $B$, $C$ wurden jeweils die Programme $P_1$ und 
 
 | Zeit in Sekunden | Rechner $A$ | Rechner $B$ | Rechner $C$ |
 | ---------------- | ----------- | ----------- | ----------- |
-| Programm $P_1$   | $1$           | $10$          | $20$          |
-| Programm $P_2$   | $1000$        | $100$         | $20$          |
-| Gesamtlaufzeit   | $1001$        | $110$         | $40$          |
+| Programm $P_1$   | $1$         | $10$        | $20$        |
+| Programm $P_2$   | $1000$      | $100$       | $20$        |
+| Gesamtlaufzeit   | $1001$      | $110$       | $40$        |
 
 Es kann nicht sofort eine Gesamtleistung der Systeme erkannt werden.
 Man kann mit Bezug auf konkrete Programme Vergleichen:
@@ -83,3 +83,39 @@ Gewichtung könnte hier nach der Frequenz des Programms im System gewählt werde
 $$
 \text{Gewicht}_i = \frac{1}{\text{Laufzeit}_i * \sum_{j=1}^{n} \frac{1}{\text{Laufzeit}_j}}
 $$
+
+Es kann sinnvoll sein die Ausführungszeit auf eine Referenzmaschine zu normalisieren. Bei SPEC wird hier die [SPARCstation](https://de.wikipedia.org/wiki/SPARCstation) verwendet.
+
+Hier ist es von Vorteil den [Geometrischen Mittelwert](Folgen.md#Geometrisches%20Mittel) der Laufzeitverhältnisse anzugeben.
+$$
+\sqrt[n]{\prod_{i=1}^{n} \frac{\text{Laufzeit}_i}{\text{Referenzlaufzeit}_i}}
+$$
+
+### Beispiel
+Gezeigt sind die Messwerte für beide Programme auf allen Maschinen. (Oben Links)
+In den Mittleren Reihen sind die Verhältnisse zur Geschwindigkeit einer Referenzmaschine gegeben. Links mit $\text{Ref} = A$ und rechts mit $\text{Ref} = C$ 
+In den Letzten Reihen werden jeweils die Mittelwerte der Verhältnisse berechnet.
+
+|                  |   A    |   B    |    C    |    A    |   B    |   C   |                  |
+| :--------------: | :----: | :----: | :-----: | :-----: | :----: | :---: | :--------------: |
+|      $P_1$       |  $1$   |  $10$  |  $20$   |         |        |       |                  |
+|      $P_2$       | $1000$ | $100$  |  $20$   |         |        |       |                  |
+| $\dfrac{P_1}{A}$ | $1.0$  | $10.0$ | $20.0$  | $0.05$  | $0.5$  | $1.0$ | $\dfrac{P_1}{C}$ |
+| $\dfrac{P_2}{A}$ | $1.0$  | $0.1$  | $0.02$  | $50.0$  | $5.0$  | $1.0$ | $\dfrac{P_2}{C}$ |
+|   Arithmetisch   | $1.0$  | $5.05$ | $10.01$ | $25.03$ | $2.75$ | $1.0$ |                  |
+|   Geometrisch    | $1.0$  | $1.0$  | $0.63$  | $1.58$  | $1.58$ | $1.0$ |                  |
+
+---
+
+Vorteil der Verwendung des geometrischen Mittels ist die Unabhängigkeit von der Referenzmaschine. Besonders beim Arithmetischen Mittel dieser Größen ist das nicht der Fall.
+Allerdings kann aus diesen Ergebnissen keine tatsächliche Vorhersage zur Laufzeit gemacht werden. Ebenfalls haben Verbesserungen einen Effekt auf das Gesamtergebnis das proportional zur Größe des Problems.
+Eine Verbesserung von $1s \to 2s$  würde gleich bewertet wie $1000s \to 500s$.
+
+# Prinzipien des Entwurfs eines Rechners
+
+> [!NOTE] Make The Common Case Fast
+> Die Performance eines Systems lässt sich am besten optimieren indem häufige Prozesse perfektioniert werden. Ihnen sollen priorisiert Ressourcen und Entwurfszeit zugeordnet werden.
+> Zusätzlich sind häufige Fälle meist simpler als Ausnahmen, was auch ihre Implementierung erleichtert
+
+[Amdahls Law](Amdahls%20Law.md) beschreibt die Mathematik hinter Optimierung von Teilsystemen und deren Einfluss auf das Gesamte.
+An diesem [Beispiel](Amdahls%20Law.md#Beispiel) wird gezeigt dass der etwas schnellere Common Case einen deutlich größeren Einfluss hat als die sehr starke Beschleunigung einer selteneren Operation.

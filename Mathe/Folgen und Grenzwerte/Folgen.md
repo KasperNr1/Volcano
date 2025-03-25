@@ -8,14 +8,15 @@ $(a_{n}); \qquad a_{5}: 5\text{-tes Folgeglied}$
 z.B. Folge $(a_{n}) \text{mit} (a_{n}) = 2n+3 \rightarrow a_{5}=2 \cdot 5 + 3 = 13$
 
 ## Hintergrund "Mittelwerte"
-- Arithmetisches Mittel:
-	- "Klassischer Durchschnitt"
-	- Quotient der Summe aller Elemente und der Menge an Elementen
-	- Klausurnoten
-- Geometrisches Mittel:
-	- $n \text{-te}$ Wurzel des Produkts aller Werte $n=\text{Menge an Werten}$
-	- Beispiel Zinseszins aus verschiedenen Zinssätzen als konstanten Zinssatz angeben
-	- $2\%$, $7\%$ und $5\%$  ist gleich $4,6464\%$ für $3$ Jahre da $\sqrt[3]{1.02 \cdot 1.07 \cdot 1.05} \approx 1.046464$
+### Arithmetisches Mittel
+- Klassischer Durchschnitt
+- Quotient der Summe aller Elemente und der Menge an Elementen
+- Klausurnoten
+### Geometrisches Mittel:
+- $n \text{-te}$ Wurzel des Produkts aller Werte $n=\text{Menge an Werten}$
+- Beispiel Zinseszins aus verschiedenen Zinssätzen als konstanten Zinssatz angeben
+- $2\%$, $7\%$ und $5\%$  ist gleich $4,6464\%$ für $3$ Jahre da $\sqrt[3]{1.02 \cdot 1.07 \cdot 1.05} \approx 1.046464$
+- Es gilt $\dfrac{\text{GeoMittel}(X_i)}{\text{GeoMittel}(Y_i)} = \text{GeoMittel}\left(\dfrac{X_i}{Y_i}\right)$ 
 
 ## Explizite Darstellung
 Eine Folge in der jeder Wert allein, ohne Kenntnis über andere Werte berechnet werden kann ist "explizit" dargestellt.  
