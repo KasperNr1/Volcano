@@ -111,11 +111,34 @@ Vorteil der Verwendung des geometrischen Mittels ist die Unabhängigkeit von der
 Allerdings kann aus diesen Ergebnissen keine tatsächliche Vorhersage zur Laufzeit gemacht werden. Ebenfalls haben Verbesserungen einen Effekt auf das Gesamtergebnis das proportional zur Größe des Problems.
 Eine Verbesserung von $1s \to 2s$  würde gleich bewertet wie $1000s \to 500s$.
 
-# Prinzipien des Entwurfs eines Rechners
+# CPU Leistungsgleichung
+Rechner arbeiten mit einer Konstanten Taktrate. 
+$$
+\begin{array}{ll}
+\text{CPU-Zeit} &= \text{Zykluszeit} * \text{CPU-Taktzyklen} \\
+&= \dfrac{\text{CPU-Taktzyklen}}{\text{Taktrate}}
+\end{array}
+$$
 
-> [!NOTE] Make The Common Case Fast
-> Die Performance eines Systems lässt sich am besten optimieren indem häufige Prozesse perfektioniert werden. Ihnen sollen priorisiert Ressourcen und Entwurfszeit zugeordnet werden.
-> Zusätzlich sind häufige Fälle meist simpler als Ausnahmen, was auch ihre Implementierung erleichtert
+Instruction Count (IC) ist die Menge der ausgeführten Instruktionen.
+$$
+\text{Taktzyklen pro Programm} = \text{IC} * \text{CPI}
+$$
+$$
+\text{CPU-Zeit} = \text{IC} * \text{CPI} * \frac{1}{\text{Taktrate}}
+$$
+$$
+\text{CPU-Zeit} = \frac{\text{Instruktionen}}{\text{Programm}} * \frac{\text{Taktzyklen}}{\text{Instruktion}} * \frac{\text{Sekunden}}{\text{Taktzyklen}}
+$$
+# Prinzip der Lokalität
+Eigenschaft von Programmen:
+- Blinde Wiederverwendung von Code & Daten (Cache) die kürzlich verarbeitet wurden (Kontrolle im Hintergrund)
+- 10% Code werden in 90% der Zeit tatsächlich verwendet
 
-[Amdahls Law](Amdahls%20Law.md) beschreibt die Mathematik hinter Optimierung von Teilsystemen und deren Einfluss auf das Gesamte.
-An diesem [Beispiel](Amdahls%20Law.md#Beispiel) wird gezeigt dass der etwas schnellere Common Case einen deutlich größeren Einfluss hat als die sehr starke Beschleunigung einer selteneren Operation.
+Örtliche Lokalität (Nah beinander) vs. Temporale Lokalität (Vor kurzem verwendet)
+
+## Mögliche Irrtümer
+- Gleicher Befehlssatz der CPU ist bedeutet nicht, dass diese Rechner nur anhand der Taktrate vergleichbar sind.
+- Instructions per Second variiert stark je nach Programm.
+
+Außerdem stark abhängig vom Befehlssatz

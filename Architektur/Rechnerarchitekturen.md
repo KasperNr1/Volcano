@@ -34,3 +34,21 @@ Vorteile gegenüber [von Neumann Architektur](#Architektur%20nach%20von%20Neuman
 
 Durch die parallelisierte Natur des Systems entstehen die [Probleme der Parallelisierung](Parallele%20Probleme.md) auf Rechnerebene. Es gibt keine Garantie für einen deterministischen Ablauf oder eine einfache Vermeidung von Race-Conditions.
 
+# Programmiermodelle
+- Desktop -> Viel Integer / Floating Point
+- Server -> Integer / Strings
+- Embedded -> Codegröße & Stromverbrauch
+
+# Prinzipien des Entwurfs eines Rechners
+
+> [!NOTE] Make The Common Case Fast
+> Die Performance eines Systems lässt sich am besten optimieren indem häufige Prozesse perfektioniert werden. Ihnen sollen priorisiert Ressourcen und Entwurfszeit zugeordnet werden.
+> Zusätzlich sind häufige Fälle meist simpler als Ausnahmen, was auch ihre Implementierung erleichtert
+
+[Amdahls Law](Amdahls%20Law.md) beschreibt die Mathematik hinter Optimierung von Teilsystemen und deren Einfluss auf das Gesamte.
+An diesem [Beispiel](Amdahls%20Law.md#Beispiel) wird gezeigt dass der etwas schnellere Common Case einen deutlich größeren Einfluss hat als die sehr starke Beschleunigung einer selteneren Operation.
+
+1. Simplicity favors Regularity
+2. Smaller is faster
+3. Make the common Case fast
+4. Good design demands compromises
