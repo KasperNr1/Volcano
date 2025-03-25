@@ -73,3 +73,7 @@ Kurz für ''mutual exclusion'' beschreibt mehrere Instanzen die sich gegenseitig
 
 # Tests
 Automatisierte Tests von Nebenläufigkeit ist quasi nicht-existent/unmöglich
+
+# Optimierung
+Bei der Parallelisierung von Teilen des Systems ist der maximal erzielbare Speedup vom Anteil der parallelisierbaren Operationen begrenzt. [Amdahls Law](Amdahls%20Law.md) beschreibt diesen Zusammenhang genauer.
+![Amdahl](Amdahl.png)
