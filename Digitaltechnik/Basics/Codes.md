@@ -22,3 +22,4 @@ Durch Verwendung eines [Parity-Bits](DigitaltechnischeBegriffe.md#Parity) könne
 
 ### Fehlerkorrektur
 Hamming-Codes.
+TODO

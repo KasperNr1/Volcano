@@ -2,10 +2,12 @@
 Komplettes Skript / Mitschriebe erlaubt
 Tilmann.Wendel@Advantest.com
 twendel@hb.dhbw-stuttgart.de
+
+Podcast:
 Geschichten aus der Geschichte Daniel Messner und Richard
 
 # Architektur nach von Neumann
-![](vonNeumann.png)
+![|450](vonNeumann.png)
 Rechner besteht aus Funktionseinheiten
 - Rechenwerk
 - Steuerwerk
@@ -38,8 +40,6 @@ Streng Sequentieller Ablauf ist vorteilhaft gegenüber parallelen Architekturen,
 
 Getrennter Speicher für Daten und Code -> separate Busse zur Übertragung
 
-Qualcom Aktie
-
 # Leistungsvergleich von Systemen
 Welche Kriterien werden verglichen?
 - Preis
@@ -60,6 +60,7 @@ Beide
 ## Leistungsmessung
 ### Definitionen
 - Laufzeit
+  Die gesamte verbrauchte Zeit, inklusive I/O, Speicherzugriffen und Wartezeit auf Betriebssystem und andere fremde [Prozesse](Paraprog-Basics.md#Prozess)
 - CPU Zeit
 - User CPU Zeit
 - TODO
@@ -100,6 +101,7 @@ Verwendung mehrerer Benchmark Suiten?
 ### Berechnung
 Arithmetisches vs. Geometrisches Mittel
 TODO
+![](MessungsVergleich.png)
 
 ### Optimierung
 
