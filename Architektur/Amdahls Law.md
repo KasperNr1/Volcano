@@ -13,7 +13,7 @@ $$
 > Die Nutzungshäufigkeit $P$ muss vor der Optimierung gemessen werden. In der optimierten Version wird der Wert kleiner sein da das Problem nun schneller gelöst wird.
 
 ## Obergrenze der Optimierung
-Die gegebene [Funktion](#Optimieren%20eines%20Teilsystems) hat für $S \to \infty$ einen Grenzwert. Damit gibt es ein festes oberes Limit für die Performancegewinne durch Optimierung eines Teilsystems.
+Die gegebene [Funktion](#Optimieren%20eines%20Teilsystems) hat für $S \to \infty$ einen [Grenzwert](Funktionen.md#Grenzwert). Damit gibt es ein festes oberes Limit für die Performancegewinne durch Optimierung eines Teilsystems.
 $$
 \lim_{S \to \infty} S_{\text{tot}} = \cfrac{1}{(1-P)}
 $$
