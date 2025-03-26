@@ -60,6 +60,28 @@ Für $110001_2$ ist das 1er-Komplement also $001110_2$ oder $1110_2$
 Bei $123890_{10}$ ist es $876109_{10}$ da die beiden Zahlen jeweils $111111_2$ oder $999999_{10}$ als Summ haben.
 
 ## 2er Komplement
-TODO
-
+Bestimmt wird das 2er Komplement indem erst das [1er-Komplement](#1er-Komplement) gebildet wird. Zu diesem wird zusätzlich $1$ addiert.
+Bei Verwendung der [Codierung für negative Zahlen im Binärsystem](Rechenwerk.md#Negative%20Zahlen%20im%20Binärsystem) ist das 2er Komplement einer Zahl ihr additives Invers.
+Somit kann die [Differenz zweier Zahlen durch Addition gebildet](Rechenwerk.md#Beispielrechnung) werden
 # Parity
+Die Verwendung eines Parity Bits ist eine simple Form der [Fehlererkennung](Codes.md#Fehlererkennung) in Codes.
+Dabei wird dem Datenwort ein Parity Bit $P$ hinzugefügt, das vom Wort selbst abhängt. Sein Wert ist so gewählt, dass die Anzahl aller $1$ oder $0$ Bits inklusive des Parity Bits gerade oder ungerade ist. Beide können beliebig verwendet werden, vor Beginn der Kommunikation muss darüber abgestimmt worden sein.
+Die Menge an Nachrichtenbits die jeweils mit einem Parity Bit abgesichert wird ist ebenfalls beliebig wählbar. Kleinere Pakete sind in der Lage Fehler präziser zu lokalisieren, sind dafür aber aufwendiger da mehr zusätzliche Bits verwaltet werden müssen.
+Der Empfänger bildet zur Kontrolle das Parity Bit selbst und vergleicht die Werte.
+## Beispiel
+Ein Datenwort aus 4 Bits wird mit einem Odd-Parity-Bit abgesichert.
+Die Schaltung zur Bestimmung von $P$ kann aus diesem [KV-Diagramm](Erstellen%20und%20Umformen%20boolscher%20Ausdrücke.md#KV-Diagramm) bestimmt werden.
+![Parity](Parity.png)
+$$
+\begin{array}{ll}
+P &= \underbrace{\left(\overline{C}D \vee C\overline{D}\right)}_{F}
+\wedge
+\underbrace{\left(A\overline{B} \vee \overline{A}B \right)}_{E}
+\vee
+\underbrace{\left(\overline{C}\, \overline{D} \vee CD  \right)}_{\overline{F}}
+\wedge
+\underbrace{\left( \overline{A} \, \overline{B} \vee AB \right)}_{\overline{E}}
+\\
+&= EF \vee \overline{E}\,\overline{F}
+\end{array}
+$$

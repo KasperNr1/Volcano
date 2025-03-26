@@ -63,7 +63,6 @@ Beide
   Die gesamte verbrauchte Zeit, inklusive I/O, Speicherzugriffen und Wartezeit auf Betriebssystem und andere fremde [Prozesse](Paraprog-Basics.md#Prozess)
 - CPU Zeit
 - User CPU Zeit
-- TODO
 $$
 \text{Leistung} = \frac{1}{\text{Ausführungszeit}}
 $$
@@ -100,7 +99,6 @@ Verwendung mehrerer Benchmark Suiten?
 
 ### Berechnung
 Arithmetisches vs. Geometrisches Mittel
-TODO
 ![](MessungsVergleich.png)
 
 ### Optimierung
@@ -119,7 +117,7 @@ Gesamtspeedup bei Optimierung eines Teilsystems (Beide Gleichungen verwandt und 
 $$
 S_{tot} = \frac{1}{(1-P)+\frac{P}{S}}
 $$
-Amdahls Law! (TODO)
+[Amdahls Law](Amdahls%20Law.md)!
 
 > [!Example] Klausuraufgabe
 > Foliensatz 1, Seite 40 (Amdahls Law IV)
@@ -166,11 +164,6 @@ Eigenschaft von Programmen:
 ## 3
 ### 3.1
 IC kürzt sich raus, Rest gegeben mit [CPU Leistungsmessung-Gleichung](#CPU%20Leistungsmessung)
-- [ ] Nicht gewählt
-- [x] COole Liste
-
 
 > [!example] Klausurfrage
 > CPI und Takt nutzen um Rechner zu vergleichen
-
-
