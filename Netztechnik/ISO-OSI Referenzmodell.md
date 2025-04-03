@@ -18,9 +18,29 @@ Diese Dienste werden anhand ihrer Kommunikation unterschieden zwischen "Unbestä
 
 ![](Schichtmodell.png)
 ## 1 Physical Layer
+Verwaltet die bloße Übertragung der Daten. Es findet keine  [Fehlererkennung oder Korrektur](Codes.md#Fehlerumgang) statt.
+
+### Aufgaben
+- Bitübertragung
+- Synchronisierung Sender und Empfänger
+- Festlegung der Übertragunsmodi
+- Steuerung der Datenrate
+- Umwandlung von Daten und [Signalen](Basics.md#Signal)
+- Physische Übertragung von Signalen
 Physische Übertragung zwischen Systemen
 Enthält Umwandlung von Daten zu Signalen
 Ungesicherte Verbindung, keine Fehlerkorrektur
+### Geräte
+#### Repeater
+Leiten Signale weiter und reinigen diese von Jitter oder Rauschen. Die Reinigung von Signalen ist nicht das selbe wie eine [Fehlerkorrektur](Codes.md#Fehlerkorrektur). Die Bedeutung des [Signals](Basics.md#Signal) wird nicht untersucht.
+#### Hubs
+Sind [Repeater](#Repeater) mit mehr als zwei Schnittstellen. Jedes Signal das am Hub ankommt wird an alle anderen angeschlossenen Geräte weitergeleitet.
+Hubs kommunizieren nur über [Halbduplex](Basics.md#Halbduplex).
+Die Übertragungsrate ist darum auf etwa 100MBit begrenzt. Außerdem können Kollisionen auftreten.
+
+### Leigungscodes
+TODO
+[02 Bitübertragunsschicht](02%20Bitübertragunsschicht.md)
 
 ## 2 Sicherungsschicht
 Gliederung des Bitstroms in Rahmen (Frames)

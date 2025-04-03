@@ -1,3 +1,38 @@
+# Signal
+Ein Signal ist eine physikalisch messbare, zeitabhängige Größe.
+Abhängig vom verwendeten Medium gibt es verschiedene Ausprägungen der relevanten Größen.
+![Signalklassifizierung](Signalklassifizierung.png)
+## Amplitude
+Maximale Auslenkung von der "Mitte" aus, stark abhängig vom physischen Medium
+
+## Frequenz
+Wiederholungen des Signals pro Sekunde
+
+## Phase
+Genaue "Position" des Signals innerhalb einer Periode
+
+## Bandbreite
+Frequenzbereich in dem ein Signal effektiv übertragen werden kann
+
+## Baudrate
+Geschwindigkeit mit der Symbole übertragen werden.
+Wird verwendet um beim Dekodieren die Richtige Menge Bits zu Messen und zu verarbeiten
+
+## Bitrate
+Menge an übertragener Bits pro Sekunde, meist gleich wie [Baudrate](#Baudrate)
+Szenarien sind möglich bei denen die Bitrate höher ist.
+![](BitVsBaud.png)
+
+# Kollision
+Je nach Wahl des physischen Übertragungsmediums kann durch gleichzeitiges Senden verschiedener [Signale](#Signal) eine Störung der Kommunikation entstehen. Beispielsweise Interferenz der elektrischen Wellen.
+Sie sind nur bei [Halbduplex](#Halbduplex) möglich.
+Bei [Simplex](#Simplex) gibt es nur einen Sender, bei [Vollduplex](#Vollduplex) existieren separate Kanäle für beide Kommunikationsrichtungen.
+Es gibt verschiedene Protokolle zur Behandlung von Kollisionen.
+
+## Kollisionsdomäne
+Beschreibt den Teil eines [Netzwerks](#Netzwerk) in dem mehrere Geräte ein gemeinsames Medium verwenden.
+Durch den Einsatz von [Hubs](ISO-OSI%20Referenzmodell.md#Hubs) werden sie vergrößert.
+
 # Netzwerk
 Ein Netzwerk ist eine Gruppe von (Computer-)Systemen die über Kommunikationsleitungen verbunden sind und gemeinsame Ressourcen und Informationen nutzen.
 Es umfasst sowohl die physische Einrichtung als auch die entsprechenden Vermittlungs- und Übertragungsverfahren.
