@@ -2,8 +2,10 @@
 Ein Signal ist eine physikalisch messbare, zeitabhängige Größe.
 Abhängig vom verwendeten Medium gibt es verschiedene Ausprägungen der relevanten Größen.
 ![Signalklassifizierung](Signalklassifizierung.png)
+## Medium
+![](ÜbersichtMedien.png)
 ## Amplitude
-Maximale Auslenkung von der "Mitte" aus, stark abhängig vom physischen Medium
+Maximale Auslenkung von der "Mitte" aus, stark abhängig vom [physischen Medium](#Medium)
 
 ## Frequenz
 Wiederholungen des Signals pro Sekunde
@@ -12,7 +14,8 @@ Wiederholungen des Signals pro Sekunde
 Genaue "Position" des Signals innerhalb einer Periode
 
 ## Bandbreite
-Frequenzbereich in dem ein Signal effektiv übertragen werden kann
+Frequenzbereich in dem ein Signal effektiv übertragen werden kann.
+Gibt die Differenz zwischen der höchsten und der niedrigsten [Frequenz](#Frequenz) in diesem Bereich an.
 
 ## Baudrate
 Geschwindigkeit mit der Symbole übertragen werden.
@@ -24,7 +27,7 @@ Szenarien sind möglich bei denen die Bitrate höher ist.
 ![](BitVsBaud.png)
 
 # Kollision
-Je nach Wahl des physischen Übertragungsmediums kann durch gleichzeitiges Senden verschiedener [Signale](#Signal) eine Störung der Kommunikation entstehen. Beispielsweise Interferenz der elektrischen Wellen.
+Je nach Wahl des physischen [Übertragungsmediums](#Medium) kann durch gleichzeitiges Senden verschiedener [Signale](#Signal) eine Störung der Kommunikation entstehen. Beispielsweise Interferenz der elektrischen Wellen.
 Sie sind nur bei [Halbduplex](#Halbduplex) möglich.
 Bei [Simplex](#Simplex) gibt es nur einen Sender, bei [Vollduplex](#Vollduplex) existieren separate Kanäle für beide Kommunikationsrichtungen.
 Es gibt verschiedene Protokolle zur Behandlung von Kollisionen.
@@ -259,6 +262,6 @@ Breiterer optisch leitender Kern überträgt viele Wellenlängen gleichzeitig.
 
 Durch die unterschiedlichen Wellenlängen werden die Lichtstrahlen in unterschiedlichen Winkeln reflektiert. Das anfangs punktuelle Signal kann so nach längerer Strecke ausgedehnt werden und sich besonders bei kurzen Pulsen mit dem nachfolgenden Puls überlagern. Man spricht von Dispersion
 
-![](Pasted%20image%2020250324111737.png)
+![](Dispersion.png)
 
 Diese Art Kabel wird zur Verbindung von Gebäuden oder Rechenzentren verwendet.

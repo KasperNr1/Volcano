@@ -23,7 +23,7 @@ Verwaltet die bloße Übertragung der Daten. Es findet keine  [Fehlererkennung o
 ### Aufgaben
 - Bitübertragung
 - Synchronisierung Sender und Empfänger
-- Festlegung der Übertragunsmodi
+- Festlegung der Übertragungsmodi
 - Steuerung der Datenrate
 - Umwandlung von Daten und [Signalen](Basics.md#Signal)
 - Physische Übertragung von Signalen
@@ -38,9 +38,74 @@ Sind [Repeater](#Repeater) mit mehr als zwei Schnittstellen. Jedes Signal das am
 Hubs kommunizieren nur über [Halbduplex](Basics.md#Halbduplex).
 Die Übertragungsrate ist darum auf etwa 100MBit begrenzt. Außerdem können Kollisionen auftreten.
 
-### Leigungscodes
-TODO
-[02 Bitübertragunsschicht](02%20Bitübertragunsschicht.md)
+### Leitungscodes
+Ein Leitungscode hat folgende Eigenschaften
+- Anzahl an Signalstufen (2 - Binär; 3 - ternär; ...)
+- Anzahl codierter Bits pro Symbol
+- Schrittgeschwindigkeit ([Bitrate](Basics.md#Bitrate) oder [Baudrate](Basics.md#Baudrate))
+
+Erwünscht sind außerdem:
+- Hohe Effizienz
+  Möglichst gleiches Verhältnis zwischen Bitrate und Baudrate
+- [Fehlererkennung](Codes.md#Fehlererkennung)
+  Aus wenigen übertragenen Daten feststellen ob Fehler vorliegen
+- Mögliche Taktrückgewinnung
+  Sender und Empfänger sollen durch die Codierung synchron gehalten werden, falls der Takt auseinander läuft.
+  Ein einheitlicher Takt ist notwendig um dem Sender die Fähigkeit zu geben die korrekten Zeitpunkte zu bestimmen, in denen er das [Signal](Basics.md#Signal) abtasten muss.
+- Gleichstromfreiheit
+  Längere Folgen von übertragenen Nullen oder Einsen sollen vermieden werden, da einige physische Komponenten nicht gut mit Gleichstrom umgehen können.
+#### NRZ
+Bits der Nachricht werden direkt in Signalpegel umgewandelt
+![](NRZ.png)
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Ja                        | Nein              | 100%      |
+
+#### NRZI
+Um eine 1 zu Senden wird das Signal invertiert, für eine 0 wird der aktuelle Pegel beibehalten
+![](NRZI.png)
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Ja                        | Nein              | 100%      |
+
+#### MLT-3
+Drei verschiedene Pegel
+- "+"
+- "-"
+- 0
+Nuller werden durch Beibehalten codiert, eine 1 löst einen Wechsel aus. Dabei wird in einer festen Reihenfolge gewechselt um den Durchschnitt neutral zu halten 
+
+![](MLT-3.png)
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Ja                        | Nein              | 100%      |
+
+#### RZ (Return to Zero)
+Verwendet ebenfalls 3 Signalpegel.
+Um eine 1 zu senden wird für einen halben Takt das positive Signal übertragen, für eine Null das negative.
+Nach jedem ganzen Takt wird wieder der mittlere Pegel erreicht.
+![](RZ.png)
+Dem Empfänger ist es jederzeit möglich den Takt zu erkennen. Allerdings können lange Folgen von 0 oder 1 beide den Durchschnitt verschieben. Außerdem werden nur 50% der Zeit tatsächlich Informationen übertragen.
+
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Ja                        | Ja                | 50%       |
+
+##### Unipolar RZ
+Ist ein Sonderfall bei dem nur 2 Signalpegel verwendet werden.
+Um eine 0 zu senden wird einen ganzen Takt lang Pegel 1 verwendet, um eine 1 zu senden wird einen halben Takt auf Pegel 2 geschalten.
+![](Uni-RZ.png)
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Ja                        | Nein              | ? %       |
+
+#### AMI
+(Alternate Mark Inversion)
 
 ## 2 Sicherungsschicht
 Gliederung des Bitstroms in Rahmen (Frames)
