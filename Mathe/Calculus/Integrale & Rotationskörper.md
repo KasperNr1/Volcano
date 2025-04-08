@@ -1,4 +1,4 @@
-Integrale sind das Gegenstück zur [Ableitung](Differentialrechnung.md#Ableitung). Statt der Steigung der [Funktionen](Funktionen.md)beschreiben sie die Fläche unter den Funktionsgraphen. 
+Integrale sind das Gegenstück zur [Ableitung](Differentialrechnung.md#Ableitung). Statt der Steigung der [Funktionen](Funktionen.md) beschreiben sie die Fläche unter den Funktionsgraphen. 
 
 # Stammfunktion
 $F(x)$ sei eine Funktion mit der Ableitung $F'(x)$.
