@@ -90,7 +90,6 @@ Nach jedem ganzen Takt wird wieder der mittlere Pegel erreicht.
 ![](RZ.png)
 Dem Empfänger ist es jederzeit möglich den Takt zu erkennen. Allerdings können lange Folgen von 0 oder 1 beide den Durchschnitt verschieben. Außerdem werden nur 50% der Zeit tatsächlich Informationen übertragen.
 
-
 | Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
 | ------------------------- | ----------------- | --------- |
 | Ja                        | Ja                | 50%       |
@@ -106,6 +105,68 @@ Um eine 0 zu senden wird einen ganzen Takt lang Pegel 1 verwendet, um eine 1 zu 
 
 #### AMI
 (Alternate Mark Inversion)
+Verwendet 3 Pegel, der mittlere wird verwendet um eine 0 zu übertragen. Für 1er wird abwechselnd der positive und negative Pegel übertragen.
+
+![](AMI.png)
+
+Durchschnittsverschiebungen sind ausgeschlossen, eine Taktrückgewinnung ist nicht möglich. 
+Da einige Kombinationen nicht erscheinen können, ist eine teilweise [Fehlererkennung](Codes.md#Fehlererkennung) möglich.
+Die folgenden Signale werden niemals gesendet werden:
+- "++"
+- "--"
+- "+0+"
+- "-0-"
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Nein                      | Nein              | 100%      |
+
+##### B8ZS
+Wegen Problemen bei längeren Reihen von Nullen wird eine spezielle Variante verwendet. 
+- "+00.000.000" wird codiert als "+000+-0-+"
+- "-00.000.000" wird codiert als "-000-+0+-"
+So ist das eindeutige Muster immer noch erkennbar, ohne die Nachteile der längeren Gleichstromphase mit sich zu führen. Ebenfalls sind gleich viele "+" und "-" Pegel vorhanden um den Durchschnitt des Signals weiterhin neutral zu halten.
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Nein                      | Ja                | 100%      |
+
+#### Manchester
+Verwendet 2 Pegel, die Information wird durch die gesendete Flanke codiert. Eine Fallende Flanke symbolisiert eine 0, Einser werden als steigende Flanke codiert.
+
+![](Manchester.png)
+
+Es gibt eine Variante mit inversen Belegungen, die restlichen Eigenschaften verändern sich hierdurch nicht.
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Nein                      | Ja                | 50%       |
+
+##### Differentiale Manchester
+Für Einser wechselt der Pegel ein Mal in der Mitte der Bitzelle, für Nullen einmal zusätzlich auch zu Beginn.
+
+![](ManchesterDiff.png)
+
+---
+Alle bisherigen Codierungen haben signifikante Nachteile.
+Außerdem können Sonderfälle wie Start/Stop/Idle nicht direkt kommuniziert werden.
+Eine Möglichkeit ist, sie über sonst nicht verwendete Code-Kombinationen zu übermitteln. Start einer Nachricht könnte eine definierte Sequenz (Präambel) sein.
+Besser ist die Verwendung von dedizierten Steuerzeichen. Informationsbits werden zu Blöcken zusammengefasst und mit Steuerbits verlängert. Es werden immer Blöcke mit einer festen Größe übertragen.
+
+#### 4B5B
+Vier Nutzdaten werden mit einem Steuerbit auf Fünfer-Blöcke erweitert. Von den 32 möglichen Kombinationen werden 16 für Daten verwendet, die restlichen dienen der Steuerung.
+
+Es gibt eine einheitliche [Tabelle](https://de.wikipedia.org/wiki/4B5B-Code) zu den Bedeutungen der Datenwörter.
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Ja                        | Ja                | 80%       |
+
+#### 5B6B
+5 Nutzdaten werden auf 6 Bits abgebildet.
+Ziel ist die Durchschnittsverschiebung aufzuheben. Es werden von 32 Möglichen 5 Bit Wörtern die mit ähnlicher Zahl Nullen und Einser mit einem 6. Bit ausgeglichen. Die restlichen Codewörter werden in 2 jeweils Inversen Kombinationen abgebildet. Diese positiven oder negativen Varianten werden immer abwechselnd gesendet.
+
+Auch hierzu gibt es eine Tabelle
 
 ## 2 Sicherungsschicht
 Gliederung des Bitstroms in Rahmen (Frames)
