@@ -1,1 +1,5 @@
 # Binary Search
+Der Algorithmus ist in der Lage Elemente in einer sortierten Sammlung mit Logarithmischem Aufwand zu finden.
+In der Standard-Implementierung wird ein Wert in der Mitte des zu prüfenden Intervalls gewählt und mit dem Ziel verglichen. Da die Liste sortiert ist kann nach dem Vergleich immer eine Hälfte der Menge verworfen werden. In der verbleibenden Menge wird der Algorithmus rekursiv weiter ausgeführt.
+Basisfall der Rekursion ist die Liste mit nur einem Element, falls dieses dem gesuchten entspricht wird seine Position zurückgegeben, sonst wird das Ergebnis "nicht gefunden" geliefert. Falls das Element in einem früheren Schritt in der Mitte des Intervalls liegt, ist die Suche ebenfalls beendet.
+Es gibt einige Varianten bei denen versucht wird die Stichprobe vorteilhaft zu legen um größere Bereiche verwerfen zu können. Insgesamt bleibt die Komplexität jedoch erhalten.
