@@ -26,6 +26,20 @@ Menge an übertragener Bits pro Sekunde, meist gleich wie [Baudrate](#Baudrate)
 Szenarien sind möglich bei denen die Bitrate höher ist.
 ![](BitVsBaud.png)
 
+## Modulation
+Die Information eines Signal kann durch Veränderung unterschiedlicher Eigenschaften symbolisiert werden.
+
+Amplitude Key Shifting (AKS)
+![](AKS.png)
+
+Frequency Key Shifting (FKS)
+![](FKS.png)
+
+Phase Key Shifting (PKS)
+![](PKS.png)
+
+Diese werden beispielsweise bei Wi-Fi 6 kombiniert eingesetzt um mit einer Welle mehr Informationen übertragen zu können.
+![](QuadratureAmplitudeModulation.png)
 # Kollision
 Je nach Wahl des physischen [Übertragungsmediums](#Medium) kann durch gleichzeitiges Senden verschiedener [Signale](#Signal) eine Störung der Kommunikation entstehen. Beispielsweise Interferenz der elektrischen Wellen.
 Sie sind nur bei [Halbduplex](#Halbduplex) möglich.

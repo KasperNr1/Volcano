@@ -168,6 +168,27 @@ Ziel ist die Durchschnittsverschiebung aufzuheben. Es werden von 32 Möglichen 5
 
 Auch hierzu gibt es eine Tabelle
 
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Nein                      | Ja                | 83.3%     |
+
+#### 8B10B
+8 Nutzdaten werden auf 10 Bits Nachricht kodiert. Dabei enthält jede Kombination immer genau 5 und 5 Nullen und Einser, oder genau 4 und 6. So ist die Durchschnittliche Spannung neutral ohne zu viele Nachteile mitzuführen.
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Nein                      | Ja                | 80%       |
+
+#### 8B6T
+8 Binary, 6 Ternary.
+Hilfreich bei Verwendung von mehr als 2 Signalpegeln. Die Binärdaten werden durch die erhöhte Zahl an Zuständen in kleineren Codewörtern übertragen. Die Kodierung selbst erfolgt ebenfalls anhand einer Tabelle.
+
+
+| Durchschnittsverschiebung | Taktrückgewinnung | Effizienz |
+| ------------------------- | ----------------- | --------- |
+| Nein                      | Ja                | 80%       |
+
+
 ## 2 Sicherungsschicht
 Gliederung des Bitstroms in Rahmen (Frames)
 Zugriffskontrolle
