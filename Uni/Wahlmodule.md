@@ -1,0 +1,10 @@
+- [ ] T3INF4271: Alternative Programmierkonzepte (Units Höhere Typkonzepte und Funktionale Programmierung) 
+- [ ] T3INF4304: Datenbanken II
+- [x] T3INF4310: Entwicklung mobiler Applikationen
+- [ ] T3INF4321: Kommunikations- und Netztechnik II (Units Funknetze 1, Netzarchitekturen und Netzmanagement)
+- [x] T3INF4324: Consulting, technischer Vertrieb und Recht
+- [x] T3INF4337: Methoden und Theorien der Künstlichen Intelligenz
+- [x] T3INF4338: Anwendungen der Künstlichen Intelligenz
+- [ ] T3INF4339: Eingebettete Systeme und Robotik
+- [ ] T3INF4361: Prozessautomatisierung (Sensorik+Aktorik/Echtzeitsysteme)
+- [ ] T3INF4391: Seminar Informatik

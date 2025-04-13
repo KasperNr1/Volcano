@@ -43,7 +43,8 @@ Der Code berechnet den auf Integer gerundeten Durchschnitt aus $n$ Werten, die e
 ```
 sum = ((sum << 1)/n + 1) >> 1
 ```
-Eine Nachkommastelle hinzufügen, 1 addieren und die zusätzliche Stelle wieder weg-shiften
+Eine Nachkommastelle hinzufügen, 1 addieren und die zusätzliche Stelle wieder weg-shiften.
+Ab $x.5$ soll aufgerundet werden, also wenn die erste Nachkommastelle der Binärzahl eine $1$ ist.
 
 
 > [!Example] Klausuraufgabe

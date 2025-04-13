@@ -4,10 +4,14 @@ Abstrahiert die Komplexität der Hardware
 
 # Sichten
 ## OS als erweiterte Maschine
+Abstraktion von Hardware und Schnittstellen des Systems. Benötigtes Detailwissen sinkt.
+Anzahl der Abstraktionsschichten ist variabel, allgemein wird jedoch Performance gegen Abstraktion abgewogen.
+
 ![](TopDownSicht.png)
-
-
 ## OS als Ressourcenverwalter
+Verwaltung aller Systembestandteile.
+Ordnet und kontrolliert Verteilung von Ressourcen an anfordernde Programme, insbesondere bei Konflikten.
+
 ![](BottomUpSicht.png)
 
 # Operationsmodi
