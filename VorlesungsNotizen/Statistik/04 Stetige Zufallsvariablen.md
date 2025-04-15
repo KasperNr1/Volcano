@@ -14,18 +14,8 @@ Eigenschaften von $f$ und $F$
 - Die monoton wachsende Verteilungsfunktion $F$ ist Stammfunktion der Dichtefunktion $f$
   d.h. $\boxed{F'(x) = f(x)}$ 
 
-# Glockenkurve TODO
-
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.14 - 14.24pm (2).drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
-
-Insert Glockenkurve mit Zeichnung von $F(a)$ und $F(a \leq x \leq b)$
+# Glockenkurve
+![](Glockenkurve.png)
 
 ## Beispiel
 ### 1 Verteilung gegeben
@@ -57,14 +47,7 @@ f(x) = \left\{
 \end{array}
 \right.
 $$
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.14 - 14.28pm (2).drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
+![](Verteilung.png)
 
 ### 2 Dichte gegeben
 Sei $X$ eine stetige Zufallsvariable mit folgender Dichtefunktion
@@ -78,14 +61,8 @@ f(x) = \left\{
 \right.
 $$
 
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.14 - 14.32pm.drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
+![](Dichtefunktion.png)
+
 $$
 F(x) = \left\{
 \begin{array}{cll}
@@ -96,15 +73,7 @@ c & x > 10 & c = 1 (\text{Monotonie berücksichtigt})
 \right.
 $$
 
-
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.14 - 14.36pm.drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
+![Verteilungsfunktion](Verteilungsfunktion.png)
 ### 3 
 Die Lebensdauer $T$ eines elektronischen Bauteils sei eine exponentialverteile Zufallsvariable mit Dichtefunktion
 $$
@@ -116,15 +85,7 @@ f(t) = \left\{
 \right.
 $$
 
-
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.14 - 14.44pm.drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
+![](ExponentialVerteilung.png)
 #### Verteilungsfunktion
 $$
 F(t) = -e^{-0.1t} + 1 = 1-e^{-0.1t}

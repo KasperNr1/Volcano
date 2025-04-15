@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+    \begin{tikzpicture}[yscale=6,xscale=0.75]
+        \draw[dotted] (0, 1) -- (10,1) -- (10,0);
+        \draw[->] (-1,0) -- (11,0);
+        \draw[->] (0,0) -- (0,1.1);
+
+        \draw[scale=1.0,domain=0:10,smooth,variable=\x,blue,thick] 
+            plot ({\x},{0.01*\x*\x});
+        \draw[scale=1.0,domain=-1:0,smooth,variable=\x,blue,thick] 
+            plot ({\x},{0});
+        \draw[scale=1.0,domain=10:10.9,smooth,variable=\x,blue,thick] 
+            plot ({\x},{1});
+        
+        \node[left] at (0,1) {$1$};
+        \node[below] at (0,0) {$0$};
+        \node[below] at (10,0) {$10$};
+
+    \end{tikzpicture}
+\end{document}
