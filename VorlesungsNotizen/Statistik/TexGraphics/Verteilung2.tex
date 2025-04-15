@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+    \begin{tikzpicture}[yscale=3]
+        % \draw[dotted] (0, 0.3333333) -- (2,0.3333333) -- (2,0);
+        \draw[dotted] (0,1) -- (5,1) -- (5,0); 
+        \draw[->] (-1,0) -- (6,0);
+        \draw[->] (0,0) -- (0,1.25);
+
+        \draw[scale=1.0,domain=-1:2,smooth,variable=\x,blue,thick] 
+            plot ({\x},{0});
+        \draw[scale=1.0,domain=2:5,smooth,variable=\x,blue,thick] 
+            plot ({\x},{(\x-2)/3});
+        \draw[scale=1.0,domain=5:5.9,smooth,variable=\x,blue,thick] 
+            plot ({\x},{1});
+        
+        \node[left] at (0,1) {$1$};
+        \node[below] at (0,0) {$0$};
+        \node[below] at (2,0) {$2$};
+        \node[below] at (5,0) {$5$};
+
+    \end{tikzpicture}
+\end{document}

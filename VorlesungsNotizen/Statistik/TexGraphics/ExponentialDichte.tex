@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+    \begin{tikzpicture}[yscale=15,xscale=0.75]
+        % \draw[dotted] (0, 0.2) -- (10,0.2) -- (10,0);
+        \draw[->] (-1,0) -- (8,0);
+        \draw[->] (0,0) -- (0,0.125);
+
+        \draw[scale=1.0,domain=0:7.9,smooth,variable=\x,blue,thick] 
+            plot ({\x},{0.1*exp(-0.1*\x)});
+        \draw[scale=1.0,domain=-1:0,smooth,variable=\x,blue,thick] 
+            plot ({\x},{0});
+        
+        \node[left] at (0,0.1) {$0.1$};
+        \node[below] at (0,0) {$0$};
+
+    \end{tikzpicture}
+\end{document}

@@ -29,14 +29,7 @@ F(x) = \left\{
 \right.
 $$
 
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.14 - 14.24pm.drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
+![](Verteilung2.png)
 
 $$
 f(x) = \left\{
@@ -85,19 +78,13 @@ f(t) = \left\{
 \right.
 $$
 
-![](ExponentialVerteilung.png)
+![](ExponentialDichte.png)
 #### Verteilungsfunktion
 $$
 F(t) = -e^{-0.1t} + 1 = 1-e^{-0.1t}
 $$
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.14 - 14.46pm.drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
+
+![](ExponentialVerteilung.png)
 
 #### P(t > 10)
 $$
