@@ -20,6 +20,7 @@ Var(X) &= \sigma^2
 $$
 Man schreibt: $X \sim N(\mu; \sigma)$
 
+![Normalverteilung01](Normalverteilung01.png)
 ```handdrawn-ink
 {
 	"versionAtEmbed": "0.3.4",
@@ -55,6 +56,7 @@ $$
 \varphi(u) = \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}u^2}
 $$
 
+![StandardNormal](StandardNormal.png)
 ```handdrawn-ink
 {
 	"versionAtEmbed": "0.3.4",
@@ -74,7 +76,8 @@ Erläuterung zur tabellierten Verteilungsfunktion der Standardnormalverteilung:
 - Lesen: 
   Zeilen sind erste Kommastellen
   Spalten zur höheren Präzision weitere Nachkommastellen
--
+
+![BigPhiFunction](BigPhiFunction.png)
 
 
 ```handdrawn-ink
@@ -93,6 +96,7 @@ Tabelle ablesen: Reihe 1.5 - Spalte 8
 
 2.)
 
+![LeftNRightSide](LeftNRightSide.png)
 ```handdrawn-ink
 {
 	"versionAtEmbed": "0.3.4",
@@ -116,7 +120,7 @@ Sei $X \sim N(\mu; \sigma)$
 $$
 P(X \leq x) = F(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{1}{2}\left(\frac{t-\mu}{\sigma}\right)^2} \, dt
 $$
-
+![NegInvToX](NegInvToX.png)
 ```handdrawn-ink
 {
 	"versionAtEmbed": "0.3.4",
@@ -163,6 +167,7 @@ $$
 Beispiel:
 Sei $X \sim N(6;2)$ 
 
+![Mue6Sigma2](Mue6Sigma2.png)
 ```handdrawn-ink
 {
 	"versionAtEmbed": "0.3.4",
@@ -179,6 +184,7 @@ $$
 ### 2. $P(X \geq x)$
 Sei $X \sim N(\mu; \sigma)$
 
+![XToInf](XToInf.png)
 ```handdrawn-ink
 {
 	"versionAtEmbed": "0.3.4",
@@ -194,6 +200,7 @@ Also gilt allgemein $P(X \geq x) = 1 - \Phi\left(\frac{x-\mu}{\sigma}\right)$
 ### 3: $P(a \leq X \leq b)$
 $X \sim N(\mu; \sigma)$
 
+![FromAtoB](FromAtoB.png)
 ```handdrawn-ink
 {
 	"versionAtEmbed": "0.3.4",
@@ -208,6 +215,7 @@ $$
 Beispiel
 Sei $X \sim N(2; 6)$
 
+![Mue2Sigma6](Mue2Sigma6.png)
 ```handdrawn-ink
 {
 	"versionAtEmbed": "0.3.4",
