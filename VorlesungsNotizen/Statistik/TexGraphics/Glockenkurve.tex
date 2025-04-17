@@ -14,18 +14,18 @@
         % Draw and shade the area under the bell curve from x=1 to x=2
         \begin{scope}
             \fill[blue!20] 
-            (\lowX,0) -- plot[domain=\lowX:\hiX,smooth] (\x,{1/(\sta*sqrt(2*pi))*exp(-1/2*((\x-\mue)/\sta)^2)}) -- (\hiX,0) -- cycle;
+            (\lowX,0) -- plot[domain=\lowX:1,smooth] (\x,{1/(\sta*sqrt(2*pi))*exp(-1/2*((\x-\mue)/\sta)^2)}) -- (1,0) -- cycle;
         \end{scope}
     
-        \draw[<-] (0.35,0.18) -- (1.5,0.35) node[right]{$A=1$};
+        \draw[<-] (0.4,0.24) -- (1.5,0.35) node[right]{$\Phi(u)$};
   
         % Draw the x and y axes
         \draw[->] (\lowX,0) -- (\hiX,0) node[right] {$u$};
         \draw[->] (0,\lowY) -- (0,\hiY) node[above] {$\varphi(u)$};
 
         % Lines from y=0 to curve
-        \draw[black] (-1,-0.05) -- (-1,0.05);
-        \draw[black] (1,-0.05) -- (1,0.05);
+        % \draw[black] (-1,-0.05) -- (-1,0.05);
+        \draw[black, dashed] (1,0) -- (1,0.24);
         % \draw[black, dashed, thick] (\mue,0) -- (\mue,0.4);
         % \draw[black] (4,0) -- (4,0.24);
 
@@ -35,9 +35,9 @@
         
     
         % Optionally, add labels
-        \node[below] at (0,0) {$0$};
-        \node[below] at (-1,0) {$-1$};
+        % \node[below] at (0,0) {$0$};
+        % \node[below] at (-1,0) {$-1$};
         % \node[below] at (\mue,0) {$\mu$};
-        \node[below] at (1,0) {$1$};
+        \node[below] at (1,0) {$u$};
     \end{tikzpicture}
 \end{document}
