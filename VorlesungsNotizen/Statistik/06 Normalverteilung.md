@@ -21,14 +21,7 @@ $$
 Man schreibt: $X \sim N(\mu; \sigma)$
 
 ![Normalverteilung01](Normalverteilung01.png)
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.17 - 13.25pm.drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
+
 Maximum bei $x=\mu$ und Wendestellen bei $x=\mu \pm \sigma$ 
 
 Eigenschaften der Dichtefunktion:
@@ -57,14 +50,7 @@ $$
 $$
 
 ![StandardNormal](StandardNormal.png)
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.17 - 13.42pm.drawing",
-	"width": 1000,
-	"aspectRatio": 1.9646365422396856
-}
-```
+
 Fläche = 1 (In Skizze)
 
 Verteilungsfunktion:
@@ -80,15 +66,6 @@ Erläuterung zur tabellierten Verteilungsfunktion der Standardnormalverteilung:
 ![BigPhiFunction](BigPhiFunction.png)
 
 
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.17 - 13.51pm.drawing",
-	"width": 870,
-	"aspectRatio": 1.8087318087318087
-}
-```
-
 Beispiel:
 1.)
 $\Phi(1,58) = 0.9429$
@@ -97,14 +74,7 @@ Tabelle ablesen: Reihe 1.5 - Spalte 8
 2.)
 
 ![LeftNRightSide](LeftNRightSide.png)
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.17 - 13.54pm.drawing",
-	"width": 1114,
-	"aspectRatio": 2.411255411255411
-}
-```
+
 $\Phi(-u) = 1-\Phi(u)$
 Tabelle kann nur positive Zahlen, durch Symmetrie und Gegenereignis kann der Wert für negative Ergebnisse bestimmt werden
 
@@ -121,14 +91,6 @@ $$
 P(X \leq x) = F(x) = \frac{1}{\sigma \sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{1}{2}\left(\frac{t-\mu}{\sigma}\right)^2} \, dt
 $$
 ![NegInvToX](NegInvToX.png)
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.17 - 14.05pm.drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
 
 Substitution:
 $$
@@ -168,14 +130,6 @@ Beispiel:
 Sei $X \sim N(6;2)$ 
 
 ![Mue6Sigma2](Mue6Sigma2.png)
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.17 - 14.50pm.drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
 
 $$
 P(X \leq 10.42) = F(10.42) = \Phi\left( \frac{10.42 - 6}{2} \right) = \Phi(2.21) = 0.9864
@@ -185,14 +139,7 @@ $$
 Sei $X \sim N(\mu; \sigma)$
 
 ![XToInf](XToInf.png)
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.17 - 14.57pm.drawing",
-	"width": 736,
-	"aspectRatio": 1.576017130620985
-}
-```
+
 $P(X \geq x) = 1-P(X \leq x)$
 
 Also gilt allgemein $P(X \geq x) = 1 - \Phi\left(\frac{x-\mu}{\sigma}\right)$
@@ -201,14 +148,7 @@ Also gilt allgemein $P(X \geq x) = 1 - \Phi\left(\frac{x-\mu}{\sigma}\right)$
 $X \sim N(\mu; \sigma)$
 
 ![FromAtoB](FromAtoB.png)
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.17 - 15.02pm.drawing",
-	"width": 500,
-	"aspectRatio": 1
-}
-```
+
 $$
 P(a \leq X \leq b) = P(X \leq b) - P(X \leq a)
 $$
@@ -216,14 +156,7 @@ Beispiel
 Sei $X \sim N(2; 6)$
 
 ![Mue2Sigma6](Mue2Sigma6.png)
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.4.17 - 15.05pm.drawing",
-	"width": 646,
-	"aspectRatio": 1.5528846153846154
-}
-```
+
 $$
 P(0 \leq X \leq 1) = \Phi\left(-\frac{1}{6}\right) - \Phi\left(\frac{1}{3}\right) = 0.0618
 $$
