@@ -1,4 +1,4 @@
-# 4.3 Die Gaus'sche  Normalverteilung
+# Die Gaus'sche  Normalverteilung
 Zahlreiche Zufallsvariablen in Naturwissenschaft und Technik, wie z.B. physikalisch-technische Messgrößen genügen einer stetigen Verteilung mit Dichtefunktion.
 
 Definition:
