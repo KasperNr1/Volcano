@@ -28,6 +28,16 @@ def convert_pdfs_to_images(directory, zoom=2.0):
                 pix.save(image_path)
                 print(f"Saved {image_path}")
 
-directory = filedialog.askdirectory(initialdir=os.getcwd())
-# Call the function to convert PDFs to images with a zoom factor of 2.0 (adjust as needed)
-convert_pdfs_to_images(directory, zoom=20.0)
+
+def main():
+    directory = filedialog.askdirectory(initialdir=os.getcwd())
+    if not directory:
+        print("Aborting...\nNo Folder was selected")
+        return
+    
+    # Call the function to convert PDFs to images with a zoom factor of 2.0 (adjust as needed)
+    convert_pdfs_to_images(directory, zoom=20.0)
+    
+
+if __name__ == "__main__":
+    main()
