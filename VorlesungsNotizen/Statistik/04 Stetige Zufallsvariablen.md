@@ -100,7 +100,7 @@ Sei $X$ eine stetige Zufallsvariable mit Dichtefunktion $f$
    $E(X) = \int_{-\infty}^{+\infty} x*f(x) \, dx$
 2. Varianz $Var(X) = \sigma ^2$ 
    $\sigma = \int_{-\infty}^{+\infty} \left( x - \mu \right)^2 * f(x) \, dx$
-3. Standardabweichung $\mu$
+3. Standardabweichung $\sigma$
    $\mu = \sqrt{Var(x)}$
 
 ## Beispiel 1
@@ -150,10 +150,15 @@ $$
 Sei $X$ eine Zufallsvariable mit Dichtefunktion $f$ und $Z=g(X)$ eine von $X$ abhängige Funktion. Dann definiert man:
 1. Falls $X$ diskret ist
    $E(Z) = E(g(X)) = \sum_{i}g(x_i * f(x_i))$ 
-   $Var(Z) = \sum_{i}(g(x_i - \mu)^2 * f(x_i)$
+   $Var(Z) = \sum_{i}(g(x_i) - \mu)^2 * f(x_i)$
 2. Falls $X$ eine stetige ZV ist:
    $E(Z) = \int_{-\infty}^{\infty}g(x) * f(x) \, dx$ 
    $Var(Z) = \int_{-\infty}^{\infty}(g(x)-\mu)^2 * f(x) \, dx$
+
+In beiden Fällen kann die Varianz auch über das zweite Moment berechnet werden. 
+$$
+\sigma^2 = \underbrace{\int_{-\infty}^{\infty} \left( x - \mu \right)^2 \cdot f(x) \, dx}_{\text{Normale Berechnung Varianz}} = \underbrace{E(X^2) - [E(X)]^2}_{\text{Zweites Moment und Erwartung}}
+$$
 
 ## Beispiele
 ### Diskret

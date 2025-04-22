@@ -1,4 +1,4 @@
-# Die Gaus'sche  Normalverteilung
+# Die Gauß'sche  Normalverteilung
 Zahlreiche Zufallsvariablen in Naturwissenschaft und Technik, wie z.B. physikalisch-technische Messgrößen genügen einer stetigen Verteilung mit Dichtefunktion.
 
 Definition:
@@ -50,8 +50,6 @@ $$
 $$
 
 ![StandardNormal](StandardNormal.png)
-
-Fläche = 1 (In Skizze)
 
 Verteilungsfunktion:
 $$
