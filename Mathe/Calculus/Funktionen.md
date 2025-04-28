@@ -2,8 +2,28 @@
 Eine Funktion ist eine Zuordnung aller Zahlen aus der Definitionsmenge $D$ zu genau einer Zahl aus der Wertemenge $W$.
 Def- und Wertemenge lassen sich als [Intervalle](Intervalle%20und%20Mengen.md) schreiben, wie $D_f=[0; \infty)$ 
 
+## Darstellung
+Funktionen können explizit oder implizit dargestellt werden. 
+Ersteres ist eine Vorschrift die beschreibt, wie aus den Eingabewerten der Ausgabewert berechnet werden kann.
+Man schreibt 
+$$f(x)$$
+Beispiel:
+$$
+f(x) = 2x+1
+$$
+
+Bei Impliziten Funktionen wird auf eine direkte Zuordnung von Ein- und Ausgabewerten verzichtet. Es wird eine Bedingung beschrieben, die von verschiedenen Kombinationen aus Koordinaten erfüllt sein kann.
+$$F(x,y) = 0$$
+Beispiel:
+$$F(x,y) = x^2+y^2-1=0$$
+Nicht alle Funktionen können in beiden Formen dargestellt werden. Diese implizite Funktion beschreibt den Einheitskreis. Da sich mehrere Punkte des Graphen übereinander befinden kann die Funktion nicht explizit beschrieben werden.
+
 # Grenzwert
 Der Grenzwert einer Zahl ist die Zahl, der die Funktionswerte beliebig nahe kommen, wenn $x$ sich in eine gewisse Richtung verändert.
+Eine Funktion hat an der Stelle $x_0$ den Grenzwert $g$ wenn gilt:
+$$\lim_{x\to x_0}f(x)=\lim_{y\to x_0}f(y)=g$$
+mit $x>x_0$ und $y<x_0$.
+
 
 ## Schreibweise
 $$

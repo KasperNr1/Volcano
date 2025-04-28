@@ -49,14 +49,12 @@ $$
 $$
 \begin{array}{c|c|c}
 x & 0 & 1 \\\hline
-f_(x) & \frac{3}{5} & \frac{2}{5}
+f_1(x) & \frac{3}{5} & \frac{2}{5}
 \end{array}
-
 \qquad
-
 \begin{array}{c|c|c}
 y & 0 & 1 \\\hline
-f_(x) & \frac{3}{5} & \frac{2}{5}
+f_2(y) & \frac{3}{5} & \frac{2}{5}
 \end{array}
 $$
 $$
@@ -93,19 +91,23 @@ X \setminus Y & 0 \quad 1
 \\
 \end{array}
 $$
+Die Wahrscheinlichkeit $F(x,y)$ ist für jeden Wert gleich dem Produkt $f_1(x) \cdot f_2(y)$
 
+Die Werte sind somit stochastisch unabhängig.
 # Summe und Produkte von Zufallsvariablen
 Satz:
 Seien $X_1; \dots; X_n, Z$ Zufallsvariablen mit $Z=X_1 + \dots + X_n$ 
 Dann gilt:
 $E(Z) = E(X_1 + \dots + X_n) = E(X_1) + \dots + E(X_n)$
 
-Bemerkung
-$X$ und $Y$ sind Zufallsvariablen, dann ist auch $X*Y$ eine Zufallsvariable. $X*Y(\omega) = X(\omega)*Y(\omega)$
-Allgemein gilt der Zusammenhang für die Erwartungswerte nicht
-$$
-E(X*Y) \neq E(X) * E(Y)
-$$
+
+> [!NOTE] Bemerkung
+> 
+> $X$ und $Y$ sind Zufallsvariablen, dann ist auch $X*Y$ eine Zufallsvariable. $X*Y(\omega) = X(\omega)*Y(\omega)$
+> Allgemein gilt der Zusammenhang für die Erwartungswerte nicht
+> $$
+> E(X*Y) \neq E(X) * E(Y)
+> $$
 
 Satz:
 Seien $X_1; \dots, X_n$ stochastisch unabhängige Zufallsvariablen
@@ -114,26 +116,60 @@ $$
 E(Z) = E(X_1 * \dots * X_n) = E(X_1) * \dots * E(X_n)
 $$
 
-Bemerkung
-Für die Varianz $\sigma ^2$ einer Summe $Z=X+Y$ lässt sich die allgemeine Beziehung
-$$
-\sigma_z^2=\sigma_x^2+\sigma_y^2+2\sigma_{xy}
-$$
-Wobei $\sigma_x^2 = Var(X)$ und $\sigma_y^2 = Var(Y)$
-Die Größe $\sigma_{xy}$ wird als Kovarianz der Zufallsvariablen $X$ und $Y$ bezeichnet und ist definiert durch 
-$$\sigma_{xy} = E(X*Y) - E(X)*E(Y)$$
 
-Sind $X$ und $Y$ stochastisch unabhängig, so gilt:
-$$
-E(X*Y) = E(X)*E(Y)
-$$
-und somit
-$$
-\sigma_{xy} = 0
-$$
+> [!NOTE] Bemerkung
+> Für die Varianz $\sigma ^2$ einer Summe $Z=X+Y$ lässt sich die allgemeine Beziehung
+> $$
+> \sigma_z^2=\sigma_x^2+\sigma_y^2+2\sigma_{xy}
+> $$
+> Wobei $\sigma_x^2 = Var(X)$ und $\sigma_y^2 = Var(Y)$
+> Die Größe $\sigma_{xy}$ wird als Kovarianz der Zufallsvariablen $X$ und $Y$ bezeichnet und ist definiert durch 
+> $$\sigma_{xy} = E(X*Y) - E(X)*E(Y)$$
+> Sind $X$ und $Y$ stochastisch unabhängig, so gilt:
+> $$
+> E(X*Y) = E(X)*E(Y)
+> $$
+> und somit
+> $$
+> \sigma_{xy} = 0
+> $$
 
 Satz:
 Seien $X_1, \dots, X_n$ stochastisch unabhängige Zufallsvariablen und $Z=X_1 + \dots + X_n$ dann gilt:
 $$
 Var(Z) = Var(X_1 + \dots + X_n) = Var(X_1) + \dots + Var(X_n)
 $$
+
+# Zentraler Grenzwertsatz
+Satz
+Seien $X_1, X_2, \dots, X_n$ stochastisch unabhängige Zufallsvariablen die alle normalverteilt sind mit $E(X_i)=\mu_i$ und $Var(X_i) = {\sigma_i}^2$. Dann ist die Summe $Z=X_1 + X_2 + \dots + X_n$ ebenfalls normalverteilt mit $E(Z) = \mu_1 + \mu_2 + \dots + \mu_n$ und $Var(Z) = {\sigma_1}^2 + {\sigma_2}^2 +\dots + {\sigma_n}^2$  
+
+Satz (Zentraler Grenzwertsatz)
+Seien $X_1, \dots, X_n$ stochastisch unabhängige Zufallsvariablen die alle der gleichen Verteilungsfunktion mit den Erwartungswerten $\mu$ und der Varianz $\sigma^2$ genügen.
+$$
+Z_n = X_1 + \dots + X_n
+$$
+$$
+U_n = \dfrac{X_1 + \dots + X_n - n \cdot \mu}{\sqrt{n} \cdot \sigma}
+$$
+Dann konvergiert die Verteilungsfunktion $F_n(U)$ der Zufallsvariablen $U_n$ gegen die Verteilungsfunktion $\Phi(U)$ der Standardnormalverteilung.
+
+$$
+F_n(U) 
+\overset{n \to \infty} \longrightarrow
+\Phi(u) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u}e^{-\frac{1}{2}t^2} \, dt
+$$
+Summen von unabhängigen identisch verteilten Zufallsvariablen sind näherungsweise normalverteilt.
+
+Für die Approximation der Binomialverteilung ergibt sich folgender Sonderfall:
+Erinnerung
+$$
+X_1, \dots, X_n \sim Ber(p)
+$$
+$$
+\Rightarrow X_1 + \dots + X_n \sim Bin(n,p)
+$$
+
+## Grenzwert von Moivre-Laplace
+Sei $X \sim Bin(n,p)$.
+Dann konvergiert die Verteilungsfunktion $F_n(u)$ der standardisierten Zufallsvariablen $U=\dfrac{x - \mu}{\sigma} = \dfrac{x - n \cdot p}{\sqrt{n \cdot p (1-p)}}$ für $n \to \infty$ gegen die Verteilungsfunktion $\Phi$  der Standardnormalverteilung
