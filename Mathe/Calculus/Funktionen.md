@@ -24,12 +24,14 @@ Eine Funktion hat an der Stelle $x_0$ den Grenzwert $g$ wenn gilt:
 $$\lim_{x\to x_0}f(x)=\lim_{y\to x_0}f(y)=g$$
 mit $x>x_0$ und $y<x_0$.
 
-
 ## Schreibweise
 $$
 \lim_{n \to \infty}(f(x))=g
 \lim_{n \to 0}(2n+1)=1
 $$
+
+# Stetig
+Eine Funktion ist dann stetig, wenn der [Grenzwert](#Grenzwert) in jedem Punkt der [Definitionsmenge](Intervalle%20und%20Mengen.md) mit dem Funktionswert übereinstimmt.
 
 # Lineare Funktionen
 Sind Funktionen der Form $f(x)=mx+b$ 
@@ -78,7 +80,7 @@ Definiert über $\mathbb{R}$ mit Ausnahme aller Nullstellen der Nennerfunktion
 ### Hebbare Definitionslücken
 In Beispiel 3. mit $f(x)=\dfrac{x^2-1}{x-1}$ ist $x=1$ eine hebbare Definitionslücke. Da der Zähler aus dem Term rausgekürzt werden kann, ohne den Rest der Funktion zu beeinflussen.
 Wenn man dies tut erhält man $F(x)=x+1$
-Diese neue Funktion ist die stetige Fortsetzung von $f(x)$ da die Definitionslücke nicht mehr existiert und die Funktionen sonst identisch sind.
+Diese neue Funktion ist die [stetige](#Stetig) Fortsetzung von $f(x)$ da die Definitionslücke nicht mehr existiert und die Funktionen sonst identisch sind.
 $x_0$ ist genau dann eine hebbare Lücke, wenn $Z(x_0)=N(x_0)=0$ gilt.
 Falls sich die Vielfachheit der Nullstelle in $Z$ und $N$ unterscheidet, ist sie nicht hebbar.
 
