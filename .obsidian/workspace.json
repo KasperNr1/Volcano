@@ -4,58 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a1f727cbe545c04c",
+        "id": "52d8b0c7a7d40d89",
         "type": "tabs",
-        "dimension": 53.94456289978679,
         "children": [
           {
-            "id": "42a35f7e6aa04455",
+            "id": "ac1430a7ada0fe73",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Welcome.md",
+                "file": "Mathe/Calculus/Funktionen von Mehreren Variablen.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Welcome"
-            }
-          },
-          {
-            "id": "6867d681cfeecb81",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Mathe/Mengen/Intervalle und Mengen.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Intervalle und Mengen"
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "c5d3815dcdceae2f",
-        "type": "tabs",
-        "dimension": 46.05543710021322,
-        "children": [
-          {
-            "id": "463105385e33708b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Mathe/Mengen/Intervalle und Mengen.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Intervalle und Mengen"
+              "title": "Funktionen von Mehreren Variablen"
             }
           }
         ]
@@ -90,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#Mengen",
+                "query": "mehreren Varia",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -115,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "00299162aa7886f9",
@@ -131,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Mathe/Mengen/Intervalle und Mengen.md",
+                "file": "Theo/Berechenbarkeit/Big O.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Intervalle und Mengen"
+              "title": "Backlinks for Big O"
             }
           },
           {
@@ -150,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Mathe/Mengen/Intervalle und Mengen.md",
+                "file": "Theo/Berechenbarkeit/Big O.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Intervalle und Mengen"
+              "title": "Outgoing links from Big O"
             }
           },
           {
@@ -179,20 +142,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mathe/Mengen/Intervalle und Mengen.md",
+                "file": "Mathe/Calculus/Funktionen von Mehreren Variablen.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Intervalle und Mengen"
+              "title": "Outline of Funktionen von Mehreren Variablen"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -205,19 +169,53 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6867d681cfeecb81",
+  "active": "ac1430a7ada0fe73",
   "lastOpenFiles": [
-    "Mathe/Mengen/attachments/sets.png",
-    "Mathe/Mengen/attachments",
-    "Mathe/Mengen/Neuer Ordner",
-    "Welcome.md",
-    "Mathe/Mengen/Intervalle und Mengen.md",
-    "Programmieren/Paralleles Programmieren.md",
+    "VorlesungsNotizen/Betriebssysteme/04.md",
+    "VorlesungsNotizen/Betriebssysteme/03 Prozessmanagement.md",
+    "VorlesungsNotizen/Architektur/06.md",
+    "Mathe/Calculus/attachments/PartielleAbleitung.png",
     "Mathe/Calculus/Funktionen von Mehreren Variablen.md",
-    "Mathe/Mengen/Intervalle und Mengen.tex",
-    "Mathe/Mengen",
-    "Mathe/Calculus",
-    "Mathe",
-    "Programmieren"
+    "VorlesungsNotizen/Statistik/04 Stetige Zufallsvariablen.md",
+    "VorlesungsNotizen/Compilerbau/02 Scanner.md",
+    "VorlesungsNotizen/Netztechnik/04 Network Layer.md",
+    "Theo/Hashing.md",
+    "Programmieren/Paralleles Programmieren.md",
+    "VorlesungsNotizen/Statistik/08 Stochastisch unabhängige Zufallsvariablen.md",
+    "VorlesungsNotizen/Statistik/attachments/TwoDBellcurve.png",
+    "VorlesungsNotizen/Statistik/TexGraphics/TwoDBellcurve.tex",
+    "VorlesungsNotizen/Statistik/07 Mehrdimensionale Verteilungen.md",
+    "VorlesungsNotizen/Netztechnik/05 Transport Layer.md",
+    "VorlesungsNotizen/Compilerbau/07 ANTL 2.md",
+    "VorlesungsNotizen/Compilerbau/06 Codegenerierung.md",
+    "VorlesungsNotizen/Betriebssysteme/03.md",
+    "VorlesungsNotizen/Architektur/attachments/EinVsMehrzyklen.png",
+    "VorlesungsNotizen/Architektur/05.md",
+    "Mathe/Calculus/attachments/Höhenlinien.png",
+    "VorlesungsNotizen/Statistik/attachments/ExponentialDichte.png",
+    "VorlesungsNotizen/Statistik/attachments/ExponentialVerteilung.png",
+    "VorlesungsNotizen/Statistik/attachments/Verteilung2.png",
+    "VorlesungsNotizen/Statistik/TexGraphics/Verteilung2.png",
+    "VorlesungsNotizen/Statistik/TexGraphics/ExponentialVerteilung.png",
+    "VorlesungsNotizen/Statistik/TexGraphics/ExponentialVerteilung.pdf",
+    "VorlesungsNotizen/Statistik/TexGraphics/ExponentialVerteilung.aux",
+    "VorlesungsNotizen/Statistik/TexGraphics/ExponentialVerteilung.log",
+    "VorlesungsNotizen/Statistik/TexGraphics/ExponentialVerteilung.tex",
+    "VorlesungsNotizen/Statistik/TexGraphics/ExponentialDichte copy.tex",
+    "VorlesungsNotizen/Statistik/TexGraphics/ExponentialDichte.tex",
+    "VorlesungsNotizen/Statistik/TexGraphics/Verteilung2.pdf",
+    "VorlesungsNotizen/Statistik/TexGraphics/Verteilung2.aux",
+    "VorlesungsNotizen/Statistik/TexGraphics/Verteilung2.log",
+    "Theo/Berechenbarkeit/Big O.md",
+    "Theo/Berechenbarkeit/Komplexität.md",
+    "Theo/Formale Sprachen/Sprachen.md",
+    "Theo/Formale Sprachen/Parser.md",
+    "README.md",
+    "Theo/Algorithmen/Sortieralgorithmen.md",
+    "Theo/Algorithmen/Kompressionsalgorithmen.md",
+    "Mathe/Diskrete Mathematik/Modulare Arithmetik.md",
+    "Programmieren/Prozessverwaltung.md",
+    "Theo/Algorithmen/Suchalgorithmen.md",
+    "Programmieren/attachments/Datentrennung.jpg"
   ]
 }
