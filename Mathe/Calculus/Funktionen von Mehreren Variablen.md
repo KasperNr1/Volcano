@@ -37,12 +37,23 @@ $$
 
 Entlang der $x$-Achse $y=0$ 
 für $x\neq 0$ ist $f(x,0) = \dfrac{0}{x^2} = 0$
-Auf der Hauptdiagonalen $y=x$ hat die Funktion den Wert
+Auf der Hauptdiagonalen $y=x$ (mit $y=x\neq0$ ) hat die Funktion den Wert $2$
+Somit ist auch dieser Wert Abhängig von der Annäherungsrichtung und die Funktion als ganzes nicht stetig.
 
+# Partielles Differenzieren
+![](PartielleAbleitung.png)
 
+Die [Ableitung](Differentialrechnung.md#Ableitung) bestimmt die Steigung einer Funktion in einem Punkt. 
+Am Schaubild wird ersichtlich, dass die Steigung einer Mehrdimensionalen Funktion ebenfalls von der Richtung der Betrachtung abhängt. Man bestimmt sog. partielle Ableitungen für jeden Eingabeparameter.
+Dabei wird ein Parameter als variabel angesehen, während alle anderen als Konstanten behandelt werden. 
 
-
-
-
-
-
+$$
+f(x,y) = -4x^3 y^2 + 3xy^4 -3x + 2y + 5
+$$
+Die Partiellen Ableitungen nach $x$ und $y$ werden als $f_x$ und $f_y$ beschriftet.
+$$
+\begin{array}{cl}
+f_x(x,y) &= -12x^2 y^2 +3y^4 -3 \\
+f_y(x,y) &= -8x^3y +12xy^3 +2 \\
+\end{array}
+$$
