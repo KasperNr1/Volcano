@@ -62,7 +62,25 @@ Bei $123890_{10}$ ist es $876109_{10}$ da die beiden Zahlen jeweils $111111_2$ o
 ## 2er Komplement
 Bestimmt wird das 2er Komplement indem erst das [1er-Komplement](#1er-Komplement) gebildet wird. Zu diesem wird zusätzlich $1$ addiert.
 Bei Verwendung der [Codierung für negative Zahlen im Binärsystem](Rechenwerk.md#Negative%20Zahlen%20im%20Binärsystem) ist das 2er Komplement einer Zahl ihr additives Invers.
-Somit kann die [Differenz zweier Zahlen durch Addition gebildet](Rechenwerk.md#Beispielrechnung) werden
+Somit kann die [Differenz zweier Zahlen durch Addition gebildet](Rechenwerk.md#Beispielrechnung) werden.
+
+Das Bilden des 2er Komplements ist eine [Involution](https://de.wikipedia.org/wiki/Involution_(Mathematik).
+Die Operation ist also ihr eigenes Invers.
+
+$$
+\begin{array}{rl}
+74 & 0100.1010 \\
+& 1011.0101_{1K} \\
+\hline
+-74 & 1011.0110_{2K} \\
+\\
+-74 & 1011.0110 \\
+& 0100.1001_{1K} \\
+\hline
+74 & 0100.1010_{2K} \\
+\end{array}
+$$
+
 # Parity
 Die Verwendung eines Parity Bits ist eine simple Form der [Fehlererkennung](Codes.md#Fehlererkennung) in Codes.
 Dabei wird dem Datenwort ein Parity Bit $P$ hinzugefügt, das vom Wort selbst abhängt. Sein Wert ist so gewählt, dass die Anzahl aller $1$ oder $0$ Bits inklusive des Parity Bits gerade oder ungerade ist. Beide können beliebig verwendet werden, vor Beginn der Kommunikation muss darüber abgestimmt worden sein.

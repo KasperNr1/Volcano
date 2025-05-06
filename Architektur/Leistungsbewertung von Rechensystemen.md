@@ -109,7 +109,7 @@ In den Letzten Reihen werden jeweils die Mittelwerte der Verhältnisse berechnet
 
 Vorteil der Verwendung des geometrischen Mittels ist die Unabhängigkeit von der Referenzmaschine. Besonders beim Arithmetischen Mittel dieser Größen ist das nicht der Fall.
 Allerdings kann aus diesen Ergebnissen keine tatsächliche Vorhersage zur Laufzeit gemacht werden. Ebenfalls haben Verbesserungen einen Effekt auf das Gesamtergebnis das proportional zur Größe des Problems.
-Eine Verbesserung von $1s \to 2s$  würde gleich bewertet wie $1000s \to 500s$.
+Eine Verbesserung von $2s \to 1s$  würde gleich bewertet wie $1000s \to 500s$.
 
 # CPU Leistungsgleichung
 Rechner arbeiten mit einer Konstanten Taktrate. 
