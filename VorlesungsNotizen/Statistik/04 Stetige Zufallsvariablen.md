@@ -190,7 +190,7 @@ $$
 
 
 > [!NOTE] TODO
-> Partielle Integration nachrechnen / üben
+> [Integrieren von Produkten](Komplexe%20Integrale.md#Integrieren%20von%20Produkten) nachrechnen / üben
 
 # Satz
 Sei $X$ eine ZV; $Z = aX + b$ dann gilt:

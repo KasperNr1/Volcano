@@ -4,24 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "52d8b0c7a7d40d89",
+        "id": "6e39eb3a4c11f76d",
         "type": "tabs",
         "children": [
           {
-            "id": "ac1430a7ada0fe73",
+            "id": "e05fe90d35b5673b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mathe/Calculus/Funktionen von Mehreren Variablen.md",
+                "file": "VorlesungsNotizen/Statistik/04 Stetige Zufallsvariablen.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Funktionen von Mehreren Variablen"
+              "title": "04 Stetige Zufallsvariablen"
+            }
+          },
+          {
+            "id": "38e82832990caac5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "VorlesungsNotizen/Statistik/09 Statistik.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "09 Statistik"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -53,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "mehreren Varia",
+                "query": "Binomial",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +89,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -142,13 +158,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mathe/Calculus/Funktionen von Mehreren Variablen.md",
+                "file": "VorlesungsNotizen/Statistik/09 Statistik.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Funktionen von Mehreren Variablen"
+              "title": "Outline of 09 Statistik"
             }
           }
         ],
@@ -156,11 +172,11 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
+      "webpage-html-export:Export Vault to HTML": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -169,28 +185,38 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ac1430a7ada0fe73",
+  "active": "38e82832990caac5",
   "lastOpenFiles": [
-    "VorlesungsNotizen/Betriebssysteme/04.md",
-    "VorlesungsNotizen/Betriebssysteme/03 Prozessmanagement.md",
-    "VorlesungsNotizen/Architektur/06.md",
-    "Mathe/Calculus/attachments/PartielleAbleitung.png",
-    "Mathe/Calculus/Funktionen von Mehreren Variablen.md",
+    "VorlesungsNotizen/Statistik/05 Spezielle Verteilungen.md",
+    "VorlesungsNotizen/Statistik/09 Statistik.md",
+    "VorlesungsNotizen/Statistik/08 Stochastisch unabhängige Zufallsvariablen.md",
     "VorlesungsNotizen/Statistik/04 Stetige Zufallsvariablen.md",
+    "VorlesungsNotizen/Statistik/06 Normalverteilung.md",
+    "Programmieren/Paraprog-Basics.md",
+    "Programmieren/Parallelisierung in Java.md",
+    "VorlesungsNotizen/Betriebssysteme/05 Synchronisation von Threads.md",
+    "TurboTech.md",
+    "README.md",
+    "VorlesungsNotizen/Betriebssysteme/04 Threads.md",
+    "VorlesungsNotizen/Architektur/04 Systemnahe Programmierung.md",
+    "VorlesungsNotizen/Architektur/01 Einführung.md",
+    "VorlesungsNotizen/Netztechnik/06.md",
+    "Digitaltechnik/Basics/DigitaltechnischeBegriffe.md",
+    "VorlesungsNotizen/Architektur/05 Pipelining.md",
+    "VorlesungsNotizen/Architektur/06.md",
+    "VorlesungsNotizen/Architektur/07 Speicher.md",
+    "Code Review.md",
+    "Mathe/Calculus/Funktionen von Mehreren Variablen.md",
+    "VorlesungsNotizen/Betriebssysteme/03 Prozessmanagement.md",
+    "Mathe/Calculus/attachments/PartielleAbleitung.png",
     "VorlesungsNotizen/Compilerbau/02 Scanner.md",
     "VorlesungsNotizen/Netztechnik/04 Network Layer.md",
     "Theo/Hashing.md",
     "Programmieren/Paralleles Programmieren.md",
-    "VorlesungsNotizen/Statistik/08 Stochastisch unabhängige Zufallsvariablen.md",
     "VorlesungsNotizen/Statistik/attachments/TwoDBellcurve.png",
     "VorlesungsNotizen/Statistik/TexGraphics/TwoDBellcurve.tex",
     "VorlesungsNotizen/Statistik/07 Mehrdimensionale Verteilungen.md",
-    "VorlesungsNotizen/Netztechnik/05 Transport Layer.md",
-    "VorlesungsNotizen/Compilerbau/07 ANTL 2.md",
-    "VorlesungsNotizen/Compilerbau/06 Codegenerierung.md",
-    "VorlesungsNotizen/Betriebssysteme/03.md",
     "VorlesungsNotizen/Architektur/attachments/EinVsMehrzyklen.png",
-    "VorlesungsNotizen/Architektur/05.md",
     "Mathe/Calculus/attachments/Höhenlinien.png",
     "VorlesungsNotizen/Statistik/attachments/ExponentialDichte.png",
     "VorlesungsNotizen/Statistik/attachments/ExponentialVerteilung.png",
@@ -206,16 +232,6 @@
     "VorlesungsNotizen/Statistik/TexGraphics/Verteilung2.pdf",
     "VorlesungsNotizen/Statistik/TexGraphics/Verteilung2.aux",
     "VorlesungsNotizen/Statistik/TexGraphics/Verteilung2.log",
-    "Theo/Berechenbarkeit/Big O.md",
-    "Theo/Berechenbarkeit/Komplexität.md",
-    "Theo/Formale Sprachen/Sprachen.md",
-    "Theo/Formale Sprachen/Parser.md",
-    "README.md",
-    "Theo/Algorithmen/Sortieralgorithmen.md",
-    "Theo/Algorithmen/Kompressionsalgorithmen.md",
-    "Mathe/Diskrete Mathematik/Modulare Arithmetik.md",
-    "Programmieren/Prozessverwaltung.md",
-    "Theo/Algorithmen/Suchalgorithmen.md",
     "Programmieren/attachments/Datentrennung.jpg"
   ]
 }
