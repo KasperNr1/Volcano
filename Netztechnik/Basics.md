@@ -49,6 +49,9 @@ Es gibt verschiedene Protokolle zur Behandlung von Kollisionen.
 ## Kollisionsdomäne
 Beschreibt den Teil eines [Netzwerks](#Netzwerk) in dem mehrere Geräte ein gemeinsames Medium verwenden.
 Durch den Einsatz von [Hubs](ISO-OSI%20Referenzmodell.md#Hubs) werden sie vergrößert.
+Jedes physische Netz ist eine Kollisionsdomäne. [Bridges](ISO-OSI%20Referenzmodell.md#Bridge) oder Switches unterteilen die Kollisionsdomäne. Idealerweise ist jedes Gerät an einen eigenen Port eines Switches angebunden. In diesem Fall spricht man von einem vollständig geswitchten Netzwerk.
+
+![](Kollisionsdomäne.png)
 
 # Netzwerk
 Ein Netzwerk ist eine Gruppe von (Computer-)Systemen die über Kommunikationsleitungen verbunden sind und gemeinsame Ressourcen und Informationen nutzen.
@@ -65,6 +68,9 @@ Es umfasst sowohl die physische Einrichtung als auch die entsprechenden Vermittl
 - GAN
   Global (Internet)
 
+## VLAN
+Virtuelles LAN ist eine Trennung eines physischen Netzes durch VLAN fähige [Switches](ISO-OSI%20Referenzmodell.md#Switches) anhand von Ports oder anderen Merkmalen.
+Datenpakete werden nur in dem VLAN versandt aus dem sie geschickt wurden.
 # Netzwerktopologien
 Beschreiben verschiedene Varianten Rechner in einem System mit einander zu verbinden. Bei der Entscheidung sind verschiedene Eigenschaften der unterschiedlichen Optionen zu beachten. Beispielsweise die Erweiterbarkeit des Systems oder das Verhalten bei Ausfällen eines Einzelnen relevant.
 Übertragungsgeschwindigkeit und tatsächliche physische Anschlussmöglichkeiten spielen ebenfalls eine Rolle.
@@ -274,8 +280,10 @@ Breiterer optisch leitender Kern überträgt viele Wellenlängen gleichzeitig.
 
 ![](MultiMode.png)
 
-Durch die unterschiedlichen Wellenlängen werden die Lichtstrahlen in unterschiedlichen Winkeln reflektiert. Das anfangs punktuelle Signal kann so nach längerer Strecke ausgedehnt werden und sich besonders bei kurzen Pulsen mit dem nachfolgenden Puls überlagern. Man spricht von Dispersion
+Diese Art Kabel wird zur Verbindung von Gebäuden oder Rechenzentren verwendet.
+
+#### Dispersion
+Durch die unterschiedlichen Wellenlängen werden die Lichtstrahlen in unterschiedlichen Winkeln reflektiert. Das anfangs punktuelle Signal kann so nach längerer Strecke ausgedehnt werden und sich besonders bei kurzen Pulsen mit dem nachfolgenden Puls überlagern.
 
 ![](Dispersion.png)
 
-Diese Art Kabel wird zur Verbindung von Gebäuden oder Rechenzentren verwendet.

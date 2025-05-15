@@ -66,10 +66,10 @@ $P(A_1 \cap A_2 \cap A_3) = 5,56 \%$
 ### Einführungsbeispiel
 In einem Werk werden auf $4$ Maschinen Glühbirnen hergestellt.
 
-| Maschine                   | $M_1$ | $M_2$ | $M_3$ | $M_4$ |
-| -------------------------- | ----- | ----- | ----- | ----- |
-| Anteil an Gesamtproduktion | $10$  | $20$  | $30$  | $40$  |
-| Ausschussanteil            | $2$   | $1$   | $4$   | $2$   |
+| Maschine                   |  $M_1$  |  $M_2$  |  $M_3$  |  $M_4$  |
+| -------------------------- | ------- | ------- | ------- | ------- |
+| Anteil an Gesamtproduktion | $0.10$  | $0.20$  | $0.30$  | $0.40$  |
+| Ausschussanteil            | $0.02$  | $0.01$  | $0.04$  | $0.02$  |
 
 Aus der Gesamtproduktion wird zufällig eine Glühbirne entnommen.
 1. Mit welcher Wahrscheinlichkeit ist die Glühbirne defekt?

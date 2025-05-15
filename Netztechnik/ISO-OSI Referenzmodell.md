@@ -190,6 +190,7 @@ Hilfreich bei Verwendung von mehr als 2 Signalpegeln. Die Binärdaten werden dur
 
 
 ## 2 Sicherungsschicht
+### Aufgaben
 Gliederung des Bitstroms in Rahmen (Frames)
 Zugriffskontrolle
 Adressierung (Eindeutige Hardwarekennung - MAC Adresse)
@@ -197,10 +198,33 @@ Flusssteuerung zur Vermeidung von Überlastung
 Puffern auf Sender und Empfängerseite
 Erkennung und Behebung von Fehlern in Bitübertragung
 
+### Geräte
+#### Bridge
+Leiten Frames zwischen physischen Netzen weiter. Wenn mehr als 2 Schnittstellen vorhanden sind spricht man von "Layer-2-Switch" oder "Multiport-Bridge"
+
+![](Multiport-Bridge.png)
+
+Die gesendeten Frames werden anhand ihrer Prüfsummen verifiziert und sonst nicht weiter gelesen / verstanden.
+
+#### WLAN-Bridge
+WLAN zu LAN Adapter
+![](WlanBridge.png)
+
+#### Transparente Bridges
+![](TransparentSwitch.png)
+Es ist nicht sinnvoll alle Frames die an der Bridge ankommen weiterzuleiten. Beispielsweise Nachrichten von A nach B sind auf der selben Seite.
+
+##### Kreise
+Wenn Teile des Netzes einen [Ring](Basics.md#Linie%20/%20Ring) darstellen können Frames eventuell endlos im Kreis geleitet werden. Dies passiert, wenn die Bridges nicht wissen welche Geräte an welchem Port liegen und im Ethernet keine Time To Live oder Bestätigung vorsieht.
+Das Spanning Tree Protokoll löst die Problematik. Das Netzwerk wird hierbei zu einem [Spannbaum](Bäume.md#Spannbäume) geformt um die Kreise zu eliminieren.
+
 ## 3 Vermittlungsschicht
 Wegewahl für Ende-zu-Ende Kommunikation
 Hierarchische Adressierung
 Multiplexen
+
+### Geräte
+#### Switches
 
 ## 4 Transportschicht
 Übertragen von Daten zwischen Anwendungen
