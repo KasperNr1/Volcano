@@ -31,3 +31,11 @@ Zwischenergebnisse können gespeichert werden
 
 # Vor/Nachteile Registertypen
 Foliensatz 2 Seite ~17
+
+# Speicher-Alignment
+Ein Datum mit einer Größe von $S$ Bytes ist an der Adresse $A$ genau dann aligned, wenn 
+$$
+A = 0 \mod S
+$$
+
+Foliensatz 2 Seite 31

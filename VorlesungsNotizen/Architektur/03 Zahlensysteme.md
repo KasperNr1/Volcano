@@ -29,7 +29,11 @@ Beim Umwandeln einer 16 zu 32 Bit Zahl wird das Vorzeichen der kurzen Zahl auf a
 
 Kompromiss zwischen Größe des Exponenten (Range) und der Mantisse (Präzision). Over- und Underflow sind problematisch. (Exponent hat auch Vorzeichen)
 
-Bei IEEE 754 wird zur besseren Sortierbarkeit der Exponent nicht im 2K dargestellt,  es wird um +127 verschoben
+Bei IEEE 754 wird zur besseren Sortierbarkeit der Exponent nicht im 2K dargestellt,  es wird um +127 verschoben (1023 bei 64 Bit)
+
+$$
+Z_D=(-1)^S \cdot (1+\text{Mantisse}) \cdot 2^{\text{Exponent} - \text{Verschiebekonstante}}
+$$
 
 Ausnahmen (Seite 26 Foliensatz 3)
 Exponent nur 1er -> Scam, NaN
