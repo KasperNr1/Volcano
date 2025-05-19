@@ -74,15 +74,7 @@ Bestimmen der kritischen Grenze $c_k, c_0$:
 Nach der Wahl der Irrtumswahrscheinlichkeit lässt sich nun eine Konstante $c$ (kritischer Wert) so bestimmen, dass die Testgröße bei richtiger Nullhypothese mit der statistischen Sicherheit $\boxed{\gamma = 1-\alpha}$ in das symmetrische Intervall fällt.
 
 
-
-```handdrawn-ink
-{
-	"versionAtEmbed": "0.3.4",
-	"filepath": "VorlesungsNotizen/Statistik/attachments/Ink/Drawing/2025.5.19 - 15.06pm.drawing",
-	"width": 804,
-	"aspectRatio": 1.3743589743589744
-}
-```
+![[HypoTest.png]]
 
 $$
 \begin{array}{l}
