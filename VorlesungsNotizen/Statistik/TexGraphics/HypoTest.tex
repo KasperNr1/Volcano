@@ -1,0 +1,51 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\newcommand{\mue}{0}
+\newcommand{\sta}{1}
+\newcommand{\lowX}{-3}
+\newcommand{\lowY}{-0.05}
+\newcommand{\hiX}{3}
+\newcommand{\hiY}{0.6}
+
+\begin{document}
+    \begin{tikzpicture}[yscale=2]
+           
+        % Draw and shade the area under the bell curve from x=1 to x=2
+        \begin{scope}
+            % Left Edge
+            \fill[blue!20] 
+            (\lowX,0) -- plot[domain=\lowX:-1,smooth] (\x,{1/(\sta*sqrt(2*pi))*exp(-1/2*((\x-\mue)/\sta)^2)}) -- (-1,0) -- cycle;
+            % Right Edge
+            \fill[blue!20] 
+            (1,0) -- plot[domain=1:\hiX,smooth] (\x,{1/(\sta*sqrt(2*pi))*exp(-1/2*((\x-\mue)/\sta)^2)}) -- (\hiX,0) -- cycle;
+            % Center
+            \fill[pink!60] 
+            (-1,0) -- plot[domain=-1:1,smooth] (\x,{1/(\sta*sqrt(2*pi))*exp(-1/2*((\x-\mue)/\sta)^2)}) -- (1,0) -- cycle;
+        \end{scope}
+    
+        % Draw the x and y axes
+        \draw[->] (\lowX,0) -- (\hiX,0) node[right] {$u$};
+        
+        % Lines from y=0 to curve
+        % \draw[black] (-1,-0.05) -- (-1,0.05);
+        \draw[black, dashed] (1,0) -- (1,0.24);
+        \draw[black, dashed] (-1,0) -- (-1,0.24);
+        % \draw[black, dashed, thick] (\mue,0) -- (\mue,0.4);
+        % \draw[black] (4,0) -- (4,0.24);
+
+        % Draw the bell curve
+        \draw[scale=1.0,domain=\lowX:2.9,smooth,variable=\x,blue,thick,samples=100] 
+            plot ({\x},{1/(\sta*sqrt(2*pi))*exp(-1/2*((\x-\mue)/\sta)^2)});
+        
+    
+        % add labels
+        \node[below] at (-1,0) {$c_k$};
+        \node[below] at (1,0) {$c_0$};
+        \draw[<-] (0,0.24) -- (0,0.5) node[above]{$1 - \alpha$};
+        \draw[<-] (1,0.24) -- (2,0.5) node[right]{kritische Grenze};
+        \draw[<-] (-1,0.24) -- (-2,0.5) node[left]{kritische Grenze};
+        \draw[<-] (-1.8,0.05) -- (0,-0.5) node[below]{Ablehnungsbereich};
+        \draw[<-] (1.8,0.05) -- (0,-0.5);
+    \end{tikzpicture}
+\end{document}
