@@ -148,10 +148,11 @@ Für Einser wechselt der Pegel ein Mal in der Mitte der Bitzelle, für Nullen ei
 ![](ManchesterDiff.png)
 
 ---
+
 Alle bisherigen Codierungen haben signifikante Nachteile.
 Außerdem können Sonderfälle wie Start/Stop/Idle nicht direkt kommuniziert werden.
 Eine Möglichkeit ist, sie über sonst nicht verwendete Code-Kombinationen zu übermitteln. Start einer Nachricht könnte eine definierte Sequenz (Präambel) sein.
-Besser ist die Verwendung von dedizierten Steuerzeichen. Informationsbits werden zu Blöcken zusammengefasst und mit Steuerbits verlängert. Es werden immer Blöcke mit einer festen Größe übertragen.
+Besser ist die Verwendung von dedizierten Steuerzeichen. Informationsbits werden zu Blöcken zusammengefasst und mit Steuerbits verlängert. Es werden immer Blöcke mit einer festen Größe übertragen. ^5feed6
 
 #### 4B5B
 Vier Nutzdaten werden mit einem Steuerbit auf Fünfer-Blöcke erweitert. Von den 32 möglichen Kombinationen werden 16 für Daten verwendet, die restlichen dienen der Steuerung.

@@ -20,6 +20,9 @@ Erkennen und Beheben von Fehlern ist durch geschickte Codierung zumindest teilwe
 ### Fehlererkennung
 Durch Verwendung eines [Parity-Bits](DigitaltechnischeBegriffe.md#Parity) können Fehler erkannt werden, bei denen bis zu ein Bit getauscht wurde.
 
+Es gibt auch mehrdimensionale Parität
+TODO VL 03 Seite ~95
+
 ### Fehlerkorrektur
 Hamming-Codes.
 TODO

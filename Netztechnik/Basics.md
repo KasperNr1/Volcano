@@ -169,6 +169,42 @@ Eine Ausgewählte Untergruppe Empfänger wird angesprochen (IPTV)
 ## Anycast
 Ein beliebiger (nächstgelegener) Empfänger aus einer Gruppe (Drucker)
 
+# Adressen
+## MAC
+Media Access Control Adressen sind 48 Bit lang und unabhängig von den logischen Adressen der [Vermittlungsschicht](ISO-OSI%20Referenzmodell.md#3%20Vermittlungsschicht). 
+Sie bestehen aus 4 Abschnitten mit verschiedenen Bedeutungen.
+
+| I/G   | U/L   | OUI    | OUA    |
+| ----- | ----- | ------ | ------ |
+| 1 Bit | 1 Bit | 22 Bit | 24 Bit |
+- I/G
+  Bit das beschreibt ob es sich um eine Individuelle (0) oder Gruppen-Adresse (1) handelt.
+- U/L
+  Universal (0) oder Lokale (1) Adresse
+- OUI
+  (Oraganizationally Unique Identifier) Herstellerkennung
+- OUA
+  (Organizationally Unique Address) Vom Hersteller frei Wählbar
+
+Die höchsten 24 Bits der Adresse, also I/G, U/L und OUI werden von der IEEE vergeben.
+
+### Spezielle Broadcast Adresse
+Für Nachrichten an alle Geräte des selben physischen Netzes wird die Broadcast Adresse als Zieladresse angegeben.
+`FF:FF:FF:FF:FF:FF` 
+Alle der Bits der 6 Byte-Adresse sind also mit $1$ belegt. 
+
+### MAC-Spoofing
+Moderne Geräte können ihre MAC-Adresse dynamisch ändern. Sie sollte daher nicht für Authentifizierung oder sonstige Vergabe von Berechtigungen verwendet werden.
+
+### Adress Resolution Protocoll (ARP)
+Dieses Protokoll bestimmt die MAC Adresse eines Gerätes für die [Sicherungsschicht](ISO-OSI%20Referenzmodell.md#2%20Sicherungsschicht) aus der IP-Adresse der [Vermittlungsschicht](ISO-OSI%20Referenzmodell.md#3%20Vermittlungsschicht)
+Dazu wird die IP Adresse des gesuchten Geräts per [Broadcast](Basics.md#Broadcast) an die [Spezielle Broadcast Adresse](#Spezielle%20Broadcast%20Adresse) gesendet. Das Gerät mit der entsprechenden Adresse antwortet dem Sender, dieser speichert die empfangene MAC Adresse.
+![](AdressResolutionProtocoll.png)
+Das [Betriebssystem](02%20Grundlagen.md#Definition%20Betriebssystem) führt eine Tabelle mit den ARP Einträgen. Die Tabelle enthält IP-Adressen, MAC-Adressen, Netzwerk-Interfaces.
+Es existiert ein Protokoll für die Rückrichtung, das bestimmen der Netzwerkadresse aus einer MAC Adresse (RARP).
+## IPv4
+
+## IPv6
 # Kommunikationsmodelle
 ## Client-Server
 Der Server ist eine Anwendung die Daten bereit stellt.
