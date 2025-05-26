@@ -2,7 +2,7 @@ $>100$ Eigentümer
 $\approx 75$ Anwesend
 
 # Firma Alterric
-Alloys Wobben Stiftung & EWE (Norddeutsche Energie)
+Tochterfirma von Alloys Wobben Stiftung & EWE (Norddeutsche Energie)
 
 - Gesamte Wertschöpfungskette Windkraftanlagen
 ## Plan
@@ -26,6 +26,8 @@ Raphael.bezold@alterric.com
 - Bürger WEA
 
 Nur eines aus diesen 4
+(Strombonus verstehe ich noch, angeblich sollen das hier 4 Vorteile sein aus denen man sich einen aussuchen kann wenn[???] man investiert)
+
 ## Flächenverpachtung
 43% Waldachtal
 20% Horb
@@ -34,21 +36,20 @@ Nur eines aus diesen 4
 Standort flexibel, innerhalb der gepachteten Flächen
 2 Auf Privaten Flächen, 4 Auf Stadt
 
-70% Des Wind-Ertrags wird an alle Inhaber ausgezahlt
-30% Des Ertrags zusätzlich anteilig an alle die Windrad (-Fundament) auf der Fläche haben
-Pacht wird anteilig zur Gesamtfläche gezahlt
-Fläche die tatsächlich Fundament ist bekommt mehr
-Mindestpacht (Bei Windschwachen Jahren)
+- 70% Des Wind-Ertrags wird an alle Inhaber ausgezahlt
+- 30% Des Ertrags zusätzlich anteilig an alle die Windrad (-Fundament) auf der Fläche haben
+- Pacht wird anteilig zur Gesamtfläche gezahlt
+- Fläche die tatsächlich Fundament ist bekommt mehr
+- Mindestpacht existiert (Bei Windschwachen Jahren)
+
+Gesamt $\underbrace{90,000}_{\text{€ Pro Jahr Pro Windrad}} \cdot \underbrace{6}_{\text{Räder}} = \underbrace{540,000}_{\text{Mindespacht pro Jahr}}$ Gesamtpacht für alle Windräder & Alle Flächen
 
 
-Gesamt $90,000 \cdot 6 = 540,000$ Gesamtpacht für alle Windräder & Alle Flächen
-
-
-$139,860$ Gesamt-mindest-pacht für Private
-Gesamt Privat $193,310$ 
+$139,860$ Gesamt-mindest-pacht für Private (Nur allgemeine Pacht)
+Gesamt Privat $193,310$ (Inklusive Bonus für Grundstücke mit Rad)
 
 ### Beispiel
-0,25 Ha als 0,34% Anteil der Gesamtfläche -> 499€ pro Jahr
+0,25 Ha Fläche als 0,34% Anteil der Gesamtfläche -> 499€ pro Jahr
 
 60% einer Anlage auf Grund -> 10% der Gesamtanlagen -> 17,500€ pro Jahr
 
@@ -83,7 +84,7 @@ Gesamt Privat $193,310$
 - Sprechstunde mit Firma?
 	- Besuch im Büro (Herrenberg / Daheim bei Privat) - Vorschlag Sprechstunde / Tag im Rathaus
 - Flurbereinigung nochmal erklären
-	- Neue Besitzer der Firma unbekannt, kein Vertrag mit ihnen möglich bis sie Eigentümer sind
+	- Neue Besitzer ist der Firma unbekannt, kein Vertrag mit ihnen möglich bis sie Eigentümer sind
 - Nutzungsvertrag, Waldachtal hat schon unterschrieben, Privat bekommt den gleichen
 	- Ja - Prüfung des Vertrags im Sinne der privaten von Firma gesponsort
 - Was passiert bei Übergang Flurstücke zwischen neuen Besitzern
@@ -98,11 +99,13 @@ Gesamt Privat $193,310$
 	- Wegerecht bleibt erhalten, du kommst immer ran wenn nicht grade ein Windrad im Weg steht
 - Grenzen der Waldstücke bleiben erhalten, egal was?
 	- Ja, Grundstücke selbst bleiben gleich
-- 
 
 ## Eigene
 - Gelagertes Holz
   Bis wann entfernen
+	- Hab ich nicht direkt gefragt, Nachdem der Zeitplan keinen Bau vor 2029 vorsieht müsste alles entspannt sein
 - Nutzung der Fläche
 	- Wenn kein Rad auf der Fläche -> keine Einschränkung
+	  Sonst freie Nutzung bis zur Fundamentgrenze
 - Ausgleichsfläche
+	- Nein, nur Bares
