@@ -1,3 +1,7 @@
+# Organisierung
+## Paperless ngx
+[Paperless Homepage](https://docs.paperless-ngx.com/) zur Verwaltung gespeicherter Dokumente
+
 # AI Chatbots
 ## Elicit
 [Elicit](https://elicit.com/) 
