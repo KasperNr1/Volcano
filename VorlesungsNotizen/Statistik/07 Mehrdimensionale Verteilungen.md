@@ -100,7 +100,7 @@ $$
 
 Dichtefunktion
 $f(x;y) = \left\{ \begin{array}{ll} p_{ik} & x=x_i \quad y = y_k \\ 0 & \text{sonst} \end{array}\right.$
-für $i = 1, \dots, m$  und $k = 1, \dots, m$ 
+für $i = 1, \dots, m$  und $k = 1, \dots, n$ 
 $f(x,y) \geq 0$ und normiert:
 
 $$

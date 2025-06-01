@@ -1,8 +1,9 @@
-Faustregel:
-Approximation liefert gute Werte, falls
-$$
-\sigma^2 = n \cdot p \cdot (1-p) > 9
-$$
+
+> [!Info] Faustregel: Binomial Annäherung zu Normalverteilung
+> Approximation liefert gute Werte, falls
+> $$
+> \sigma^2 = n \cdot p \cdot (1-p) > 9
+> $$
 
 Beispiel:
 Bestimmte Pflanzensamen sind zu $95\%$ keimfähig.
@@ -18,7 +19,7 @@ $E(X) = 500\cdot 0.95 = 475$
 $Var(X) = 500 \cdot 0.95 \cdot 0.05 = 23.75 > 9$
 
 Zentraler Grenzwertsatz $\to \frac{x -\mu}{\sigma} = \frac{x - 475}{\sqrt{23.75}} \sim Bin(0,1)$
-
+	
 a)
 $$
 P(X \leq 470) = \Phi \left( \frac{470 - 475}{\sqrt{23.75}} \right) = \Phi(-1.03) = 1-\Phi(1.03) = 0.1515 
