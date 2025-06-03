@@ -65,3 +65,26 @@ Die [Übertragungsarten](Basics.md#Übertragungsarten) (Simplex, Halbduplex, Vol
 - Wissen für welchen Zweck die Anwendungsprotokolle DHCP, DNS, SMTP, POP3, IMAP, NFS, SMB, FTP, Telnet, SSH, NTP, SNMP jeweils eingesetzt werden können
 - Erläutern können warum es bei FTP mehrere Modis gibt
 - Die Unterschiede zwischen IMAP und POP3 erläutern können
+
+# Vorlesung 7 - Sicherheit
+- Beschreiben können was Authentifizierung und Autorisierung sind
+- Den Begriff 0-day erläutern können
+- Den Begriff Supply Chain Attack erläutern können
+- Den Begriff Denial of Service (DoS) erläutern können
+- Wissen was eine SQL Injection (SQLi) ist und wie diese ausgenutzt und verhindert werden kann
+- Erläutern können warum Verschlusselung und Signaturen besonders bei der Kommunikation im Internet relevant sind
+- Den Unterschied zwischen symmetrischen und asymmetrischen Verschlusselungsverfahren erläutern können
+- Wissen wie der Ablauf der Verschlusselung und Signierung bei Public Key Verfahren funktioniert
+- Wissen fur was SSL Zertifikate verwendet werden
+- Wissen was ein VPN ist und fur welche Zwecke es eingesetzt werden kann
+
+# Vorlesung 8 - Kommuniktationstechnik
+- Wissen wie ein HTTP Request und eine HTTP Response aufgebaut sind
+- Wissen fur welchen Zweck HTTP Statuscodes eingesetzt werden können
+- Die HTTP Methoden und ihre Verwendungszweck kennnen (nur GET, POST, PUT, PATCH, DELETE)
+- REST - Best-Practices fur Problembehandlung kennen (Statuscodes + ProblemDetails (nicht den Inhalt der JSON))
+- Anhand eines HTTP Requests beschreiben können zu welcher Aktion dieser führt
+- Die vier behandelten Protokolle fur Real-Time Web Applications nennen können
+
+# Vorlesung 9 - IoT
+- Die Kommunikationsarten und Einsatzszenarien der IoT Protokolle OPC UA, MQTT auflisten können.
