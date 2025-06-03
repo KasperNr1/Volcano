@@ -287,6 +287,8 @@ Die wichtigsten sind hierbei häufig:
 - Signalstärke
 
 Bei der Verkabelung eines komplexen Systems (beispielsweise mehreren Gebäuden) sollte eine Kombination aus Kabelarten verwendet werden, um die jeweiligen Stärken optimal zu kombinieren und trotzdem wirtschaftlich zu arbeiten.
+![](Strukturierte_Verkabelung.png)
+
 ## Koax
 Besteht aus vier entscheidenden Komponenten
 - Innenleiter aus Kupfer

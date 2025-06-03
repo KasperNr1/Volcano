@@ -1,12 +1,12 @@
 # Vorlesung 1 - Einführung
 ## Kommunikationsmodelle
-Die [Kommunikationsmodelle](Basics.md#Kommunikationsmodelle) (Publish/Subscribe, Client/Server) und ihre Eigenschaften kennen
+- Die [Kommunikationsmodelle](Basics.md#Kommunikationsmodelle) (Publish/Subscribe, Client/Server) und ihre Eigenschaften kennen
 
 ## Adressierungsarten
-Die [Adressierungsarten](Basics.md#Adressierungsarten) (Unicast, Anycast, Multicast, Broadcast) und ihre Eigenschaften kennen
+- Die [Adressierungsarten](Basics.md#Adressierungsarten) (Unicast, Anycast, Multicast, Broadcast) und ihre Eigenschaften kennen
 
 ## Übertragungsarten
-Die [Übertragungsarten](Basics.md#Übertragungsarten) (Simplex, Halbduplex, Vollduplex, Multiplex) und ihre Eigenschaften kennen
+- Die [Übertragungsarten](Basics.md#Übertragungsarten) (Simplex, Halbduplex, Vollduplex, Multiplex) und ihre Eigenschaften kennen
 
 ## OSI Modell
 - Das ISO/OSI [ISO-OSI Referenzmodell](ISO-OSI%20Referenzmodell.md) und dessen Schichten beschreiben können
@@ -16,7 +16,7 @@ Die [Übertragungsarten](Basics.md#Übertragungsarten) (Simplex, Halbduplex, Vol
 ## Kabel
 - Die [Netzwerkkabeltypen](Basics.md#Kabel) LWL, TwistedPair und Koax auflisten können
 - Eine beispielhafte strukturierte Verkabelung aufzeichnen können
-
+![](Strukturierte_Verkabelung.png)
 
 # Vorlesung 2 - Layer 1
 ## Leitungscodes
