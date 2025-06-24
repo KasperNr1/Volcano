@@ -82,7 +82,7 @@ verwendet.
 ## Callouts
 
 > [!NOTE] Notiz
-> Contents
+> Here is a Link to the official [Doku](https://help.obsidian.md/callouts)
 
 
 > [!Warning] Warnung
