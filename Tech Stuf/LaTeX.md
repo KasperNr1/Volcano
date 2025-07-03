@@ -101,6 +101,8 @@ Zotero kann eine Sammlung in diesem Format exportieren.
 # Features 🪲
 ## Fußnoten in Captions
 Die Caption eines Bildes soll mit einer Fußnote beschriftet werden
+Import des Footnote Package aus Vorlage war Schuld???
+Nach Entfernen funktioniert das Beispiel aus der Stack Overflow Antwort.
 ### Issue
 [Stackoverflow Eintrag](https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption)
 
