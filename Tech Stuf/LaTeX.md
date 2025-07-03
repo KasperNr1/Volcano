@@ -97,3 +97,48 @@ Die Quellen selbst stehen in einem Biblatex File mit folgendem Format:
 
 Zotero kann eine Sammlung in diesem Format exportieren.
 `Datei / Ordner wählen -> Rechtsklick -> Exportieren`
+
+# Features 🪲
+## Fußnoten in Captions
+Die Caption eines Bildes soll mit einer Fußnote beschriftet werden
+### Issue
+[Stackoverflow Eintrag](https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption)
+
+Positioniert die Fußnoten zwar korrekt, mit diesem Beispiel waren allerdings die Zahlen alle $1$.
+
+``` Latex
+\section{Vakuumsauger}
+\label{Vacuum}
+Ich erkläre was ein Sauger ist. \footnote{Hallo aus der 1. Fußzeile}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/MatrixGripper01.png}
+    \caption[Fake Caption for List of Figures]{Actual caption under Image \protect \footnotemark}
+\end{figure}
+
+\footnotetext{Das ist die 2. Fußzeile}
+\todo{Matrixgreifer erklären}
+
+Was passiert hier \footnote{Fusszeile Nummer 3}
+```
+
+### Fix
+Manuelles hochzählen und setzen des Index innerhalb der Figure
+
+``` Latex
+\section{Vakuumsauger}
+\label{Vacuum}
+Ich erkläre was ein Sauger ist. \footnote{Hallo aus der 1. Fußzeile}
+
+\stepcounter{footnote}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/MatrixGripper01.png}
+    \caption[Fake Caption for List of Figures]{Actual caption under Image\protect\footnotemark[\value{footnote}]}
+\end{figure}
+\footnotetext[\value{footnote}]{Das ist die 2. Fußzeile}
+
+Was passiert hier \footnote{Fusszeile Nummer 3}
+```
+

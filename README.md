@@ -27,7 +27,7 @@ Normaler Text
 Sie folgen dem Schema `[anzuzeigender Text](Link.Destination)`
 - [Google](https://www.Google.com)
 - [Überschriften](#🌋Obsidian🌋Main-Vault🌋)
-- Andere Dateien [Obsidian on Mobile](Obsidian%20Mobile.md)
+- Andere Dateien [Obsidian on Mobile](Obsidian.md)
 Wenn direkt vor dem Link ein Ausrufezeichen `!` eingefügt wird, so versucht Obsidian eine Vorschau des Ziels einzublenden.
 Besonders häufig wird diese Funktion verwendet um [Bilder](#Bilder) einzufügen.
 

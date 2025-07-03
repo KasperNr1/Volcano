@@ -1,3 +1,12 @@
+# Plugins
+## Laptop
+- Code Styler
+- Ink
+- Slash Commander
+- Webpage HTML Export
+
+## Mobile
+
 # Committing on Mobile
 
 ## Directory
