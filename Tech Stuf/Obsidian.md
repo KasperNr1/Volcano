@@ -6,6 +6,9 @@
 - Webpage HTML Export
 
 ## Mobile
+- Git
+- Ink
+
 
 # Committing on Mobile
 
