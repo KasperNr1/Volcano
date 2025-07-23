@@ -85,7 +85,7 @@ verwendet.
 > Here is a Link to the official [Doku](https://help.obsidian.md/callouts)
 
 
-> [!Warning] Warnung
+> [!Warning]- Warnung
 > Contents
 
 
