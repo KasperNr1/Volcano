@@ -64,7 +64,7 @@ Eigenschaften der Verteilungsfunktion:
 
 ### Diskrete zweidimensionale Verteilung
 Definition
-Eine zweidimensionale Zufallsvariable $Z=(X;Y)$ heißt diskret, wenn beide Komponenten $X$ und $Y$ diskret sind.
+Eine zweidimensionale [Zufallsvariable](Zufallsvariablen.md#Diskrete%20Zufallsvariablen) $Z=(X;Y)$ heißt diskret, wenn beide Komponenten $X$ und $Y$ diskret sind.
 
 Annahme:
 $X$ und $Y$ nehmen die endlich vielen Werte $x_1, \dots, x_n$ und  $y_1, \dots, y_n$ an.
@@ -115,8 +115,6 @@ Randverteilungen
 $$
 f_1(x) = \left\{ \begin{array}{ll} p_i^* & x =   \end{array}\right.
 $$
-TODO
-
 
 Beispiel
 Dreimaliger Wurf einer Münze

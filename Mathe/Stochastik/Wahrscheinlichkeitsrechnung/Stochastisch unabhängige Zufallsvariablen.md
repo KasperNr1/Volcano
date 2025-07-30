@@ -1,5 +1,5 @@
 # Definition Stochastische Unabhängigkeit
-Die Zufallsvariablen $X$ und $Y$ mit den Verteilungsfunktionen $f_1(x)$ und $F_2(y)$ und der gemeinsamen zweidimensionalen Verteilung $F(x;y)$ heißen stochastisch unabhängig, falls 
+Die [Zufallsvariablen](Zufallsvariablen.md) $X$ und $Y$ mit den Verteilungsfunktionen $f_1(x)$ und $F_2(y)$ und der gemeinsamen [zweidimensionalen Verteilungen](Mehrdimensionale%20Verteilungen.md) $F(x;y)$ heißen stochastisch unabhängig, falls 
 $$
 F(x;y) = F_1(x) \cdot F_2(y) \quad \forall x;y
 $$
@@ -173,3 +173,40 @@ $$
 ## Grenzwert von Moivre-Laplace
 Sei $X \sim Bin(n,p)$.
 Dann konvergiert die Verteilungsfunktion $F_n(u)$ der standardisierten Zufallsvariablen $U=\dfrac{x - \mu}{\sigma} = \dfrac{x - n \cdot p}{\sqrt{n \cdot p (1-p)}}$ für $n \to \infty$ gegen die Verteilungsfunktion $\Phi$  der Standardnormalverteilung
+
+
+> [!Info] Faustregel: Binomial Annäherung zu Normalverteilung
+> Approximation liefert gute Werte, falls
+> $$
+> \sigma^2 = n \cdot p \cdot (1-p) > 9
+> $$
+
+Beispiel:
+Bestimmte Pflanzensamen sind zu $95\%$ keimfähig.
+Wie groß ist die Wahrscheinlichkeit, dass von $500$ ausgewählten Keimen 
+- a) Höchstens $470$
+- b) Mindestens $470$ und höchstens $485$ 
+- c) Mindestens $480$ 
+keimen?
+
+$X$ ist die Anzahl keimfähiger Körner
+$X \sim Bin(500,0.95)$ 
+$E(X) = 500\cdot 0.95 = 475$
+$Var(X) = 500 \cdot 0.95 \cdot 0.05 = 23.75 > 9$
+
+Zentraler Grenzwertsatz $\to \frac{x -\mu}{\sigma} = \frac{x - 475}{\sqrt{23.75}} \sim Bin(0,1)$
+	
+a)
+$$
+P(X \leq 470) = \Phi \left( \frac{470 - 475}{\sqrt{23.75}} \right) = \Phi(-1.03) = 1-\Phi(1.03) = 0.1515 
+$$
+
+b)
+$$
+P(470 \leq X \leq 485) = \Phi \left( \frac{485 - 475}{\sqrt{23.75}} \right) - \Phi \left( \frac{469 - 475}{\sqrt{23.75}} \right) = 0.8705
+$$
+
+c)
+$$
+P(X \geq 480) = 1 - \Phi \left( \frac{479 - 475}{\sqrt{23.75}} \right) = 1 - \Phi(0.82) = 1 - 0.7939 = 0.2061 
+$$

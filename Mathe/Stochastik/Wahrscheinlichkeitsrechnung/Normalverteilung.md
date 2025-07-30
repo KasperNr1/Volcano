@@ -1,5 +1,5 @@
 # Die Gauß'sche  Normalverteilung
-Zahlreiche Zufallsvariablen in Naturwissenschaft und Technik, wie z.B. physikalisch-technische Messgrößen genügen einer stetigen Verteilung mit Dichtefunktion.
+Zahlreiche Zufallsvariablen in Naturwissenschaft und Technik, wie z.B. physikalisch-technische Messgrößen genügen einer [Stetigen Verteilung](Stetige%20Zufallsvariablen.md) mit [Dichtefunktion](Zufallsvariablen.md#Definition%20Diskrete%20ZV).
 
 Definition:
 Die Verteilung einer stetigen Zufallsvariablen $X$ mit der Dichtefunktion 

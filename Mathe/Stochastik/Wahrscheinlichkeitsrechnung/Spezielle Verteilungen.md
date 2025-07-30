@@ -13,7 +13,7 @@ $$
 \end{array}
 $$
 
-Dichtefunktion von $X$:
+[Dichtefunktion](Zufallsvariablen.md#Definition%20Diskrete%20ZV) von $X$:
 $$
 f(k) = P(X=K) = \underbrace{\binom{3}{k}}_{\text{Permutationen}} * \underbrace{\left( \frac{4}{7} \right)^k}_{\text{Erfolg}} * \underbrace{\left( 1 - \frac{4}{7} \right)^{3-k}}_{\text{Misserfolg}}
 $$
@@ -37,7 +37,7 @@ Die Verteilung von $X$ heißt Bernoulli-Verteilung.
 Schreibweise: 
 $X \sim Ber(p)$ 
 
-## Definition
+## Definition Binomialverteilung
 Wir gehen von einem Bernoulli-verteilten Versuch mit Erfolgswahrscheinlichkeit $p$ aus.
 $$
 \begin{array}{cl}

@@ -1,42 +1,5 @@
-
-> [!Info] Faustregel: Binomial Annäherung zu Normalverteilung
-> Approximation liefert gute Werte, falls
-> $$
-> \sigma^2 = n \cdot p \cdot (1-p) > 9
-> $$
-
-Beispiel:
-Bestimmte Pflanzensamen sind zu $95\%$ keimfähig.
-Wie groß ist die Wahrscheinlichkeit, dass von $500$ ausgewählten Keimen 
-- a) Höchstens $470$
-- b) Mindestens $470$ und höchstens $485$ 
-- c) Mindestens $480$ 
-keimen?
-
-$X$ ist die Anzahl keimfähiger Körner
-$X \sim Bin(500,0.95)$ 
-$E(X) = 500\cdot 0.95 = 475$
-$Var(X) = 500 \cdot 0.95 \cdot 0.05 = 23.75 > 9$
-
-Zentraler Grenzwertsatz $\to \frac{x -\mu}{\sigma} = \frac{x - 475}{\sqrt{23.75}} \sim Bin(0,1)$
-	
-a)
-$$
-P(X \leq 470) = \Phi \left( \frac{470 - 475}{\sqrt{23.75}} \right) = \Phi(-1.03) = 1-\Phi(1.03) = 0.1515 
-$$
-
-b)
-$$
-P(470 \leq X \leq 485) = \Phi \left( \frac{485 - 475}{\sqrt{23.75}} \right) - \Phi \left( \frac{469 - 475}{\sqrt{23.75}} \right) = 0.8705
-$$
-
-c)
-$$
-P(X \geq 480) = 1 - \Phi \left( \frac{479 - 475}{\sqrt{23.75}} \right) = 1 - \Phi(0.82) = 1 - 0.7939 = 0.2061 
-$$
-
 # Parameterschätzer
-In diesem Abschnitt beschäftigen wir uns mit der Schätzung von unbekannten Mittelwerten,  Varianzen und Erfolgswahrscheinlichkeiten einer Verteilung.
+In diesem Abschnitt beschäftigen wir uns mit der Schätzung von unbekannten Mittelwerten, [Varianzen](Zufallsvariablen.md#Varianz)  und Erfolgswahrscheinlichkeiten einer Verteilung.
 
 ## Einführungsbeispiel
 Stichprobe
@@ -47,9 +10,7 @@ Modellannahme:
 Dies sind Realisierungen von $n=6$ unabhängig, identisch verteilten Zufallsvariablen (iid) $X_1, \dots X_6$ $X \sim \mathcal{N}$
 
 Was ist $\mu; \sigma$?
-
-Schätzfunktion:
-Seien $X_1 \dots X_n$ unabhängig identisch verteilte Zufallsvariablen die eine mathematische Stichprobe beschreiben. 
+ Schätzfunktion: Seien $X_1 \dots X_n$ unabhängig identisch verteilte Zufallsvariablen die eine mathematische Stichprobe beschreiben. 
 Die konkrete Stichprobe $\underbrace{(x_1 \dots x_n)}_{\text{Stichprobenwerte}}$ wird interpretiert als Realisierung eines $n$-dimensionalen Zufallsvektors 
 $$
 \begin{array}{cl}
@@ -143,4 +104,38 @@ L(\mu) = f(k_1; \mu) \cdot f(k_2; \mu) \cdot \ldots \cdot f(k_n; \mu) = \frac{\m
 $$
 $$
 \boxed{= \frac{\mu^{k_1+k_2+\dots+k_n}}{k_1! \cdot k_2! \cdots k_n!} \cdot e^{-n\mu}}
+$$
+
+Schätzer Binomialverteilung
+$$
+\hat{p} = \frac{k}{n}
+$$
+
+Bsp.:
+Um den Ausschussanteil $p$ in der Tagesproduktion von Glühbirnen zu schätzen, wurde eine Stichprobe vom Umfang $n=120$ entnommen. Dabei erwiesen sich $k=6$ Birnen als nicht brauchbar.
+Mit der [Maximum-Likelihood-Methode](Statistik.md#Maximum-Likelihood-Methode) wird ein Schätzwert / Näherungswert für den Ausschussanteil $p$ bestimmt.
+
+$$
+\hat{p} = \frac{k}{n} = \frac{6}{120} = 5\%
+$$
+Wir können davon ausgehen, dass jede $20.$ Glühbirne unbrauchbar ist.
+
+---
+
+3 Gaußsche Normalverteilung
+$$
+X \sim \mathbb{N}(\mu, \sigma)
+$$
+$$
+f(x; \mu; \sigma) =\frac{1}{\sigma \sqrt{2\pi}}*e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+$$
+
+Stichprobe $x_1, \dots, x_n$
+Schätzwert für den unbekannten Parameter $\mu$
+$$
+\hat{\mu} = \frac{x_1 + \dots + x_n}{n} = \overline{x}
+$$
+Schätzwert für den unbekannten Parameter $\sigma$ 
+$$
+\hat{\sigma}^2 = \frac{1}{n} \sum(x_i - \overline{x})^2
 $$

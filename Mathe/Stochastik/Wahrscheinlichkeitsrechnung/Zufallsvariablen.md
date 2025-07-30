@@ -1,6 +1,6 @@
 # Zufallsvariablen und Verteilungsfunktionen
 ## Definition Zufallsvariable
-Sei $(\Omega; \mathcal P(\Omega); P)$ ein WR.
+Sei $(\Omega; \mathcal P(\Omega); P)$ ein [Wahrscheinlichkeitsraum](Einführung.md#Wahrscheinlichkeitsraum).
 Unter einer Zufallsvariablen (ZV) $X$ verstehen wir eine Funktion $X : \Omega \mapsto \mathbb{R}$ 
 
 Typische Ereignisse:

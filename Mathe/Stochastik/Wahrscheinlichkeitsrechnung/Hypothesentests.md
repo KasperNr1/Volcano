@@ -1,37 +1,3 @@
-Schätzer Binomialverteilung
-$$
-\hat{p} = \frac{k}{n}
-$$
-
-Bsp.:
-Um den Ausschussanteil $p$ in der Tagesproduktion von Glühbirnen zu schätzen, wurde eine Stichprobe vom Umfang $n=120$ entnommen. Dabei erwiesen sich $k=6$ Birnen als nicht brauchbar.
-Mit der [Maximum-Likelihood-Methode](09%20Statistik.md#Maximum-Likelihood-Methode) wird ein Schätzwert / Näherungswert für den Ausschussanteil $p$ bestimmt.
-
-$$
-\hat{p} = \frac{k}{n} = \frac{6}{120} = 5\%
-$$
-Wir können davon ausgehen, dass jede $20.$ Glühbirne unbrauchbar ist.
-
----
-
-3 Gaußsche Normalverteilung
-$$
-X \sim \mathbb{N}(\mu, \sigma)
-$$
-$$
-f(x; \mu; \sigma) =\frac{1}{\sigma \sqrt{2\pi}}*e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
-$$
-
-Stichprobe $x_1, \dots, x_n$
-Schätzwert für den unbekannten Parameter $\mu$
-$$
-\hat{\mu} = \frac{x_1 + \dots + x_n}{n} = \overline{x}
-$$
-Schätzwert für den unbekannten Parameter $\sigma$ 
-$$
-\hat{\sigma}^2 = \frac{1}{n} \sum(x_i - \overline{x})^2
-$$
-
 # Hypothesentests
 Stichprobe $10$ Nägel
 $$
@@ -64,7 +30,7 @@ Bestimme die Testvariable
 $$
 T = g(X_1, \dots, X_n)
 $$
-abhängig von $n$ bis [iid.](09%20Statistik.md#Einführungsbeispiel) Zufallsvariablen $X_1, \dots, X_n$
+abhängig von $n$ bis [iid.](Statistik.md#Einführungsbeispiel) Zufallsvariablen $X_1, \dots, X_n$
 $$
 T = \cfrac{\cfrac{1}{10} \displaystyle  \sum_{i=1}^{10} x_i - \mu_0}{\cfrac{\sigma}{\sqrt{10}}} \sim \mathbb{N}(0;1)
 $$

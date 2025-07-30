@@ -29,7 +29,7 @@ A & P(A \cap B) & P(A \cap \overline{B}) & P(A) \\
 \end{array}
 $$
 Definition:
-Sei $(\Omega; \mathcal P(\Omega); P)$ ein WR.
+Sei $(\Omega; \mathcal P(\Omega); P)$ ein [Wahrscheinlichkeitsraum](Einführung.md#Wahrscheinlichkeitsraum).
 $P(A) \neq 0$
 Dann heißt $P(B|A) = \dfrac{P(A \cap B)}{P(B)}$ die bedingte WS von $B$ gegeben $A$.
 

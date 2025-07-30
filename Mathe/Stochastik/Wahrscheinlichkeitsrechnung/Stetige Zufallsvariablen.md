@@ -1,5 +1,5 @@
 # Definition Stetige Variable
-Wir nennen eine Zufallsvariable stetig, wenn sie einen beliebigen Wert aus einem endlichen oder unendlichen Intervall annehmen kann. 
+Wir nennen eine [Zufallsvariable](Zufallsvariablen.md#Definition%20Zufallsvariable) stetig, wenn sie einen beliebigen Wert aus einem endlichen oder unendlichen Intervall annehmen kann. 
 Dabei wird die Verteilungsfunktion in Integralform dargestellt 
 $$
 \begin{array}{}

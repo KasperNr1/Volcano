@@ -1,9 +1,3 @@
-# Klausur
-- Taschenrechner
-- Formelsammlung
-- 1 Zettel DINA4 Handschriftlich (Nicht getippt) vor/Rückseite
-- Extra Zettel zu Gauß'scher Verteilung
-
 # Wahrscheinlichkeitsraum
 Ist die mathematische Beschreibung eines Experiments mit zufälligen Ausgang und umfasst exakt 3 Elemente
 $$
