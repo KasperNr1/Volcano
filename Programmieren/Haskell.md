@@ -1,8 +1,3 @@
-# Compiler Überblick
-- Tatsächliche Übersetzung zwischen Semantik-Check und Codegenerator
-- Programmiersprachen sind (fast) Kontextfrei -> Lineare Komplexität für Parsen mit PDA
-- Semantik-Check prüft Kontextsensitiven Anteil ( i = 1 -> erlaubt oder nicht je nach Datentyp der Variable)
-
 # Funktionale Programmierung
 - Keine Globalen Variablen, Effekt kann simuliert werden durch Mitschleifen in sämtlichen Funktionen (Stichwort Monaden)
 - Jede Funktion hat einen Rückgabewert
