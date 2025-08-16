@@ -52,3 +52,81 @@ An diesem [Beispiel](Amdahls%20Law.md#Beispiel) wird gezeigt dass der etwas schn
 2. Smaller is faster
 3. Make the common Case fast
 4. Good design demands compromises
+
+# Registerarchitekuren
+Es werden verschieden Architekturen für Register und Datenfluss zur CPU verwendet. In jedem dieser Beispiele werden die notwendigen Assembler-Befehle gezeigt um die Berechnung $C = A + B$  durchzuführen.
+
+Praktisch alle neu entwickelten RISC Prozessoren verwenden [die Load-Store Variante](#Registerarchitektur%20Load-Store).
+Die dort verbauten Universalregister sind sehr schnell verfügbar (Zugriffe  $< 1ns$ ).
+Auch können Compiler diese Register sehr effizient ausnutzen. Beispielsweise können die Reihenfolgen einiger Operatoren getauscht werden, was bei der [Stack-Architektur](#Stack-Architektur%20Invers%20Polish%20Notation) nicht möglich ist.
+## Stack-Architektur: Invers Polish Notation
+![](StackArchitektur.png)
+Folge von Befehlen werden auf Stack gespeichert oder verrechnen die letzten $n$ Werte im Stack
+
+$$
+
+(3 + 4) * 5
+
+$$
+
+In klassischer Infix-Notation wird zu
+
+$$
+
+3; 4; +; 5; *
+
+$$
+
+So entfällt der Bedarf für Klammern
+
+### Codesequenz
+Die beiden zu verrechnenden Werte werden auf den Stack gespeichert, verrechnet und das Ergebnis wird wieder vom Stack entfernt.
+```
+Push A
+Push B
+Add
+Pop C
+```
+
+
+## Akkumulator Architektur
+![](AkkumulatorArchitektur.png)
+Ergebnisse werden immer in Register gelagert, so ist wie bei einem Taschenrechner eine weitere Berechnung mit dem vorherigen Ergebnis möglich.
+
+### Codesequenz
+```
+Load A
+Add B
+Store C
+```
+
+## Registerarchitektur
+![](RegisterArchitekur.png)
+Es werden mehrere Universalregister verwendet.
+Beispielsweise x86 arbeitet nach diesem Prinzip.
+
+### Codesequenz
+Wert $A$ wird im ersten Register gespeichert, dann wird der Inhalt des ersten Registers mit der Variable $B$ addiert und das Ergebnis in Register $R3$ gespeichert. Schließlich wird der Variable C im Speicher der Wert aus dem dritten Register zugewiesen.
+
+```
+Load  R1, A
+Add   R3, R1, B
+Store R3, C
+```
+
+## Registerarchitektur Load-Store
+![](LoadStore.png)
+Ähnlich wie die [Registerarchitektur](#Registerarchitektur), jedoch ohne Speicheroperanden. Jeder Zugriff auf den Speicher erfolgt über einen dedizierten `load` oder `store` Befehl.
+
+Diese Architektur ist die typische RISC Architektur.
+
+### Codesequenz
+Die beiden Variablen werden in unterschiedliche Register geladen. Diese beiden Register werden addiert und das Ergebnis in einem dritten Register gespeichert.
+Abschließend wird der Wert aus dem Register in den Speicher geschrieben.
+```
+Load  R1, A
+Load  R2, B
+Add   R3, R1, R2
+Store R3, C
+```
+
