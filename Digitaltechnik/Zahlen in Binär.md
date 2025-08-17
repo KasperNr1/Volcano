@@ -69,6 +69,31 @@ Mit dieser Codierung kann eine $n$-stellige Binärzahlen Werte zwischen $\dfrac{
 # Floats
 Kompromiss zwischen Größe des Exponenten (Range) und der Mantisse (Präzision). Over- und Underflow sind problematisch. (Exponent hat auch Vorzeichen)
 
+```
+package RandomJavaTesting;
+
+public class Floats {
+    public static void main(String[] args) {
+        /*
+        Floats sind bei großen Zahlen auch im Vorkomma-Bereich unpräzise.
+        30 Mil + 1 ist auf +- 1 ungenau
+        300 Mil auf +- 10
+         */
+        float a = java.lang.Float.NaN;
+        float b = 20_000_001;
+        System.out.println(a);
+        System.out.println(b);
+
+
+        for (int i = 0; i < 15; i++) {
+            // Inkrement ist zu klein um gespeichert zu werden
+            b = b+1;
+            System.out.println(b);
+        }
+    }
+}
+```
+
 ## IEEE 754
 Bei IEEE 754 wird zur besseren Sortierbarkeit der Exponent nicht im 2K dargestellt,  es wird um +127 verschoben (1023 bei 64 Bit)  
 $$
