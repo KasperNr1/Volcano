@@ -69,35 +69,80 @@ Mit dieser Codierung kann eine $n$-stellige Binärzahlen Werte zwischen $\dfrac{
 # Floats
 Kompromiss zwischen Größe des Exponenten (Range) und der Mantisse (Präzision). Over- und Underflow sind problematisch. (Exponent hat auch Vorzeichen)
 
-```
-package RandomJavaTesting;
-
-public class Floats {
-    public static void main(String[] args) {
-        /*
-        Floats sind bei großen Zahlen auch im Vorkomma-Bereich unpräzise.
-        30 Mil + 1 ist auf +- 1 ungenau
-        300 Mil auf +- 10
-         */
-        float a = java.lang.Float.NaN;
-        float b = 20_000_001;
-        System.out.println(a);
-        System.out.println(b);
-
-
-        for (int i = 0; i < 15; i++) {
-            // Inkrement ist zu klein um gespeichert zu werden
-            b = b+1;
-            System.out.println(b);
-        }
-    }
-}
-```
-
 ## IEEE 754
 Bei IEEE 754 wird zur besseren Sortierbarkeit der Exponent nicht im 2K dargestellt,  es wird um +127 verschoben (1023 bei 64 Bit)  
 $$
 Z_D=(-1)^S \cdot (1+\text{Mantisse}) \cdot 2^{\text{Exponent} - \text{Verschiebekonstante}}
 $$
-Ausnahmen (Seite 26 Foliensatz 3)
-Exponent nur 1er -> Scam, NaN
+
+### Umrechnung
+Es soll die Zahl $19.3$ dargestellt werden.
+Dazu werden Vor- und Nachkommateil zuerst separat in Binär geschrieben.
+
+#### Vorkommastelle
+Die Zahl wird immer durch $2$ geteilt und der Rest notiert. Bis schließlich die letzte Zeile ein Ergebnis von $0 \; R0$  oder $0 \;R1$ liefert. Die Reste sind in umgekehrter Reihenfolge die signifikanten Ziffern der Binärzahl.
+
+$$
+\begin{array}{r c l}
+\text{Division} & \text{Ergebnis} & \text{Rest} \\
+19 / 2 & 9 & 1 \\
+9 / 2 & 4 & 1 \\
+4 / 2 & 2 & 0 \\
+2 / 2 & 1 & 0 \\
+1 / 2 & 0 & 1 \\
+\end{array}
+$$
+$$
+19_{10} = 10011_{2}
+$$
+#### Nachkommastelle
+Der Nachkommateil wird ähnlich konvertiert. In jedem Schritt wird der Nachkommateil verdoppelt und notiert ob das Ergebnis $1$ oder mehr ist. Die Bits werden sortiert nach Signifikanz berechnet.
+
+$$
+\begin{array}{r c l}
+\text{Berechnung} & \text{Ergebnis} & \text{Bit} \\
+0.3 * 2 & 0.6 & 0 \\
+0.6 * 2 & 1.2 & 1 \\
+0.2 * 2 & 0.4 & 0 \\
+0.4 * 2 & 0.8 & 0 \\
+0.8 * 2 & 1.6 & 1 \\
+0.6 * 2 & 1.2 & 1 \\
+\vdots
+\end{array}
+$$
+
+$$
+0.3_{10} = 0.0\overline{1001}_{2}
+$$
+
+$0.3$ lässt sich in Binärschreibweise nicht periodisch darstellen. Die Berechnung des Nachkommaanteils wird fortgesetzt bis man 0 erhält, oder eine periodische Folge erkennt.
+
+#### Normierung
+Vor- und Nachkommateil werden zusammengefasst
+
+$$
+19.3_{10} = 10011.0\overline{1001}_{2}
+$$
+
+Diese Zahl wird nun normiert. Das Komma wird verschoben um das Format $1.xxx$ zu erhalten.
+
+$$
+10011.0\overline{1001} * 2^0 = 1.00110\overline{1001} * 2^4
+$$
+Durch Multiplikation mit einer entsprechend großen Zweierpotenz wird der Zahlenwert des Ausdrucks erhalten.
+
+#### Darstellung
+Der Exponent $4$ wird mit der Verschiebekonstanten $127$ zusammen zu $131$, was in Binär der Zahl $10000011$ entspricht.
+Das Vorzeichen ist positiv, dementsprechend wird das Vorzeichenbit auf $0$ gesetzt.
+Durch die Verwendung der normierten Einstellung enthält die stets führende $1$ der Zahl keine notwendige Information und kann entfallen um Platz für eine weiter Nachkommastelle zu bieten.
+
+Die Zahl ist vollständig nach IEEE754 umgewandelt also:
+$$
+\underbrace{0}_{1 \text{Bit}} \underbrace{10000011}_{8 \text{Bit}} \underbrace{00110100110011001100110}_{23 \text{Bit}}
+$$
+
+### Ausnahmen
+Einige Kombinationen sind für besondere Werte reserviert.
+
+![](FloatSpecialValues.png)
+
