@@ -10,3 +10,8 @@ Wissenschaftliche Paper
 ## Perplexity
 [Science-GPT](https://www.perplexity.ai/)
 Gpt but Science
+
+# Templates
+## Codestich
+Static Websites
+https://codestitch.app/app
