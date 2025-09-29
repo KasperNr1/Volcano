@@ -16,7 +16,7 @@ Untersuchen die Bedeutung der Signale nicht
 - Nur bis 100MBit aufgrund von Halb-Duplex und Kollisionen
 
 # Kollisionen
-- Nur bei [Halbduplex](01.md#Halbduplex) möglich
+- Nur bei [Halbduplex](VorlesungsNotizen/Netztechnik/01.md#Halbduplex) möglich
 - Zu viele Kollisionen können Netzwerkausfälle verursachen
 - Protokolle zur Behandlung von Kollisionen
 
