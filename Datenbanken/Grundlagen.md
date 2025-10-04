@@ -10,7 +10,7 @@ Eine Datenbank ist charakterisiert durch verschieden Eigenschaften
 - Dauerhafte Verfügbarkeit
 - Integration
 - Mehrfachbenutzbar
-- Datenintegrität
+- [Datenintegrität](Relationen.md#Integrität)
 - Sicherheit
 
 Simples Speichern in Dateien führt bei Gleichzeitigem Zugriff von mehreren Benutzern oder Programmen leicht zu [Problemen](Parallele%20Probleme.md).

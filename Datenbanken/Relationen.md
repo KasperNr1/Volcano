@@ -42,3 +42,40 @@ Eine Relation kann auch sich selbst referenzieren. Beispielsweise bei `Person` u
 
 Es ist auch erlaubt den leeren Wert `Null` für Felder einzutragen, die Fremdschlüssel sind.
 ![](EmptyForeignKey.png)
+
+# Integrität
+Datenmodelle müssen eventuell eine Reihe von Bedingungen erfüllen um sinnvoll zu sein.
+Integritätsbedingungen sind Bedingungen, die die Korrektheit der Daten beschreiben. Sie werden bei der Erstellung einer Datenbank vom Benutzer definiert.
+
+Das [DBMS](Grundlagen.md#DBMS) muss sicherstellen, dass alle Bedingungen jederzeit eingehalten werden. Nur so kann ein konsistenter und korrekter Zustand gewährleistet werden.
+
+## Inhärente Integrität
+Datensätze müssen eindeutig sein.
+
+## Entitätsintegrität
+[Primärschlüssel](#Primärschlüssel) dürfen für keinen Eintrag `NULL` sein. Jeder Primärschlüssel muss einen eindeutigen Wert haben.
+
+![](EntityIntegrity.png)
+
+## Referentielle Integrität
+Fremdschlüssel dürfen keine Werte enthalten die nie als Primärschlüssel vorkommen.
+Ebenfalls dürfen zusammengesetzte Fremdschlüssel nie teilweise ausgefüllt sein.
+
+![](RelationalIntegrity.png)
+
+
+## Relationale Integrität
+Hierrunter fallen beliebige weitere, vom Anwender definierte Regeln.
+Beispiele sind:
+- Das Alter muss einen Wert zwischen 18 und 99 annehmen
+- Einkommen muss positiv sein
+- Es muss eine Hausnummer angegeben werden
+
+Dabei können verschiedene Scopes miteinbegriffen werden. Man unterscheidet die Bedingungen anhand ihrer Reichweite.
+- **Attributlokal** deckt einzelne Attribute ab (Körpergröße muss positiv sein)
+- **Attributübergreifend** Bezug auf mehrere Attribute innerhalb eines Datensatz (Anfangszeit muss vor Endzeit liegen)
+- **Tupellokal** Bezieht sich auf einen Datensatz (Personalnummer muss vorhanden sein)
+- **Tupelübergreifend** Bezug auf mehrere Datensätze innerhalb einer Relation (Summe aller Einkommen muss geringer als 50.000 sein)
+- **Intrarelational** Bezug auf eine einzelne Relation (Alle bisherigen Beispiele sind intrarelational)
+- **Interrelational** Bezug auf mehrere Relationen (Vergleiche [[Relationen.md#Kardinalitätsbedingung]]) TODO Link anpassen
+
