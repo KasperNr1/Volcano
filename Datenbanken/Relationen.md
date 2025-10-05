@@ -71,6 +71,7 @@ Beispiele sind:
 - Einkommen muss positiv sein
 - Es muss eine Hausnummer angegeben werden
 
+## Datenscopes
 Dabei können verschiedene Scopes miteinbegriffen werden. Man unterscheidet die Bedingungen anhand ihrer Reichweite.
 - **Attributlokal** deckt einzelne Attribute ab (Körpergröße muss positiv sein)
 - **Attributübergreifend** Bezug auf mehrere Attribute innerhalb eines Datensatz (Anfangszeit muss vor Endzeit liegen)
@@ -79,3 +80,24 @@ Dabei können verschiedene Scopes miteinbegriffen werden. Man unterscheidet die 
 - **Intrarelational** Bezug auf eine einzelne Relation (Alle bisherigen Beispiele sind intrarelational)
 - **Interrelational** Bezug auf mehrere Relationen (Vergleiche [[Relationen.md#Kardinalitätsbedingung]]) TODO Link anpassen
 
+
+## Zeitliche Scopes
+
+- **Statisch**
+  Bedingungen beziehen sich auf einzelne Zustände der Datenbank.
+  Beispielsweise die einzelnen Werte der Attribute
+- **Transitional** Die Integritätsbedingungen beziehen sich auf Übergänge zwischen Zuständen.
+  Beispielsweise darf der Status eines Projekts nicht von "Beendet" auf "Geplant" versetzt werden. 
+- **Temporal** Einschränkungen beziehen sich auf ganze Folgen von Zuständen
+  Jeder Wert darf maximal 10% über dem bisherigen Maximum liegen
+
+Es ist ebenfalls möglich die Zeitpunkte der Auswertungen zu klassifizieren.
+
+- Unmittelbar nach einer Änderung
+- Nach jeder Operation
+- Am Ende einer Transaktion
+- Zu einem bestimmten Zeitpunkt
+
+Nach einem Negativen Ergebnis kann die Operation abgelehnt werden (Reject) oder korrigierende Maßnahmen getroffen werden (Repair)
+
+TODO Fortsetzung ab Folie 2-23
