@@ -83,3 +83,5 @@ Ein Gängiges Verfahren ist die **k-fache Kreuzvalidierung** (k-fold Cross Valid
 ![](kFoldDataSplit.png)
 
 In diesem Beispiel wird das Modell nun 4 Mal mit unterschiedlichen Aufteilungen der Daten trainiert. Die resultierenden Score-Werte werden gemittelt um eine allgemeinere Aussage über die Qualität treffen zu können.
+
+Für die finale Vorhersage wird ein $n+1$-tes Modell trainiert, indem alle Messdaten zum Training eingesetzt werden. Die Einzel-Scores der Test-Modelle dienen zur Abschätzung der insgesamten Modellqualität.
