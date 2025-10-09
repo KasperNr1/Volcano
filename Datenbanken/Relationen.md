@@ -99,5 +99,3 @@ Es ist ebenfalls möglich die Zeitpunkte der Auswertungen zu klassifizieren.
 - Zu einem bestimmten Zeitpunkt
 
 Nach einem Negativen Ergebnis kann die Operation abgelehnt werden (Reject) oder korrigierende Maßnahmen getroffen werden (Repair)
-
-TODO Fortsetzung ab Folie 2-23
