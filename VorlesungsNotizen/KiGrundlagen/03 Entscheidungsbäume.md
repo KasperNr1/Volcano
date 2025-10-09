@@ -10,3 +10,10 @@ Es gibt eine unbegrenzte Menge korrekter Lösungsbäume, wobei die Qualität ein
 
 # ID3-Algorithmus
 Liefert relativ gute, simple Bäume für Datensätze mit [Nominalen Merkmalen](https://de.wikipedia.org/wiki/Nominalskala)  (Funktioniert nicht bei stetigen Werten). Der Algorithmus ist auch bei vielen Features effizient
+
+
+> [!Example] Klausuraufgabe
+> Entropie / Information Gain berechnen
+
+
+
