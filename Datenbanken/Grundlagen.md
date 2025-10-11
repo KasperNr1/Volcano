@@ -68,3 +68,12 @@ Datenmodelle werden meist mit UML oder als [ER](Entity-Relationship.md) Modell d
 Aktueller Stand der Technik ist der Einsatz von *Relationellen Datenmodellen*
 ![](RelativeDataModel.png)
 
+# Sichten
+
+Eine [Relation](Relationen.md#Relation) die in der [Datenbank](#Datenbank) tatsächlich existiert heißt **"Basisrelation"**.
+Sichten sind virtuelle Relationen, die aus beliebigen anderen Sichten oder Basisrelationen abgeleitet werden.
+So könne Nutzer nur die jeweils relevanten Daten betrachten
+
+Ebenfalls erleichtern sie den Umgang mit komplexeren Strukturen. Wenn eine Sicht als Grundlage für eine Abfrage verwendet wird, muss der Benutzer sich nicht mit den Verbundoperationen zum Erstellen der Sicht befassen.
+
+![](Sichten.png)
