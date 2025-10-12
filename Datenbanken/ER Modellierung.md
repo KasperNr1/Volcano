@@ -1,10 +1,12 @@
+# Darstellung
 Ein Entity/Relationship Modell dient zur Konzeptionellen Programmierung einer Datenbank.
 Es enthält die notwendigen Informationen über die Entitäten, Attribute und Beziehungen des Systems.
 
 Die verbreitetste Form der Darstellung ist die sogenannte [Chen Notation]([Chen-Notation – Wikipedia](https://de.wikipedia.org/wiki/Chen-Notation)) 
 
+> [!Info] Modellierungswillkür
+> Es gibt zu einem realen Sachverhalt nicht immer eine eindeutige, einzig korrekte Art diesen zu modellieren. Diese Existenz verschiedener korrekter Lösungen wird auch als **"Modellierungswillkür"** bezeichnet.
 
-# Darstellung
 ## Entitäten
 Eine Entität ist ein durch verschiedene Attribute beschriebenes, von anderen unterscheidbares Objekt.
 
@@ -40,6 +42,23 @@ Ein doppelt umrandetes Attribut symbolisiert eine Liste von Werten. Im gezeigten
 ![](Attribute.png)
 
 ## Kardinalität
-Manche [Beziehungen](#Beziehungen) sind beschränkt in der Anzahl an teilnehmenden Entitäten beschränkt. Eventuell gelten Ober- oder Untergrenzen aufgrund verschiedener [Integritätsbedingungen](Relationen.md#Integrität).
+Manche [Beziehungen](#Beziehungen) sind beschränkt in der Anzahl an teilnehmenden Entitäten beschränkt. Eventuell gelten Ober- oder Untergrenzen aufgrund verschiedener [Integritätsbedingungen](Relationen.md#Integrität). Die Beschränkungen werden auf die Verbindungslinien der Beziehungen notiert.
 
-TODO Folie 3-16
+Um darzustellen, dass ein Mitarbeiter zu beliebig vielen Projekten gehört, definiert man die Untergrenze auf $0$ und die Obergrenze auf $*$ (Unbegrenzt).
+Umgekehrt besteht ein Projekt aus höchstens $12$, jedoch nicht weniger als $3$ Mitarbeitern.
+
+![](Kardinalitäten.png)
+
+In der Vereinfachten Notation werden lediglich die Obergrenzen notiert. Ebenfalls ist die Seite auf der die Werte notiert werden im Vergleich zur ausführlichen Variante vertauscht.
+
+Die Selbe Relation zwischen Mitarbeitern und Projekten würde also nun folgendermaßen dargestellt. $N$ und $M$ stehen dabei für eine jeweils unbegrenzte Menge an Zuordnungen, ohne dass von beiden gleich viele existieren müssen.
+
+![](Kardinalitäten2.png)
+
+## Vererbung
+Ähnliche Entitätstypen können in einer Vererbungsstruktur zusammengefasst werden, wenn eine Entität eine Verallgemeinerung einer anderen ist.
+
+So wird dargestellt, dass ein Manager eine besondere Art von Mitarbeiter ist, die zusätzlich zu den normalen [Attributen](#Attribute) auch über ein Attribut "Bonus" verfügt.
+
+![](Inheritance.png)
+
