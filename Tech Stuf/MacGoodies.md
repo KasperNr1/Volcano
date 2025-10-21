@@ -4,6 +4,11 @@ App to rebind Keyboard Buttons
 
 Die gezeigten drei Anderungen unter "Simple Modifications" bei "Kinesis Adv360" eintragen
 ![[KarabinerRemapSettings.png]]
+
+> [!Warning] Nebenwirkung
+> Karabiner überschreibt eine Umbelegung in den MacOS Tastatureinstellungen. Um auf der integrierten Tastatur  `CAPS` mit `ESC` zu belegen muss das ebenfalls in Karabiner geändert werden.
+
+
 ## Config File
 ``` JSON karabiner.json
 {

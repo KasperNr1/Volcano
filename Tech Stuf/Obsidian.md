@@ -1,4 +1,11 @@
 # Plugins
+## DH-Mac
+- Ink
+- Slash Commander
+- [Zotero Integration](obsidian://show-plugin?id=obsidian-zotero-desktop-connector)
+- Pandoc
+- Pandoc Reference List
+
 ## Laptop
 - Code Styler
 - Ink
