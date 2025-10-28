@@ -22,6 +22,14 @@
 
 evtl. Die Mathe Credits im Informatik Bachelor holen?
 
+## Kontakt
+**Heike Größl**  
+Maria-von-Linden-Straße 6, Raum 40-7 / A24  
+72076 Tübingen  
+Tel. 07071 29 70796  
+[ml-master@inf.uni-tuebingen.de](https://uni-tuebingen.de/#)  
+Sprechzeit: nach Vereinbarung
+
 
 ---
 
