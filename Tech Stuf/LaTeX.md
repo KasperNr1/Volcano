@@ -1,7 +1,22 @@
+# Installation
+[Downloadseite des Projekts](https://www.latex-project.org/get/#tex-distributions)
+- MacTex Für MacOS
+- TeX Live Komplette Installation für Windows
+- MikTex Minimale Installation für Windows (Pakete werden nur bei Bedarf installiert)
+
+## Updates
+Installierte Pakete können auf MacOS mit diesem Befehl aktualisiert werden
+``` Terminal
+tlmgr update --self --all
+```
+
 # Vorlage
 Für größere Arbeiten wie die [T2000](T2000.md) liegt eine Vorlage unter 
 `C:\Users\dh10mbo\OneDrive - Durr Group\Documents\LaTeX`
 und bei [Github](https://www.github.com). 
+
+## Blablatex
+Doku im README des [Github Repositories](https://github.com/KasperNr1/BlaBlaTeX)
 
 ## Verwendung
 Das Projekt kann nicht direkt mit `pdflatex main.tex` compiliert werden, für Glossar und Literaturverzeichnis ist weitere Vorbereitung notwendig.
