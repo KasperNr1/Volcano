@@ -9,7 +9,7 @@ $\{19; 23; 27; 31; 35;...\}$ sind alle $\mod 4 =5$
 Sie sind Teil einer __Restklasse__
 Es gibt immer $m$ Restklassen bei Modulo $m$ 
 
-## Satz
+## Satz-Mod-Regeln
 Wenn $a=b \mod m$ und $c=d \mod m$ dann gilt:
 - $a+c=b+d \mod m$
 - $a * c=b * d \mod m$
@@ -62,10 +62,10 @@ In $\Bbb{Z}_5$ ist also mit $\dfrac12$ die Zahl $3$ gemeint.
 Nicht jede Zahl hat ein Multiplikatives Invers:
 $0 * d = 0 \neq 1$ 
 
-#### Satz
-Für $e \neq 0 \in \Bbb{Z}_n$ hat $e$ genau dann einen Kehrwert, wenn $e$ und $d$ koprim, also teilerfremd sind.
+#### Satz-Existenz
+Für $e \neq 0 \in \Bbb{Z}_n$ hat $e$ genau dann einen Kehrwert, wenn $e$ und $n$ koprim, also teilerfremd sind.
 
-#### Beispiel
+#### Beispiel-Invers-Suche
 $4^{-1} \in \Bbb{Z}_9$ "Erweitern" in gleicher Restklasse
 $$
 \frac{1}{4} \rightarrow \frac{1 + 9}{4} \rightarrow \frac{1 + 2 * 9}{4} \rightarrow \frac{1 + 3 * 9}{4} = 7

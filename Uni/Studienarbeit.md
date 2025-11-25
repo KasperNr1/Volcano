@@ -72,5 +72,26 @@ struct ContentView: View {
 > Definiert die lokale Variable theme auf Basis der Umgebungsvariable vom Typ ´Theme´. Es kann nur eine Env-Variablen von jedem Datentyp exisitieren.
 
 
+
+### Button Sizes
+[Swift stellt 5 unterschiedliche Größen bereit](https://developer.apple.com/documentation/appkit/nscontrol/controlsize-swift.enum), jedoch werden bei der Anwendung auf IOS Buttons nur drei verschiedene Varianten tatsächlich angezeigt.
+
+![](IosButtonSizes.png)
+
+Durch hinzufügen von längeren Texten kann der Button noch größer angezeigt werden, auch von leeren Zeilen wird die Größe angepasst.
+
+![](MegaButton.png)
+
+``` Swift
+Button {
+	// Do smth with Button Press
+} label: {
+	Text("\n\nXtra button\n\n")
+}
+.buttonStyle(.borderedProminent)
+.controlSize(.extraLarge)
+```
+
+
 TODO
 Zu vergrößernde App-Elemente auswählen und Optionen zur Vergrößerung von Schaltflächen vergleichena

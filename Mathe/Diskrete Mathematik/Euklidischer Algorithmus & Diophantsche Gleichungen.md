@@ -59,3 +59,6 @@ Ebenfalls sind Vielfache der Gleichung durch entsprechende Vielfache der Lösung
 # Multiplikatives Invers
 Berechnung des multiplikativen Invers einer Zahl $e \mod m$ 
 Wenn $e$ und $m$ teilerfremd sind, dann ist die Lösung der diophantischen Gleichung $e * x + m * y = 1$ das multiplikative Invers $\frac{1}{e}$ in $\mathbb{Z}_m$ 
+
+Diese Inverse können mit dem hier beschriebenen [Euklidischen Algorithmus](Euklidischer%20Algorithmus%20&%20Diophantsche%20Gleichungen.md) bestimmt werden. [Videobeispiel](https://www.youtube.com/watch?v=l_eIF61uTN0)
+Alternativ gibt es auch die [Iterative Methode](Modulare%20Arithmetik.md#Beispiel-Invers-Suche) bei der verschiedene Zahlen probiert werden.
