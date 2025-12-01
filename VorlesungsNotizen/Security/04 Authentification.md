@@ -47,23 +47,41 @@ Die verschlüsselte Nachricht $c$ entspricht mit dem Klartext $m$ $c=m^e \mod n$
 Zum entschlüsseln wird der Cyphertext lediglich mit dem anderen, privaten Schlüssel potenziert.
 - $m = c^d \mod n = 23^{19} \mod 40 = 7$
 
+![](Modulare%20Arithmetik.md#^Rules)
 
-> [!Tip]+ Rechenregeln
-> Im Taschenrechner lassen sich zu große Exponenten schlecht oder nicht berechnen. Die Werte können zerlegt werden
-> $$
-> 20^{69} = 20^{6*10+9} = \left(20^{10}\right)^{6}*20^{9}
-> $$
-> Es ist möglich, die Modulo Operation auch in diesen einzelnen Faktoren durchzuführen
-> $$
-> \left(20^{10}\right)^{6}*20^{9} = (31)^{6}*5 \mod 69
-> $$
-> Durch
-> - $20^{10}  = 31 \mod 69$
-> - $20^{9} = 5 \mod 69$ 
-> 
-> gilt also 
-> $$
-> 20^{69} = 31^{6}*5 = 65 \mod 69
-> $$
+# Diffie-Hellman Key-Exchange
+Dieser sehr elegante Algorithmus wird verwendet um auch auf unsicheren Kommunikationskanälen einen geheimen gemeinsamen Schlüssel zu vereinbaren. Dieser kann dann für beliebige [[Symmetrische Verschlüsselungsverfahren]] genutzt werden. 
+Er ist in seiner ursprünglichen Form anfällig für "Man In the Middle Attacks", was die Entwicklung einiger Varianten verursacht hat.
+
+![](Diffie-Hellman.png)
+## Ablauf
+Die beiden Partner vereinbaren öffentlich eine Primzahl $p$ und eine Basis $g$ aus dem [Galois-Körper](Gruppen%20Ringe%20und%20Körper.md#Verschiedene%20Strukturen%20von%20Mengen) $GF(p)$. 
+$p$ ist also eine beliebige Primzahl und $g \in [2, p-2]$
+
+Jeder wählt eine geheime Zufallszahl aus dem gegebenen Intervall und berechnet einen öffentlichen Wert.
+
+Beispielsweise wurden $p=31$ und $g=9$ vereinbart.
+Partner $A$ wählt nun $a = 13$ und $B$ die Zahl $b = 17$.
+
+Es wird jeweils ein öffentlicher Wert berechnet, wobei die bekannte Basis mit der geheimen Zahl im Körper $GF(31)$ exponiert wird.
+
+$$
+\begin{array}{}
+	\alpha = 9^{13} = 18 \mod 31 \\
+	\beta = 9^{17} = 19 \mod 31 \\
+\end{array}
+$$
+Diese berechnete Zahl wird nun dem jeweils anderen Partner unverschlüsselt übermittelt und erlaub es diesem den Austausch zu vollenden.
+Zum Abschluss wird der finale Schlüssel $K$ berechnet, wobei nur die übermittelte Zahl mit der selben geheimen Zahl exponiert wird.
+$$
+\begin{array}{}
+	K_A = 19^{13} = 14 \mod 31 \\ 
+	K_B = 18^{17} = 14 \mod 31 \\ 
+\end{array}
+$$
+
+Der Schlüssel $K$ ist nun nur den beiden Kommunikationspartnern bekannt und kann verwendet werden.
+
+
 
 

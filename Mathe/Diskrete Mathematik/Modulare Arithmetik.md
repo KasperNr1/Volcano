@@ -53,6 +53,24 @@ Es gilt $d = n-e$
 Es kann Zahlen geben die ihr eigenes  Invers sind.
 
 ### Multiplikation
+
+> [!Tip]+ Rechenregeln ^Rules
+> Im Taschenrechner lassen sich zu große Exponenten schlecht oder nicht berechnen. Die Werte können zerlegt werden
+> $$
+> 20^{69} = 20^{6*10+9} = \left(20^{10}\right)^{6}*20^{9}
+> $$
+> Es ist möglich, die Modulo Operation auch in diesen einzelnen Faktoren durchzuführen
+> $$
+> \left(20^{10}\right)^{6}*20^{9} = (31)^{6}*5 \mod 69
+> $$
+> Durch
+> - $20^{10}  = 31 \mod 69$
+> - $20^{9} = 5 \mod 69$ 
+> 
+> gilt also 
+> $$
+> 20^{69} = 31^{6}*5 = 65 \mod 69
+> $$
 #### Definition
 Wenn es zu $e\in \Bbb{Z}_n$ eine Zahl $d$ gibt mit $d \in \Bbb{Z}_n$ und $d*e=1$ so heißt $d$ Kehrwert von $e$ oder auch multiplikatives Invers.
 Man schreibt auch $d = e^{-1} = \dfrac1e$ 
