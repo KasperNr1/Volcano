@@ -30,11 +30,19 @@ Es werden zu Beginn zwei geheime Primzahlen $p$ und $q$ bestimmt. Diese sind bel
 - $p=11$
 - $q = 5$
 
-Es wird ihr Produkt $n = p * q$ berechnet, zusammen mit $\phi(n)$, was dem Produkt der um $1$ verminderten Primzahlen entspricht. $\phi(x)$ ist demnach nur für Zahlen definiert, die das Produkt von exakt zwei Primzahlen sind.
+Es wird ihr Produkt $n = p * q$ berechnet, zusammen mit $\phi(n)$, was dem Produkt der um $1$ verminderten Primzahlen entspricht.
 
-> [!Error] Fehler
-> $\Phi(n)$ Definition stimmt nicht.
-> Siehe Folien zu Kryptographie
+> [!Info]- $\Phi$-Funktion
+> Die eulersche $\Phi$-Funktion gibt zu jeder natürlichen Zahl $n$ an, wie viele teilerfremde natürliche Zahlen es gibt, die kleiner sind als $n$
+> 
+> - $1$ ist ein Sonderfall, da die Zahl nicht prim ist und auch nicht als Produkt von Primzahen dargestellt werden kann.
+>   $\Phi(1)=1$
+> - $6$ ist zu zwei Zahlen teilerfremd ($4;5$)
+>   $\Phi(6) = 2$
+> - $13$ ist als Primzahl zu allen kleineren Zahlen teilerfremd. Es gilt allgemein $\Phi(p) = p-1$
+>   $\Phi(13) = 12$
+> 
+> Für zwei Primzahlen $p$ und $q$ mit $p \neq q$ gilt $\Phi(p \cdot q) = (p-1) \cdot (q-1)$
 
 - $n=55$
 - $\phi(55) = (11-1)\cdot(5-1) = 10 \cdot 4 = 40$
