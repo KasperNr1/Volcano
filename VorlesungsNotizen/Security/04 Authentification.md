@@ -23,11 +23,19 @@ Public-Key Basiertes Asymmetrisches Verschlüsselungsverfahren. Jede Partei erze
 
 Die Fähigkeit der Entschlüsselung ist eine Eigenschaft besonderer Zahlenpaare bei der Berechnung von Exponenten in [Modularen Körper](Gruppen%20Ringe%20und%20Körper.md). Die Technik basiert auf [Fermants little theorem](https://en.wikipedia.org/wiki/Fermat%27s_little_theorem). 
 
+## Ablauf RSA
+![](RSA.png)
+
 Es werden zu Beginn zwei geheime Primzahlen $p$ und $q$ bestimmt. Diese sind beliebig und in der modernen Kryptographie typischerweise ca. 300 Stellen lang.
 - $p=11$
 - $q = 5$
 
-Es wird ihr Produkt $n$ berechnet, zusammen mit $\phi(n)$, was dem Produkt der um $1$ verminderten Primzahlen entspricht. $\phi(x)$ ist demnach nur für Zahlen definiert, die das Produkt von exakt zwei Primzahlen sind.
+Es wird ihr Produkt $n = p * q$ berechnet, zusammen mit $\phi(n)$, was dem Produkt der um $1$ verminderten Primzahlen entspricht. $\phi(x)$ ist demnach nur für Zahlen definiert, die das Produkt von exakt zwei Primzahlen sind.
+
+> [!Error] Fehler
+> $\Phi(n)$ Definition stimmt nicht.
+> Siehe Folien zu Kryptographie
+
 - $n=55$
 - $\phi(55) = (11-1)\cdot(5-1) = 10 \cdot 4 = 40$
 
@@ -42,10 +50,16 @@ Dieses Invers existiert, da die [Bedingungen für dessen Existenz](Modulare%20Ar
   da $19*19=361 = 1 \mod 40$
 
 Die verschlüsselte Nachricht $c$ entspricht mit dem Klartext $m$ $c=m^e \mod n$
-- $c=7^{19} \mod 40 = 23$
+- $c=7^{19} \mod 55 = 8$
 
-Zum entschlüsseln wird der Cyphertext lediglich mit dem anderen, privaten Schlüssel potenziert.
-- $m = c^d \mod n = 23^{19} \mod 40 = 7$
+Zum entschlüsseln wird der Chiffretext lediglich mit dem anderen, privaten Schlüssel potenziert.
+ $$
+ \begin{array}{ll}
+ m &= c^d \mod n \\
+ &= 8^{19} \mod 55 \\
+ &= 7
+ \end{array}
+ $$
 
 ![](Modulare%20Arithmetik.md#^Rules)
 
@@ -54,7 +68,7 @@ Dieser sehr elegante Algorithmus wird verwendet um auch auf unsicheren Kommunika
 Er ist in seiner ursprünglichen Form anfällig für "Man In the Middle Attacks", was die Entwicklung einiger Varianten verursacht hat.
 
 ![](Diffie-Hellman.png)
-## Ablauf
+## Ablauf Diffie-Hellman
 Die beiden Partner vereinbaren öffentlich eine Primzahl $p$ und eine Basis $g$ aus dem [Galois-Körper](Gruppen%20Ringe%20und%20Körper.md#Verschiedene%20Strukturen%20von%20Mengen) $GF(p)$. 
 $p$ ist also eine beliebige Primzahl und $g \in [2, p-2]$
 

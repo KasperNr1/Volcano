@@ -62,3 +62,8 @@ Wenn $e$ und $m$ teilerfremd sind, dann ist die Lösung der diophantischen Gleic
 
 Diese Inverse können mit dem hier beschriebenen [Euklidischen Algorithmus](Euklidischer%20Algorithmus%20&%20Diophantsche%20Gleichungen.md) bestimmt werden. [Videobeispiel](https://www.youtube.com/watch?v=l_eIF61uTN0)
 Alternativ gibt es auch die [Iterative Methode](Modulare%20Arithmetik.md#Beispiel-Invers-Suche) bei der verschiedene Zahlen probiert werden.
+
+## Indisches Verfahren
+TODO
+
+Siehe Foliensatz Kryptographie
