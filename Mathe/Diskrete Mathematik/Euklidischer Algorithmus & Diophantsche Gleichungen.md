@@ -64,6 +64,45 @@ Diese Inverse können mit dem hier beschriebenen [Euklidischen Algorithmus](Eukl
 Alternativ gibt es auch die [Iterative Methode](Modulare%20Arithmetik.md#Beispiel-Invers-Suche) bei der verschiedene Zahlen probiert werden.
 
 ## Indisches Verfahren
-TODO
+Hier wird in einem tabellarischem Verfahren der größte gemeinsame Teiler und das Multiplikatives Invers bestimmt. 
 
-Siehe Foliensatz Kryptographie
+## Startwerte
+$$
+\begin{array}{c c l}
+n &=& \text{Zahl 1} \\
+a &=& \text{Zahl 2} \\
+t_{1} &=& \text{Startet immer bei 0} \\
+t_{2} &=& \text{Startet immer bei 1} \\
+\end{array}
+$$
+
+Wenn das Invers $d$ einer Zahl $e$ Modulo $m$ bestimmt werden soll, wird zum Start $n=m$ und $a=e$ belegt. 
+Der Algorithmus terminiert in dem Schritt, in dem $a=0$ belegt ist. Der Wert $t_1$ der entsprechenden Zeile ist das Multiplikative Invers $d$.
+
+Jeder Schritt beginnt mit der Zuweisung der Werte $n,a,t_1,t_2$. Nach der initialen Belegung werden sie durch den rechts benachbarten Wert in der vorhergegangenen Zeile belegt.
+
+$q$ und $r$ werden mit durch Division von $n$ durch $a$ mit Rest belegt. Dabei erhält $q$ den Wert des Divisors und $r$ den Wert des Restes
+
+$$
+\begin{array}{c|c|c|c|c|c|c}
+q & n & a & r & t_{1} & t_{2} & t_{1}-t_{2} \cdot q \\\hline
+1 & \boxed{60} & \boxed{47} & 13 & \boxed{0} & \boxed{1} & -1 \\
+3 & 47 & 13 & 8 & 1 & -1 & 4 \\
+1 & 13 & 8 & 5 & -1 & 4 & -5 \\
+1 & 8 & 5 & 3 & 4 & -5 & 9 \\
+1 & 5 & 3 & 2 & -5 & 9 & -14 \\
+1 & 3 & 2 & 1 & 9 & -14 & 23 \\
+2 & 2 & 1 & 0 & -14 & 23 & -60 \\
+  & \boxed{1} & 0 &   & \boxed{23} & -60 &  \\
+\end{array}
+$$
+
+Mit dieser Beispiel wurde also berechnet, dass 
+$$
+ggT(60; 47) = 1
+$$
+Und
+$$
+\frac{1}{47} = 23 \mod 60
+$$
+
