@@ -57,6 +57,8 @@ Dieses Invers existiert, da die [Bedingungen für dessen Existenz](Modulare%20Ar
 - $d=19$
   da $19*19=361 = 1 \mod 40$
 
+Dieses Zahlenbeispiel führt zu einem Sonderfall. Beide Schlüssel sind identisch. Bei größeren Zahlen die tatsächlich für kryptographische Berechnungen verwendet werden ist dies deutlich seltener. Man könnte an dieser Stelle auch neue Schlüssel berechnen in dem man das gewählte $e$ tauscht um ein Paar nicht-identischer Schlüssel zu generieren. Dieses Beispiel verzichtet darauf und verwendet die beiden identischen Schlüssel.
+
 Die verschlüsselte Nachricht $c$ entspricht mit dem Klartext $m$ $c=m^e \mod n$
 - $c=7^{19} \mod 55 = 8$
 
@@ -105,5 +107,60 @@ $$
 Der Schlüssel $K$ ist nun nur den beiden Kommunikationspartnern bekannt und kann verwendet werden.
 
 
+# Homomorphe Verschlüsselung
+Eine Verschlüsselung heißt dann homomorph, wenn sie bestimmte Operationen auf den verschlüsselten Daten erlaubt. Beispielsweise können so Drittanbieter eingesetzt werden um sensible Daten zu verarbeiten, ohne dass sie in der Lage sind diese zu lesen oder durch Datenlecks zu veröffentlichen.
+
+## Ablauf Homomorphe Verschlüsselung
+![](HomomorpheVerschlüsselung.png)
+
+Die Verschlüsselung ist sehr simpel. Es wird eine Primzahl $p$ und eine Zufallszahl $r$ gewählt. Der Klartext $m$ wird in den Chiffretext $c$ umgewandelt.
+$$
+c = m + p \cdot r
+$$
+Mit den Chiffretexten können nun beliebige Additionen oder Multiplikationen durchgeführt werden. Diese Eigenschaft ist besonders, typischerweise ist höchstens eine der beiden Operationen möglich.
+Der Klassische [RSA Algorithmus](#RSA%20Algorithmus) ist multiplikativ homomorph, jedoch nicht additiv.
+
+Zur Entschlüsselung wird der verschlüsselte Text $c$ [Modulo](Modulare%20Arithmetik.md#Modulo) $p$ verrechnet, der Effekt aus Zufalls- und Primzahl wird dadurch entfernt. 
+
+$$
+m = c \mod p
+$$
+
+## Beispiel Homomorph
+Wir wählen die folgenden Werte
+$$
+\begin{array}{l l}
+p &= 97 \\
+r &= 48 \\
+m_1 &= 5 \\
+m_2 &= 2 \\
+\end{array}
+$$
+
+Nach der Verschlüsselung ergeben sich die folgenden Chiffretexte.
+$$
+\begin{array}{l l l}
+c_1 &= 5 + 97 \cdot 48 &= 4661 \\
+c_2 &= 2 + 97 \cdot 48 &= 4658 \\
+\end{array}
+$$
+
+Wir führen zwei Berechnungen mit den verschlüsselten Werten durch.
+$$
+\begin{array}{l l l}
+e_1 &= c_1 + c_2 &= 4661 + 4658 &= 9.319 \\
+e_2 &= c_1 \cdot c_2 &= 4661 \cdot 4658 &= 21.710.938 \\
+\end{array}
+$$
+Die erwarteten Ergebnisse $5+2 = 7$ und $5 \cdot 2 = 10$ stimmen mit den entschlüsselten Berechnungen überein.
+$$
+\begin{array}{l r l}
+m_1 =& 9.319 \mod 97&= 7 \\
+m_2 =& 21.710.938 \mod 97 &= 10 \\
+\end{array}
+$$
 
 
+$$
+
+$$

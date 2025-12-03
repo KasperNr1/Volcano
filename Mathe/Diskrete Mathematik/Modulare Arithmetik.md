@@ -1,4 +1,4 @@
-# Grundbegriffe 
+# Modulo 
 Zwei ganze Zahlen heißen "kongruent modulo $m$ ", wenn sie bei Division durch $m$ den gleichen Rest haben.
 
 **Beispiel** 
