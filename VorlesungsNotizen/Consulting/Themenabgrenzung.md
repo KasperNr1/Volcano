@@ -1,0 +1,60 @@
+- Was ist ein Elevator Pitch
+- Definition "Technischer Vertrieb"
+- Sales manager vs. Key-account
+- B2C und B2B
+- Fach- Sozial- Leistung- Methodenkompetenz
+- USP (Unique Selling point)
+- Sales Funnel 28
+- Definition "Lead"
+- Kennzahlen (Bedeutung)
+	- EBITDA
+	- Working Capital
+- Unternehmensziele
+	- Vision
+	- Leitbild
+	- Strategie
+- Aufbau- Ablauforganisation (Bedeutung) 
+- Marktformen
+	- Monopol
+	- Oligopol
+	- Polypol
+- Seite 61 Grafik
+- Primär und Sekundärforschung (Marktforschung) Unterschiede
+- Strategische Planung (Verschiedene Analyseformen) Seite 73
+- Stammkunden vs. Neukunden (Faktor 5 Aufwand)
+- Anfrage (Was ist das Ziel?)
+	- 3 Anfrageformen
+	- Unterschied "bestimmte Anfrage" & Markttest
+- Incoterms
+	- EXW
+	- FCA
+	- DDP
+- Elemente des Verhandelns
+	- 4 Elemente aus der Folie kennen
+- Preisstrategie
+	- Verschiedene Strategien
+	- Target Costing besonders
+- Aktives Zuhören
+- Preisverhandlung
+	- Verschiedene Taktiken
+	- Salamitaktik
+- Harvard Prinzip
+- Kundenzufriedenheit
+	- Diagramm auf Seite 144
+- "Net Promoter Score" Bedeutung (Im Text auf 144)
+- Was bringt Kundenzufriedenheit
+- Was ist Cross-Selling
+- Kano Modell (Seite 151)
+- 8D Report (Seite 158)
+- Aufgaben und Mitarbeiterorientierung (Seite 169)
+- Die Rollen einer Führungskraft (Die 5 Ziele)
+	- Mentor
+	- Kommunikator
+	- ...
+- Projektmanagement
+	- Klassisch 
+	- Agil
+- Consulting
+	- Grundsätze (extern, intern)
+	- Beraturngsarten (Prozess / inhalt)
+	- Welche Beratungsinhalte kann es geben
