@@ -85,3 +85,13 @@ Da $H(V)$ an einem Knoten immer Konstant ist bietet diejenige Entscheidung den h
 
 
 
+# Bewertung
+## Vorteile
+Es ist sehr leicht eine Entscheidung anhand eines Baumes zu treffen. Die Berechnung ist extrem günstig und gut nachvollziehbar.
+Entscheidungsbäume lassen sich außerdem sehr gut und anschaulich visualisieren.
+
+## Nachteile
+Da nur Waag- und Senkrechte Trennlinien verwendet werden, lassen sich komplexere Entscheidungsgrenzen nur schlecht darstellen.
+Zusätzlich neigen Entscheidungsbäume gerne zu Überanpassung.
+
+![](TreeOverfitting.png)

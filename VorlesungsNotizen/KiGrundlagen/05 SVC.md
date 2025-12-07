@@ -1,3 +1,4 @@
+Ab Seite 206
 
 > [!Example] Klausuraufgabe
 > Formel des Polynomialen Kernels kennen
