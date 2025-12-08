@@ -1,5 +1,5 @@
 # Begriffe
-Eine Funktion ist eine Zuordnung aller Zahlen aus der Definitionsmenge $D$ zu genau einer Zahl aus der Wertemenge $W$.
+Eine Funktion ist eine Zuordnung aller Zahlen aus der [Definitionsmenge](Intervalle%20und%20Mengen.md#Mengen) $D$ zu genau einer Zahl aus der Wertemenge $W$.
 Def- und Wertemenge lassen sich als [Intervalle](Intervalle%20und%20Mengen.md) schreiben, wie $D_f=[0; \infty)$ 
 
 ## Darstellung

@@ -125,3 +125,33 @@ Es ist ein höherer Rechenaufwand erforderlich.
 
 Die Ergebnisse sind nicht so einfach visualisier- oder nachvollziehbar wie bei einzelnen [Bäumen](#Bäume)
 
+# Naiver Bayes
+Dieses Klassifikationsverfahren basiert auf Wahrscheinlichtkeiten. Es berechnet für einen neuen Datenpunkt die Wahrscheinlichkeit mit der er zu jeder Klasse gehört und gibt die zurück, bei der die Wahrscheinlichkeit maximal ist.
+
+![](NaiverBayes.png)
+
+Um diese neue Messung zu klassifizieren müssen also zwei Wahrscheinlichkeiten berechnet werden:
+- $P(\text{Lachs} \mid \text{Helligkeit = 7, Länge = 10})$
+- $P(\text{Barsch} \mid \text{Helligkeit = 7, Länge = 10})$
+
+Durch den [Satz von Bayes](02%20Modellauswahl.md#Satz%20von%20Bayes) kann man diese Wahrscheinlichkeit auch folgendermaßen ausdrücken
+$$
+P(\text{Klasse}_i \mid \text{H. = 7, L. = 10}) = \frac{P(\text{Klasse}_i) \cdot P(\text{H. = 7, L. = 10} \mid \text{Klasse}_i)}{P(\text{H. = 7, L. = 10})}
+$$
+Da der Nenner unabhängig von der betrachteten Klasse ist und wir nur die relativen Größenverhältnisse der unterschiedlichen Wahrscheinlichkeiten berechnen wollen, kann er ignoriert werden um die Berechnung zu vereinfachen.
+
+Die Wahrscheinlichkeiten für das Auftreten einzelner Klassen können aus den Trainingsdaten abgeschätzt werden.
+$$
+P(\text{Barsch}) \approx \frac{\text{Anzahl Barsche}}{\text{Anzahl Fische}}
+$$
+Falls die Kenngrößen [stochastisch Unabhängig](Stochastisch%20unabhängige%20Zufallsvariablen.md#Definition%20Stochastische%20Unabhängigkeit) von einander sind kann man folgende Vereinfachung durchführen um die [Mehrdimensionale Verteilung](Mehrdimensionale%20Verteilungen.md#Mehrdimensionale%20Verteilungen) aufzulösen:
+$$
+P(\text{H. = 7, L. = 10} \mid \text{Klasse}_i) = P(\text{H. = 7} \mid \text{Klasse}_i) \cdot P(\text{L. = 10} \mid \text{Klasse}_i)
+$$
+Namensgebend für den Klassifikator ist die Naive Annahme, dass die Variablen immer unabhängig voneinander sind. Ebenfalls wird davon ausgegangen, dass sich die einzelnen Kriterien der Objekte jeweils durch eine [Verteilungsfunktion](Zufallsvariablen.md#Definition%20Verteilungsfunktion) beschreiben lassen.
+
+## Bewertung Naiver Bayes
+Das Verfahren ist simpel und funktioniert auch mit nur wenigen Trainingsdaten. Auch bei Hochdimensionalen Eingaben ist die Technik anwendbar.
+Jedoch sind die getroffenen Annahmen oftmals nicht gegeben, was zu einer Ungenauigkeit der Ergebnisse führt.
+
+

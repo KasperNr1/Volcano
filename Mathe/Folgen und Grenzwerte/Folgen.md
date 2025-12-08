@@ -45,7 +45,7 @@ Bsp. Sparschwein: Jeden Monat die Hälfte des Inhalts dazu und $2$ Euro entnehme
 - $10;13;17.5;24;25 \ldots$
 
 ## Eigenschaften von Folgen
-- (Streng-) [Monotonie](Monotonie%20bei%20Folgen.md) wie bei Funktionen 
+- (Streng-) [Monotonie](Monotonie%20bei%20Folgen.md) wie bei [Funktionen](Funktionen.md) 
 - Beschränktheit nach oben/unten wenn es ein $S/s$ gibt, dass nie über-/unterschritten wird
 - "Beschränkt" nur bei Existenz beider Schranken
 
