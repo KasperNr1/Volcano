@@ -1,4 +1,5 @@
 # Support Vector Machines
+## Linearer Kernel
 Wenn Trennlinien durch Datensätze gezogen werden, entstehen Fehlklassifikationen sobald Datenpunkte der selben Klasse auf beiden Seiten der Linie enden.
 SVM versuchen Trennlinien so zu legen, dass die Abstände zu allen Datenpunkten maximal werden.
 
@@ -69,11 +70,48 @@ Es wird ein Parameter $C$ eingeführt, der beschreibt wie stark Fehlklassifikati
 
 ![](SizesOfC.png)
 
----
-Ab Seite 206
+## Polynomialer Kernel
+Gegeben ist eine eindimensionale Reihe von Daten die getrennt werden soll. Sie lassen sich nicht durch eine 0-Dimensionale Hyperebene (Einen Punkt) trennen.
 
-> [!Example] Klausuraufgabe
-> Formel des Polynomialen Kernels kennen
+Idee ist es, die Daten in einen höherdimensionalen Raum abzubilden um sie dort trennen zu können.
+![](PolynomialKernel.png)
+
+Durch hinzufügen einer $Y$ Koordinate mit dem Wert $X^2$ verteilen sich die Punkte so im Raum, dass sie sich durch eine 1-Dimensionale Ebene (Gerade Linie) trennen lassen.
+
+Durch den [Kernel-Trick](https://de.wikipedia.org/wiki/Kernel-Methode) müssen die Daten nie direkt transformiert werden. Es ist möglich die Skalarprodukte durch die Kernel-Funktion zu ersetzen, um so aufwändige Berechnungen einzusparen.
+
+> [!Danger] Nacharbeiten
+> Die Kernel-Funktion und wie die Ersparnis erreicht wird ist mir unklar
+
+Der Polynomiale Kernel $K: R^n \times R^n \to R$ ist definiert durch:
+$$
+K(x, y) = \left(x \cdot y + c\right)^{d}
+$$
+Wobei
+- $c$ Ein konstanter Bias-Term ist, typischerweise $c \geq 0$
+- $d$ Der Grad des Polynoms, ein ganzzahliger Wert mit $d > 1$
+
+Höhere Grade des Polynoms erlauben komplexere Entscheidungsgrenzen und stärke Anpassung an Trainingsdaten. Somit kann auch durch zu große Polynome eine Überanpassung stattfinden.
+
+## RBF Kernel
+Bei der Radical Basis Function wird zu jedem Datenpunkt eine Gauß'sche Glockenkurve platziert.
+
+![](RbfKernel.png)
+
+Diese Kurven werden summiert und bilden die finale Entscheidungsfunktion.
+Das Vorzeichen an einem Punkt sagt aus, welcher Klasse er angehört.
+
+### Parameter
+Um die Glockenkurve etwas anpassen zu können wurde der Parameter $\gamma$ eingeführt. Er wird benutzt um den Bruch im Exponenten zu vermeiden und ist daher folgendermaßen definiert:
+$$
+\gamma := \frac{1}{2\sigma^{2}}
+$$
+Je größer $\gamma$ wird, desto spitzer sind die Hügel der Kurven. Bei kleineren Werten nahe $0$ flachen die Hügel ab.
+
+
+> [!Info] Kernelfunktion
+> Der RBF-Kernel ist durch folgende Funktion definiert:
 > $$
-> K(x, y) = \left(x \cdot y + c\right)^{d}
+> K(x, y) := e^{-\gamma \left|\left|x-y\right|\right|^{2}}
 > $$
+> $\gamma$ ist dabei stets positiv und steuert die Breite
