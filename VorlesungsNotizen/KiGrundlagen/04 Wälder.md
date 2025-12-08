@@ -88,7 +88,7 @@ $$
 Analog lässt sich auch die Fehlerrate bestimmen.
 
 ### Balancierte Fehlerrate
-Sie wird häufig bei stark unbalancierten Datensätzen verwendet. Dabei besteht ihr Wert aus dem [Arithmetischen Mittel](Folgen.md#Arithmetisches%20Mittel) der einzelnen Trefferquoten.
+Sie wird häufig bei stark unbalancierten Datensätzen verwendet. Dabei besteht ihr Wert aus dem [Arithmetischen Mittel](Folgen.md#Arithmetisches%20Mittel) der einzelnen Fehlerraten.
 
 $$
 \begin{array}{c | c | c}
@@ -98,6 +98,30 @@ $$
 \end{array}
 $$
 In diesem Beispiel würde die BER folgendermaßen berechnet:
-1. Trefferquote Positiv: $\frac{120}{120 + 40} = 75\%$
-2. Trefferquote Negativ: $\frac{20}{20+20} = 50\%$
+1. False Positive: $\frac{20}{20 + 20} = 50\%$
+2. False Negative: $\frac{40}{120+40} = 75\%$
 3. Mittelwert: $\frac{75 + 50}{2} = 62,5\%$
+
+# Ensemble Learning
+Da einzelne [Bäume](#Bäume) zu Überanpassung neigen wird eine Reihe unterschiedlicher Bäume erzeugt. Dieser "Wald" entscheidet dann per Mehrheit über das Gesamtergebnis.
+
+Grundsätzlich wird zwischen zwei Varianten unterschieden.
+Beim **Bagging** werden alle Daten gleich wahrscheinlich ausgewählt. Jeder Baum erhält zum Training eine Teilmenge des gesamten Datensatzes.
+Beim **Boosting** werden die Bäume sukzessive trainiert. Daten die von früheren Bäumen öfter falsch klassifiziert werden, tauchen im Training der späteren öfter auf.
+
+## Random Forests
+Um die Varianz zwischen den einzelnen Bäumen zu steigern werden bei diesem Ansatz zufällige Attribute der Daten für einzelne Bäume ignoriert. Wenn ein Attribut mit großer [Entropie](03%20Entscheidungsbäume.md#Entropie) wegfällt, wird anhand eines anderen Merkmals entschieden. Die Vorhersage einzelner Bäume wird etwas schlechter, die Entscheidung der Mehrheit profitiert in der Regel.
+
+## Bewertung
+### Vorteile
+Keine Vorverarbeitung der Daten notwendig, kann gut als erste Analyse eingesetzt werden.
+
+Keine Probleme mit hochdimensionalen Eingabedaten
+
+Durch die Abstimmungsergebnisse erhält man ein Maß für die "Confidence"
+
+### Nachteile
+Es ist ein höherer Rechenaufwand erforderlich.
+
+Die Ergebnisse sind nicht so einfach visualisier- oder nachvollziehbar wie bei einzelnen [Bäumen](#Bäume)
+
