@@ -1,17 +1,10 @@
 # Berechnung der Ausfallsicherheit und Verfügbarkeit
+[Ausfälle](02%20Physische%20Sicherheit.md#Ausfälle)
 
 ---
 # Berechnung der Entropie von Passwörtern und Passphrases
 
-> [!Example] Klausuraufgabe
-> Entropie eines Passworts berechnen
-> Seite 14 - Foliensatz Authentifikation (Orange)
-> $$
-> \text{Entropie} = \log_2(\text{Zeichensatz}^{\text{Länge}}) = \text{Länge} \cdot \log_2{\text{Zeichensatz}}
-> $$
-
-Passwörter gelten als ausreichen sicher, wenn sie $80$ Bit Entropie enthalten.
-
+![Sicherheit eines Passworts](04%20Authentification.md#Sicherheit%20eines%20Passworts)
 ---
 # Berechnung eines geeigneten Backup-Verfahren mit gegebenen Rahmenbedingungen
 

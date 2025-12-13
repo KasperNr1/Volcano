@@ -1,10 +1,42 @@
+# Begriffe
+## Identifizierung
+- Wer ist diese Person
 
-> [!Example] Klausuraufgabe
-> Entropie eines Passworts berechnen
-> Seite 14 - Foliensatz Authentifikation (Orange)
-> $$
-> \text{Entropie} = \log_2(\text{Zeichensatz}^{\text{Länge}}) = \text{Länge} \cdot \log_2{\text{Zeichensatz}}
-> $$
+## Authentifizierung
+- Ist das die Person die sie behauptet zu sein?
+
+## Authorisierung
+- Darf diese Person das?
+
+
+# Authentifikation
+Die Identität einer Person kann nicht direkt durch einen Computer überprüft werden. Aus diesem Grund greift man auf andere Kriterien zurück, die eine ausreichende Überzeugen erreichen.
+Dabei kann besonderes Wissen, der Bestitz von Gegenständen oder Biometrie abgeprüft werden.
+
+## Durch Wissen
+Das Klassische Passwort oder Sicherheitsfragen landen in dieser Kategorie. Wenn sie geheim gehalten wurden kann sie nur der Besitzer kennen. 
+Jedoch hängt die Sicherheit hier auch von der Länge und Komplexität der Passwörter ab. Zusätzlich können sie gestohlen werden, wenn Angreifer durch Beobachten oder durch Keylogger / Phishing in der Lage sind die Passwörter zu lernen.
+
+![](PasswordCheckFlow.png)
+
+In der [Datenbank](Grundlagen.md#Datenbank) einer Anwendung ist zu jeder UserID ein Passwort gespeichert. Für erweiterte Sicherheit ist das Passwort nicht im Klartext gespeichert, sondern nur der [Hashwert](Hashing.md) des Passworts. Zum Abgleich wird das eingegebene Passwort gehasht und das Ergebnis mit dem hinterlegten Eintrag verglichen.
+
+
+### Überprüfung
+#### Salz
+Durch Speichern von Hashwerten sind die Passwörter nicht in der Datenbank enthalten. Ein Angreifer kann trotzdem die Hashwerte bekannter Passwörter abgleichen. Um dies zu verhindern wird ein sog. 'Salt' eingesetzt. Es ist eine zusammen mit dem Hash abgespeicherte, zufällige Zeichenfolge die dem eingegebenen Passwort angehängt wird, bevor der Hash berechnet wird. So werden auch dann unterschiedliche Hashes gespeichert, wenn zwei Nutzer das selbe Passwort verwenden.
+
+#### Pfeffer
+Bei 'Pepper' ist die Idee ähnlich, jedoch handelt es sich hier um eine für alle Nutzer gleiche, geheime Zeichenfolge.
+Der Wert des Peppers kann jedoch nicht geändert werden, ohne dass sich der Benutzer einloggen muss. Erst bei einem erfolgreichen Login kann mit einem neuen Pepper der erwartete Hashwert aktualisiert werden. 
+
+### Sicherheit eines Passworts
+Die Entropie eines Passworts gibt an, wie komplex es ist. Komplexere Passwörter sind im Allgemeinen sicherer. 
+$$
+\text{Entropie} = \log_2(\text{Zeichensatz}^{\text{Länge}}) = \text{Länge} \cdot \log_2{\text{Zeichensatz}}
+$$
+
+Passwörter gelten als ausreichen sicher, wenn sie mindestens $80$ Bit Entropie enthalten.
 
 
 > [!Example] Klausuraufgabe
@@ -12,17 +44,59 @@
 > Seite 17
 > ![](Passphrase%20Erstellung.png)
 
-> [!Example] Klausuraufgabe RSA-Algorithmus
-> Verschlüsselung durchrechnen können:
-> 
-> Primzahlen $p$ und $q$ sind bekannt, ebenfalls der Vorschlag für privaten Schlüssel $e$.
-> Prüfung auf Gültigkeit und Berechnung des öffentlichen Schlüssels. Anwendung der Verschlüsselung und Entschlüsselung des Ciphertexts.
+## Durch Besitz
+Verschiedene Magnetstreifen- oder Chipkarten existieren, die geheime Tokens an spezielle Lesegeräte übertragen können. Auch USB-Tokens wie Yubee-Keys sind geeignet. Sie bieten zusätzlich den Vorteil, dass sie kein besonderes Lesegerät benötigen und auch als regulärer Speicher verwendet werden können.
+
+Es gibt auch OTP-Geräte, die in der Lage sind kurzzeitig gültige Tokens zu generieren. Selbst wenn ein Angreifer das Token aufzeichnet, kann es nicht verwendet werden, da sie nur für einzelne Aktionen gültig sind.
+
+## Durch Biometrie
+- Fingerabdruck
+- Gesicht
+- Iris
+- Hand
+- Unterschrift
+- Stimme
+- Gangart
+- Tattoo
+
+Dabei müssen die Merkmale einige Eigenschaften erfüllen
+- Universalität (Jede Person sollte es besitzen)-
+- Einzigartigkeit
+- Permanenz
+- Messbarkeit
+- Fälschungssicherheit
+
+### Prüfung
+Die Leistungsfähigkeit wird anhand der Fehler bestimmt
+
+**False Acceptance Rate (FAR)**
+$$
+\text{FAR} = \frac{\text{Anzahl fälschlich Akzeptierer Versuche}}{\text{Anzahl ungültiger Versuche}}
+$$
+**False Rejection Rate (FRR)**
+$$
+\text{FRR} = \frac{\text{Anzahl fälschlich abgelehnter Versuche}}{\text{Anzahl gültiger Versuche}}
+$$
+
+## Vergleich
+
+|           | Wissen                                                                                         | Besitz                                                                                                | Biometrie                                                                                            |
+| --------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Vorteile  | - Einfach<br>- Theoretisch Sicher<br>- Keine zusätzliche Technik                               | - Kein Merken<br>- Hohe Sicherheit<br>- Benutzerfreundlich                                            | - Hohe Sicherheit<br>- Kein Transport notwendig                                                      |
+| Nachteile | - Effektivität variabel<br>- Viele Passwörter werden unübersichtlich<br>- Leicht zu übertragen | - Schnittstelle muss vorhanden sein<br>- Aufwendige Umsetzung<br>- Hardware muss transportiert werden | - Aufwendige Umsetzung<br>- Zusätzliche Hardware<br>- Hohe Kosten<br>- Wertlos nach Kompromittierung |
+Es sollte eine Kombination von Merkmalen verwendet werden, beispielsweise eine Kombination von Besitz und Biometrie (Fingerabdruck auf einem bestimmten Handy) oder Passwörter mit 2FA-Codes.
+
 
 # RSA Algorithmus
 Public-Key Basiertes Asymmetrisches Verschlüsselungsverfahren. Jede Partei erzeugt ein Paar aus zueinander passenden Schlüsseln, einer wird geheim gehalten und zum entschlüsseln verwendet, der andere ist öffentlich und kann verwendet werden um Nachrichten an diesen Empfänger zu verschlüsseln.
 
 Die Fähigkeit der Entschlüsselung ist eine Eigenschaft besonderer Zahlenpaare bei der Berechnung von Exponenten in [Modularen Körper](Gruppen%20Ringe%20und%20Körper.md). Die Technik basiert auf [Fermants little theorem](https://en.wikipedia.org/wiki/Fermat%27s_little_theorem). 
 
+> [!Example] Klausuraufgabe RSA-Algorithmus
+> Verschlüsselung durchrechnen können:
+> 
+> Primzahlen $p$ und $q$ sind bekannt, ebenfalls der Vorschlag für privaten Schlüssel $e$.
+> Prüfung auf Gültigkeit und Berechnung des öffentlichen Schlüssels. Anwendung der Verschlüsselung und Entschlüsselung des Ciphertexts.
 ## Ablauf RSA
 ![](RSA.png)
 
