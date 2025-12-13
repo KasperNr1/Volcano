@@ -41,9 +41,58 @@ Sicherheitsbereiche dürfen nur von wenigen bestimmten Personen betreten werden.
 ![](SecurityLayers.png)
 
 
+# Ausfälle
+
+> [!Quote] Was ist ein Ausfall?
+> Eine Ausfall ist, wenn eine Komponente und auch ein System keine Daten über Schnittstellen ein- oder ausgegeben kann und sich nicht steuern lässt.
+> 
+> Dies gilt auch für Fehlfunktionen und fehlerhafte ausgegebene Daten
+
+## Einzelne Komponente
+Die Verfügbarkeit einer einzelnen Komponente berechnet sich als das Verhältnis aus der Funktionsfähigen Zeit und der Gesamtzeit.
+$$
+\text{Verfügbarkeit} = \frac{\text{Betriebszeit}}{\text{Betriebszeit} + \text{Ausfallzeit}}
+$$
+
+Wenn die Gesamtverfügbarkeit einer Gruppe von Ojekten berechnet werden soll, bestimmt sich diese ähnlich über die Anzahl der vorhandenen und verfügbaren Objekte.
+$$
+\text{Verfügbarkeit} = \frac{\text{Anzahl Objekte} - \text{Anzahl nicht verfügbarer Objekte}}{\text{Anzahl Objekte}}
+$$
 
 
+> [!Info] Allgemein
+> Beide Formeln verallgemeinern sich zu folgendem Verhältnis
+> $$
+> \text{Verfügbarkeit} = \frac{\text{Verfügbarer Teil}}{\text{Gesamtheit}}
+> $$
 
+
+## Verkettete Systeme
+Die Verfügbarkeit verketteter Systeme verhält sich allgemein wie der Elektrische Widerstand elektrischer Schaltungen.
+
+### Serienschaltung
+In Serie geschaltene Systeme sind nur dann Verfügbar, wenn es alle Komponenten auch sind.
+
+![](Serienschaltung.png)
+$$
+V_{\text{Serie}} = \prod_{i=1}^{n} V_i = V_{K_1} \cdot V_{K_2} \cdot \ldots \cdot V_{K_n} 
+$$
+
+## Parallelschaltung
+Bei einer Parallelschaltung ist die [Wahrscheinlichkeit](Einführung.md) eines beliebigen Ausfalls durch die Anzahl der Komponenten erhöht. Ein Ausfall des Gesamtsystems erfordert jedoch einen gleichzeitigen Ausfall aller Komponenten. Dies ist sehr unwahrscheinlich, wodurch das System insgesamt robust wird.
+
+![](Parallelschaltung.png)
+
+$$
+V_{\text{Parallel}} = 1 - \prod_{i=1}^{n} (1-V_i)= 1 - (1-V_{K_1}) \cdot (1-V_{K_2}) \cdot \ldots \cdot (1-V_{K_n})
+$$
+
+
+> [!Info] Ausfallsicherheit vs. Verfügbarkeit
+> Die Summe dieser beiden Größen ist stets $1$, da ein System sich nur in den Zuständen "Verfügbar" oder "Ausgefallen" befinden kann
+> $$
+> \text{Verfügbarkeit}(V) + \text{Ausfallzeit}(V) = 1
+> $$
 
 
 
