@@ -37,3 +37,6 @@ Passwörter gelten als ausreichen sicher, wenn sie $80$ Bit Entropie enthalten.
 # Berechnung einer multiplikativen und additiven homomorphen Verschlüsselung
 
 [Homomorphe Verschlüsselung](04%20Authentification.md#Homomorphe%20Verschlüsselung)
+
+---
+Aus beschriebener Situation rauslesen welche Primären Verletzung von [Intergration / Vertraulichkeit / Verfügbarkeit](01%20Sicherheitsziele.md#Sicherheitsattribute) gegeben sind.
