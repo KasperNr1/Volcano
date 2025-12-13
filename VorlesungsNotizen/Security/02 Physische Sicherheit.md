@@ -95,8 +95,82 @@ $$
 > $$
 
 
+# RAID
+Ein Redundant Array of Inexpensive Disks kombiniert mehrere günstige Festplatten zu einem größeren Speichersystem.
+
+Abhängig von der Anzahl der verwendeten Platten gibt verschiedene Arten von Sicherungssystemen. Einige sind simpel und spiegeln die Daten einfach mehrmals während andere komplexere Verfahren mit Prüfsummen die Menge des effektiv verfügbaren Speichers erhöhen.
+Diese Verschiedenen Varianten wurden ursprünglich von 0 bis 5 nummeriert, wurden allerdings seither erweitert.
+
+## RAID-1
+Bei dieser Variante werden alle Festplatten mit identischem Inhalt beschrieben (Mirroring). So ist die Datenmenge bis zu einem Ausfall von $(n-1)$ problemlos lesbar.
+
+![](Raid1.png)
+
+Das Schreiben wird mit jeder Platte langsamer, das Lesen schneller.
+
+## RAID-0
+Hier wird keine Redundanz gespeichert. Daten werden in Blöcke zerlegt und nach dem [Round-Robin-Prinzip](03%20Prozessmanagement.md#Round-Robin) auf die Festplatten verteilt (Striping).
+Jede einzelne Platte enthält so nur Teile einer Datei.
+Durch diese Variante sind Lese- und Schreibgeschwindigkeit sehr hoch, jedoch ist keine Sicherheit gegeben.
+
+![](Raid0.png)
+
+## RAID-4
+Bei Raid-4 werden Daten auf die ersten $(n-1)$ Laufwerke aufgeteilt wie bei [RAID-0](#RAID-0). Das $n$-te Laufwerk dient als Paritätslaufwerk und enthält Prüfsummen für die entsprechenden Bits der anderen Laufwerke. So werden die Schnelligkeit von Raid-0 mit Ausfallsicherheit kombiniert.
+
+![](Raid4.png)
 
 
+## RAID-5
+Hier wird wie bei [RAID-4](#RAID-4) die Parität zu den durch Striping getrennten Speichermedien berechnet. Allerdings ist es nicht notwendig eine eigene Festplatte für diese Kontrollbits zu führen, da die entsprechenden Datenblöcke gleichmäßig auf alle Laufwerke verteilt werden.
+
+![](Raid5.png)
+
+## RAID-6
+Hier werden jeweils 2 Blöcke an Paritätsbits über die Laufwerke verteilt. Somit können zwei beliebige Festplatten ausfallen ohne dass Daten verloren gehen. Der Geschwindigkeitsvorteil von [RAID-0](#RAID-0) bleibt großteils erhalten.
+
+![](Raid6.png)
+
+## RAID-10
+Ist eine Kombination aus [RAID-0](#RAID-0) und [RAID-1](#RAID-1). 
+Mit mindestens 4 Platten werden Daten auf 2 Gestriped und diese beiden Platten auf die anderen gespiegelt.
+
+![](Raid10.png)
+
+
+# Datensicherung
+Es gibt verschiedene Varianten Backups zu erstellen. Die häufigsten sind dabei die
+- [Vollbackups](#Vollbackups)
+- [Differenzielle Sicherung](#Differenzielle%20Sicherung)
+- [Inkrementelle Sicherung](#Inkrementelle%20Sicherung)
+
+## Vollbackups
+Hier wird zum Zeitpunkt der Sicherung immer eine komplette Kopie des Mediums gespeichert. Diese Art verwendet viel Speicherplatz, ist dafür aber sehr simpel im Speichern und im Wiederherstellen.
+Es ist empfohlen diese Art nicht als einzige zu verwenden, sondern in Kombination mit anderen speicherfreundlicheren Verfahren.
+
+## Differenzielle Sicherung
+Es wird bei jeder Sicherung alle Daten die seit der letzten [Vollsicherung](#Vollbackups) entstanden sind.
+![](DifferentialBackups.png)
+Beispielsweise wird jeden Montag der gesamte Datenbestand gesichert und an jedem anderen Tag nur jeweils die Daten, welche seit Montag hinzugekommen sind.
+
+Zur Wiederherstellung muss das letzte Vollbackup und die neueste Differenz eingespielt werden.
+
+## Inkrementelle Sicherung
+Hier wird wie bei der [Differenziellen Sicherung](#Differenzielle%20Sicherung) nur selten ein Backup der gesamten Daten gemacht. An jedem anderen Tag werden nur die Daten des jeweiligen Tages gesichert.
+
+Zur Wiederherstellung müssen so das letzte Vollbackup und alle Inkremente die seither geschrieben wurden eingespielt werden.
+![](InkrementalBackup.png)
+
+## Großvater-Vater-Sohn
+Dieses Prinzip beschreibt eine Strategie um zu entscheiden, wann welche Backups gelöscht bzw. Überschrieben werden.
+
+Am Beispiel einer [Inkrementellen Backupstrategie](#Inkrementelle%20Sicherung) wird beispielsweise das aktuellste Inkrement (der Sohn) jeden Tag überschrieben. Der Vater (das letzte Vollbackup) wird jede Woche erneuert und der Großvater jeden Monat.
+
+![](BackupGenerations.png)
+
+
+> [!Info] Sicherungssatz
+> Die [Menge](Intervalle%20und%20Mengen.md#Mengen) an Sicherungen die zur vollständigen Wiederherstellung benötigt werden, bezeichnet man als Sicherungssatz.
 
 
 
