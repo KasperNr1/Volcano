@@ -20,9 +20,29 @@ Erkennen und Beheben von Fehlern ist durch geschickte Codierung zumindest teilwe
 ### Fehlererkennung
 Durch Verwendung eines [Parity-Bits](DigitaltechnischeBegriffe.md#Parity) können Fehler erkannt werden, bei denen bis zu ein Bit getauscht wurde.
 
-Es gibt auch mehrdimensionale Parität
-TODO VL 03 Seite ~95
+#### Zweidimensionale Parität
+Die grauen Datenbits werden in einem Rechteck angeordnet und erhalten [Parity](DigitaltechnischeBegriffe.md#Parity)-Bits in jeder Zeile und Spalte (Rot).
+All diese Kontrollbits werden von einem weiteren geprüft, das sich in der Ecke der Anordnung befindet.
+
+![](2dParity.png)
+
+Wenn sich nun 2 Werte ändern, kann das anhand der Prüfziffern erkannt werden.
+![](2d2errors.png)
+
+Zur Korrektur muss eindeutig erkennbar sein, wo der Fehler aufgetreten ist. Dann kann einfach das Betroffene Bit erneut getauscht werden. Mit diesem Schema kann ein beliebiger Fehler korrigiert werden. Bei zwei Fehlern können diese so liegen (Diagonal zu einander), dass sie nicht eindeutig identifiziert werden können. Es würden 4 Stellen in Frage kommen, von denen nur zwei tatsächlich getauscht werden müssten.
+
+Ab vier Fehlern ist eine Konfiguration möglich, so dass diese nicht erkannt werden.
+![](2d4errors.png)
+
 
 ### Fehlerkorrektur
-Hamming-Codes.
+Codes mit Fehlerkorrektur sind in der Lage, leicht beschädigte Daten selbst wiederherzustellen. Dafür sind sie mit besonders angeordneten Prüfziffern ausgestattet wie die berühmten **Hamming-Codes**
+
+Hamming-Codes wie [Zweidimensionale Parität](#Zweidimensionale%20Parität) können Fehler erkennen und korrigieren.
+
+
+> [!Error] Verwirrung
+> [Das hier](#Zweidimensionale%20Parität) nicht Hamming codes? (Vgl. 3B1B und Algo/Datenstrukturen Vorlesung)
+> Neske aus IT-Sicherheit führt sie separat von [seinen Hamming Codes](Netzwerksicherheit.md#Hamming%20Codes) auf.
+
 TODO

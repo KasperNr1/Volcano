@@ -84,6 +84,16 @@ $$
 # Parity
 Die Verwendung eines Parity Bits ist eine simple Form der [Fehlererkennung](Codes.md#Fehlererkennung) in Codes.
 Dabei wird dem Datenwort ein Parity Bit $P$ hinzugefügt, das vom Wort selbst abhängt. Sein Wert ist so gewählt, dass die Anzahl aller $1$ oder $0$ Bits inklusive des Parity Bits gerade oder ungerade ist. Beide können beliebig verwendet werden, vor Beginn der Kommunikation muss darüber abgestimmt worden sein.
+
+
+> [!Info] Even Vs. Odd
+> Die Begriffe Even- und Odd-Parity werden häufig verwendet. Dabei ist lediglich festgelegt welche Summe die Bits des übertragenen Worts erhalten sollen.
+> - Even-Parity:
+>   Das Parity-Bit wird so gewählt, dass im gesamten Wort eine gerade Anzahl aktiver Bits vorkommt
+> - Odd-Parity:
+>   Analog wird hier das Bit gesetzt um auf eine ungerade Zahl an $1$er zu kommen
+
+
 Die Menge an Nachrichtenbits die jeweils mit einem Parity Bit abgesichert wird ist ebenfalls beliebig wählbar. Kleinere Pakete sind in der Lage Fehler präziser zu lokalisieren, sind dafür aber aufwendiger da mehr zusätzliche Bits verwaltet werden müssen.
 Der Empfänger bildet zur Kontrolle das Parity Bit selbst und vergleicht die Werte.
 ## Beispiel

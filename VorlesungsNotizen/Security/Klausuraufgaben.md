@@ -11,7 +11,7 @@
 ---
 # Binäres Prüfsummenverfahren mit 1-er Komplementarithmetik
 
-[Hamming Codes](Netzwerksicherheit.md#Hamming%20Codes) könnte gemeint sein
+[Binäre Prüfsummen mit 1er-Komplement](Netzwerksicherheit.md#Binäre%20Prüfsummen%20mit%201er-Komplement)
 
 ---
 # Diffie-Hellmann Schlüsselvereinbarung
