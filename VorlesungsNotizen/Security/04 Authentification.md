@@ -148,7 +148,7 @@ Zum entschlüsseln wird der Chiffretext lediglich mit dem anderen, privaten Schl
 ![](Modulare%20Arithmetik.md#^Rules)
 
 # Diffie-Hellman Key-Exchange
-Dieser sehr elegante Algorithmus wird verwendet um auch auf unsicheren Kommunikationskanälen einen geheimen gemeinsamen Schlüssel zu vereinbaren. Dieser kann dann für beliebige [[Symmetrische Verschlüsselungsverfahren]] genutzt werden. 
+Dieser sehr elegante Algorithmus wird verwendet um auch auf unsicheren Kommunikationskanälen einen geheimen gemeinsamen Schlüssel zu vereinbaren. Dieser kann dann für beliebige [[Symmetrische Verschlüsselungsverfahren]] genutzt werden. So ist es nicht nötig, für jedes Paar an Kommunikationspartnern einen eigenen Schlüssel zu verwenden und speichern.
 Er ist in seiner ursprünglichen Form anfällig für "Man In the Middle Attacks", was die Entwicklung einiger Varianten verursacht hat.
 
 ![](Diffie-Hellman.png)
