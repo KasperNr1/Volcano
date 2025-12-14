@@ -147,6 +147,59 @@ Zum entschlüsseln wird der Chiffretext lediglich mit dem anderen, privaten Schl
 
 ![](Modulare%20Arithmetik.md#^Rules)
 
+### RSA-Signaturen
+Eigenschaften einer Digitalen Signatur sollen sein:
+- Zweifelsfreie Identität (Eine Person wird eindeutig bestätigt)
+- Keine Wiederverwendbarkeit (Signatur soll nicht vom Dokument gelöst werden können)
+- Unveränderbarkeit
+- Verbindlichkeit
+
+#### Ablauf RSA-Signatur
+Wie auch bei der [RSA-Verschlüsselung](#RSA%20Algorithmus) werden aus zwei geheimen Primzahlen ein Paar an Schlüsseln erzeugt.
+
+Die Nachricht wird mit dem privaten Schlüssel "verschlüsselt" und unverändert zusammen mit der "verschlüsselten" Nachricht und dem öffentlichen Schlüssel übertragen.
+
+Der Empfänger kann die "verschlüsselte" Nachricht mit dem öffentlichen Schlüssel entschlüsseln und prüfen, ob sein Ergebnis mit der Unverschlüsselt übertragenen Nachricht übereinstimmt. Falls dies der Fall ist, ist die Nachricht definitiv unverändert und vom erwarteten Absender. 
+
+![](RsaSignature.png)
+
+#### Beispiel RSA-Signatur
+Wählen der geheimen Primzahlen
+- $p=3$
+- $q=11$
+- $n=p \cdot q = 3 \cdot 11 = 33$
+- $\phi(n) = \phi(33) = (3-1)\cdot(11-1) = 20$
+- Wähle $e=3$ wobei $ggT(e, \phi(n)) = 1$ sein muss
+- Berechne $d = e^{-1} \mod \phi(n) = 3^{-1} \mod 20 = 7$
+
+Die Nachricht $x=4$ wird nun signiert.
+Die Signatur $sig$ besteht aus der Nachricht $x$ und dem Signaturwert $s$. Dieser berechnet sich wie folgt:
+$$
+\begin{array}{rl}
+s &= x^{d} \mod n \\ &= 4^7 = 16 \mod 33
+\end{array}
+$$
+Somit ist die Signatur
+$$
+\text{sig} = (x, s) = (4, 16)
+$$
+Der Empfänger erhält also
+- Die öffentlichen Teile der Verschlüsselung
+	- $n=33$
+	- $e=3$
+- Die Signatur $(x, s) = (4, 16)$
+
+Er verifiziert sie indem er den Signaturwert mit dem Schlüssel exponiert.
+$$
+\begin{array}{ll}
+x^{\prime} &= s^e \mod n \\
+&= 16^3 \mod 33 \\
+&= 4
+\end{array}
+$$
+Da $x = x^{\prime}$ ist die Signatur gültig.
+
+
 # Diffie-Hellman Key-Exchange
 Dieser sehr elegante Algorithmus wird verwendet um auch auf unsicheren Kommunikationskanälen einen geheimen gemeinsamen Schlüssel zu vereinbaren. Dieser kann dann für beliebige [[Symmetrische Verschlüsselungsverfahren]] genutzt werden. So ist es nicht nötig, für jedes Paar an Kommunikationspartnern einen eigenen Schlüssel zu verwenden und speichern.
 Er ist in seiner ursprünglichen Form anfällig für "Man In the Middle Attacks", was die Entwicklung einiger Varianten verursacht hat.
@@ -234,6 +287,21 @@ m_2 =& 21.710.938 \mod 97 &= 10 \\
 \end{array}
 $$
 
+
+# Kryptographische HASH-Funktionen
+Eine Hash Funktion akzeptiert einen beliebigen Input und liefert einen Output fester Länge.
+Eine gute Hash-Funktion hat einige Eigenschaften
+- Unumkehrbarkeit
+- Kollisionsfreiheit
+- Geschwindigkeit
+
+Es muss also schnell möglich sein, einen Hashwert zu berechnen. Gleichzeitig darf von einem Hashwert nicht auf die Eingabe geschlossen werden können.
+
+
+> [!Info] Kollisionsfreiheit
+> Da die Menge der Ausgaben auf eine feste Länge begrenzt ist, gibt es nur endlich viele Ausgabewerte.
+> Da unendlich viele Werte eingegeben werden können, gibt es in jeder Hashfunktion mehrere Werte, die zur selben Ausgabe führen.
+> Mit Kollisionsfreiheit ist daher gemeint, dass auch sehr ähnliche Eingaben stark verschiedene Ausgaben liefern. 
 
 $$
 
