@@ -96,3 +96,25 @@ $$
 0000
 \end{array}
 $$
+
+# EAN Prüfsummen
+Die European Article Number ist eine 13-stellige Artikelbezeichnung. Um Zahlendreher und Tippfehler einzuschränken dient die 13te Ziffer nur als Prüfsumme.
+
+Dabei werden die ersten 12 Ziffern abwechselnd mit $1$ und $3$ multipliziert und addiert.
+Die Prüfziffer wird so gewählt, dass die Summe dieser Summe und der Prüfziffer durch 10 teilbar ist.
+
+## Beispiel
+Wir berechnen die Prüfziffer eines Artikels.
+1234-5678-9123-X
+
+$$
+1 \cdot 1 + 3 \cdot 2 + 1 \cdot 3 + 3 \cdot 4 + \dots + 1 \cdot 2 + 3 \cdot 3 = 99
+$$
+
+formell wird die Prüfziffer $p$ aus dieser Summe $n$ bestimmt:
+$$
+p = 10 - n \mod 10
+$$
+$$
+p = 10 - 99 = -89 = 1\mod 10
+$$

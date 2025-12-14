@@ -172,13 +172,3 @@ Am Beispiel einer [Inkrementellen Backupstrategie](#Inkrementelle%20Sicherung) w
 > [!Info] Sicherungssatz
 > Die [Menge](Intervalle%20und%20Mengen.md#Mengen) an Sicherungen die zur vollständigen Wiederherstellung benötigt werden, bezeichnet man als Sicherungssatz.
 
-
-
-> [!Example] Klausuraufgabe
-> Verfügbarkeit von verketteten Systemen ausrechnen
-> (Seite 17-21)
-
-# Sicherungsmethoden
-- Verschiedene RAID Systeme / Strategien (Striping / Mirroring / Parity)
-- Backup-Strategien (Voll-Backups / Inkrementelle Sicherung)
-- Schadsoftware

@@ -11,7 +11,7 @@
 ---
 # Binäres Prüfsummenverfahren mit 1-er Komplementarithmetik
 
-[Binäre Prüfsummen mit 1er-Komplement](Netzwerksicherheit.md#Binäre%20Prüfsummen%20mit%201er-Komplement)
+[Binäre Prüfsummen mit 1er-Komplement](05%20Netzwerksicherheit.md#Binäre%20Prüfsummen%20mit%201er-Komplement)
 
 ---
 # Diffie-Hellmann Schlüsselvereinbarung
