@@ -80,6 +80,8 @@ Der Algorithmus startet an einem Punkt $\theta_0$ im Parameterraum. Also einer b
 
 An diesem Punkt wird der Gradient $\nabla f(\theta_i)$ berechnet.
 
+Die Berechnung des Gradienten ist sehr aufwändig. Es müssten tausende und Millionen von Differentialgleichungen gelöst werden, was das Ganze praktisch unmöglich macht. Mit [Backpropagation](#Backpropagation) skaliert der Rechenaufwand nur noch linear. So wird das Berechnen großer Gradienten und damit das Training fortschrittlicher Modelle möglich. 
+
 Durch einen Schritt in die entgegengesetzte Richtung wird ein neuer Punkt ausgewählt. Dabei wird die Größe des Schritts von der Lernrate $\alpha$ bestimmt.
 $$
 \theta_{i+1} = \theta_i - \alpha \cdot \nabla f(\theta_i)
@@ -98,6 +100,45 @@ Dabei wird jede Teilmenge der Daten als **Batch** bezeichnet. Sobald alle Batche
 
 ![](Batches.png)
 
+
+## Backpropagation
+Backpropagation ist ein effizienter Algorithmus zur Bestimmung des Gradienten für das [Gradientenabstiegsverfahren](#Gradientenabstieg).
+Im Gesamtablauf des Trainings ordnet er sich wie folgt ein:
+1. Vorwärtsdurchlauf:
+	1. Eine Eingabe wird durch das neuronale Netz geleitet
+	2. Die entsprechende Ausgabe wird berechnet
+2. Fehlerberechnung
+	1. Die Ausgabe wird mit der gewünschten Ausgabe verglichen
+	2. Der Unterschied wird verwendet um den Gesamtfehler zu berechnen
+3. Rückwärtsdurchlauf (Backpropagation)
+	1. Der Fehler wird von der Ausgabeschicht zur Eingabeschicht rückwärts propagiert
+	2. Die Gewichte werden entsprechend dem Gradienten angepasst, abhängig von ihrem Einfluss auf den Fehler
+4. Lernschritt
+	1. Bei erneuter Eingabe der Trainingsdaten nähert sich die Ausgabe dem gewünschten Ergebnis
+
+Die Veränderung des Gewichts zwischen Neuron $i$ und Neuron $j$ ($i$ ist näher an der Eingabe als $j$) wird berechnet durch:
+$$
+\Delta w_{ij} = -\alpha \frac{\partial C}{\partial w_{ij}} = -\alpha \cdot \delta_j \cdot o_i
+$$
+Die Veränderung ist also Proportional zur Lernrate $\alpha$ und der Partiellen Ableitung des Gesamtfehlers nach diesem Gewicht. Der Wert entspricht dem Produkt aus $\delta_j$ und $o_i$, wobei $o_i$ der aktuellen Ausgabe des Neurons $i$ entspricht und $\delta_j$ das Fehlersignal des Neurons $j$ ist.
+
+Man muss also wissen, welche Ausgabe das vorherige Neuron geliefert hat, und wie falsch das darauf folgende deshalb lag.
+
+Das Fehlersignal $\delta_i$ eines einzelnen Neurons berechnet sich wie folgt:
+$$
+\delta_j = \left\{ 
+\begin{array}{lr} 
+\varphi^{\prime}(\text{net}_j)\cdot(o_j - \hat{y}) & \text{Falls j ein Ausgabeneuron ist} \\
+	\varphi^{\prime}(\text{net}_j)\cdot \sum_{k} \delta_k \cdot w_{jk} & \text{sonst} \\
+\end{array}
+\right.
+$$
+
+- $\varphi^{\prime}(\text{net}_i)$ ist dabei der Wert der Ableitung der [Aktivierungsfunktion](#Aktivierungsfunktion) für die erhaltene Eingabe des Neurons.
+- $o_j$ ist die Ausgabe des Neurons $j$ (Es muss sich in der letzten Schicht befinden. Im allgemeinen Fall taucht der Wert nicht auf)
+- $\hat{y}$ ist die erwartete Ausgabe (Das Label der Trainingsdaten)
+- $\delta_k$ ist das Fehlersignal des Neurons $k$ der nachfolgenden Schicht
+- $w_{jk}$ ist das Gewicht der Verbindung von Neuron $j$ (dem aktuellen) zu Neuron $k$
 
 ---
 

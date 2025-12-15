@@ -66,7 +66,7 @@ Alternativ gibt es auch die [Iterative Methode](Modulare%20Arithmetik.md#Beispie
 ## Indisches Verfahren
 Hier wird in einem tabellarischem Verfahren der größte gemeinsame Teiler und das Multiplikatives Invers bestimmt. 
 
-## Startwerte
+### Startwerte
 $$
 \begin{array}{c c l}
 n &=& \text{Zahl 1} \\

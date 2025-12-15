@@ -44,5 +44,6 @@ Hamming-Codes wie [Zweidimensionale Parität](#Zweidimensionale%20Parität) kön
 > [!Error] Verwirrung
 > [Das hier](#Zweidimensionale%20Parität) nicht Hamming codes? (Vgl. 3B1B und Algo/Datenstrukturen Vorlesung)
 > Neske aus IT-Sicherheit führt sie separat von [seinen Hamming Codes](05%20Netzwerksicherheit.md#Hamming%20Codes) auf.
+> Es gibt in seiner Vorlesung noch eine weitere Variante, die auch auf [Wikipedia gelistet](https://de.wikipedia.org/wiki/Hamming-Code) wird??
 
 TODO
