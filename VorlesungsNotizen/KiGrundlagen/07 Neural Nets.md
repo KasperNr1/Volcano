@@ -140,6 +140,21 @@ $$
 - $\delta_k$ ist das Fehlersignal des Neurons $k$ der nachfolgenden Schicht
 - $w_{jk}$ ist das Gewicht der Verbindung von Neuron $j$ (dem aktuellen) zu Neuron $k$
 
+# Hyperparameter
+Hyperparameter sind Parameter, die die Struktur eines Lernmodells beeinflussen.
+- Anzahl Layer und [Neuronen](#Neuronen) pro Schicht bei einem [Neuronalen Netz](#Neural%20Nets) oder die [Aktivierungsfunktion](#Aktivierungsfunktion) einzelner Neuronen
+- Der Kernel bei einer [Support Vector Machine](05%20SVM.md#Support%20Vector%20Machines)
+- Die Maximale Tiefe eines [Entscheidungsbaums](03%20Entscheidungsbäume.md) 
+Die Parameter eines Modells werden beim Training angepasst.
+Die Hyperparameter bestimmen die Struktur des Modells.
+
+
+> [!Info] Auswahl von optimalen Hyperparametern
+> Die Wahl ist nicht besonders transparent. Man kann nicht wirklich abschätzen, welche Kombination von Hyperparametern zu optimalen Ergebnissen führt.
+I
+> **Gridsearch** ist ein Verfahren, bei dem verschiedene Kombinationen getestet werden, um empirisch ein Optimum zu bestimmen.
+
+
 ---
 
 > [!Example] Klausuraufgabe

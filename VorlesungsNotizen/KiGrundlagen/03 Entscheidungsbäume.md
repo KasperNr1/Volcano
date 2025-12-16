@@ -1,3 +1,28 @@
+# Klassifikationsverfahren
+## Entscheidungsbäume
+Es wird wie beim Spiel "Wer bin ich" versucht Fragen zu stellen, um die Menge aller Optionen schnell abzugrenzen und in sortierte Bereiche zu trennen.
+
+![](Entscheidungsbaum.png)
+
+Dabei sind die Fragen nur sinnvoll, wenn sie die Datenmenge tatsächlich trennen. Eine Abfrage die in beiden Fällen auf unsortierte Daten hinausläuft ist nicht nützlich.
+
+![](TrennLinie.png)
+
+### Bewertung eines Baumes
+Man möchte Bäume, die möglichst wenig Fehler machen und in wenigen Schritten zum Erfolg finden. Jedoch ist es nicht sinnvoll, bis zu perfekten Ergebnissen zu trainieren. Besonders hier können falsche Messungen viel unnötige Komplexität einführen.
+
+Ein guter Baum ist also der kleinste von allen mit der selben Fehlerrate und der mit der geringsten Fehlerrate von allen mit der selben Größe.
+
+
+> [!Info] Definition Größe
+> Die Größe eines Baumes kann verschieden definiert sein. Es kann nach der Höhe oder der Anzahl an Blättern gezählt werden. Auch die Pfadlängensumme - also die Menge aller Entscheidungen im gesamten Baum - kann verwendet werden.
+
+> [!Example] Klausuraufgabe
+> ID3-Algorithmus berechnen.
+> Bzw Entropie und Information Gain verschiedener Entscheidungen vergleichen.
+
+
+
 ![](DecisionTree.png)
 
 Entscheidungsbäume sind ein Werkzeug zur [Klassifikation](01%20Grundidee.md#Klassifikation) von Objekten.
@@ -8,7 +33,7 @@ Jeder Schritt soll die Datenmenge möglichst Sortenrein trennen
 
 Es gibt eine unbegrenzte Menge korrekter Lösungsbäume, wobei die Qualität eines Baums anhand verschiedenen Kriterien bestimmt wird (Schlimmster-Worst-Case / Summe von Knoten / etc.)
 
-## Bewertung
+### Bewertung
 Entscheidungsbäume sind gut nachvollziehbar und lassen sich anschaulich darstellen. Ebenfalls ist die Berechnung einer Vorhersage mit einem trainierten Baum sehr schnell.
 Bei einer getroffenen Aussage lässt sich genau nachvollziehen welche Folge von Entscheidungen zum Ergebnis geführt hat.
 
