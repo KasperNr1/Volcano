@@ -80,7 +80,13 @@ $$
 
 Da beide Möglichkeiten des Münzwurfs gleich wahrscheinlich sind berechnet sich die Anwendung der Formel zur Entropie also
 $$
-H(V) = -\sum_{i=1}^{2} 0,5 \cdot \log_2(0,5) = -2 \cdot 0,5 \cdot \log_2(0,5) = -1 \cdot \log_2(2^{-1}) = \log_2(2) = 1
+\begin{array}{ll}
+H(V) &= -\sum_{i=1}^{2} 0,5 \cdot \log_2(0,5) \\
+&= -2 \cdot 0,5 \cdot \log_2(0,5) \\
+&= -1 \cdot \log_2(2^{-1}) \\
+&= \log_2(2) \\
+&= 1
+\end{array}
 $$
 Der Münzwurf hat also einen Entropiewert von $1\,Sh$ 
 
@@ -90,6 +96,10 @@ Es soll immer die Information als nächstes geprüft werden, die den größten E
 "Wie unsicher ist $V$ wenn wir $W$ kennen?"
 $$
 H(V \mid W) = \text{Bedingte Entropie}
+$$
+
+$$
+H(V \mid W) = \sum_{j=1}^{s} P(B_j) \cdot H(V \mid B_j)
 $$
 Eine geringe bedingte Entropie bedeutet, dass die Daten durch das Attribut gut getrennt werden.
 
