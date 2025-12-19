@@ -15,3 +15,7 @@ Gpt but Science
 ## Codestich
 Static Websites
 https://codestitch.app/app
+
+
+# Pandoc
+Markdown 2 Latex Export?
