@@ -1,31 +1,3 @@
-# Meeting
-## Schriftliche Ausarbeitung
-- Viele Bilder
-- Seitenzahl quasi egal
-- Als Doku für Nachfolger
-- Chat ist erlaubt, Kontrollieren. Verweis in der Eigenständigkeitserklärung
-- Wissenschaftlichkeit primär im Kerngebiet 
-
-# Ideen
-- Sprachauswahl
-- Dark Mode
-- Custom Farben
-- Menüleiste weniger eng (Lieber wie bei Apple News)
-- 4 Felder bei EHB wenig intuitiv (Bewertung in Algo ist nicht Linear?)
-  lieber Slider (Mit diskreten Werten wie Maus-Sensi?)
-
-# Themen
-- ⁠Einzelhangbewertung für IOS (Siemens)
-- Automatische Einarbeitung in Lawinenbericht
-- Handschuhbedienbarkeit
-- Icon Erstellung
-- ⁠Funktionen der Android App übernehmen
-- ⁠Bedienvideo / Bedienertutorial
-- CI / CD Pipline
-
-
-
-# Notizen
 ## Handschuhmodus
 Entwickelt wird eine Einstellungsseite in der verschiedene Eigenschaften des UI zentral festgelegt werden können.
 Dabei soll beispielsweise auch die Größe von Schaltflächen für den Gebrauch mit Handschuhen angepasst werden.
@@ -92,6 +64,3 @@ Button {
 .controlSize(.extraLarge)
 ```
 
-
-TODO
-Zu vergrößernde App-Elemente auswählen und Optionen zur Vergrößerung von Schaltflächen vergleichena
