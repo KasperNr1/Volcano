@@ -5,7 +5,7 @@
 ![](IconAndName.png)
 
 ### App Launch Screen
-![](simulator_screenshot_701AACB3-206D-4860-8C21-5ABC860FA1BD.png)
+![](AppLaunchScreen.png)
 
 Ermöglicht die Erstellung einer [Skitour](#Skitour).
 
