@@ -21,7 +21,37 @@ Das eigentliche Ergebnis steht ganz unten und ist nur nach einigem Scrollen erre
 
 ![](EhbViewScrolledDown.png)
 
+### Lawinenlageberichte
+Nicht wirklich implementiert
+![](LawinenlageScreen.png)
 
+### Komponenten
+Hier sind einige Werkzeuge untergebracht. Darunter ein Kompass, Neigungsmesser und eine interaktive Karte.
+
+![](Components.png)
+
+#### Kompass
+Funktioniert vielleicht?
+Im Simulator nicht gut zu testen
+
+![](Compass.png)
+
+#### Hangneigung
+Kann evtl. mit Kamerazugriff funktionieren? Ebenfalls nicht (gut) im Simulator testbar
+
+![](Hangneigung.png)
+
+#### Karten
+Apple Maps 
+
+![](MapIntegration.png)
+
+### Informationen
+Diese Seite soll als Zentrum für relevante Informationen dienen. Sie ist nicht interaktiv
+![](InfoPage.png)
+
+
+![](InfoPageDetailed.png)
 # Features
 ## Skitour
 Können erstellt und gelöscht werden, sie enthalten einige wenige Informationen wie Name, Ziel, Datum und eine Schwierigkeitsstufe.
