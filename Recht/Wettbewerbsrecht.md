@@ -83,7 +83,7 @@ Die "geplante Obsolenz" war geboren...
 
 - Zweck Verhaltensweise: Behinderung, Beschränkung oder Verfälschung des Wettbewerbs
 - Behinderung / Beschränkung: Einschränkung der wirtschaftl. Handlungsfreiheit mindestens eines der Unternehmen im Verhältnis der Unternehmen zueinander oder im Verhältnis zu Dritten
-    - vertragliche Vereinbarungen
+    - [vertragliche Vereinbarungen](Vertragsrecht.md)
     - abgestimmte Verhaltensweisen
     - Beschlüsse von Unternehmensvereinigungen
 - keine tatsächlichen Wettbewerber notwendig, potenzielles Wettbewerbsverhältnis reicht aus, also die abstrakte Feststellung, dass gleiche oder ähnliche Waren und Dienstleistungen auf gleichen oder ähnlichen Märkten angeboten werden

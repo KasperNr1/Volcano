@@ -174,7 +174,7 @@ wurde 1992 von Dr. Ulrich Kampffmeyer in einer Arbeitsgruppe des Verband Organis
 - Selbst (kleine) Handwerksfirmen, die ihre Rechnungen per E-Mail schreiben, müssen für eine rechtssichere IT-Infrastruktur sorgen
 - Problem „erlaubte private Nutzung“
 - In größeren Unternehmen ergibt sich zusätzlich das Problem, dass der Umgang der Mitarbeiter mit Mails entweder vollkommen ungeregelt ist oder zumindest teilweise private Nutzung von E-Mail erlaubt wird
-- Private und geschäftliche E-Mails werden dadurch vermischt, damit gem. BDSG und nun auch EU-DSGVO keine server-basierte Archivierung ALLER E-Mails erlaubt
+- Private und geschäftliche E-Mails werden dadurch vermischt, damit gem. BDSG und nun auch [EU-DSGVO](Datenschutzrecht.md) keine server-basierte Archivierung ALLER E-Mails erlaubt
 
 ### Übergreifende Regelung / Arbeitsanweisungen notwendig
 

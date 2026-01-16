@@ -57,6 +57,7 @@ tags:      dhbw, script, recht, WS2024
 
 - Grundsätze Vertrag
 - Vertragsschluss
+- [Vertragsrecht](Vertragsrecht.md)
 
 ### Rechtssubjekte | Rechtsobjekte | Rechtsfähigkeit
 
@@ -66,7 +67,7 @@ tags:      dhbw, script, recht, WS2024
 
 ### Besonderheiten am Beispiel des „IT-Rechts“
 
-- Was ist „IT-Recht“ genau?
+- Was ist „[IT-Recht](ItRecht.md)“ genau?
 - Welche Rechtsquellen gibt es für den Bereich?
 - Welche Besonderheiten gelten ggü „normalem“ Zivil- u.ä. Recht? 
 
@@ -108,7 +109,7 @@ tags:      dhbw, script, recht, WS2024
 
 ### Untergebiete des Zivilrechts:
 
-- Vertragsrecht
+- [Vertragsrecht](Vertragsrecht.md)
 - Arbeitsrecht
 - Mietrecht
 - Gesellschaftsrecht
@@ -562,10 +563,10 @@ Verschiedene Rechte an Sachen
 
 - „geistiges Eigentum“
 - Persönlichkeitsrechte
-- Markenrecht
-- Patentrecht
+- [Markenrecht](Markenrecht.md)
+- [Patentrecht](Patentrecht.md)
 - Geschmacksmusterrecht
-- Urheberrecht
+- [Urheberrecht](Urheberrecht.md)
 - zu diesen Rechtsgebieten später noch mehr...
 
 ### Ausnahme
@@ -779,12 +780,12 @@ Ein von dem Minderjährigen ohne Zustimmung des gesetzlichen Vertreters geschlos
 
 ### IT-Recht - betrifft oft viele Rechtsgebiete, daher eher „Lebenssachverhalt“
 
-- Vertragsrecht im gesamten Bereich Informationstechnologie
+- [Vertragsrecht](Vertragsrecht.md) im gesamten Bereich Informationstechnologie
 - Elektronischer Geschäftsverkehr
 - Telekommunikationsrecht
-- Datenschutzrecht
+- [Datenschutzrecht](Datenschutzrecht.md)
 - Gewerblicher Rechtsschutz
-- Urheberrecht
+- [Urheberrecht](Urheberrecht.md)
 
 ### Viele Einzelnormen in einzelner oder eng miteinander zusammenhängenden Vertragskonstellationen
 

@@ -100,7 +100,7 @@ In der EU DSGVO werden geltende Definitionen und Datenschutzprinzipien im Wesent
 
 ### Vertrag
 
-- Durchführung eines Vertrags mit Betroffenem: (Art. 6 Abs. 1b)
+- Durchführung eines [Vertrags](Vertragsrecht.md) mit Betroffenem: (Art. 6 Abs. 1b)
 - im Rahmen Vertragsanbahnung nur auf Anfrage des Betroffenen
 
 ### Berechtigtes Unternehmensinteresse
@@ -410,7 +410,7 @@ Sowohl im Urlaub als auch bei der so genannten Street Fotografie und auch beim G
 
 ### Genereller Schutz
 
-- Im öffentlichen Raum viele Objekte durch das Urheberrecht geschützt
+- Im öffentlichen Raum viele Objekte durch das [Urheberrecht](Urheberrecht.md) geschützt
 - § 2 Urhebergesetz (UrhG): zB "Werke der bildenden Künste einschließlich der Werke der Baukunst" wie Statuen oder Gebäude
 - Dürfen in dert Regel nicht ohne Weiteres fotografiert (=reproduziert) und öffentlich wiedergegeben werden
 
@@ -434,7 +434,7 @@ Sowohl im Urlaub als auch bei der so genannten Street Fotografie und auch beim G
 
 ### Marken und Logos
 
-- Sofern Fotos von Marken- und Logos für den nicht-gewerblichen Bereich abgebildet werden, ist das Fotografieren von Markenprodukten oder Logos auf Häuserfassaden unproblematisch.
+- Sofern Fotos von [Marken](Markenrecht.md)- und Logos für den nicht-gewerblichen Bereich abgebildet werden, ist das Fotografieren von Markenprodukten oder Logos auf Häuserfassaden unproblematisch.
 - Für die rein private Nutzung damit keine Besonderheiten zu beachten
 
 ---

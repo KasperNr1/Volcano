@@ -204,7 +204,7 @@ andere Festplatten, Grafikkarten o.ä.)
 
 ### Nutzungsrechte
 
-- Wie Kaufrecht, gleichzeitig idR. urheberrechtlicher Schutz
+- Wie Kaufrecht, gleichzeitig idR. [urheberrechtlicher](Urheberrecht.md) Schutz
 - Üblicherweise Nutzungsregelungen beiliegend
 - Grds. ist zeitl. uneingeschränktes Nutzungsrecht zu gewähren
 - Grds. keine Beschränkung der Mindestrechte nach § 69d ff UrhG
