@@ -140,3 +140,5 @@ Wie bei [1 zu 1](#1%20zu%201) kann die Beziehung durch Erweiterung um ein Attrib
 > - Den entsprechenden Wert auf `<Null>` setzen
 > - Die Datensätze (kaskadierend) gänzlich zu löschen
 > - Ersetzen mit einem Standardwert
+
+# Normalisierung

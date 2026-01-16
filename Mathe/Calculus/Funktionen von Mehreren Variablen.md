@@ -57,3 +57,40 @@ f_x(x,y) &= -12x^2 y^2 +3y^4 -3 \\
 f_y(x,y) &= -8x^3y +12xy^3 +2 \\
 \end{array}
 $$
+
+## Satz von Schwarz
+
+> [!Warning] TODO
+> Diese Einträge sind noch nicht vollständig. Die originalen Aufschriebe sind in OneNote `DH_S3/Mathematik` 
+
+Bei mehrmaligem Partiellen Ableiten nach verschiedenen Variablen ist die Reihenfolge nicht relevant.
+$$
+f_{xy}(x,y,z) = f_{yx}(x,y,z)
+$$
+
+## Implizite Ableitungen
+$$
+y\prime = -\frac{F_x}{F_y}
+$$
+
+Ellipse:
+$$
+\begin{array}{r l}
+F(x,y) &= \dfrac{x^2}{9} + \dfrac{y^2}{4} - 1 = 0 \\
+F_x(x,y) &= 8x \\
+F_y(x,y) &= 18y \\
+\end{array}
+$$
+
+$$
+y\prime = -\frac{8x}{18y}
+$$
+## Extremstellen in Dreidimensionalen Funktionen
+![](BedingungenExtremwerte.png)
+
+# Extremwertaufgaben
+
+# Integrale von mehreren Variablen
+
+# Polarintegrale
+
