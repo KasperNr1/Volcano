@@ -1,3 +1,40 @@
+# Dinge die ich zu wissen glaube
+## Durchführung
+- Als selbständig
+- Honorar wird pro tatsächlich geleistete Unterrichtsstunde (45 min.) gezahlt
+
+## Anmeldung
+- Registrierung beim Finanzamt als Selbständig $\to$ separate Steuernummer für meine "Firma"?
+
+# Steuer
+- Umsatzsteuer fällt nicht an
+- Einkommenssteuer schon (Bezahlt vermutlich als Nachzahlung mit Steuererklärung für 2026 im Frühjahr 2027)
+
+## Sozialversicherung
+- Nicht Rentenpflichtig bis ~6500 EUR **Gewinn** pro Jahr
+- Bei Überschreitung pflichtig mit 16.6% (3 Jahre rückwirkend)
+- Befreiungsmöglichkeiten bei äquivalenter Versicherung
+- Krankenversicherung etc. läuft durch Homag-Anstellung 
+
+
+
+
+---
+
+# Fragen
+- Was genau muss ich beim FinAmt anmelden (Und wie?)
+- Was heißt Gewinn (Thema [Rente](#Rente)) Kann ich einfach teure Sachen kaufen (Die ich sowieso möchte) wenn sie einigermaßen relevant sein könnten (PC, Schreibtisch, Bildschirme, Mikrophon... ) um den finanziellen Gewinn zu drücken? 
+- Zählt meine Homag-Sozialversicherung + Rente 
+- Kann ich während dem (Vollzeit-)Master-Studium weitermachen? 
+  (Stichwort: "Mehrere Auftraggeber" / Krankenversicherung)
+	- Evtl. Trick 17: zusätzlicher Minijob um soz-versichert zu bleiben?
+
+
+
+
+---
+<div class="page-break"></div>
+
 # Rahmenbedingungen Didaris
 **Rahmenbedingungen der Zusammenarbeit mit didaris:**     
   
@@ -166,33 +203,3 @@ Sollte eine oder mehrere Bestimmungen dieser Vereinbarung unwirksam sein oder we
   
 14.2   
 Änderungen und Ergänzungen dieses Vertrags bedürfen der Textform. Dies gilt ausdrücklich auch für die Änderung dieser Textformklausel.
-
-
-
-
----
-
-
-
-
-# Dinge die ich zu wissen glaube
-## Durchführung
-- Als selbständig
-- Honorar wird pro tatsächlich geleistete Unterrichtsstunde (45 min.) gezahlt
-
-## Anmeldung
-Registrierung beim Finanzamt als Selbständig $\to$ separate Steuernummer für meine "Firma"?
-
-## Sozialversicherung
-- Nicht Rentenpflichtig bis ~6500 EUR **Gewinn** pro Jahr
-- Bei Überschreitung pflichtig mit 16.6% (3 Jahre rückwirkend)
-- Befreiungsmöglichkeiten bei äquivalenter Versicherung
-- Krankenversicherung etc. läuft durch Homag-Anstellung 
-
----
-# Fragen
-- Was genau muss ich beim FinAmt anmelden (Und wie?)
-- Was heißt Gewinn (Thema [Rente](#Rente)) Kann ich einfach teure Sachen kaufen (Die ich sowieso möchte) wenn einigermaßen relevant sein könnten (PC, Schreibtisch, Bildschirme, Mikrophon... ) um den finanziellen Gewinn zu drücken? 
-- Zählt meine Homag-Sozialversicherung + Rente 
-- Kann ich während dem Master-Studium weitermachen (Stichwort: "Mehrere Auftraggeber")
-	- Evtl. Trick 17: zusätzlicher Minijob um soz-versichert zu bleiben?
