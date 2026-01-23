@@ -21,8 +21,7 @@ Das Modell erkennt Gruppen und Muster in einer unsortierten Menge an Messwerten
 
 ![](Clustering.png)
 
-
-> [!Info] Überwachung
+> [!Info] Überwachung ^cf5d0b
 > Die Bereitstellung der erwarteten "Korrekten" Werte ist sehr aufwändig. Beispielsweise bei Captchas wird von Menschen genau markiert, welche Ergebnisse wünschenswert sind.
 > Beim Clustering gibt es eine solche vorherige Klassifizierung nicht.
 > Man spricht hier von einem unüberwachten Lernverfahren, während Regression und Klassifikation als überwacht beschrieben werden.  
