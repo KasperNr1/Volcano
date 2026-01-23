@@ -122,9 +122,3 @@ labels = model.labels_ # Liefert eine Liste mit Labels (Cluster-ID) zu jedem Pun
 > ![ElbowMethod.png](ElbowMethod.png)
 >
 > Der Knick im Diagramm ist ein guter Kandidat für eine korrekte Anzahl Cluster. Reale Daten haben teilweise mehrere Knicke, es bietet sich an die entsprechende Menge an Cluster zu verwenden und die Ergebnisse zu vergleichen. 
-
-
-
-
-
-
