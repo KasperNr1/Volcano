@@ -1,3 +1,9 @@
+# Bohn-Beratung
+- Jährliche Abgabe der ESt-Erklärung
+	- Gehalt $\rightarrow$ Nicht-Selbständig
+	- Einkünfte Didaris $\rightarrow$  Selbständig
+- Für Nebenjob zusätzlich Anlage EÜR
+
 # Dinge die ich zu wissen glaube
 ## Durchführung
 - Als selbständig
