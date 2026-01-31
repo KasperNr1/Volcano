@@ -33,8 +33,13 @@ Sprechzeit: nach Vereinbarung
 
 ---
 
-# Informatik Master
+# Informatik Master Tübingen
 [Website](https://uni-tuebingen.de/studium/studienangebot/verzeichnis-der-studiengaenge/detail/course/informatik-computer-science-master/#c194-course-topics)
+Bewerbungsfrist bis zum
+15.03 (Sommersemester)
+15.09 (Wintersemester)
+
+## Voraussetzungen ✅
 - Praktische Informatik 1: Deklarative Programmierung
 - Praktische Informatik 2: Imperative und objektorientierte Programmierung
 - Mathematik für Informatik 1: Analysis
@@ -42,4 +47,31 @@ Sprechzeit: nach Vereinbarung
 - Theoretische Informatik 1: Algorithmen und Datenstrukturen
 - Theoretischen Informatik 2: Formale Sprachen, Berechenbarkeit und Komplexität
 - Technische Informatik 2: Informatik der Systeme
+
+---
+
+# Informatik Master TUM (Mathebuch-Klumpen)
+[Informatik - Master of Science (M.Sc.) - TUM](https://www.tum.de/studium/studienangebot/detail/informatik-master-of-science-msc)
+Bewerbungsfrist 01.02 bis 31.05
+
+## Zulassung
+Abgeschlossenes Bachelorstudium
+Durchlaufen des Auswahlverfahrens
+Sprachnachweis Englisch (Zusätzlicher Formeller Test, Abi reicht hier nicht)
+
+## Themen
+**Topic 1:**  
+The role of Artificial Intelligence in future technology
+
+**Topic 2:**  
+The influence of social networks on human society
+
+**Topic 3:**  
+The characteristics of Big Data platforms and their importance for data exploration
+
+**Topic 4:**   
+Can computers think?
+
+**Topic 5:**   
+The importance of digitalization
 
