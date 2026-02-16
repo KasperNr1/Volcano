@@ -1,4 +1,5 @@
 # Verbleibend
+- supercell (2FA noch nicht aktiv)
 - Volksbank Depot (Auftrag abgeschickt)
 - Tinder (Hamacher???)
 
@@ -6,6 +7,7 @@
 # Fertig
 - ING (Oma)
 - Whatsapp
+- Spotify
 - PayPal
 - O2
 - Oma Web De
@@ -20,8 +22,10 @@
 - Epic Games
 - Ubisoft
 - Battle.net
+- Nintendo
 - GMX
 - Samsung
 - Coinbase
 - Steam
 - Homag MS
+- LinkedIn
