@@ -22,3 +22,6 @@
 - ⁠Bedienvideo / Bedienertutorial
 - CI / CD Pipline
 
+# Begriffe
+Definitionen im Glossar der EAWS (European Avelanche Warning Systems)
+
