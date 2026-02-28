@@ -75,3 +75,34 @@ Can computers think?
 **Topic 5:**   
 The importance of digitalization
 
+## Bewerbung
+- [ ] Essay zu den vorgegebenen [Themen](#Themen) (~1000 Wörter)
+- [ ] Begründungsschreiben - eine von Ihnen selbst verfasste schriftliche Begründung für die Wahl des Studiengangs und für die Wahl der Technischen Universität München als Hochschule (max. 2 Seiten)
+- [ ] [Englisch-Nachweis](#Englisch-Nachweis)
+- [ ] Offizielles Transkript über die bisherigen Studienleistung
+- [ ] Formblatt zur Curricularanalyse
+- [ ] Tabellarischer Lebenslauf
+- [ ] Das dem Hochschulabschluss zugrunde liegende Modulhandbuch
+- [ ] Passfoto
+- [ ] Kopie des Ausweises
+- [ ] Nachweis der studentischen Krankenversicherung (Erst zur Immatrikulation)
+- [ ] Nachweis über Hochschulabschluss (Kann nachgereicht werden)
+
+### Englisch-Nachweis
+[Akzeptierte Sprachnachweise](https://www.tum.de/studium/bewerbung/infoportal-bewerbung/zulassungsvoraussetzungen/sprachnachweise/) an der TUM
+
+[Test of English as a foreign Language](http://www.ets.org/toefl)
+88 beim Internet based Test (iBT)
+
+[International English Language Testing System](http://www.ielts.org/)
+Mindestpunktzahl 6.5 (Gesamtdurchschnittsnote)
+
+[Cambridge Main Suite of English Examinations](https://www.cambridgeenglish.org/)
+Note: A, B oder C
+https://www.anglo-german.com/pruefungen/cambridge/termine-gebuehren/
+270 $\texteuro$, Lebenslang gültig
+Prüfung 21.03 (Anmeldung bis 08.03)
+Prüfung 11.04 (Anmeldung bis 29.03)
+
+[Pearson English Language Test](https://pearsonpte.com/)
+Overall Score von mindestens 65
