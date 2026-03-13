@@ -107,3 +107,44 @@ Schnell, Hash-Wert berechnen und löschen.
 # Vergleich
 Von [Heap Dateien](#Heap%20Dateien), [Sortierte Dateien](#Sortierte%20Dateien) und [Hash-Dateien](#Hash-Dateien)
 ![](ComparisonHeapSortAndHash.png)
+
+# Begriffe
+## Index
+Ist eine Sekundärorganisation mit der auch nach nicht-Schlüsselattributen gesucht werden kann.
+
+Die Verwendung eines Index kann große Performance Verbesserungen bringen, erfordert aber zusätzlichen Speicherplatz und Aufwand um sie aktuell zu halten.
+
+## Anfragearten
+### Sequentieller Zugriff
+(Sortiert)
+"Alle Mitarbeiter, sortiert nach PersNummer"
+### Direkter Zugriff
+Punktabfrage
+"Mitarbeiter mit PersNummer 49"
+
+### Direkter Zugriff
+Multi-Punktabfrage
+"Alle Mitarbeiter der IT-Abteilung"
+
+### Bereichszugriff
+"Alle Mitarbeiter mit Gehalt zwischen 2000 und 3000"
+
+### Existenztest
+"Gibt es einen Mitarbeiter mit PersNummer 123"
+
+
+# Indexstrukturen
+## Dichter Index
+Ein Eintrag pro Indexattributwert
+Alle Sätze direkt lokalisierbar
+
+## Dünner Index
+Jeweils erster Satz einer Seite wird indexiert 
+Setzt sortierte Datei voraus
+
+
+> [!Missing] Lücke
+> Hier fehlt Info zu Indexen
+> Seite 2 -- 11 bis 2 -- 31
+
+
