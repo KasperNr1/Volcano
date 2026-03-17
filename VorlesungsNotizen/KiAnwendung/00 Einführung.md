@@ -1,1 +1,1 @@
-Klausur mit 4 Seiten als Hilfsmittel
+Klausur mit 4 Seiten (2 Blatt Papier) als Hilfsmittel
