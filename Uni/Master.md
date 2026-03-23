@@ -76,13 +76,13 @@ Can computers think?
 The importance of digitalization
 
 ## Bewerbung
-- [ ] Essay zu den vorgegebenen [Themen](#Themen) (~1000 Wörter)
+- [x] Essay zu den vorgegebenen [Themen](#Themen) (~1000 Wörter)
 - [ ] Begründungsschreiben - eine von Ihnen selbst verfasste schriftliche Begründung für die Wahl des Studiengangs und für die Wahl der Technischen Universität München als Hochschule (max. 2 Seiten)
 - [ ] [Englisch-Nachweis](#Englisch-Nachweis)
 - [ ] Offizielles Transkript über die bisherigen Studienleistung
 - [ ] Formblatt zur Curricularanalyse
-- [ ] Tabellarischer Lebenslauf
-- [ ] Das dem Hochschulabschluss zugrunde liegende Modulhandbuch
+- [x] Tabellarischer Lebenslauf
+- [ ] Das dem Hochschulabschluss zugrunde liegende [Modulhandbuch](https://www.dhbw.de/fileadmin/user/public/SP/HOR/Informatik/Informatik.pdf)
 - [ ] Passfoto
 - [ ] Kopie des Ausweises
 - [ ] Nachweis der studentischen Krankenversicherung (Erst zur Immatrikulation)
