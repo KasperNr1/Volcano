@@ -5,6 +5,13 @@
 - Chat ist erlaubt, Kontrollieren. Verweis in der Eigenständigkeitserklärung
 - Wissenschaftlichkeit primär im Kerngebiet 
 
+- Abstract in Deutsch und Englisch
+	- Maximal 250 Worte
+- Stand der Technik wichtig für Gruden
+	- Mit Vergleich von Ansätzen und Fazit
+- Zusammenfassung 1 Seite
+- Ausblick 0.5 Seite
+
 # Ideen
 - Sprachauswahl
 - Dark Mode
