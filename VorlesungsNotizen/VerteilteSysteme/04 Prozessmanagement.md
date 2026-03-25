@@ -65,9 +65,97 @@ Tasks im kritischen Pfad erhalten automatisch ein hohes Level und werden bevorzu
 
 ![](HlfetListScheduling.png)
 
-
-
-
-
 ## Dynamisches Scheduling
 Bei dynamischem Load Balancing kann der Ausführungsort zur Erstellung des Prozess festgelegt werden. In einer anderen Variante kann er zur Laufzeit wieder verändert werden ("Prozessmigration")
+
+- Information Policy (Wann wird Balanciert)
+- Transfer Policy (Schwellenwert-Entscheidung)
+- Location Policy (Wie wird das Ziel gefunden? Polling / Broadcast / Zufällig)
+- Selection Policy (Welche Tasks werden verschoben?)
+
+### Typische Ansätze
+- Sender Initiated
+	- Überlastete Knoten suchen aktiv nach Unterstützung
+- Receiver Initiated
+	- Unterausgelastete Knoten fragen andere gezielt nach Aufgaben
+- Kombiniert
+
+### Code Migration
+Weak und Strong Mobility
+
+#### Weak
+Nur Code-Segmente, wie Java-Klassen und javascript
+
+
+#### Strong
+Code und gesamter Ausführungszustand. (Stack, Heap, Code)
+Hier wird der gesamte Prozess migriert.
+
+Sicherheit, Heterogenität und externe Ressourcen sind dabei Herausforderungen.
+
+
+Nach der Migration eines Prozess kann auf dem Ursprungsrechner ein "Shadow-Prozess" verbleiben. Er dient dazu, Systemaufrufe des migrierten Prozesses zu verwalten, die sich noch auf lokale Ressourcen (Dateien / Sockets) beziehen. Aufrufe und Daten werden ggf. an den neuen Standort des Prozess weitergeleitet.
+Der Shadow Prozess wird eventuell gelöscht, wenn keine Weiterleitung mehr erforderlich ist.
+
+Adressräume können auf mehrere Arten migriert werden
+- Eager
+  Alles wird auf einmal migriert
+- Precopy
+  Prozess läuft weiter, während Seiten übertragen werden. Modifizierte Seiten werden nachgesendet
+- Eager (Dirty) 
+  Nur geänderte Seiten werden übertragen. Rest nur bei Zugriff (Copy-on-Reference)
+- Flushing
+  Alle Seiten auf Disk speichern, dann Copy-on-reference beim Ziel
+
+# Koordination
+In verteilten Systemen wird [Parallel](Paraprog-Basics.md#Parallel%20vs%20Nebenläufig) gearbeitet. Daher gibt es keine gemeinsame Uhr, was einige Schwierigkeiten bringt.
+
+Es werden Logiken wie "Vektoruhren" "TimeStamps" oder konsensbasierte Protokolle nötig.
+
+Jeder Knoten besitzt eine lokale Uhr, Ereignisse können nur in Bezug auf eine solche Uhr eindeutig zugeordnet werden.
+
+Aufgrund von unterschiedlichen Übertragungszeiten können Ereignisse in unterschiedlichen Reihenfolgen erscheinen, als sie tatsächlich geschehen sind.
+
+![](ObserverOrder.png)
+
+Besonders bei schreibenden Zugriffen kann dieser Umstand zu verschiedenen [Probleme](Parallele%20Probleme.md) führen.
+
+Lösungen sind Logische Uhren. Sie erlauben Schlüsse über 
+"[Happened-Before](#Happened-Before)". Also die Reihenfolge von Ereignissen, anstatt zwingend einer exakten Globalen Zeit.
+
+## Zeitsynchronisation
+### Cristians Algorithmus
+Client notiert eigene Zeit und sendet Anfrage an vertrauenswürdigen Server. Nach Erhalt der Antwort berechnet der Client die gesamte Differenz zwischen Anfrage und Antwort und setzt seine Eigene Zeit $t$ auf den Wert der Antwort + die Hälfte der Round Trip Time der Anfrage.
+
+![](CristiansAlgorithm.png)
+
+Dieses Verfahren basiert auf 3 Annahmen.
+- Der Server ist vertrauernswürdig
+- Der Server braucht nahezu $0$ Zeit um die Anfrage zu beantworten
+- Die im Netzwerk verbrachte Zeit sind auf Hin- und Rückweg gleich.
+
+Typischerweise werden hier mehrere Anfragen gesendet um nicht auf einer einzelnen Antwort zu basieren.
+
+### Zeitanpassung
+Wenn die aktuelle Uhrzeit eines Systems angepasst werden muss, darf nicht direkt der neue, korrekte Wert eingetragen werden.
+Stattdessen soll die Uhr vorrübergehend schneller oder langsamer laufen, um zeitliche Monotonie zu gewährleisten.
+
+## Happened-Before
+In zwei Basisfällen lässt sich die Reihenfolge von Ereignissen klar bestimmen.
+1. Sie sind im selben Prozess
+   Innerhalb eines lokalen Prozess gibt es eindeutige Reihenfolgen
+2. Nachrichtenübertragung
+   Wenn eine Nachricht gesendet wird, muss das Senden vor dem Empfangen Stattgefunden haben
+Diese Regeln bilden die "happened-before" Relation $\rightarrow$
+
+
+> [!NOTE] Formale Definition
+> 1. Für $a$ und $b$ im selben Prozess $i$
+>    $t_i(a) < t_i(b)$ dann gilt $a \rightarrow b$
+> 2. Ist $a$ das Senden und $b$ das Empfangen derselben Nachricht, dann gilt $a \rightarrow b$
+> 3. Transitivität
+>    $a \rightarrow b$ und $b \rightarrow c$ dann $a \rightarrow c$
+
+![](HappenedBefore.png)
+
+
