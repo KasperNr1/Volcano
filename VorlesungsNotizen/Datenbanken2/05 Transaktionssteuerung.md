@@ -42,3 +42,58 @@ Hier würden verschiedene Ergebnisse aus der gleichen Aktion geliefert werden.
 ![](PhantomProblem.png)
 
 Für $T_1$ ist nicht ersichtlich warum die Anzahl der Kunden sich verändert.
+
+
+# Isolationslevel
+Bei der Konfiguration können bewusst manche Konsistenzverletzungen in Kauf genommen werden um den Durchsatz zu erhöhen.
+
+```SQL
+SET TRANSACTION [Modus] | ISOLATION LEVEL [Isolationslevel]
+```
+
+Werte für `Modus`
+- `READ ONLY`
+- `READ WRITE`
+
+Werte für Isolationslevel
+- `SERIALIZABLE` 
+  Vollständige Serialisierung
+- `REPEATABLE READ`
+  Phantomproblem kann auftreten
+- `READ COMMITTED`
+  Nicht wiederholbares Lesen ist möglich
+- `READ UNCOMMITTED`
+  Zusätlich sind dirty Reads möglich
+
+![](IsolationsLevel.png)
+
+## Read Uncommitted
+Erlaubt das Lesen von Daten aus anderen Transaktionen, bevor diese comitted wurden.
+
+Sehr effizient, keine Sperren.
+Sollte nur für Lesetransaktionen ohne großen Genauigkeitsanspruch verwendet werden.
+
+## Read Committed
+Erlaubt nur das Lesen von gültigen Daten.
+
+Lost-Update und Phantome sind weiterhin möglich, wird typisch für Lesetransaktionen verwendet.
+
+Jeder gelesene Wert ist gültig, jedoch kann wiederholtes Lesen zu unterschiedlichen Resultaten führen.
+
+## Repeatable Read
+Gewährt konsistente Lese- und Schreibzugriffe. Wird realisiert durch Sperren auf Objekte die Gelesen oder geschrieben werden. Phantome sind weiterhin möglich, ebenfalls können mit diesen Einschränkungen [Deadlocks](Parallele%20Probleme.md#Deadlocks) entstehen.
+
+Wird für schreibende Transaktionen verwendet.
+
+## Serializable
+Verhindert alle Anomalien indem seriell ausgeführt wird. Entsprechend ist die Effizienz und der Durchsatz deutlich geringer als bei den weniger sicheren Zugriffsformen.
+
+Wird für Szenarien angewandt die höchste Anforderungen an Konsistenz haben.
+
+
+> [!Example] Klausuraufgabe
+> Bestimmung von Sicht- und Konfliktserialisierbarkeit von gleichzeitigen Transaktionen.
+> Seite 4-38 bis 4-49
+
+
+
