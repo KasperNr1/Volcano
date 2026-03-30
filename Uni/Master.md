@@ -78,7 +78,7 @@ The importance of digitalization
 ## Bewerbung
 - [x] Essay zu den vorgegebenen [Themen](#Themen) (~1000 Wörter)
 - [ ] Begründungsschreiben - eine von Ihnen selbst verfasste schriftliche Begründung für die Wahl des Studiengangs und für die Wahl der Technischen Universität München als Hochschule (max. 2 Seiten)
-- [ ] [Englisch-Nachweis](#Englisch-Nachweis)
+- [x] [Englisch-Nachweis](#Englisch-Nachweis)
 - [ ] Offizielles Transkript über die bisherigen Studienleistung
 - [ ] Formblatt zur Curricularanalyse
 - [x] Tabellarischer Lebenslauf
