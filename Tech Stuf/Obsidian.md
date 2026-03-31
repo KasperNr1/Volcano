@@ -1,16 +1,24 @@
 # Plugins
+## MacBook
+- Ink
+- Slashcommander
+- Code Styler
+- Relative Line Numbers
+
 ## DH-Mac
 - Ink
 - Slash Commander
 - [Zotero Integration](obsidian://show-plugin?id=obsidian-zotero-desktop-connector)
 - Pandoc
 - Pandoc Reference List
+- Relative Line Numbers
 
 ## Laptop
 - Code Styler
 - Ink
 - Slash Commander
 - Webpage HTML Export
+- Relative Line Numbers
 
 ## Mobile
 - Git
