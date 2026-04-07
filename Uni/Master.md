@@ -79,7 +79,7 @@ The importance of digitalization
 - [x] Essay zu den vorgegebenen [Themen](#Themen) (~1000 Wörter)
 - [ ] Begründungsschreiben - eine von Ihnen selbst verfasste schriftliche Begründung für die Wahl des Studiengangs und für die Wahl der Technischen Universität München als Hochschule (max. 2 Seiten)
 - [x] [Englisch-Nachweis](#Englisch-Nachweis)
-- [ ] Offizielles Transkript über die bisherigen Studienleistung
+- [x] Offizielles Transkript über die bisherigen Studienleistung
 - [ ] Formblatt zur Curricularanalyse
 - [x] Tabellarischer Lebenslauf
 - [ ] Das dem Hochschulabschluss zugrunde liegende [Modulhandbuch](https://www.dhbw.de/fileadmin/user/public/SP/HOR/Informatik/Informatik.pdf)
