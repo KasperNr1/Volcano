@@ -10,6 +10,10 @@ Die gezeigten drei Anderungen unter "Simple Modifications" bei "Kinesis Adv360" 
 > Karabiner überschreibt eine Umbelegung in den MacOS Tastatureinstellungen. Um auf der integrierten Tastatur  `CAPS` mit `ESC` zu belegen muss das ebenfalls in Karabiner geändert werden.
 
 
+> [!Bug] Neue Version
+> Mit dem neuen Mac & der neuen Karabiner Version muss `right_command` überschrieben werden, statt der linken Seite
+
+
 ### Config File
 ``` JSON karabiner.json
 {
