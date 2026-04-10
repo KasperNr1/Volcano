@@ -86,4 +86,65 @@ Daten liegen meist in der [dritten Normalform](Datenbank-Modellierung.md#Normali
 Alternativ liegen hier die Daten bereits für das DWH aufbereitet vor. Das ODS stellt in diesem Fall nur ein Basis-Layer dar.
 
 ## Datenbank
+### Data Warehouse
+Physische Datenbank mit integrierten Schemata und Daten.
+Schemen sind analyse-orientiert und verstoßen damit bewusst gegen das Prinzip der Datenunabhängigkeit.
+
+Daten werden grundsätzlich nicht modifiziert nachdem sie einmal hinzugefügt wurden. 
+
+![](WareHouseVsDb1.png)
+![](WareHouseVsDb2.png)
+![](WareHouseVsDb3.png)
+
+### Archiv
+Da das [Data Warehouse](#Data%20Warehouse) stetig wächst entstehen eventuell Platzprobleme. Ebenfalls können Daten veralten und uninteressant werden.
+Diese Daten werden in ein Archiv übertragen, sodass sie im Bedarfsfall wieder vom DWH verwendet werden könnten.
+
+Häufig werden die Details von Einträgen ins Archiv gespeichert um im DWH eine verdichtete Version der Information zu halten.
+
 ## Applikationen
+- Berichtstools
+  Erzeugen automatisch Berichte mit vordefinierten Abfragen und parametrisierten Auswertungen der Daten.
+  Meist als Tabellen oder Graphisch
+- OLAP (Onilne Analytical Processing)
+  Interaktive Datenanalyse
+  Multidimensionale Sichtweise auf die Daten
+- Data Mining Tools
+  Ziel ist die Erkennung neuer Muster in Daten
+  Meist durch [KI](08%20Unüberwachtes%20Lernen.md#Clustering) 
+
+### OLAP Server
+Aufgaben sind die Verwaltung von
+- Metadaten
+- Scheduling
+- Caching
+- Benutzer-Management
+- Sicherheit & Zugriffsbeschränkungen
+- DB-Zugriff
+- Übersetzung von Anfragen in SQL
+
+## Metadaten Repository
+ - Administrative Metadaten
+	 - Schemainformationen
+	 - Details zu Quell und Zielsystemen
+	 - Datenabhängigkeiten
+ - Operative Metadaten
+	 - Systemstatistiken
+	 - Logs des DWH
+	 - Regeln für Nachladen und Archivierung
+ - Domänenspezifische Metadaten
+	 - Informationsmodelle
+	 - Angaben zur Datenqualität
+
+## Data Mart
+Ein Data Mart ist ein kleineres DWH.
+
+![](DataMartVariants.png)
+
+Die Architektur der Unabhängigen Data Marts ist meist nicht erwünscht, entsteht aber durch Zusammenführung mehrere Systeme oft historisch.
+Die Abhängige Variante links ist meist bevorzugt, da eine einzelne Datenbasis verwendet wird und innerhalb der Marts auf ihren speziellen Anwendungsfall hin optimiert werden kann.
+
+![](DataMartVsWarehouse.png)
+
+Data Marts sind simpler zu verwalten und im Aufbau günstiger. Bei einem DWH sind die Investitionskosten höher, dafür wird insgesamt Redundanz vermieden und Prozesse einheitlicher.
+

@@ -35,6 +35,11 @@ Insgesamt ist es für die folgenden Funktionen zuständig:
 - Integritätsunterstützung
 - Datenunabhängigkeit
 
+> [!Quote] Definition Datenunabhängigkeit
+> Beschreibt die Trennung von Datenstruktur und Anwendungsprogramm.
+> So können die Speicherstrukturen angepasst werden, ohne dass die darauf basierenden Anwendungen verändert werden müssen.
+
+
 Elementarste Funktion ist dabei das Speichern, Lesen, Ändern und Löschen von Daten. Dem Benutzer sollen hier die Implementierungen verborgen bleiben.
 
 ## Informationssystem

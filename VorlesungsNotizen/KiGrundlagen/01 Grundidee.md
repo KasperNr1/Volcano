@@ -16,7 +16,7 @@ Messwerte sind Teil einer Gruppe. Das Modell ist in der Lage neue Werte in die b
 
 ![](Classification.png)
 
-### Klassifikation
+### Clustering
 Das Modell erkennt Gruppen und Muster in einer unsortierten Menge an Messwerten
 
 ![](Clustering.png)
