@@ -59,6 +59,40 @@ Abgeschlossenes Bachelorstudium
 Durchlaufen des Auswahlverfahrens
 Sprachnachweis Englisch (Zusätzlicher Formeller Test, Abi reicht hier nicht)
 
+### Interview
+
+| Fächergruppe                                                                                                                                                                                                                                                       | Punkte |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| Module der Grundlagen Informatik,<br>(Einführung in die Informatik, Rechnerarchitektur, Softwaretechnik, Algorithmen und Datenstrukturen, Datenbanken, Betriebssysteme und Systemsoftware, Rechnernetze und Verteilte Systeme) im Umfang von mindestens 50 Credits | 20     |
+| Fachliche Grundlagen im Bereich Theoretische Informatik im Umfang von mindestens 6 Credits                                                                                                                                                                         | 10     |
+| Fachliche Grundlagen im Bereich funktionale Programmierung und Verifikation im Umfang von mindestens 5 Credits                                                                                                                                                     | 10     |
+| Module der Mathematischen Grundlagen<br>(Diskrete Strukturen, Lineare Algebra, Analysis, Diskrete Wahrscheinlichkeitstheorie, Numerisches Programmieren) im Umfang von mindesten 28 Credits                                                                        | 10     |
+
+### Beispiel-Test
+Zu finden [hier](https://www.cit.tum.de/fileadmin/w00byx/cit/Studium/Studiengaenge/Master_Informatik/sample-test_Master_application1.pdf)
+
+#### Frage 1
+There are three types of people on the island of truth-tellers and liars: Truth-tellers who always tell the truth, liars who always lie, and ordinary people who lie sometimes and tell the truth other times. Out of three people A, B and C, there is exactly one truth-teller, exactly one liar, and exactly one ordinary person. They make the following statements one after another:
+
+A: I am an ordinary person
+
+B: The statement by A is true
+
+C: I am not an ordinary person
+
+Who is the ordinary person, who is the liar and who is the truth-teller among A, B and C?
+
+
+#### Frage 2
+Let $A, B, C \subseteq \Sigma^*$ be languages. Which of the following statements is true?
+1. $|A||B| \leq |AB|$
+2. $A \cup B^*$ is countable
+3. $A \neq B \Rightarrow A^* \neq B^*$
+
+#### Frage 3
+Delete Element `1`  from the following AVL Tree. Which is the correct resulting tree?
+![](AvlTreeQuestion.png)
+
 ## Themen
 **Topic 1:**  
 The role of Artificial Intelligence in future technology
