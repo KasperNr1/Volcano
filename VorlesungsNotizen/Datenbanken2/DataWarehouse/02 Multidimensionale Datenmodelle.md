@@ -133,6 +133,24 @@ $$
 > Werte der Größenordnung $80\%$ sind keine Seltenheit in echten Datenbanken.
 > Dieser Fakt ist später bei der Realisierung einer solchen relevant.
 
+# Notationen
+Es gibt eine Reihe verschiedener Notationskonventionen.
+
+Näher betrachtet wird die MML / $_mUML$ 
+
+## MML
+Multidimensional Modeling Language ist eine Erweiterung der UML. Sie soll objektorientierte Konstrukte beibehalten und um multidimensionale Konstrukte ergänzen. Sie erlaubt mit verschiedenen graphischen Notationen die Modellierung vielseitiger dimensionaler Strukturen.
+![](MmlExample.png)
+
+Als neue Verbindungen werden die folgenden hinzugefügt:
+- Zwischen Fakt und dimensionaler Klasse
+  Durchgezogener Pfeil mit Text`<<Dimension>>` und Name 
+- Zwischen dimensionalen Klassen (Jeweils mit dem Zusatztext "Name der Nächsten Ebene")
+	- `<<RollUp>>`
+	- `<<SharedRollUp>>`
+	- `<<NonCompleteRollUp>>`
+
+![](MmlExampleComplex.png)
 
 
 # Fehlt
