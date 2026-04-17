@@ -169,3 +169,64 @@ Die weiteren multidimensionalen Anfragen lassen sich ebenfalls leicht in relatio
 - [Drill-Down und Roll-Up](02%20Multidimensionale%20Datenmodelle.md#Drill-Down%20und%20Roll-Up) durch separate Anfragen mit veränderter `GROUP BY` Klausel. Eventuell können Ergebnisse wiederverwendet werden um effizienter zu rechnen.
 
 Es ist also möglich alle Arten von Anfragen im relationalen Modell darzustellen. Um dies eleganter zu gestalten, gibt es allerdings spezielle Erweiterungen die auf die Arbeit mit multidimensionalen Daten ausgelegt sind.
+
+
+# Multidimensionale Speicherung
+Es sind Datenstrukturen für die Dimensionen und den Hypercube notwendig.
+Wesentlich werden diese Daten intern als Arrays dargestellt. Zur Verwendung dieser ist eine Ordnung der Dimensionen notwendig. Dabei ist diese Ordnung nur für die interne Verarbeitung relevant und soll dem Benutzer verborgen bleiben.
+
+![](DimensionsAsArray.png)
+Diese Liste enthält alle Elemente, allerdings ist die Relation nicht eindeutig. Es ist nicht erkennbar, welche Städte zu einer Region gehören.
+
+Der Hypercube kann als mehrdimensionales Array gespeichert werden. Somit ist es beim Suchen eines Eintrags nicht nötig die Daten zu durchsuchen, es kann direkt über den Index zugegriffen werden.
+![](MultidimensionalStorageOfHypercube.png)
+
+## Linearisierung
+Um den Hypercube in einem Array speichern zu können, muss er linearisiert werden. Die Hochdimensionale Struktur muss dazu in eine eindimensionale Reihenfolge gebracht werden.
+Für eine einfache Abarbeitung entlang der Dimensionen würde sich die Position jeder Zelle im Array wie folgt berechnen:
+$$
+\text{Index}(z) = x_1 + (x_2 - 1) \cdot |D_1| + (x_3 -1) \cdot |D_1| \cdot |D_2| + \dots + (x_n - 1) \cdot |D_1| \cdot \dots \cdot |D_{n-1}|
+$$
+$$
+= 1 + \sum_{i=1}^{n}(x_i - 1) \cdot \prod_{j=1}^{i-1} |D_i|
+$$
+Dabei sind $D_1, D_2, \dots, D_n$ die Dimensionen, $|D_i|$ die Anzahl an Elementen einer Dimension und die Koordinaten einer Zelle $(x_1, \dots, x_n)$
+
+Da die Menge an Zellen für die physische Speicherung in Blöcke unterteilt wird, hat die Reihenfolge einen großen Einfluss auf die Performance. Aufgrund der hohen [Sparsity](02%20Multidimensionale%20Datenmodelle.md#Sparsity%20und%20Besetzung) ist es nicht sinnvoll alle Zellen tatsächlich im Speicher abzulegen. Viele Werte sind leer und könnten bei passender Trennung in Blöcken ignoriert werden um Speicherplatz zu sparen.
+
+## Space-Filling Curves
+Raumfüllende Kurven wie die Hilbertkurve sind Kurven, die jede Koordinate im Raum exakt einmal erreichen. Im Gegensatz zur primitiven Linearisierung werden hier beide Dimension näherungsweise 'gleichzeitig' erhöht. Felder die weiter rechts oder weiter unten als ein anderes sind, kommen näherungsweise nach dem oberen/linken. Trotzdem wird die unterste Reihe nicht als letztes besucht.
+![](HilbertKurve.png)
+
+Ebenfalls bekannt ist die "Z-Kurve". Namensgebend ist hier der Basisfall ihrer rekursiven Definition.
+![](ZKurve.png)
+
+## Physische Speicherung
+### Blöcke
+![](SparseBlocks.png)
+Die Wahl der Reihenfolge hat erhebliche Einflüsse auf die Möglichkeiten zur Speicheroptimierung. Während im ersten Beispiel alle Blöcke gespeichert werden müssen, können im zweiten Beispiel 3 der vier Blöcke mit einem Verweis in den Metadaten ausreichend markiert werden.
+
+### Zwei-Ebenen-Speicherung
+![](TwoLayerStrategy.png)
+Hier wird unterschieden zwischen Dimensionen mit vielen, und solchen mit wenigen Einträgen. 
+Die Spärlich besetzten Kombinationen werden als separate Struktur ausgelagert und enthalten entsprechende Pointer auf die Blöcke in denen die Daten enthalten sind.
+Dabei ist das Konzept nicht auf zwei Ebenen begrenzt, es lässt sich hierarchisch beliebig erweitern.
+
+### Materialisierung
+Verschieden Aggregationen werden typischerweise vorberechnet (Materialisiert) und redundant abgelegt um Antwortzeiten zu beschleunigen. 
+Sei folgender Hypercube gegeben:
+![](HierarchischerHypercube.png)
+
+Die Anzahl der Hypercubes um jede Kombination aggregiert zu speichern berechnet sich aus dem Produkt der Hierarchiebene ($4 \cdot 4 \cdot 3 = 48$)
+
+Die Menge an Insgesamt vorhandener Zellen berechnet sich aus der Anzahl an Instanzen pro Dimension. 
+$$
+1508*262*40163 \approx 15,8 \text{Mrd}
+$$
+Dabei sind ca. 4 Mrd Zellen nicht in der Detailebene
+$$
+1508*262*40163 -1440*200*40000 \approx 4 \text{Mrd}
+$$
+Diese Zellen stellen also Kombinationen verschiedener Aggregationen dar. So kann beispielsweise die Summe aller verkauften Produkte in einer Region direkt abgelesen werden.
+
+Für die Unterstützung weiterer Aggregatfunktionen (Mittelwert / Min / Max etc.) steigt der Speicherbedarf entsprechend.
