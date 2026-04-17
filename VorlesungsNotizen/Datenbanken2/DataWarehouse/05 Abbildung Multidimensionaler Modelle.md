@@ -88,7 +88,84 @@ Wenn das neue Attribut auf der untersten Ebene der Hierarchie liegt, so muss fü
 ### d) Neue Dimension hinzufügen
 Es wird eine neue Relation für die Dimension erstellt. Die Faktentabelle wird um ein Attribut erweitert. Für alle bestehenden Daten muss der Wert entsprechend nachgetragen werden, wobei auch hier eine Schwierigkeit darin besteht korrekte Werte zu ermitteln.
 
+# Slowly Changing Dimensions
+Vorschlag ist, die Dimensionsdaten bei jedem Nachladen vollständig abzugleichen.
 
-> [!Missing] Weiter
-> Auf Seite 5-21 'Slowly Changing Dimensions'
+## Typ I
+Ist eine Kombination aus [a) Neue Dimensionselemente](#a%20Neue%20Dimensionselemente) und [b.1) Datensatz ändern](#b.1%20Datensatz%20ändern). Es wird auf Historisierung verzichtet.
 
+Aus der Ausgangstabelle
+
+| Name         | Gruppe       | Obergruppe    |
+| ------------ | ------------ | ------------- |
+| Pizza Tonno  | Tiefkühlkost | Fertigprodukt |
+| Pizza Hawaii | Tiefkühlkost | Fertigprodukt |
+| Pizza Funghi | Tiefkühlkost | Fertigprodukt |
+wird durch die Änderung der Kategorie von 'Pizza Hawaii' und Hinzufügen einer neuen Sorte folgende Tabelle entstehen:
+
+| Name         | Gruppe       | Obergruppe    |
+| ------------ | ------------ | ------------- |
+| Pizza Tonno  | Tiefkühlkost | Fertigprodukt |
+| Pizza Hawaii | Tiefkühlkost | Gesundes      |
+| Pizza Funghi | Tiefkühlkost | Fertigprodukt |
+| Pizza Salami | Tiefkühlkost | Fertigprodukt |
+
+## Typ II
+Die Dimensionsdaten werden um Gültigkeitsintervalle erweitert. Um die Eindeutigkeit der Einträge zu sichern, wird der Primärschlüssel um ein Anfangsdatum erweitert.
+
+Bei Veränderungen werden vier Fälle unterschieden:
+- a) Neuer Datensatz ist noch nicht vorhanden $\to$ Einfügen
+- b) Datensatz ist unverändert $\to$ Nichts tun
+- c) Datensatz verändert  $\to$ Historisieren und neuen Eintrag einfügen
+- d) Datensatz ist nicht mehr vorhanden $\to$ Enddatum eintragen
+
+![](SlowlyChangingDimensionsTyp2.png)
+
+## Typ III
+Hinzufügen von Attributen (Verbreiterung der Tabelle)
+Technisch ist diese Änderung sehr simpel. Die Dimensionstabelle wird um die neuen Attribute erweitert.
+
+> [!Warning] Nicht gut
+> Da das DWH die 'Single Source of Truth' sein soll, ist es schlecht diese Informationen im Nachhinein zu verändern. Vergangene Analysen werden eventuell verfälscht und sind nicht mehr nachvollziehbar.
+
+
+# Relationale Umsetzung multidimensionaler Anfragen
+
+> [!Warning] Schemaabhängigkeit
+> Die genaue Umsetzung hängt vom verwendeten Schema ab. Hier wird im weiteren vom [Sternschema](#Sternschema) ausgegangen.
+
+Die Anfragen können in SQL formuliert werden.
+Hier anhand des  Beispiels: "Zeige die Anzahl aller Verkäufe kleiner als 100 aller Filialen der Region 'Südwest' der Jahre 2001 und 2002 für die Produktgruppe 'Kosmetik' oder 'Gemüse' an"
+
+``` SQL
+SELECT  Ort.Filiale,
+		Zeit.Jahr,
+		Produkt.Gruppe,
+		SUM(V.Anzahl)
+
+FROM    Verkaeufe V,
+		Ort O,
+		Zeit Z,
+		Produkt P
+
+WHERE   V.Ort_ID = Ort.ID AND
+		V.Zeit_ID = Zeit.ID AND
+		V.Produkt_ID = Produkt.ID AND
+		Ort.Region = ‘Südwest‘ AND
+		Zeit.Jahr IN [2001,2002] AND
+		(Produkt.Gruppe = ‘Kosmetik‘ OR
+		Produkt.Gruppe = ‘Gemüse‘)
+
+GROUP BY Ort.Filiale,
+		Zeit.Jahr,
+		Produkt.Gruppe
+		
+HAVING  SUM(V.Anzahl) < 100;
+```
+
+Die weiteren multidimensionalen Anfragen lassen sich ebenfalls leicht in relationale Anfragen übersetzen.
+- [Rotating und Pivoting](02%20Multidimensionale%20Datenmodelle.md#Pivoting) sind lediglich die Reihenfolge der Attribute innerhalb der Anfrage. Die resultierenden Daten sind identisch
+- [Slice & Dice](02%20Multidimensionale%20Datenmodelle.md#Slice%20&%20Dice) Lassen sich durch Formulierungen in `WHERE` und `HAVING` Klausel abbilden.
+- [Drill-Down und Roll-Up](02%20Multidimensionale%20Datenmodelle.md#Drill-Down%20und%20Roll-Up) durch separate Anfragen mit veränderter `GROUP BY` Klausel. Eventuell können Ergebnisse wiederverwendet werden um effizienter zu rechnen.
+
+Es ist also möglich alle Arten von Anfragen im relationalen Modell darzustellen. Um dies eleganter zu gestalten, gibt es allerdings spezielle Erweiterungen die auf die Arbeit mit multidimensionalen Daten ausgelegt sind.

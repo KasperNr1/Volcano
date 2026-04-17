@@ -9,18 +9,19 @@ Alle Fakten zusammen bilden einen (Hyper-)Cube
 Verschiedene Werte einer Dimension können in einer `Hierarchie` zusammengefasst werden.
 
 ## Operationen
+### Drill-Down und Roll-Up
 ![](DrillDownUndRollUp.png)
 
 Als Drilling wird die Aufteilung von Daten in kleinere Kriterien bezeichnet. Beispielsweise wenn Quartalsweise Zahlen in Monate sortiert werden.
 
 Beim Roll-Up geschieht der Gegenteilige Prozess, Informationen werden anhand von Gemeinsamen Eigenschaften zusammengefasst.
 
-## Pivoting
+### Pivoting
 ![](Pivoting.png)
 
 Bezeichnet ein 'Drehen' des [Hypercube](#Aufbau) um die Daten anschaulich als abhängig von verschiedenen Dimensionen zu betrachten.
 
-## Slice & Dice
+### Slice & Dice
 ![](SliceAndDice.png)
 
 Bezeichnet ein Aufteilen des Hypercubes durch Filtern in Untermengen. Diese kleineren Datensätze können dann beliebig weiterverwendet werden.
