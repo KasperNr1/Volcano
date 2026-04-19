@@ -230,3 +230,42 @@ $$
 Diese Zellen stellen also Kombinationen verschiedener Aggregationen dar. So kann beispielsweise die Summe aller verkauften Produkte in einer Region direkt abgelesen werden.
 
 Für die Unterstützung weiterer Aggregatfunktionen (Mittelwert / Min / Max etc.) steigt der Speicherbedarf entsprechend.
+
+# Andere Ansätze
+Relationale [DBMS](Grundlagen.md#DBMS) sind weit verbreitet und etabliert. Sie können auch mit großen Datenmengen gut arbeiten und sind technisch reif. 
+Der Zugriff auf multidimensionale Daten erfolg durch [komplizierte SQL Statements](#Relationale%20Umsetzung%20multidimensionaler%20Anfragen) und erfordert häufig mehrere Anfragen (sog. 'Multi-Pass-Anfragen').
+SQL selbst ist nicht auf die Arbeit mit im multidimensionalen Kontext ausgelegt.
+Um diese Probleme zu vermeiden und die Vorteile einer [Multidimensionalen Speicherung](#Multidimensionale%20Speicherung) zu nutzen gibt es einen hybriden Ansatz der versucht die positiven Eigenschaften beider Systeme zu vereinen. 
+
+## HOLAP-Ansatz
+Grundsätzlich werden alle Daten in einem relationalen Schema gespeichert. Ein Teil der Daten wird zusätzlich multidimensional abgespeichert.
+Die Auswahl dieses Teils ist Aufgabe des HOLAP-Servers. Dieser nimmt außerdem die Anfragen entgegen und entscheidet, ob sie als relationale SQL Statements auszuführen ist oder von der multidimensionalen Struktur beantwortet werden kann.
+
+![](HolapSchema.png)
+
+## ROLAP ohne Server
+Es wird hier auf einen  OLAP-Server verzichtet, alle Daten werden relational gespeichert und die Kommunikation findet direkt über SQL statt.
+I.d.R. ist hier die Performance schlechter, einige Hersteller bieten jedoch Erweiterungen für SQL um das Formulieren von Abfragestatements zu erleichtern.
+
+## DOLAP / COLAB
+![](DolapColapSchema.png)
+
+Alle Daten werden relational oder multidimensional auf einem Server gespeichert. Ausschnitte hiervon werden auf den Client übertragen. So wird eine (teilweise) Offline-Fähigkeit erreicht, die genaue Performance hängt dabei jedoch stark vom Client ab.
+Für mobile Verarbeitung kann der Ansatz praktikabel sein.
+
+# Archivierung
+![](DatenmengeUndLeistungMitVergehenderZeit.png)
+
+Die zu speichernde Datenmenge nimmt im Zeitverlauf zu. Aufgrund verschiedener Aufbewahrungsfristen oder Bedarf an umfassenderen Analysen können sie nicht unbedingt gelöscht werden.
+
+Um die Systeme performant zu halten muss die Infrastruktur verbessert werden um mehr Speicher und Verarbeitungskapazität zu bieten. Die Leistung von [Backups](02%20Physische%20Sicherheit.md#Datensicherung), generellen Ladezeiten und dem Aufbau von [Indexstrukturen](02%20Dateiorganisation.md#Indexstrukturen) wird schlechter.
+
+Typischerweise wird die Hardware aufgerüstet oder Daten gelöscht. 
+Besser ist ein definierter Archivierungsprozess, der Daten beibehält und trotzdem finanziell sinnvoller ist.
+Dabei werden Daten beispielsweise in drei Kategorien verteilt:
+1. Typ I: werden für aktuelle Analysen gebraucht. Diese Daten bleiben im DWH
+2. Typ II: werden nur vereinzelt noch gebraucht. Sie werden in eine Archiv-Datenbank verschoben, eventuell bleiben [verdichtete Versionen](01%20Grundlagen%20und%20Definition.md#Archiv) im DWH
+3. Typ III: Daten werden nur im Einzelfall benötigt oder nur wegen Vorgaben beibehalten. Diese können stark komprimiert in ein Datei-Archiv verschoben werden.
+
+Mit dieser Strategie bleiben alle Daten verfügbar, wobei seltener benötigte Daten Zugriffszeiten opfern um günstiger gelagert werden zu können.
+
