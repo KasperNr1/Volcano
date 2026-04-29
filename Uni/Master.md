@@ -1,3 +1,16 @@
+# Empfehlungsschreiben Herden
+- StuV
+	- Organisation und Beschaffung Sofa im StuV-Raum
+	- Blutspende (30. Okt 2025 und 1. April 2026)
+	- Organisation und Arbeitseinsatz bei der Ersti-Party (5. Dez 2025)
+	- Organisation Spieleabende
+	- Organisation und Arbeitseinsatz Bar-Hopping
+- StuPa Wochenende (7. / 8. Feb 2026)
+- Begleitung Praktikantin in DH
+- Makeathon (24. bis 26 April 2026)
+- Scout bei Studieninformationstagen (20. Nov 2024 und 19. Nov 2025)
+- Fragerunde bei Schulbesuch (7. Mai 2026)
+
 # Machine Learning Tübingen
 - [Website](https://uni-tuebingen.de/studium/studienangebot/verzeichnis-der-studiengaenge/detail/course/machine-learning-master/#c696-contact-and-questions-other-students) 
 - Bewerbungsfrist zum 30. April
