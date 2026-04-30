@@ -66,6 +66,9 @@ Bewerbungsfrist bis zum
 # Informatik Master TUM (Mathebuch-Klumpen)
 [Informatik - Master of Science (M.Sc.) - TUM](https://www.tum.de/studium/studienangebot/detail/informatik-master-of-science-msc)
 Bewerbungsfrist 01.02 bis 31.05
+[Bewerberportal](https://campus.tum.de/tumonline/)
+Bewerbernummer 2-02552707
+Antragsnummer 1-01022076
 
 ## Zulassung
 Abgeschlossenes Bachelorstudium
@@ -127,7 +130,7 @@ The importance of digitalization
 - [ ] Begründungsschreiben - eine von Ihnen selbst verfasste schriftliche Begründung für die Wahl des Studiengangs und für die Wahl der Technischen Universität München als Hochschule (max. 2 Seiten)
 - [x] [Englisch-Nachweis](#Englisch-Nachweis)
 - [x] Offizielles Transkript über die bisherigen Studienleistung
-- [ ] Formblatt zur Curricularanalyse
+- [ ] Formblatt zur [Curricularanalyse](https://apply.db.in.tum.de/)
 - [x] Tabellarischer Lebenslauf
 - [ ] Das dem Hochschulabschluss zugrunde liegende [Modulhandbuch](https://www.dhbw.de/fileadmin/user/public/SP/HOR/Informatik/Informatik.pdf)
 - [ ] Passfoto
