@@ -70,6 +70,45 @@ Bewerbungsfrist 01.02 bis 31.05
 Bewerbernummer 2-02552707
 Antragsnummer 1-01022076
 
+## Curricularanalyse
+- [x] SWE I (9) 7
+- [x] SWE II (5)
+- [x] Mathe I (8) 5-3
+- [x] Mathe II (6) 3-3
+- [x] Datenbanken I (6) 6
+- [x] Datenbanken II (5) 1
+- [x] Programmieren I (9) 7-2
+- [x] Programmieren II (5) 5
+- [x] Technische Informatik I (5) 5
+	- [x] Technische Informatik II (8) 8-2
+- [x] Theoretische Informatik I (5) 5
+- [x] Theoretische Informatik II (5) 5
+- [x] Theoretische Informatik III (6) 6
+- [x] IT-Security (5) 5
+- [x] Kom. und Netztechnik (5)
+- [x] Software-Qual. und Vert. Systeme (5) 5
+
+| TUM Kurs                                           | DH Kurs                                          |
+| -------------------------------------------------- | ------------------------------------------------ |
+| Intro Object Oriented                              | Programmieren I                                  |
+| Fundamentals of Programming                        | Programmieren I                                  |
+| Computer Architecture: Organization and Technology | Technische Informatik II                         |
+| Computer Architecture: Labor                       | Technische Informatik I                          |
+| IT Security                                        | IT Security                                      |
+| Software Engineering                               | SWE I<br>SWE II                                  |
+| Algos & Data Structs                               | Theo-Inf II                                      |
+| Databases                                          | DB I<br>DB II                                    |
+| Operating Systems and Sys. Software                | Programmieren II<br>Technische Informatik II     |
+| Computer Networks, Distr. Systems                  | Kom- & Netztechnik<br>Softqual & Dist. Sys       |
+| Theory of Computation                              | Theo-Inf III                                     |
+| Functional Programming and Verification            |                                                  |
+| Discrete Structures                                | Theo-Inf I<br>Mathe I<br>Mathe II<br>Theo-Inf II |
+| Linear Algebra for Informatics                     | Mathe I                                          |
+| Calculus for Informatics                           | Mathe I<br>Mathe II                              |
+| Discrete Probability Theory                        | Mathe II                                         |
+| Numerical Programming                              |                                                  |
+
+
 ## Zulassung
 Abgeschlossenes Bachelorstudium
 Durchlaufen des Auswahlverfahrens
@@ -130,7 +169,7 @@ The importance of digitalization
 - [ ] Begründungsschreiben - eine von Ihnen selbst verfasste schriftliche Begründung für die Wahl des Studiengangs und für die Wahl der Technischen Universität München als Hochschule (max. 2 Seiten)
 - [x] [Englisch-Nachweis](#Englisch-Nachweis)
 - [x] Offizielles Transkript über die bisherigen Studienleistung
-- [ ] Formblatt zur [Curricularanalyse](https://apply.db.in.tum.de/)
+- [x] Formblatt zur [Curricularanalyse](https://apply.db.in.tum.de/)
 - [x] Tabellarischer Lebenslauf
 - [ ] Das dem Hochschulabschluss zugrunde liegende [Modulhandbuch](https://www.dhbw.de/fileadmin/user/public/SP/HOR/Informatik/Informatik.pdf)
 - [ ] Passfoto
