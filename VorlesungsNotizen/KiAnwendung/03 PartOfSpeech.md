@@ -57,4 +57,3 @@ Mit "Brill Taggern" werden beide Ansätze kombiniert.
 - Angemessenheit bewerten
 - Ursprung von Fehlern identifizieren
 - Häufige Fehler werden mit [Konfusionsmatrix](04%20Wälder.md#Konfusionsmatrix) erkannt
-- 

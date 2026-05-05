@@ -50,7 +50,7 @@ Bei der klassischen "Autovervollständigung" wird meist simpel mit den [Wahrsche
 # N-Gramm Modell
 Ein N-Gramm bezeichnet eine Sequenz von $N$ aufeinanderfolgenden Fragmenten in einem Text
 Es gibt also Unigramme, Bigramme, Trigramme usw.
-Die Fragmente können Wörter oder [Tokens](#Token)
+Die Fragmente können Wörter oder [Tokens](#Token) sein.
 ![](NGrammSplitting.png)
 
 
