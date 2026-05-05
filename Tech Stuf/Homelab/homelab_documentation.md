@@ -2,6 +2,18 @@
 
 This document outlines the setup, access methods, and management commands for the services running on the Ubuntu server.
 
+## Booting
+On Mac
+```
+placeholder
+```
+
+On Mobile
+```
+python -c "import socket; b=bytes.fromhex('f'*12 + '2c44fd151f56'*16); s=socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1); s.sendto(b, ('192.168.2.255', 9))"
+```
+
+
 ---
 
 ## 1. Core Management
