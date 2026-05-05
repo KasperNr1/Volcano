@@ -5,7 +5,7 @@ This document outlines the setup, access methods, and management commands for th
 ## Booting
 On Mac
 ```
-placeholder
+wakeonlan -i 192.168.2.255 -p 9 2c:44:fd:15:1f:56
 ```
 
 On Mobile
