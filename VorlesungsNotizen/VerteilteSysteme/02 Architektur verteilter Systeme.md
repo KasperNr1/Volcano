@@ -75,6 +75,8 @@ Typisch in
 - Hybride Rollen: Server können als Client Dienste von anderen Servern in Anspruch nehmen
 - Verbreitung: ca. $80\%$ der Systeme
 
+![](ClientServerModell.png)
+
 ### Kooperierende Server
 ![](CoopServer.png)
 Ein Netzwerk von Servern arbeitet transparent. So können auch große Aufgabenmengen bewältigt werden.
@@ -151,11 +153,17 @@ Gängig sind:
 - RMI
 - Message Oriented
 
+
+> [!MISSING] Fehlt
+> Erklärung der Modelle
+> S. 120
+
+
 ## Remote Procedure Call (RPC)
 Wirkt wie lokaler Funktionsaufruf.
 
 > [!Missing] Fehlt
-> Seite 121 bis 126
+> Seite 121 bis 130
 > 
 
 Problematisch sind die Übertragung von Daten. Bei großen Objekten ist die Duplikation auf beiden Systemen notwendig, oder eine tiefe Kopie bei jedem Aufruf. Simple "Call by Reference" kann nicht funktionieren da der Speicher nicht zwischen den Systemen geteilt wird.
@@ -166,4 +174,9 @@ Problematisch sind die Übertragung von Daten. Bei großen Objekten ist die Dupl
 - Objekt-Referenzen
 
 RPC kann eng in Programmiersprachen integriert werden. So ist weniger Boilerplate notwendig und die Referenzprobleme werden ausgelagert.
+
+
+> [!MISSING] Fehlt
+> gRPC
+> Seite 135-142
 
