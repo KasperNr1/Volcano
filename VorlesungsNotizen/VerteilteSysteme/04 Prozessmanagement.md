@@ -28,11 +28,11 @@ Es wird versucht die Knoten aufzuteilen und die Kosten für Kommunikation zwisch
 ### List Scheduling
 Annahme ist, dass die Tasks nur vor / nach der Arbeit kommunizieren müssen. Während der Runtime kann minimaler Austausch stattfinden, sollte aber wenig Overhead besitzen.
 
-Die Tasks werden als DAG modelliert.
+Die Tasks werden als DAG (Directed, Acyclical Graph) modelliert.
 ![](ListScheduling.png)
 
 In den Knoten steht der Name des Prozess, sowie seine Ausführungszeit.
-Die Gewichte der Knoten beschreiben den Aufwand für die Kommunikation zwischen zwei Tasks.
+Die Gewichte der Kanten beschreiben den Aufwand für die Kommunikation zwischen zwei Tasks.
 Diese Zeitwerte werden vorrausgesetzt, sie müssen aus historischen Aufzeichnungen oder anderen Quellen stammen.
 
 Priorisierung kann veschieden erfolgen, (High Level First with Estimated Time) oder (Earliest Time First)
@@ -46,14 +46,13 @@ Tasks mit dem höchsten "Level" (Kritischer Pfad) werden zuerst bearbeitet.
 
 Für Endknoten ist $level(v) = w(v)$. Sonst gilt:
 
+$$
+level(v) = w(v) + \max_{u \in \text{succ}(v)} level(u)
+$$
 
 > [!NOTE] Endknoten
 > Ein Endknoten ist der "unterste" im Graph, also der keine Nachfolger in der Ausführung besitzt
 
-
-$$
-level(v) = w(v) + \max_{u \in \text{succ}(v)} level(u)
-$$
 
 Tasks werden absteigend nach level sortiert und so priorisiert.
 Tasks im kritischen Pfad erhalten automatisch ein hohes Level und werden bevorzugt bearbeitet.
@@ -64,6 +63,12 @@ Tasks im kritischen Pfad erhalten automatisch ein hohes Level und werden bevorzu
 > Kommunikationskosten fallen nur zwischen Knoten an. (siehe lösung auf 266)
 
 ![](HlfetListScheduling.png)
+
+
+> [!Tip] Kommunikationskosten
+> Wenn zwei Tasks auf der selben Node ausgeführt werden, so fallen keine Kommunikationskosten an.
+> Aus diesem Grund wurde Task `D` bewusst auf Node 3 gelegt und nicht auf Node 2 ausgeführt.
+
 
 ## Dynamisches Scheduling
 Bei dynamischem Load Balancing kann der Ausführungsort zur Erstellung des Prozess festgelegt werden. In einer anderen Variante kann er zur Laufzeit wieder verändert werden ("Prozessmigration")
@@ -110,7 +115,7 @@ Adressräume können auf mehrere Arten migriert werden
 # Koordination
 In verteilten Systemen wird [Parallel](Paraprog-Basics.md#Parallel%20vs%20Nebenläufig) gearbeitet. Daher gibt es keine gemeinsame Uhr, was einige Schwierigkeiten bringt.
 
-Es werden Logiken wie "Vektoruhren" "TimeStamps" oder konsensbasierte Protokolle nötig.
+Es werden Logiken wie "[Vektor Uhren](05%20Logische%20Uhren.md#Vektor%20Uhren)" "[TimeStamps](05%20Logische%20Uhren.md#Lamport%20Timestamp)" oder [konsensbasierte Protokolle](05%20Logische%20Uhren.md#Konsensbasierte%20Ansätze) nötig.
 
 Jeder Knoten besitzt eine lokale Uhr, Ereignisse können nur in Bezug auf eine solche Uhr eindeutig zugeordnet werden.
 
@@ -130,7 +135,7 @@ Client notiert eigene Zeit und sendet Anfrage an vertrauenswürdigen Server. Nac
 ![](CristiansAlgorithm.png)
 
 Dieses Verfahren basiert auf 3 Annahmen.
-- Der Server ist vertrauernswürdig
+- Der Server ist vertrauenswürdig
 - Der Server braucht nahezu $0$ Zeit um die Anfrage zu beantworten
 - Die im Netzwerk verbrachte Zeit sind auf Hin- und Rückweg gleich.
 
@@ -138,7 +143,7 @@ Typischerweise werden hier mehrere Anfragen gesendet um nicht auf einer einzelne
 
 ### Zeitanpassung
 Wenn die aktuelle Uhrzeit eines Systems angepasst werden muss, darf nicht direkt der neue, korrekte Wert eingetragen werden.
-Stattdessen soll die Uhr vorrübergehend schneller oder langsamer laufen, um zeitliche Monotonie zu gewährleisten.
+Stattdessen soll die Uhr vorübergehend schneller oder langsamer laufen, um zeitliche Monotonie zu gewährleisten.
 
 ## Happened-Before
 In zwei Basisfällen lässt sich die Reihenfolge von Ereignissen klar bestimmen.
@@ -157,5 +162,3 @@ Diese Regeln bilden die "happened-before" Relation $\rightarrow$
 >    $a \rightarrow b$ und $b \rightarrow c$ dann $a \rightarrow c$
 
 ![](HappenedBefore.png)
-
-
