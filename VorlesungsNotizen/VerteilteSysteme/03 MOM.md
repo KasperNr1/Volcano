@@ -43,6 +43,8 @@ Ermöglich auch fortgeschrittene Funktionalität wie das Umwandeln von Formaten.
 Leichtgewichtiges Publish/Subscribe Protokoll mit Broker-Architektur.
 Optimiert für ressourcenarme Clients.
 
+Siehe auch [MQTT](08%20IoT.md#MQTT).
+
 
 # Anwendungsorientierte Middleware
 ## Laufzeitumgebungen

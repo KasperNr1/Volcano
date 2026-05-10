@@ -28,12 +28,22 @@ z.B. Fold@Home zur Proteinfaltung
 Ressource aus unterschiedlichsten Organisationen werden zur Zusammenarbeit vereint
 
 
+> [!MISSING] Fehlt
+> Architektur und Schichten des Grid-Computing
+> Seite 39-42
+
 ### Cloud Computing
 Bietet ein breiteres Dienstleisungsmodell als [Grid-Computing](#Grid-Computing)
 Skalierbarkeit und Flexibilität
 
 Virtueller Ressourcenpool, dynamisch anpassbar und Benutzerfreundlich.
 Abrechnung auf "Pay-Per-Use" basis
+
+
+> [!MISSING] Cloud-Schichten
+> Hardware - IaaS - SaaS
+> Seite 45-47
+
 
 ## Verteilte Informationssysteme
 Integrieren mehrere Anwendungen zu einem firmenweiten Informationssystem.
@@ -45,7 +55,7 @@ In der Regel stellen einige wenige Server die Software bereit.
 ### Pervasive Systems
 Diese Systeme sind mobil und in die Umwelt integriert. Oft gibt es hier keine herkömmliche UI, sondern Sensoren und Aktoren von "Smart Devices"
 
-Ziel ist hier, dass Objekte intelligent werden und mit einander kommunizieren.
+Ziel ist hier, dass Objekte intelligent werden und miteinander kommunizieren.
 
 ### Ubiquitous Systems
 In diesen Systemen verschmilzt die Technik komplett mit der Umwelt. Technologie arbeitet unsichtbar im Hintergrund.
@@ -67,7 +77,7 @@ Skalierbarkeit und Ausfallsicherheit sprechen für die Verteilung eines Systems.
 
 ## Charakteristika
 - Ressourcen sind (weltweit) verteilt
-- Kooperation nur über Nachrichtenaustausch
+- Kooperation nur über Nachrichtenaustausch ([IP](04%20Network%20Layer.md#Internet%20Protocoll), [TCP/UDP](05%20Transport%20Layer.md), HTTP, [MQTT](08%20IoT.md#MQTT))
 - [Nebenläufigkeit](Paraprog-Basics.md#Parallel%20vs%20Nebenläufig) ist gegeben, jedoch nicht das primäre Ziel
 - Keine Globale Uhr
 - Kein eindeutiger Zustand
@@ -111,4 +121,5 @@ Ein verteiltes System soll bei der Benutzung nicht unbedingt als solches erkennb
 - Leistungstransparenz
   Systemoptimierung bei Laständerungen bleiben für Nutzer unsichtbar
 - Skalierungstransparenz
+  Das System kann wachsen, ohne dass Änderungen an der Architektur oder den Anwendungsalgorithmen notwendig sind
   
