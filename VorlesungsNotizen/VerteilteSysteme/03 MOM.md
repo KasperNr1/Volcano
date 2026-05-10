@@ -33,6 +33,12 @@ Sender und Empfänger müssen nicht gleichzeitig online sein.
 
 ![](PersistantCommunication.png)
 
+
+> [!Info] Garantie
+> Es ist sichergestellt, dass die Nachricht zugestellt wird.
+> Es gibt keine Garantie, dass die Nachrichten tatsächlich gelesen werden.
+
+
 ## Message Broker
 Ermöglicht tatsächliche Persistenz da kein Zeitpunkt nötig ist zu dem Client und Server gleichzeitig online sind.
 
@@ -50,11 +56,11 @@ Siehe auch [MQTT](08%20IoT.md#MQTT).
 ## Laufzeitumgebungen
 Setzt auf Betriebssystem der Knoten auf.
 
-Runtime erweitert OS um Rssourcenmanagement (Nebenläufigkeitsunterstützung, Verbindungsmanagement, Verfügbarkeit)
+Runtime erweitert OS um Ressourcenmanagement (Nebenläufigkeitsunterstützung, Verbindungsmanagement, Verfügbarkeit)
+ 
+- [Pooling von Threads](Prozessverwaltung.md#Thread-Pools) und Verbindungen 
 
-- Pooling von Verbindungen / Threads
-
-So werden Allokationskosten veringert, was eine geringere Latenz und bessere Skalierbarkeit bietet.
+So werden Allokationskosten verringert, was eine geringere Latenz und bessere Skalierbarkeit bietet.
 
 Runtime sorgt für Ausfallschutz bei Hardware oder Software Fehlern.
 - Replikation von Daten / Diensten
@@ -74,7 +80,7 @@ Ziel ist eine Entkopplung von Anwendung und Infrastruktur.
 
 ## Namensdienst
 Zuordnung von Namen zu Referenzen / Adressen. Name als eindeutiger Identifier.
-Cients fragen Dienste über Namen an, somit sind Adresswechsel möglich.
+Clients fragen Dienste über Namen an, somit sind Adresswechsel möglich.
 
 Entkoppelt Client von Server.
 
@@ -82,12 +88,12 @@ Entkoppelt Client von Server.
 Jede Client Instanz erhält eine Session (User ID, Warenkorb)
 
 Session Daten können transient oder persistent sein.
-Speichern Serverseitig oder Client-Seitig (Cookies)
+Speichern Serverseitig oder client-seitig (Cookies)
 
-Middleware sorgt für trnasparente Zuordnung von Requests zu Sessions
+Middleware sorgt für transparente Zuordnung von Requests zu Sessions
 
 ## Transaktionsverwaltung
-Bildet eine Folge von Aktionen als atomare Operation ab.
+[Bildet eine Folge von Aktionen als atomare Operation](Transaktionen.md) ab.
 1. Daten Holen
 2. Modifizieren
 3. Zurückschreiben
@@ -101,6 +107,7 @@ Bildet eine Folge von Aktionen als atomare Operation ab.
 Intelligente Schnittstelle zur Datenbank.
 
 Häufigst als "Object-Relational-Mapper" (ORM)
+Dabei werden Klassen als Tabellen, Attribute als Spalten und Objekte als Zeilen dargestellt.
 
 # Komponentenmodell
 Sind Einheiten die verschiedene Funktionalitäten abkapseln und über klar definierte Schnittstellen bereitstellen.
@@ -193,24 +200,22 @@ Struktur erlaubt delegation, lokale Suche und effizientes Caching. Erfordert abe
 
 ## Auflösen von Namen
 ### Flache Namen
-Anfrage mit Identifikator wird per Broadcast an alle Knoten gesendet.
+Anfrage mit Identifikator wird per [Broadcast](Basics.md#Broadcast) an alle Knoten gesendet.
 Entsprechender Knoten antwortet direkt mit seiner Adresse.
 Z.B. DNS
 
 Bei Adresswechseln kann eine Entität eine Kette an Weiterleitungszeigern hinterlassen.
-Somit ist keine Globale Suche nötig, Ketten können aber sehr lang werden und eventuell Inkonsitent sein.
+Somit ist keine Globale Suche nötig, Ketten können aber sehr lang werden und eventuell Inkonsistent sein.
 
 ### Hierarchische Namen
 Unterteilung in Domänen und Unterdomänen. Es entsteht eine Baumstruktur die sich effizient durchsuchen lässt.
 
 ![](StructuredNames.png)
 
+Es kann auch ein Graph verwendet werden, bei dem einzelne Knoten über mehrere Wege erreicht werden können. Dabei wird in der Regel jedoch trotzdem nur ein einzelner Wurzelknoten verwendet. 
+Dieser Graph darf keinen Zyklus enthalten.
+![](StructuredNameNamespace.png)
 
-
-
-  
-
-
-
-
+Um einen Name oder Pfad aufzulösen, wird bei der aktuellen Position gestartet und zum nächsten Knoten übergegangen (Falls dieser existiert).
+Dort wird der Prozess rekursiv wiederholt, bis der verbleibende Pfad leer ist oder ein Teilschritt nicht erfolgreich ist. Entsprechend wird die Ressource oder eine Fehlermeldung zurückgegeben.
 

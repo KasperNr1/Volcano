@@ -180,3 +180,10 @@ RPC kann eng in Programmiersprachen integriert werden. So ist weniger Boilerplat
 > gRPC
 > Seite 135-142
 
+
+> [!MISSING] Fehlt
+> RMI
+> Keine Folien, nur Übung anhand von [dieser Website](https://openbook.rheinwerk-verlag.de/java8/14_001.html#u14)
+
+
+
