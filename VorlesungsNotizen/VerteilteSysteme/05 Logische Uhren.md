@@ -1,4 +1,5 @@
 Physikalische Uhren sind nicht exakt synchronisierbar. Daher sind sie nicht geeignet um die Reihenfolge von Ereignissen sicher zu bestimmen.
+Mit logischen Uhren kann die Reihenfolge von Ereignissen mithilfe der [Happened-Before](04%20Prozessmanagement.md#Happened-Before) Kausalität bestimmt werden. Die realen Zeitpunkte der Ereignisse sind dabei nicht in fester Beziehung.
 
 # Lamport Timestamp
 Jeder Prozess $i$ hat einen Lamport-Timestamp $L_i$ .
@@ -81,12 +82,24 @@ Vorraussetzung dafür sind zuverlässige FIFO Kanäle und starker Zusammenhang d
 3. $P$ Sendet über jeden ausgehenden Kanal eine spezielle *Marker*-Nachricht
 4. Marker signalisiert anderen Prozessen: "Alles aus diesem Kanal gehört zum Snapshot vor oder nach diesem Marker"
 5. Jeder andere Prozess $Q$ der die Nachricht empfängt, speichert seinen eigenen Zustand und sendet den Marker ebenfalls an alle Kanäle weiter.
+6. Alle noch eingehenden Nachrichten werden als Zugehörig zum aktuellen Snapshot gespeichert.
+7. Der Snapshot ist für einen Knoten vollständig, wenn auf jedem Kanal ein Marker empfangen wurde.
 
-Beispiel auf Seite 333 und vorherige
+![](StartStateConsistentCutExample.png)
+In diesem Beispiel möchte Prozess $P1$ zum aktuellen Zeitpunkt einen Snapshot initiieren.
 
+Die Sequenzdarstellung der Situation ist die folgende:
+![](ConsistentCutExampleStartStateInSequenceForm.png)
+
+Nach Ende des Algorithmus wurde folgender Schnitt gefunden:
+![](ConsitentCutExampleEndState.png)
+
+In dieser Darstellung sind die genauen Einträge im Speicher besser erkennbar
+![](ConsistentCutExampleFinalState.png)
 # Wahlalgorithmen
 Verteilte Algorithmen benötigen einen Koordinator oder Leader, der spezielle Aufgaben übernimmt.
 Ziel der Wahlalgorithmen ist es einen solchen Leader zu bestimmen.
+Die Aufgabe des Leaders ist dabei nicht besonders komplex, es muss nur sichergestellt sein, dass exakt ein Knoten diese Aufgaben ausführt.
 
 Annahmen:
 - Jeder Prozess im System hat eine eindeutige ID
@@ -100,7 +113,6 @@ Verschiedene Wahlverfahren sind
 - [Ringalgorithmen](#Ringalgorithmen)
 - [Heartbeat](#Heartbeat)
 - [Konsensbasierte Anätze](#Konsensbasierte%20Anätze)
-
 
 ## Bully Algorithmus
 Wenn die Koordinatorlosigkeit festgestellt ist, wird ein Wahlprozess gestartet. Dabei wird der Prozess zum Koordinator, der während der Wahl die höchste ID hat.
@@ -126,5 +138,14 @@ Wahl läuft ab, indem eine Nachricht mit eigener Prozess ID an Nachbar geschickt
 Sobald die Nachricht beim Absender ankommt, enthält sie eine Liste aller aktiven Prozesse. Der Prozess mit höchster ID wird als Koordinator bestimmt, diese Nachricht wird entsprechend an die Nachfolger übermittelt.
 
 ## Heartbeat
+Regelmäßige Nachrichten erkennen Ausfälle schnell. Die Erkennung eines Ausfalls löst Neuwahlen aus.
+
+> [!Info] Nicht Klausurrelevant
+> Wurde nur genannt, nicht näher behandelt
+
 
 ## Konsensbasierte Ansätze
+Für robuste replizierte Systeme mit starker Konsistenz
+
+> [!Info] Nicht Klausurrelevant
+> Wurde nur genannt, nicht näher behandelt
