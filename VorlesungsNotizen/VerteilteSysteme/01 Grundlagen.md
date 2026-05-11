@@ -25,12 +25,26 @@ z.B. Fold@Home zur Proteinfaltung
 
 
 ### Grid-Computing
-Ressource aus unterschiedlichsten Organisationen werden zur Zusammenarbeit vereint
+Ressource aus unterschiedlichsten Organisationen werden zur Zusammenarbeit vereint.
 
+Die verschiedenen Ressourcen werden von einem einheitlichen System verwaltet um Zugriffsrechte und Kooperation zu managen.
 
-> [!MISSING] Fehlt
-> Architektur und Schichten des Grid-Computing
-> Seite 39-42
+![](GridComputingLayers.png)
+
+- Anwenungsschicht
+  Leichte Nutzung der verteilten Ressourcen durch bereitgestellte Schnittstellen.
+  Zentrale Dienste wie Authentifizierung, Autorisierung und Datenübertragung werden von Middleware des Grids durchgeführt und bereitgestellt. 
+- Kollektive Ebene
+  Bietet Zugang zu mehreren Ressourcen, verwaltet Datenreplikation und Aufgabenplanung
+- Ressourcenebene
+  Verwaltung einzelner Ressourcen
+- Verbindungsebene
+  Anwendung von Kommunikationsprotokollen und Sicherheitsmaßnahmen
+- Infrastruktur
+  Stellt die Schnittstelle zu lokalen Ressourcen dar, ermöglicht die Teilung von diesen
+
+Moderne Grid-Systeme werden zunehmend hybrid mit [Cloud-Ressourcen](#Cloud%20Computing) kombiniert um kurze Anfragestürme abzufangen.
+Anwendungen werden i.d.R. containerisiert und mit Docker / Kubernetes ausgeführt.
 
 ### Cloud Computing
 Bietet ein breiteres Dienstleisungsmodell als [Grid-Computing](#Grid-Computing)
@@ -39,11 +53,15 @@ Skalierbarkeit und Flexibilität
 Virtueller Ressourcenpool, dynamisch anpassbar und Benutzerfreundlich.
 Abrechnung auf "Pay-Per-Use" basis
 
+![](CloudServiceModelResponsibilities.png)
 
-> [!MISSING] Cloud-Schichten
-> Hardware - IaaS - SaaS
-> Seite 45-47
-
+Generell werden drei Varianten von Cloud-Diensten unterschieden
+- Infrastructure as a Service:
+  Virtuelle Maschinen werden zur Verfügung gestellt. Netzwerkanbindung und Storage werden verwaltet.
+- Plattform as a Service:
+  Laufzeitumgebungen, APIs und Dienste für Entwickler werden vom Anbieter gestellt.
+- Software as a Service:
+  Die gesamte Anwendung wird vom Anbieter gestellt und kann direkt vom Endanwender genutzt werden.
 
 ## Verteilte Informationssysteme
 Integrieren mehrere Anwendungen zu einem firmenweiten Informationssystem.

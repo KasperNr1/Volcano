@@ -36,6 +36,6 @@ Annahme dass fehlgeschlagene Nachrichten wiederholt werden können bevor Zeitpun
 | 6   | Zeit X            | Zeit X            | Zeit X            | Zeit X            | Ok_6           | B    |
 
 Zum Zeitpunk $t_{n+2}$ ist einer Seite bewusst, dass $t_{n}$ erreicht wurde.
-Beiden Seiten sind zu $t_{n+4}$ sicher dass bewusst dass der Zustand $t_{n}$ erreicht wurde
+Beiden Seiten sind zu $t_{n+5}$ sicher, dass der Zustand $t_{n}$ erreicht wurde
 Ab $t_4$ ist Einigkeit erreicht, mit $t_6$ ist diese für A sicher und mit $t_7$ für B. Ab $t_8$ weiß A dass B Sicherheit hat. Mit $t_9$ wird B darüber informiert, mit $t_{10}$ wird abgeschlossen und ausreichend bestätigt. 
 
