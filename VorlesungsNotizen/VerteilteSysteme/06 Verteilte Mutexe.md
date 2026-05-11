@@ -62,7 +62,7 @@ Der Ausfall eines Knoten mit Token muss erkannt werden um ein neues Token einzuf
 
 # Multicast
 Wie kann man den Empfang von Nachrichten in der korrekten Reihenfolge erreichen?
-Wie kann man den Erhalt bei allen Empfängern zu sichern?
+Wie kann man den Erhalt bei allen Empfängern sichern?
 
 - Unreliable Multicast
   Pakete können verloren gehen, keine Garantie oder automatische Wiederholung.
@@ -96,7 +96,7 @@ Alle Nachrichten werden bei allen Prozessen in exakt der selben Reihenfolge empf
 > Um global eindeutige Sequenznummern zu erhalten, muss ein erheblicher Aufwand betrieben werden.
 > Hier kann wie bei [Verteilte Mutexen](#Verteilte%20Mutexe) auf zentrale Vergabe oder verteilte Algorithmen gesetzt werden.
 
-# Tansaktionen in verteilten Systemen
+# Transaktionen in verteilten Systemen
 Werden nicht nur in Datenbanken eingesetzt, auch bei verteilten Diensten wie Reservierungs- und Koordinationsprotokollen.
 Wie können die [ACID](Transaktionen.md#ACID) Prinzipien eingehalten werden?
 
