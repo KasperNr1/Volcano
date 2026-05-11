@@ -13,6 +13,8 @@
 > Stammt aus der Geschichte, beschreibt böswilliges Verhalten.
 > Ein Byzantinischer Ausfall beschreibt willkürliche, zufällig falsche Antworten
 
+Zusätzlich wird zwischen "Omissionsfehlern", bei denen eine Handlung unterlassen wird und "Commissionsfehlern" unterschieden. Im zweiten Fall wird eine Handlung vorgenommen, aber nicht korrekt ausgeführt.
+
 # Fault Masking
 Fehlertolerante Systeme müssen Fehler vor anderen Prozessen verbergen. Wichtigste Technik dazu ist Redundanz.
 
@@ -25,7 +27,7 @@ Jede Komponente wird dreifach umgesetzt, nach jeder Stufe sitzt ein Mehrheitssch
 Da dieser Einsatz vieler Redundanter Bauteile sehr teuer ist, wird es typischerweise nur bei sehr kritischen Systemen angewendet (Raumfahrt / Industrie)
 
 # Prozess-Elastizität
-Prozesse werden in Gruppen repliziert. Nachrichten an eine Gruppe werden von allen Mitgliedern empfangen. (Typisch: Totally ordered Multicast)
+Prozesse werden in Gruppen repliziert. Nachrichten an eine Gruppe werden von allen Mitgliedern empfangen. (Typisch: [Totally ordered Multicast](06%20Verteilte%20Mutexe.md#Empfangsreihenfolge))
 
 Organisiert können diese Gruppen flach (symmetrisch) sein oder hierarchisch mit einem zentralen Koordinator.
 
@@ -68,9 +70,22 @@ Der Absturz eines Knoten kann lokal behoben werden, die eingegangenen Nachrichte
 Um mit potentiell doppelt gesendeten Nachrichten keine Probleme zu verursachen, ist eine komplexere Wiederherstellungslogik notwendig.
 
 # Verteilte Dateisysteme
+Ziel ist das gemeinsame Nutzen von Dateien im Netz. Dabei gibt es verschiedene Anforderungen die für den korrekten Betrieb notwendig sind.
+- [Verschiedene Transparenzen](VorlesungsNotizen/VerteilteSysteme/01%20Grundlagen.md#Transparenz)
+- Konsistenz & Nebenläufigkeit um gleichzeitige Updates zu behandeln
+- Replikation und Caching um Latenz und Verfügbarkeit zu verbessern
+- Unterstützung verschiedener Betriebssysteme
 
-> [!Missing] Fehlt
-> Seite 530-535
+## Flat File Service
+Bietet idempotente Operationen auf Dateien an.
+- `read`
+- `write`
+- `create`
+- `move`
+- `get / set attributes`
+
+Dateien werden durch UFIDs (Unique File IDs) eindeutig markiert.
+Ein Directory Service kann Dateinamen oder Pfade in diese UFIDs übersetzen.
 
 ## NFS
 ![](ArchitekturNfs.png)
@@ -101,8 +116,3 @@ Dynamische Strategien sind möglich, bei der Prozesse einen vermuteten Owner ken
 
 > [!Info] Forschung
 > Die Thematik ist eher in der Forschung angesiedelt, Shared Memory wird aktuell in keiner größeren Anwendung produktiv eingesetzt
-
-
-
-
-
