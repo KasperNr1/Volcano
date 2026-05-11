@@ -88,19 +88,22 @@ Sind gegeben, wenn ein Lesen eines Wertes immer Werte liefert, die dem letzten W
 Ein Prozess sieht nie alte Versionen nachdem er bereits eine neuere gesehen hat.
 Der Client bewegt sich logisch nur vorwärts in der Zeit.
 
-
-> [!Missing] Schreibweise
-> Für das unten stehende Beispiel relevant.
-> Beschrieben auf Seite 460
-
+- $x_i$ sei eine Version des Datenobjekts $x$
+- $x_i$ entsteht durch eine Folge von Schreiboperationen. 
+  Diese Menge an Änderungen wird mit $WS(x_i)$ bezeichnet
+- Mit neuen Writes entsteht aus der aktuellen Version $x_i$ eine aktualisierte Version $x_j$.
+  $x_j$ folg aus $x_i$ wird dargestellt als $W(x_i; x_j)$ 
+- Wenn unklar ist, ob $x_i$ aus $x_j$ folgt, so schreibt man $W(x_i \mid x_j)$ 
 
 ![](MonotonicReads.png)
 
 ### Monotonic Writes
+Sind gegeben, wenn eine ältere Schreiboperation niemals sichtbar wird, nachdem bereits eine neuere stattgefunden hat.
+Umgesetzt wird ein solches Verhalten mit Strategien wie Sequenznummern, monotonen Timestamps oder Sequencern.
 
-> [!Missing] Fehlt
-> Seite 463-465
+Die [kausale Konsistenz](04%20Prozessmanagement.md#Happened-Before) wird dadurch nicht ersetzt.
 
+Jeder Prozess sieht stets die Effekte seiner eigenen Änderungen. Nach einer Änderung ist mindestens diese eigene Änderung in allen folgenden Leseoperationen sichtbar.
 
 # Verteilungsprotokolle
 Wo wann und von wem werden Replikate erstellt?
@@ -142,7 +145,7 @@ Writes werden an mehreren Replikaten ausgeführt.
 Reads sind auf allen Kopien möglich.
 Writes müssen auf bestimmten Primaries geschehen.
 
-Remote Write:
+### Remote Write
 Der Schreiber leitet die Operation an einen festen Primary weiter. Dieser ändert sich nicht.
 
 ![](RemotePrimary.png)
@@ -155,7 +158,7 @@ Der Schreiber leitet die Operation an einen festen Primary weiter. Dieser änder
 7. Bestätigung an Client
 
 
-Local-Write:
+### Local-Write
 Der Schreiber wird selbst primary, dann führt er das Update lokal aus.
 ![](RemoteWriteExample.png)
 1. Schreibanfrage
@@ -167,9 +170,11 @@ Der Schreiber wird selbst primary, dann führt er das Update lokal aus.
 7. Bestätigung an Client, Nächste Replikation darf nun Primary werden
 
 # Replicated Write Protokolle
+## Active Replication
+Update Operationen werden immer an alle Kopien weitergegeben. So sind alle Zustände stets deterministisch und korrekt. Neben den hohen Kosten für die Kommunikation ist auch eine global eindeutige Reihenfolge der Ereignisse notwendig.
 
 ## Quorum basierte Protokolle
-Bei $N$ Replikaten muss jede Schreiboperation von $N_W$ und jede Leseoperation von $N_R$ Knoten bestätigt werden. Dabei muss $N < N_W + N_R$ gelten, um stets eine Mehrheitliche Antwort zu gewährleisten. Bei jedem Schreiben wird eine Versionsnummer für den aktuellen Zustand vergeben, bei unterschiedlichen Antworten auf ein Lesen, wird der Wert mit der höchsten Versionsnummer verwendet.
+Bei $N$ Replikaten muss jede Schreiboperation von $N_W$ und jede Leseoperation von $N_R$ Knoten bestätigt werden. Dabei muss $N < N_W + N_R$ gelten, um stets eine mehrheitliche Antwort zu gewährleisten. Bei jedem Schreiben wird eine Versionsnummer für den aktuellen Zustand vergeben, bei unterschiedlichen Antworten auf ein Lesen, wird der Wert mit der höchsten Versionsnummer verwendet.
 
 Bessere Verfügbarkeit und Schreib-Skalierbarkeit auf Kosten einer komplexeren Quorum Wahl und Lese-Kosten.
  ![](QuorumBasedProtocoll.png)
