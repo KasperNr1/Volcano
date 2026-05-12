@@ -47,7 +47,7 @@ Bei der klassischen "Autovervollständigung" wird meist simpel mit den [Wahrsche
 
 ![](AutoComplete.png)
 
-# N-Gramm Modell
+## N-Gramm Modell
 Ein N-Gramm bezeichnet eine Sequenz von $N$ aufeinanderfolgenden Fragmenten in einem Text
 Es gibt also Unigramme, Bigramme, Trigramme usw.
 Die Fragmente können Wörter oder [Tokens](#Token) sein.
@@ -61,12 +61,30 @@ Die Fragmente können Wörter oder [Tokens](#Token) sein.
 > z.B. "Ist ein" bei Trigramm
 
 
+### Vorhersage
+Um ein kommendes Wort vorherzusagen, wird der bisherige Text und die [bedingte Wahrscheinlichkeit](Bedingte%20Wahrscheinlichtkeit.md#Bedingte%20Wahrscheinlichkeiten) der jeweiligen Fortsetzung verwendet.
 
-> [!Missing] Kettenregel
-> Hier fehlt etwas zur Kettenregel (Seite 65)
-> Es geht um die Wahrscheinlichkeit ganzer Sätze zu generieren, basierend auf der wiederholten Generation von einzelnen Wörtern in der Folge auf einander.
+Da die jeweiligen [Pfade](Bedingte%20Wahrscheinlichtkeit.md#Pfadregel) sehr spezifisch sind, ist die Wahrscheinlichkeit einer bestimmten Fortsetzung fast immer $0$.
 
-# Markov Ketten
+$$
+P(\text{that} \mid \text{The garden is so beautiful}) = \frac{P(\text{The garden is so beautiful that})}{P(\text{The garden is so beautiful})} \approx 0.0
+$$
+
+Der lange Kontext kann in eine Reihe kleinerer Tokens aufgeteilt werden. So steigt die Häufigkeit mit der Tokens in mehreren Kontexten verwendet werden können.
+
+Es gilt [die Kettenregel der Wahrscheinlichkeitsrechnung](Bedingte%20Wahrscheinlichtkeit.md#Satz):
+$$
+P(x_1 \wedge x_2 \wedge \dots \wedge x_n) = P(x_1) \cdot P(x_2 \mid x_1) \cdot \dots \cdot P(x_n \mid x_1, x_2, \dots, x_{n-1})
+$$
+
+Somit lässt sich die obige Vorhersage also auch ausdrücken als:
+$$
+P(\text{The garden is so beautiful that}) = P(\text{The}) \cdot P(\text{garden} \mid \text{The}) \cdot \ldots \cdot P(\text{that} \mid \text{The garden is so beautiful})
+$$
+
+Diese Berechnung ist allerdings sehr mühsam. Mithilfe von [Markov Ketten](#Markov%20Ketten) kann das Problem gelöst werden.
+
+## Markov Ketten
 Wandelt diese langen Folgen an Wahrscheinlichkeiten in Zustände um, die nur jeweils vom vorherigen Zustand abhängen. Somit wird die Berechnung deutlich erleichtert.
 
 # Language Model Evaluation
