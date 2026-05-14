@@ -8,4 +8,5 @@ Klausur mit 4 Seiten (2 Blatt Papier) als Hilfsmittel
 
 # Fragen
 ## Markov Ketten
-[Markov Ketten](02%20N-Gramm.md#Markov%20Ketten) anschauen
+[Markov Ketten](02%20N-Gramm.md#Markov%20Ketten) anschauen (Skript Seite 68-80)
+

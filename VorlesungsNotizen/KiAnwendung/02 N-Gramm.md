@@ -85,15 +85,30 @@ $$
 Diese Berechnung ist allerdings sehr mühsam. Mithilfe von [Markov Ketten](#Markov%20Ketten) kann das Problem gelöst werden.
 
 ## Markov Ketten
-Wandelt diese langen Folgen an Wahrscheinlichkeiten in Zustände um, die nur jeweils vom vorherigen Zustand abhängen. Somit wird die Berechnung deutlich erleichtert.
+Wandelt diese langen Folgen an Wahrscheinlichkeiten in Zustände um, die nur jeweils vom vorherigen Zustand abhängen. Somit wird die Berechnung deutlich erleichtert
+
+
+> [!MISSING] Markov Chains
+> Seite 68-80 im Skript
 
 # Language Model Evaluation
 Testdaten stammen aus der selben Quelle wie Trainingsdaten, ohne in den Trainingsdaten enthalten zu sein.
 
 Es gibt Intrinsische und Extrinsische Bewertungen
-(Seite 82)
+Bei der intrinsischen Bewertung wird die Leistung des Modells automatisch bestimmt, anhand verschiedener linguistischer oder statistischer Merkmale.
+Extrinsische Evaluation erfolgt anhand der Qualität von Übersetzungen oder anderen Arbeiten durch Menschen oder [LLMs](10%20LLMs.md).
 
-Niedriger Perplexitätswert $\to$ Gute Vorhersage auf Testdaten
+Ein solche automatisch bestimmbarer Wert ist die 'Perplexity'. Er beschreibt dabei, wie "überrascht" das Modell von den Trainingsdaten ist, während es versucht diese vorherzusagen. Ein geringer Zahlenwert bedeutet, dass die Vorhersage akkurat ist.
+
+$$
+\text{Perplexity} = 2^{-\frac{1}{N} \sum_{i=1}^{N} \log_2 \left(P(w_i)\right)}
+$$
+Seien für den Satz "Der Hund bellt" die Worte mit einer Wahrscheinlichkeit von $0.3; 0.4; 0.2$ vorhergesagt worden, so ist die Perplexity:
+$$
+\text{Perplexity} = 2^{-\frac{1}{3}\left( \log_2 0.3 + \log_2 0.4 + \log_2 0.2 \right)} \approx 3.4668
+$$
+
+Mit diesem Wert können Modelle relativ zueinander verglichen werden.
 
 ## Smoothing
 Verhindert das Auftreten von Wahrscheinlichkeiten $0$ bei unbekannten Kombinationen. Somit wird die Stabilität des Modells erhöht, da alle Wahrscheinlichkeiten miteinander multipliziert werden.
