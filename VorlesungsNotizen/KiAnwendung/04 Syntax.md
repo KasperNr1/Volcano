@@ -6,6 +6,7 @@ Die Anordnung von Wortarten ([Part Of Speech](03%20PartOfSpeech.md#Part%20Of%20S
 Dabei kann es innerhalb einer Sprache beliebig komplexe Syntaxmuster geben.
 
 ![](SyntaxPatterns.png)
+![](SyntaxPatterns2.png)
 
 # Satzglieder
 Satzglieder können durch hinzufügen verschiedener Details länger oder kürzer werden.
@@ -24,7 +25,9 @@ Bestehen nur aus einem Nomen und seinen Begleitern
 Sind Phrasen die ein Verb in einer beliebigen Form enthalten.
 Im Englischen gibt es neun häufige Typen von Verbalphrasen.
 
-![](VerbalPhrasen.png)
+![](Verbalphrasen.png)
+
+![](VerbalphrasenSubcategories.png)
 
 # Chomsky Hierarchie
 0. Rekursiv aufzählbare Sprachen
@@ -35,6 +38,12 @@ Im Englischen gibt es neun häufige Typen von Verbalphrasen.
    Von Kellerautomaten akzeptiert
 3. Reguläre Sprachen
    Von deterministisch endlichen Automaten akzeptiert
+
+Die natürlichen Sprachen können mit Kategorie 2, den Kontextfreien Sprachen abgebildet werden. Dabei sind die Terminalsymbole $T$ die [PoS Tags](03%20PartOfSpeech.md#PoS%20Tagging) und die Nicht-terminale $N$ sind u.A. die verschiedenen [Satzglieder](#Satzglieder) und deren Unterklassen.
+
+
+> [!MISSING] TODO
+> Hier weitermachen, Skript Seite 155
 
 
 # Probabilistisches Parsing
