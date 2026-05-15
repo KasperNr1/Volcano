@@ -7,18 +7,49 @@ Umfasst Wörter, Wortbestandteile und Affixe (Präfixe und Suffixe) sowie zusamm
 Ist ein Katalog aller [Lexikalische Einheiten](#Lexikalische%20Einheit) einer Sprache.
 
 # Lexikalische Beziehungen
+Manche Wörter stehen in festen Beziehung zueinander.
+Im folgenden sind einige der Beziehungsarten gelistet.
 ## Homonymie
+Wörter die gleich klingen, aber verschiedene Bedeutungen haben
+
+> [!Quote] Beispiel
+> "Bank" als Geldinstitut vs. "Bank" als Sitzgelegenheit
+
 ## Polysemie
+Mehrdeutigkeiten desselben Wortes
+
+> [!Quote] Beispiel
+> "Kopf" kann das Körperteil bedeuten, oder den Anführer einer Gruppe meinen
+
 ## Metonymie
+Übertragung der Bedeutung durch Assoziation
+
+> [!Quote] Beispiel
+> "Das Weiße Haus" als Begriff für die US-Regierung
+
 ## Synonyme und Antonyme
-## Hyponyme
+Wörter mit sehr ähnlicher oder gegenteiliger Bedeutung
 
-> [!Missing] Fehlt
-> Nur wenig, Seite 257-259
+> [!Quote] Beispiel
+> "Auto" oder "Fahrzeug" als Synonyme,
+> "Heiß" und "Kalt" als Antonyme
 
+## Hyponyme und Hypernyme
+Unter- und Oberbegriffe
+
+> [!Quote] Beispiel
+> "Apfel" als Hyponym von "Frucht"
+> "Frucht" als Hypernym von "Apfel"
 
 # Komplexe Spracheinheiten
-Ziel ist es, Informationen in formale Repräsenation zu transformieren. 
+Die Bedeutung von Aussagen basiert neben der Bedeutung der einzelnen Wörter auch auf ihren syntaktischen Verbindungen.
+
+`Andrew likes Jane` $\to \text{likes}(Andrew, Jane)$ 
+`Jane likes Andrew` $\to \text{likes}(Jane, Andrew)$  
+
+Nur durch Ändern der Reihenfolge erhält der Satz eine andere Bedeutung.
+Ziel ist es, die Informationen in formale Repräsenationen zu transformieren. 
+
 ## Symbolische Repräsentation
 Stellt Logische Formeln durch inferelle oder Graphenbasierte Mechanismen dar.
 
@@ -55,21 +86,15 @@ Rechnerisch Intensiv, benötigt aber keine Korpusevidenz.
 
 #### Lesk-Methode
 1. Für jedes Wort im Kontext werden alle möglichen Bedeutungen aus einem Wörterbuch extrahiert
-2. Gemeinsame Wörter in den Definitionen des aufzulösenden Wortes und den umgebenen Wörtern
+2. Gemeinsame Wörter in den Definitionen des aufzulösenden Wortes und den umgebenen Wörtern werden gezählt
 3. Die Bedeutung mit der größten Überlappung wird akzeptiert.
+
+Die Qualität der Ergebnisse hängt stark von der detailreiche der Definitionen im verwendeten Wörterbuch ab. Bei sehr komplexem Kontext kann die Genauigkeit ebenfalls sinken. 
 
 ### Überwachtes Lernen
 Intensive Rechenressourcen und Korpusevidenz
 
-[SVM](05%20SVM.md#Support%20Vector%20Machines) kann eine Trennlinie zwischen den Bedeutungen eines Wortes finden. Hohe Genauigkeit wenn Trainingsdaten in ausreichender Menge vorhanden sind.
-
-
-### Unüberwachtes Lernen
-Unabhängig von Korpusevidenz und rechnerisch effizient
-
-Keine Notwendigkeit für manuelle Annotation, die Bedeutung von Wörtern wird anhand von Ähnlichkeiten in Strukturen erkannt.
-
-Da keine definierten Trainingsdaten vorhanden sind, kann hier die Genauigkeit des Modells nur schwer validiert werden.
+Eine [SVM](05%20SVM.md#Support%20Vector%20Machines) kann eine Trennlinie zwischen den Bedeutungen eines Wortes finden. Hohe Genauigkeit wenn Trainingsdaten in ausreichender Menge vorhanden sind.
 
 ### Semi-Überwachtes Lernen
 Kombiniert geringere rechnerische Intensität mit Korpusevidenz
@@ -79,13 +104,20 @@ Beim "Bootstrapping" wird mit einer kleinen Menge Trainingsdaten gestartet und d
 
 Hier besteht die Gefahr dass sich Fehler sehr großflächig  fortpflanzen können.
 
+### Unüberwachtes Lernen
+Unabhängig von Korpusevidenz und rechnerisch effizient
+
+Keine Notwendigkeit für manuelle Annotation, die Bedeutung von Wörtern wird anhand von Ähnlichkeiten in Strukturen erkannt.
+
+Da keine definierten Trainingsdaten vorhanden sind, kann hier die Genauigkeit des Modells nur schwer validiert werden.
+
 # Synsets
 ![](Synset.webp)
 
 "Synonym Sets" sind Graphen die jeweils Synonyme mit einander verbinden
 
 ## Pfadbasierte Ähnlichkeit
-Der Abstand in der Bedeutung zweier Wörter kann anhand der Abstände in einem Synset erkannt werden.
+Der Abstand in der Bedeutung zweier Wörter kann anhand der Abstände in einem [Synset](#Synsets) erkannt werden.
 
 ![](PathBasedWordDistance.png)
 
@@ -100,15 +132,14 @@ $$
 \text{wordsim}(w_1, w_2) = \max \left( \text{simpath}(c_1, c_2) \right) \qquad \forall c_1 \in \text{senses}(w_1), c_2 \in \text{senses}(w_2)
 $$
 
-Schwächen dieses Ansatzes sind die konstanten Abstände innerhalb des Graphen. 
+Schwächen dieses Ansatzes sind die konstanten Abstände innerhalb des Graphen. Daher werden Ähnlichkeiten zu abstrakteren Worten tendenziell immer als größer berechnet. 
 
 # Term Dokument Matrix
 Zeigt die Häufigkeit und Verteilung von Begriffen in einem Dokument.
 
 Zeilen symbolisieren Wörter oder Begriffe die im Dokument vorkommen.
-Spalten Repräsentieren Sätze oder Dokumente, die analysiert werden.
+Spalten Repräsentieren Dokumente oder Sätze, die analysiert werden.
 Zellen zeigen die Anzahl an Vorkommnissen eines Begriffs in einem Dokument.
-
 
 |         | As you Like it | Twelfth Night | Julius Caesar | Henry V | Sherlock Holmes | Moby Dick |
 | ------- | -------------- | ------------- | ------------- | ------- | --------------- | --------- |
@@ -120,16 +151,22 @@ Zellen zeigen die Anzahl an Vorkommnissen eines Begriffs in einem Dokument.
 Zwei Dokumente gelten als ähnlich, wenn sie ähnlich Wortverteilungen haben. Z.B. Julius Caesar und Henry V haben vergleichbare Worthäufigkeiten.
 
 Einzelne Zeilen nennt man "Wort-Vektoren".
-Zwei Wörter sind ähnlich, wenn sie ähnliche Wort-Vektoren haben.
+Zwei Dokumente sind ähnlich, wenn sie ähnliche Wort-Vektoren haben.
 
 ## Metriken
+### Pointwise mutual Information (PMI)
+Vergleicht die Wahrscheinlichkeiten dass zwei Ereignisse gemeinsam auftreten mit der Wahrscheinlichkeit, dass sie unabhängig erscheinen.
+$$
+\text{PMI}(x; y) = \log_2 \left( \frac{p(x,y)}{p(x) \cdot p(y)} \right)
+$$
+Dabei ist $p(x,y)$ die Wahrscheinlichkeit, dass die Wörter gemeinsam auftreten und $p(x)$ die Wahrscheinlichkeit der Wörter im Text vorzukommen.
 
-> [!Missing] Fehlt
-> Formeln und Algorithmen zur Word-Vektor-Erstellung auf Seite 308-318
+Worte die nur gemeinsam auftreten erhalten große positive Werte, während Worte die nur selten oder nie zusammen auftreten mit kleineren oder negative Zahlen versehen werden.
 
+#### Positive Pointwise Mutual Information (PPMI)
+Ist eine Variante von [Pointwise mutual Information (PMI)](#Pointwise%20mutual%20Information%20(PMI)), wobei negative Werte ausgeschlossen durch $0$ ersetzt werden und somit ausgeschlossen sind.
 
-
-
-
-
-
+$$
+\text{PPMI}(x;y) = \max \left( \text{PMI}\left(x,y\right), 0 \right)
+$$
+Grund ist, dass mit negativen Werten in vielen Modellen nur schlecht umgegangen werden kann.
