@@ -10,3 +10,5 @@ Klausur mit 4 Seiten (2 Blatt Papier) als Hilfsmittel
 ## Markov Ketten
 [Markov Ketten](02%20N-Gramm.md#Markov%20Ketten) anschauen (Skript Seite 68-80)
 
+## Kasusrollen - NPs
+Was sind NPs in [Regeln der Kasusrollen](05%20Bedeutungsdarstellung.md#Regeln%20der%20Kasusrollen) (Skript Seite 227)

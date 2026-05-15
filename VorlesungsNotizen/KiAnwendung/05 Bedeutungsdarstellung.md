@@ -7,13 +7,24 @@ Dabei ist die Bedeutung oft eine andere als die bloße Summe der einzelnen Wört
 # Typen von Bedeutungsrepräsentation
 Es gibt fünf Typen von Bedeutung
 1. Kategorien
+   Spezifische Objekte oder Entitäten
+   Firmennamen, Standorte oder Gegenstände
 2. Ereignisse
+   Handlungen oder erlebte Phänomene
+   'einen Film ansehen'
 3. Zeit
+   Genaue oder Referenzzeitpunkte
+   Nächste Woche, 9:30 Uhr
 4. Aspekte
+   Darstellen von Fakten oder Beschreiben von Aktionen
+   'Jane läuft', 'Das Buch ist interessant'
 5. Überzeugungen / Wünsche und Absichten
+   'Ich halte deine Aussage für realistisch'
 
 # Semantische Verarbeitung
-Unterschiedliche Fragen benötigen für eine sinnvolle Antwort eine große Menge an Semantischer Verarbeitung
+Unterschiedliche Fragen benötigen für eine sinnvolle Antwort eine große Menge an Semantischer Verarbeitung.
+Bei korrekter Umsetzung kann ein System auch Schlussfolgerungen aus Wissen ziehen um unbekannte Aussagen zu bewerten.
+`If John is in the classroom, and Mary is sitting next to him, then Mary is also in the Classroom`
 
 ## Kenntnis eines Konzepts
 "What is the Meaning of NLP"
@@ -33,11 +44,13 @@ Unterschiedliche Fragen benötigen für eine sinnvolle Antwort eine große Menge
 # Darstellung von Bedeutung
 Um eine effektive Repräsentation zu gewährleisten müsse drei Faktoren erfüllt sein.
 - Verifizierbarkeit
+  Aussagen können durch Vergleiche mit anderem Weltwissen oder durch logische Schlussfolgerungen als Wahr oder Falsch erkannt werden.
 - Umgang mit Mehrdeutigkeit
+  Die Fähigkeit die richtige der möglichen Bedeutungen zu erkennen.
 - Vagheitsüberlegungen
+  Manche Begriffe wie 'groß' haben keine klaren Grenzen. In unterschiedlichen Situationen kann die selbe Länge groß und klein sein.
 
-Es gibt vier gängige Ansätze.
-
+Es gibt vier gängige Ansätze um Semantik formell darzustellen:
 ## FOPL
 Die Aussage "Jack fährt einen Mercedes" lässt sich mittels Prädikatenlogik wie folgt darstellen
 $$\exists y (Person(Jack) \wedge Fährt(Jack, y) \wedge Auto(y) \wedge Marke(y, Mercedes)) $$
@@ -54,15 +67,27 @@ $$\exists y (Person(Jack) \wedge Fährt(Jack, y) \wedge Auto(y) \wedge Marke(y, 
 
 
 # Kanonische Form
+Eine kanonische Form bezieht sich auf eindeutig identifizierbare Objekte, die auf mehr als eine Weise dargestellt werden können. 
+Eine dieser Möglichkeiten wird als die bevorzugte (kanonische) Standard-Form (wie bei [digitaltechnischen Schaltungen](DigitaltechnischeBegriffe.md#Normalform)) bezeichnet.
 
-> [!Missing] Fehlt
-> Seite 205-209
+Auch [Polynome](Gleichungen.md#Größere%20Polynome) oder Dateipfade haben eine Standard-Darstellungsform. Für Pfade die Darstellung als absolute Pfade vom Wurzelknoten, bei Polynomen die Schreibweise mit nach Größe sortierten Exponenten.
+
+In der Sprachverarbeitung können verschiedene Sätze mit identischer Bedeutung somit auch in einer Standardform gespeichert werden.
+- Jack eats KitKat
+- KitKat is what Jack eats
+- What Jack eats is KitKat
+Bis auf geringfügige Variationen in Ton sind diese Aussagen gleichwertig.
+
+Wenn mehrere Aussagen in der selben Kanonischen Form vorliegen, erleichtert dies die Erkennung von Mustern zur Ableitung von Wissen und erhöht die Effizienz der Speichernutzung. Weil für mehrere Varianten dieselben Inferenzregeln verwendet werden können, ist es nicht notwendig für jede dieser Varianten eine eigene Regel zu definieren.
+Allerdings besteht so die Gefahr von Missverständnissen, wenn Phrasen fälschlicherweise zusammengefasst werden.
 
 # Schlussfolgerungen
 ## Inferenz
 Das Ableiten von neuen Erkenntnissen aus vorhandenen Informationen.
 
-Teilt sich in [Deduktion](#Deduktion) und [Induktion](#Induktion)
+Teilt sich in [Deduktion](#Deduktion) und [Induktion](#Induktion).
+
+Eine Inferenz ist im Allgemeinen gültig, wenn sie durch korrekte Schlussfolgerungen logisch aus Beweisen abgeleitet wird.
 ### Deduktion
 Aus allgemeinen Prämissen werden spezifische Schlussfolgerungen abgeleitet.
 
@@ -73,11 +98,13 @@ Führt zur Erkenntnis
 
 ### Induktion
 Bei der Induktion werden aus spezifischen Beobachtungen Schlussfolgerungen über die Allgemeinheit gebildet.
-
-- Die Sonne ist in den letzten 30 Jahren jeden Tag aufgegangen
-Schlussfolgerungen
-- Die Sonne geht jeden Tag auf
-
+$$
+\begin{array}{}
+\text{Die Sonne ist in den letzten 30 Jahren jeden Tag aufgegangen} \\
+\downarrow \\
+\text{Die Sonne geht jeden Tag auf}
+\end{array}
+$$
 
 > [!Info] Wichtig
 > Diese Schlussfolgerungen sind nicht immer zwingend korrekt.
@@ -85,13 +112,14 @@ Schlussfolgerungen
 > Um mit dieser Technik allgemeine Beweise zu führen, muss ein Basisfall existieren. Auch ist ein Schritt notwendig um von einem Zustand allgemein in den nachfolgenden überzugehen.
 > Wenn diese Kriterien erfüllt sind spricht man von einer [Vollständigen Induktion](Vollständige%20Induktion.md)
 
-
 # Kasusgrammatik
 Die gleiche Bedeutung kann in unterschiedlichen Sprachen mit verschieden Strukturen und Wörtern codiert werden.
+Die Kasusgrammatik ist ein System das die Beziehungen zwischen Subjekten, Objekten und der [Valenz](#Valenz) von Verben analysiert.
+
+Die Grundlegenden Rollen einer Aussage bleiben gleich, unabhängig von der Sprache die verwendet wird um diese Information auszudrücken. Man spricht auch von [Semantischen Rollen](#Semantische%20Rollen).
 
 ## Valenz
 Verben verlangen eine unterschiedliche Anzahl von Argumenten oder Satzteilen.
-
 
 | Intransitive Verben | Transitive Verben           | Ditransitive Verben          |
 | ------------------- | --------------------------- | ---------------------------- |
