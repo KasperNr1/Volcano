@@ -13,9 +13,8 @@ Ein- und Ausgabeschichten bestehen aus einem Neuron für jedes Feature das ausge
 Typischerweise ist jedes Neuron mit allen Neuronen der darauf folgenden Schicht verknüpft. Die Anzahl der Verbindungen kann also extrem schnell ansteigen.
 
 Die Ausgabe eines Neurons wird unverändert an alle mit ihm verbundenen Neuronen weitergegeben. Nicht benötigte Verbindungen können mit $0$ gewichtet werden. So sind sie effektiv deaktiviert.
-Es ist auch möglich Neuronen mit sich selbst ode auch vorangegangenen Neuronen zu verbinden. Man spricht hier von [Rekurrenten neuronalen Netzen](Rekurrente%20Neuronale%20Netze.md).
+Es ist auch möglich Neuronen mit sich selbst ode auch vorangegangenen Neuronen zu verbinden. Man spricht hier von [Rekurrenten Neuronalen Netzen (RNNs)](08%20Transformer.md#Rekurrente%20Neuronale%20Netze%20(RNNs))
 Netze ohne solche Rückkopplung heißen **Feedforward-Netze**
-
 
 ## Neuronen
 Neuronen sind die Grundbausteine [Neuraler Netze](#Neural%20Nets). Jedes Neuron stellt eine einfache [Funktion von Mehreren Variablen](Funktionen%20von%20Mehreren%20Variablen.md) dar, die aus allen Eingabedaten $x_1, x_2, \dots, x_i$ eine Ausgabe $y$ berechnet.

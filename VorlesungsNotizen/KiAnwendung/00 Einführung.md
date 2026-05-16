@@ -22,3 +22,8 @@ Wie ist die Rangordnung von Worten festgelegt?
 
 Warum wird im [Centering-Beispiel](07%20Pragmatische%20Analyse.md#Centering-Beispiel) bei $U_3$ nicht auch der Fall betrachtet, bei dem "She" sich auf "Jane" bezieht?
 (Skript Seite 398)
+
+## RNN
+Modell Dimensionen. Was ist die Embedding-Dimension und die Verborgene Dimension? Und warum ist es hilfreich anzunhmen, dass sie gleich groß sind.
+[Architektur](08%20Transformer.md#Architektur)
+Skript Seite 461

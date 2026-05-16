@@ -62,15 +62,108 @@ Wissen wird übertragen, indem Parameter zwischen den Modellen der Quell- und Zi
 ![](TransferLearningParameterBased.png)
 
 ### Relationalbasierte Methoden
+Relationale Methoden übertragen Wissen, indem sie Muster in den Strukturen von Quell- und Zieldaten erkennen. Trotz Unterschiede in den Inhalten selbst können die Beziehungen ähnlich sein.
+
+![](RelationalBasedMethod.png)
+
+
+# Rekurrente Neuronale Netze (RNNs)
+Sprache enthält einen fundamentalen Aspekt der Zeit. Sowohl gesprochene Sprache, als auch schriftliche Texte enthalten eine zeitliche Reihenfolge.
+Bisher beschriebene Modelle berücksichtigen diesen Aspekt nicht, alle Eingaben werden gleichzeitig verarbeitet.
+
+Bei [Feed-Forward Netzen](07%20Neural%20Nets.md#Neural%20Nets) wird mit einem Sliding-Window gearbeitet, damit nur eine begrenzte Anzahl von Wörtern betrachtet wird um Vorhersagen zu treffen.
+
+In RNNs ist ein Mechanismus integriert, der direkt mit der sequenziellen Natur der Sprache umgeht und sie ohne willkürlich festgelegten Fenstergrößen behandelt. 
+Durch Rückkopplung können sie vorherige Kontexte repräsentieren, somit können Entscheidungen auch aufgrund von vorherigen Entscheidungen getroffen werden.
+
+![](RnnCycle.png)
+
+Typische Anwendung von RNNs sind
+- Sprachmodellierung:
+  Vorhersage von Wortfolgen basierend auf vorherigem Text
+- Textklassifikation
+  Aufgaben wie Sentimentanalyse
+- Sequenzmodellierung
+  Aufgaben wie [PoS Tagging](03%20PartOfSpeech.md#PoS%20Tagging)
+
+Die zyklische Struktur mach RNNs besonders leistugsstark bei der Verarbeitung zeitlicher Daten, birgt jedoch auch einige Herausforderungen.
+Die Struktur erschwert das Verständnis der Funktionsweise des Netzwerks.
+Auch das Training ist schwieriger, da bei besonders langen Sequenzen der [Gradient](07%20Neural%20Nets.md#Gradientenabstieg) verschwinden oder explodieren kann (Diminishing and Exploding Gradients)
+
+## Elman-Netze
+Auch "einfache rekurrente Netze" sind eine eingeschränkte Architektur die sich für die Sprachverarbeitung als äußerst effektiv erwiesen haben.
+
+![](ElmanNetsVsFullyConnectedRnn.png)
+
+Links dargestellt ist ein Elman-Netz, bei dem nur die [Neuronen](07%20Neural%20Nets.md#Neuronen) in einer versteckten Schicht rekurrent verbunden sind. Rechts in der Abbildung ist ein vollständig verbundenes rekurrentes neuronales Netz dargestellt.
+Da deutlich weniger Verbindungen vorhanden sind ist das Training und die Nachvollziehbarkeit von Ergebnissen erleichtert.
+
+Bei der Berechnung eines Ergebnis werden dabei die neuen Eingaben mit Informationen aus vorherigen Zeitpunkten kombiniert.
+Dabei kann der Kontext bis zum Beginn der Sequenz zurückreichen.
+
+![](RecurrentNeuralNet.png)
+
+Um $h_t$ zu berechnen, wird der Eingang $x_t$ mit der Gewichtsmatrix $W$ multipliziert und die versteckte Schicht des vorherigen Zeitschritts $h_{h-1}$ mit der Gewichtsmatrix $U$.
+Diese Werte werden addiert und durch eine gewählte [Aktivierungsfunktion](07%20Neural%20Nets.md#Aktivierungsfunktion) $g$ geleitet um den Aktivierungswert der aktuellen versteckten Schicht $h_t$ zu erhalten.
+
+$$
+h_t = g(U \cdot h_{t-1} + W \cdot x_t)
+$$
+$$
+y_t = f(V \cdot h_t)
+$$
+
+Um die Rekurrenz zu eliminieren kann man das Netz "entrollt" darstellen. 
+![](UnrolledRnn.png)
+In der Darstellung sind $x_i$ die jeweiligen Eingaben aus der Eingabesequenz.
+Die $h_i$ sind das Feedback aus allen vorherigen Schritten.
+
+## Wortschatz
+Der Wortschatz $V$ eines Modells ist die [Menge](Intervalle%20und%20Mengen.md#Mengen) aller einzigartigen Wörter die verwendet werden.
+Die Größe des Wortschatzes wird mit $|V|$ dargestellt. Sie gibt die Anzahl der in Trainings- und Testdatensatz vorkommenden Wörter an.
+
+Dabei hat jedes Wort im Wortschatz ein zugehöriges [Embedding](#Embedding) die in der [Embedding Matrix](#Embedding%20Matrix) gespeichert ist. Die Dimension der Embedding ist in der Regel sehr viel kleiner als die Dimension des Wortschatzes selbst.
+
+
+## Embedding Matrix
+Repräsentiert die Einbettung der Wörter im Wortschatz. Jedes Wort wird durch einen [Vektor](Vektoren%20und%20Vektorräume.md#Vektoren) in einem kontinuierlichen Raum dargestellt.
+
+Bei einem Wortschatz der Größe $|V|$ und einer Embedding-Dimensinon $d$ hat die Embedding-Matrix die Dimension $|V| \times d$.
+Jede Spalte der Matrix stellt den Embedding Vektor eines bestimmten Wortes dar.
+
+Bei der Verarbeitung einer Eingabesequenz wird der entsprechende Embedding-Vektor von jedem Wort abgerufen. 
+Dabei haben ähnliche Worte auch ähnliche Vektoren, um semantische Beziehungen zu erfassen.
+Während dem Training wird auch die Embedding-Matrix optimiert, um Beziehungen besser abzubilden. 
+Die [Matrix](Matrizen.md#Definition) spielt dabei eine entscheidende Rolle um die diskreten Eingabeworte in stetige Zahlenwerte umzuwandeln, die für die Verarbeitung durch das [neuronale Netz](07%20Neural%20Nets.md#Neural%20Nets) notwendig sind.
+
+## Architektur
+Die Eingabe $X = (x_1, x_2, \dots, x_n)$ besteht dabei aus einer Reihe aus Wörtern $x_i$, jedes dargestellt als ein [One-Hot-Vektor](02%20Modellauswahl.md#One%20Hot%20Encoding) der Größe $|V|$.
+Die [Embedding Matrix](#Embedding%20Matrix) $E$ enthält die Embeddings $e_t$ für alle Wörter $x_t$. 
+![](RnnArchitecture.png)
+Das Embedding wird mit der Gewichtsmatrix $W$ multipliziert und zum versteckten Layer des vorherigen Schritts (gewichtet durch die Gewichtsmatrix $U$) addiert, um einen neuen versteckten Layer zu berechnen.
+Der neue versteckte Layer wird verwendet, um eine Ausgabeschicht zu erzeugen, die durch eine Softmax-Schicht geleitet wird um eine [Wahrscheinlichkeitsverteilung](Einführung.md#Wahrscheinlichkeitmaß%20/%20Wahrscheinlichkeitsverteilung) über den gesamten Wortschatz zu generieren.
+Die Wahrscheinlichkeit, dass das Wort am Index $k$ das nächste Wort ist, beträgt $\hat{y}_t[k]$ 
+
+- $e_t = E \cdot x_t$
+- $h_t = g(U\cdot h_{t-1} + W \cdot e_t)$
+- $\hat{y}_t = \text{Softmax}(V \cdot h_t)$
+
+
+> [!NOTE] Modell-Dimensionen
+> Bei der Sprachmodellierung mit RNNs nehmen wir an, dass die Embedding-Dimension $d_e$ und die verborgene Dimension $d_h$ gleich sind. Wir bezeichnen beide als Modell-Dimension $d$
+
+## Bewertung
+RNNs sind besonders gut im Umgang mit Sequenzdaten, wie Sprache, Zeitreihen oder Musik.
+Sie können Eingaben beliebiger Länge verarbeiten, was sie von den klassischen Neuronalen Netzen mit fester Eingabegröße abhebt.
+
+Durch das Vanishing Gradient Problem haben diese Modelle teilweise Schwierigkeiten von langfristigen Abhängigkeiten zu lernen. Sie werden aufgrund ihrer Natur nicht parallelisiert trainiert, da jeder Schritt auf dem vorherigen aufbaut.
+Auch neigen sie besonders zu Overfitting, insbesondere bei kleineren Datensätzen.
+
+
 
 > [!Missing] Fehlt
-> Seite 436-437
-
-
-# Rekurrente Neuronale Netze
-
-> [!Missing] Fehlt
-> Seite 441 bis 475
+> LSTM
+> Seite 464 bis 475
 
 
 # Gated Recurrent Unit (GRU)
