@@ -118,14 +118,14 @@ Um die Rekurrenz zu eliminieren kann man das Netz "entrollt" darstellen.
 In der Darstellung sind $x_i$ die jeweiligen Eingaben aus der Eingabesequenz.
 Die $h_i$ sind das Feedback aus allen vorherigen Schritten.
 
-## Wortschatz
+### Wortschatz
 Der Wortschatz $V$ eines Modells ist die [Menge](Intervalle%20und%20Mengen.md#Mengen) aller einzigartigen Wörter die verwendet werden.
 Die Größe des Wortschatzes wird mit $|V|$ dargestellt. Sie gibt die Anzahl der in Trainings- und Testdatensatz vorkommenden Wörter an.
 
 Dabei hat jedes Wort im Wortschatz ein zugehöriges [Embedding](#Embedding) die in der [Embedding Matrix](#Embedding%20Matrix) gespeichert ist. Die Dimension der Embedding ist in der Regel sehr viel kleiner als die Dimension des Wortschatzes selbst.
 
 
-## Embedding Matrix
+### Embedding Matrix
 Repräsentiert die Einbettung der Wörter im Wortschatz. Jedes Wort wird durch einen [Vektor](Vektoren%20und%20Vektorräume.md#Vektoren) in einem kontinuierlichen Raum dargestellt.
 
 Bei einem Wortschatz der Größe $|V|$ und einer Embedding-Dimensinon $d$ hat die Embedding-Matrix die Dimension $|V| \times d$.
@@ -136,7 +136,7 @@ Dabei haben ähnliche Worte auch ähnliche Vektoren, um semantische Beziehungen 
 Während dem Training wird auch die Embedding-Matrix optimiert, um Beziehungen besser abzubilden. 
 Die [Matrix](Matrizen.md#Definition) spielt dabei eine entscheidende Rolle um die diskreten Eingabeworte in stetige Zahlenwerte umzuwandeln, die für die Verarbeitung durch das [neuronale Netz](07%20Neural%20Nets.md#Neural%20Nets) notwendig sind.
 
-## Architektur
+### Architektur
 Die Eingabe $X = (x_1, x_2, \dots, x_n)$ besteht dabei aus einer Reihe aus Wörtern $x_i$, jedes dargestellt als ein [One-Hot-Vektor](02%20Modellauswahl.md#One%20Hot%20Encoding) der Größe $|V|$.
 Die [Embedding Matrix](#Embedding%20Matrix) $E$ enthält die Embeddings $e_t$ für alle Wörter $x_t$. 
 ![](RnnArchitecture.png)
@@ -152,7 +152,7 @@ Die Wahrscheinlichkeit, dass das Wort am Index $k$ das nächste Wort ist, beträ
 > [!NOTE] Modell-Dimensionen
 > Bei der Sprachmodellierung mit RNNs nehmen wir an, dass die Embedding-Dimension $d_e$ und die verborgene Dimension $d_h$ gleich sind. Wir bezeichnen beide als Modell-Dimension $d$
 
-## Bewertung
+### Bewertung
 RNNs sind besonders gut im Umgang mit Sequenzdaten, wie Sprache, Zeitreihen oder Musik.
 Sie können Eingaben beliebiger Länge verarbeiten, was sie von den klassischen Neuronalen Netzen mit fester Eingabegröße abhebt.
 
@@ -160,13 +160,60 @@ Durch das Vanishing Gradient Problem haben diese Modelle teilweise Schwierigkeit
 Auch neigen sie besonders zu Overfitting, insbesondere bei kleineren Datensätzen.
 
 
+## Long Short-Term Memory (LSTM) Network
+Ist eine besondere Art von RNN um das Problem der explodierenden oder verschwindenden Gradienten zu umgehen.
+Bei längeren Sequenzen zeigt diese Architektur bessere Leistungen als ein naives RNN.
 
-> [!Missing] Fehlt
-> LSTM
-> Seite 464 bis 475
+Es werden spezielle Speicherzellen eingesetzt, um Informationen auch über längere Zeiträume zu behalten.
+Im Gegensatz zu klassischen RNNs wird eine innere Zelle und drei spezielle "Gates" eingesetzt.
+- Eingangsgate
+  Bestimmt wie stark ein neuer Wert in die Zelle einfließt
+- Vergessensgate
+  Bestimmt, wie viel eines Wertes in der Zelle verbleibt
+- Ausgangsgate
+  Kontrolliert, wie stark der Zellwert für die nächste Berechnung verwendet wird
+
+![](LstmArchitecture.png)
+![](LstmArchitectureForgetGate.png)
+
+Alle Gates werden durch die Eingangsdaten aktiviert oder deaktiviert. Dabei werden ebenfalls Gewichte berechnet, die während dem Training angepasst werden.
+
+Die Zustände des Gates werden aus den Vektoren $x_t$ und $h_{t-1}$ berechnet.
+Dabei hat das Netz drei logische Eingaben:
+- Die aktuelle Eingabe $x_t$
+- Den bisherigen Verborgenen Zustand $h_{t-1}$
+- Der Kontext-Wert $c_{t-1}$ aus der Speicherzelle
+
+![](LstmCalculationGraph.png)
+
+### Gate-Berechnungen
+Jedes Gate ist ein Vektor. Es wird berechnet als die gewichtete Summe der Eingabedaten $x_t$ und $h_{t-1}$ die dann in eine [Aktivierungsfunktion](07%20Neural%20Nets.md#Aktivierungsfunktion) $\in \text{Abb}(\mathbb{R}^n \to \mathbb{R}^n)$ (z.b. Sigmoid) gegeben werden.
+
+- Forget Gate: $f_t = \sigma(U_fh_{t-1} + W_fx_t)$
+- Input Gate: $i_t = \sigma(U_ih_{t-1} + W_ix_t)$
+- Output Gate: $o_t = \sigma(U_oh_{t-1} + W_ox_t)$
+
+Dabei sind mit $U$ und $W$ jeweils die beim Training erlernten Gewichtsmatrizen gemeint.
 
 
-# Gated Recurrent Unit (GRU)
+Bei jeder Berechnung werden zuerst die eigentlichen Eingabedaten aus dem neuen Input und dem bisherigen Zustand berechnet.
+$$
+g_t = \tanh (U_gh_{t-1} + W_gx_t)
+$$
+Es wird der Kontextzustand aktualisiert um die neuen Informationen zu berücksichtigen
+$$
+c_t = f_t \odot c_{t-1} + i_t \odot g_t
+$$
+
+Schließlich wird der neue verborgene Zustand $h_t$ unter Verwendung des aktuellen Kontextzustands und des neuen Output Gates berechnet
+$$
+h_t = o_t \odot \tanh (c_t)
+$$
+Hier sind $U_g$ und $W_g$ wieder trainierte Matrizen.
+Das Symbol $\odot$ steht führ die elementweise Multiplikation zweier Vektoren. (["Hadamard-Produkt"](Vektoren%20und%20Vektorräume.md#Rechenoperationen)) 
+
+
+## Gated Recurrent Unit (GRU)
 > [!Missing] Fehlt
 > Seite 476 bis 479
 
