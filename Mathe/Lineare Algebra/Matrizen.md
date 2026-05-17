@@ -66,7 +66,7 @@ $$
 Das Produkt zweier Matrizen $A: (m \times n)$ und $B: (n \times m)$ ist eine Matrix $C: (m \times m)$ 
 Dabei gilt das Kommutativgesetz nicht. Meistens ist also $A\times B \neq B\times A$ 
 
-Jedes Element der Resultatmatrix ist das Skalarprodukt einer Zeile aus $A$ und einer Spalte aus $B$. Dabei ist $c_{13}$ das Produkt der 1 Zeile von $A$ mit der ersten Spalte aus $B$.
+Jedes Element der Resultatmatrix ist das [Skalarprodukt](Vektoren%20und%20Vektorräume.md#Rechenoperationen) einer Zeile aus $A$ und einer Spalte aus $B$. Dabei ist $c_{13}$ das Produkt der 1 Zeile von $A$ mit der ersten Spalte aus $B$.
 ![](MatrixMultiplikation.png)
 ### Eigenschaften der Matrixmultiplikation
 Das Kommutativgesetz gilt nicht, dafür aber einige andere Regeln:

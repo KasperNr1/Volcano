@@ -214,16 +214,34 @@ Das Symbol $\odot$ steht führ die elementweise Multiplikation zweier Vektoren. 
 
 
 ## Gated Recurrent Unit (GRU)
-> [!Missing] Fehlt
-> Seite 476 bis 479
+Sind eine Art von [RNN](#Rekurrente%20Neuronale%20Netze%20(RNNs)).
+Sie lösen ebenfalls das Problem der exploding Grandients und sind eine neuere und vereinfachte Variante der [LSTMs](#LSTM).
+Die Funktion von Forget-Gates und Input Gates wird in einem einzelnen Gate kombiniert.
 
+![](GruArchitecture.png)
+
+Eine GRU-Einheit hat zwei Hauptzustände:
+- $h_t$: Der verborgene Zustand zur Zeit $t$
+- $r_t$: Der Reset-Zustand. Er bestimmt, wie viel vom vorherigen Zustand beibehalten wird.
+
+Die Werte werden nach folgenden Vorschriften berechnet
+- Update-Gate: $z_t = \sigma(W_zx_t + U_zh_{t-1})$
+- Reset-Gate: $r_t = \sigma(W_rx_t + U_rh_{t-1})$
+- Neuer Zustand: $\tilde{t}_t = \tanh(Wx_t + U(r_t \odot h_{t-1}))$
+- Ausgabe: $h_t = (1-z_t) \odot h_{t-1} + z_t \odot \tilde{h}_t$
+
+> [!INFO] Was ist $1$?
+> Mit $1$ in der Gleichung des Ausgabe-Gates ist der Vektor gemeint, der die Dimension von $z_t$ hat und nur Einsen enthält.
+
+GRU-Netze sind aufgrund der einfacheren Architektur leichter zu trainieren als [LSTMs](#Long%20Short-Term%20Memory%20(LSTM)%20Network), zeigen aber oft vergleichbare oder bessere Leistungen.
+Sie sind also eine leistungsfähige und effiziente Alternative zu LSTM-Netzen.
 
 # Transformer
 Bestehen aus zwei Hauptkomponenten, Encoder und Decoder.
 
 ![](TransformerEncoderDecoder.png)
 
-Sie wandeln jeweils von oder in eine interne Informationsdarstellung um.
+Sie wandeln jeweils von oder in eine interne Informationsdarstellung um. Der Encoder verwendet dabei [Attention](#Attention-Mechanismus) um Informationen zu gewichten, bevor sie in der internen Darstellung gespeichert werden.
 
 ## Attention-Mechanismus
 Mit Attention können Modelle bestimmte Teile der Eingabe stärker gewichten. Dadurch bleibt der Fokus auf relevanten Informationen.
@@ -232,7 +250,7 @@ Welche Teile im Fokus stehen hängt dabei von der Eingabe selbst ab.
 
 ### Self-Attention
 1. Eingaberepräsentation
-   Jedes Wort oder Token wird als Vektor dargestellt. Dieser wird typischerweise aus Einbettungen abgeleitet
+   Jedes Wort oder Token wird als Vektor dargestellt. Dieser wird typischerweise aus [Einbettungen](#Embedding) abgeleitet
 2. Abfrage-, Schlüssel- und Wertvektoren
    Für jedes Wort der Eingabe werden drei Vektoren erzeugt
 	1. Abfragevektor $Q$
@@ -242,19 +260,20 @@ Welche Teile im Fokus stehen hängt dabei von der Eingabe selbst ab.
 	3. Wertvektor $V$
 	   Enthält die tatsächlichen Informationen die aus den Attention Scores aggregiert wurden
 3. Berechnung der Attention-Scores
-   Der Attention Score zwischen einem Abfragevektor und allen Schlüsselvektoren wird in der Regel durch ein Skalarprodukt berechnet.
+   Der Attention Score zwischen einem Abfragevektor und allen Schlüsselvektoren wird in der Regel durch ein [Skalarprodukt](Vektoren%20und%20Vektorräume.md#Rechenoperationen) berechnet.
    Der Score misst dabei die Ähnlichkeit zwischen einer Abfrage und einem Schlüssel
 4. Normalisierung der Werte mit Softmax
-   Die Werte werden vor der weiteren Verarbeitung normalisisert
+   Die Werte werden vor der weiteren Verarbeitung normalisiert
 5. Gewichtete Summe der Wertvektoren
    Endgültiger Output für jedes Wort wird als gewichtete Summe der Wertvektoren berechnet. Gewicht sind dabei die Aufmerksamkeitswerte
 
 #### Embedding
-Eingabewörter werden in Vektoren umgewandelt.
+Eingabewörter werden mit einem vortrainierten Word Embedding in Vektoren umgewandelt.
+![](EmbeddingSteps.png)
 
-
-> [!Missing] Title
-> Seite 492-493
+Zur Verarbeitung werden alle Vektoren zu einem [Tensor](11%20Deep%20Learning.md#Tensoren) zusammengefasst. 
+Jede Zeile des Eingabetensors $X$ entspricht so einem Embedding-Vektor.
+All diese Vektoren haben die selbe Länge.
 
 #### Einzelschritte: Query, Key und Value
 Diese Vektoren werden verwendet um die Wichtigkeit des Tokens im Verhältnis zu anderen Tokens zu bestimmen. Dabei werden alle drei Vektoren gleichzeitig für alle Eingaben berechnet, indem der Eingabetensor mit lernbaren Gewichtsmatrizen multipliziert wird.
@@ -262,8 +281,8 @@ Diese Vektoren werden verwendet um die Wichtigkeit des Tokens im Verhältnis zu 
 Jede Zeile des resultierenden Tensors entspricht dabei dem Vektor eines Eingabetokens.
 
 #### Attention Score
-Man berechnet das Skalarprodukt zwischen jedem Abfrage- und jedem Schlüsselvektor. Anschließend werden die Werte mit "SoftMax" normalisiert.
-Diese Operation wird als Matrixmultiplikation der $Q$ und $K$ Tensoren realisiert. Jeder Wert der Ausgabematrix entspricht einem Skalarprodukt.
+Man berechnet das [Skalarprodukt](Vektoren%20und%20Vektorräume.md#Rechenoperationen). zwischen jedem Abfrage- und jedem Schlüsselvektor. Anschließend werden die Werte mit "SoftMax" normalisiert.
+Diese Operation wird als Matrixmultiplikation der $Q$ und $K$ [Tensoren](11%20Deep%20Learning.md#Tensoren) realisiert. Jeder Wert der Ausgabematrix entspricht einem Skalarprodukt.
 
 ![](AttentionScoreCalculation.png)
 
@@ -285,5 +304,10 @@ Sind eine Möglichkeit gleichzeitig mehrere Aspekte der Eingabedaten zu analysie
   Mehrere Heads erhöhen die Fähigkeiten des Modells, ohne die Gesamtzahl der Parameter stark zu erhöhen
 
 
+![](SelfAttentionSummary.png)
 
+
+## Fazit
+[Self-Attention](#Self-Attention) mit mehreren Heads ermöglicht es mehrere Aspekte des Kontext zu berücksichtigen. Auch die Berechnung lässt sich im Gegensatz zu den [RNNs](#Rekurrente%20Neuronale%20Netze%20(RNNs)) parallelisieren und ist somit deutlich effizienter beim Training mit großen Daten.
+Der Mechanismus ist grundlegend für die Leistung von Modellen wie GPT oder [BERT](09.md#BERT), da er ihnen die Möglichkeit gibt menschenähnlichen Text zu verstehen und zu generieren.
 

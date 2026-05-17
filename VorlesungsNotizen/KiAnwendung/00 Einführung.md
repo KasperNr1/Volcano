@@ -24,6 +24,11 @@ Warum wird im [Centering-Beispiel](07%20Pragmatische%20Analyse.md#Centering-Beis
 (Skript Seite 398)
 
 ## RNN
-Modell Dimensionen. Was ist die Embedding-Dimension und die Verborgene Dimension? Und warum ist es hilfreich anzunhmen, dass sie gleich groß sind.
+### Modell Dimensionen
+Was ist die Embedding-Dimension und die Verborgene Dimension? Und warum ist es hilfreich anzunhmen, dass sie gleich groß sind.
 [Architektur](08%20Transformer.md#Architektur)
 Skript Seite 461
+
+### Layers
+Inwieweit wird mit Schichten aus Neuronen gearbeitet?
+Es ist teilweise die Rede von 'einer internen Zelle' bei [Long Short-Term Memory (LSTM) Network](08%20Transformer.md#Long%20Short-Term%20Memory%20(LSTM)%20Network) und [Gated Recurrent Unit (GRU)](08%20Transformer.md#Gated%20Recurrent%20Unit%20(GRU))

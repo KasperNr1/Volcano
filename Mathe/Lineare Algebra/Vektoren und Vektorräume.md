@@ -5,6 +5,7 @@ Die $a_i$ heißen Koordinaten des Vektors, $\mathbb{R}^n$ ist der Vektorraum.
 ## Rechenoperationen
 - Addition $\vec{a} + \vec{b} = \begin{pmatrix} a_1 + b_1 \\ a_2 + b_2 \\ a_3 + b_3 \end{pmatrix}$ 
 - Skalare Multiplikation $k * \vec{a} = \begin{pmatrix} k * a_1 \\ k * a_2 \\ k * a_3 \end{pmatrix}$ 
+- Skalarprodukt $\vec{a} \cdot \vec{b} = a_1 \cdot b_1 + a_2 \cdot b_2 + a_3 \cdot b_3$
 - Hadamard-Produkt $\vec{a} \odot \vec{b} = \left(\begin{array}{}a_1 \cdot b_1 \\ a_2 \cdot b_2 \\ a_3 \cdot b_3 \end{array}\right)$
 ## Linearkombinationen und Basis
 Gegeben sind die Vektoren $a_1 = \begin{pmatrix} 2 \\ 1  \end{pmatrix} \quad a_2 = \begin{pmatrix} -2 \\ 2 \end{pmatrix} \quad b = \begin{pmatrix} 1 \\ 5 \end{pmatrix}$ 
