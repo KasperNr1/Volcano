@@ -32,3 +32,16 @@ Skript Seite 461
 ### Layers
 Inwieweit wird mit Schichten aus Neuronen gearbeitet?
 Es ist teilweise die Rede von 'einer internen Zelle' bei [Long Short-Term Memory (LSTM) Network](08%20Transformer.md#Long%20Short-Term%20Memory%20(LSTM)%20Network) und [Gated Recurrent Unit (GRU)](08%20Transformer.md#Gated%20Recurrent%20Unit%20(GRU))
+
+## Transformer
+Layer-Normalisierung
+Wird auf Seite 511 als Bestandteil der [Encoder](09%20More%20Transformer.md#Encoder) genannt.
+Was ist damit gemeint?
+
+## Encoder
+Warum sind alle Sublayer genau gleich?
+Müssen sie das zwingend sein?
+[Encoder](09%20More%20Transformer.md#Encoder)
+Skript Seite 512
+
+

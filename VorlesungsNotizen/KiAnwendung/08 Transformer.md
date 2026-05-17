@@ -309,5 +309,5 @@ Sind eine Möglichkeit gleichzeitig mehrere Aspekte der Eingabedaten zu analysie
 
 ## Fazit
 [Self-Attention](#Self-Attention) mit mehreren Heads ermöglicht es mehrere Aspekte des Kontext zu berücksichtigen. Auch die Berechnung lässt sich im Gegensatz zu den [RNNs](#Rekurrente%20Neuronale%20Netze%20(RNNs)) parallelisieren und ist somit deutlich effizienter beim Training mit großen Daten.
-Der Mechanismus ist grundlegend für die Leistung von Modellen wie GPT oder [BERT](09.md#BERT), da er ihnen die Möglichkeit gibt menschenähnlichen Text zu verstehen und zu generieren.
+Der Mechanismus ist grundlegend für die Leistung von Modellen wie GPT oder [BERT](09%20More%20Transformer.md#BERT), da er ihnen die Möglichkeit gibt menschenähnlichen Text zu verstehen und zu generieren.
 
