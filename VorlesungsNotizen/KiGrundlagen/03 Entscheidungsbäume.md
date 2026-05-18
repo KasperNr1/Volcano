@@ -40,7 +40,9 @@ Bei einer getroffenen Aussage lässt sich genau nachvollziehen welche Folge von 
 Jedoch neigen diese Bäume zu Überanpassung und sind bei Datensätzen mit komplexeren Entscheidungsgrenzen nicht sehr akkurat. Da die Trennebenen nur Senk- oder Waagrecht verlaufen werden diese freier geformten realen Entscheidungsgrenzen nur selten exakt abgebildet.
 
 
-TODO Hyperparameter beschreiben (Maximale Baumhöhe oder Knotenzahl - Seite 154)
+
+> [!MISSING] TODO
+> TODO Hyperparameter beschreiben (Maximale Baumhöhe oder Knotenzahl - Seite 154)
 
 # ID3-Algorithmus
 Liefert relativ gute, simple Bäume für Datensätze mit [Nominalen Merkmalen](https://de.wikipedia.org/wiki/Nominalskala)  (Funktioniert nicht bei stetigen Werten). Der Algorithmus ist auch bei vielen Features effizient

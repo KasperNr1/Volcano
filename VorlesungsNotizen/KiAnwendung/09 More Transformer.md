@@ -52,13 +52,13 @@ Durch die Normalisierung ist das Modell weniger empfindlich gegenüber den Initi
 Da die Eingaben jeder Schicht eine ähnliche Verteilung erhalten, kann die Konvergenz beschleunigt werden.
 
 # Decoder
-Erhält als Eingabe die Ausgabe des Encoders, zusammen mit dem bisher generierten Ausgabetext.
+Erhält als Eingabe die Ausgabe des [Encoders](#Encoder), zusammen mit dem bisher generierten Ausgabetext.
 Alle Generierten Wörter $0$ bis $i-1$ wird verwendet um Wort $i$ zu generieren.
 Zu Beginn wird ein Token `<start>` übergeben, das Vorgehen wiederholt sich, bis ein spezielles Token `<eos>` (End Of Sequence) erzeugt wurde.
 
 Dabei wird bei der Berechnung der Attention mit Maskierung gearbeitet, so dass nur die bereits generierten Tokens mit in die Berechnung einfließen. Da die zukünftigen Token noch nicht existieren, ist es nicht sinnvoll sie in diesem Schritt zu beachten.
 
-Die Sublayer funktionieren identisch zu denen [der Encoder](#Encoder%20Feed-Forward-Netz-Schicht). Nicht-Lineare Transformationen und Skip-layer mit Normalisierung.
+Die Sublayer funktionieren identisch zu [denen der Encoder](#Encoder%20Feed-Forward-Netz-Schicht). Nicht-Lineare Transformationen und [Skip-layer](#Residuenverbindungen) mit Normalisierung.
 
 # Grenzen der Transformer
 Hauptproblem ist die Skalierung des 'self-Attention-Mechanismus'. Da jedes Token mit jedem anderen kombiniert werden muss, liegt hier eine Quadratische Abhängigkeit in Größe und Rechenzeit vor.
@@ -74,10 +74,6 @@ Statt alle Kombinationen zu erlauben, reduziert dieser Ansatz die Zahl der erlau
 Für die genaue Einschränkung gibt es verschiedene Ansätze.
 ![](SparseAttention.png)
 
-
-> [!Missing] Bookmark
-> Skript Seite 538 
-
 # Training von Transformern
 Vielfältige Daten:
 - Bücher
@@ -88,8 +84,8 @@ Vielfältige Daten:
 Hohe Qualität und Menge notwendig für effektives Lernen. 
 Vermeidung von Verzerrungen durch ausgewogene Datensätze, diese müssen zuvor bereinigt und tokenisiert werden.
 
-## Pretraining
-Nutzung großer Mengen ungelabelter Daten für grundlegende Sprachmuster und Kontextinformationen.
+Beim [Pretraining](10%20LLMs.md#Pretraining) wird durch die
+Nutzung großer Mengen ungelabelter Daten ein Verständnis für grundlegende Sprachmuster und Kontextinformationen erlernt.
 
 ## Fine-Tuning
 Anpassung des vortrainierten Modells auf spezifische Anwendungen durch weiteres Training mit speziell gelabelten Daten. So wird die Leisungsfähigkeit und Genauigkeit bei einzelnen Aufgaben erhöht.

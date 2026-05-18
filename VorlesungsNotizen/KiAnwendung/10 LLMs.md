@@ -5,22 +5,32 @@ Obwohl  nur trainiert wird einzelne Worte vorherzusagen, wird nützliches Sprach
 ![](LlmArchitekturen.png)
 
 ## Encoder only
-Diese Architektur ist besonders gut geeignet für Aufgaben bei denen keine großen Sequenzen generiert werden müssen. Für Klassifikationsaufgaben ist die Fähigkeit nützlich, große Texte umfassend zu analysieren und zu verstehen.
+Diese Architektur ist besonders gut geeignet für Aufgaben bei denen keine großen Sequenzen generiert werden müssen. Für [Klassifikationsaufgaben](01%20Grundidee.md#Klassifikation) ist die Fähigkeit nützlich, große Texte umfassend zu analysieren und zu verstehen.
 
 ## Encoder-Decoder
-Besteht aus einem [Encoder](#Encoder%20only) und einem Decoder. Eignet sich für Aufgaben bei denen Inputsequenzen in Ausgabesequenzen umgewandelt werden müssen. Beispielsweise in der maschinellen Übersetzung sind diese Modelle beliebt.
+Besteht aus einem [Encoder](09%20More%20Transformer.md#Encoder) und einem [Decoder](09%20More%20Transformer.md#Decoder). Eignet sich für Aufgaben bei denen Inputsequenzen in Ausgabesequenzen umgewandelt werden müssen. Beispielsweise in der maschinellen Übersetzung sind diese Modelle beliebt.
+Auch Anwendungen wie die Erkennung gesprochener Sprache, also die Transformation von Akustik zu Wörtern ist ein beliebtes Einsatzgebiet.
 
-Da sie sehr ressourcenintensiv sind, ist es für kleinere Ideen sinnvoll sparsamere Modell zu verwenden.
+Da sie sehr ressourcenintensiv sind, ist es für kleinere Ideen sinnvoller sparsamere Modell zu verwenden.
 
 ## Decoder Only
 Modelle wie GPT oder auch "Left-To-Right LLMs" oder "Autoregressive LLMs" generieren Text von 'links' nach 'rechts'. Es wird stets die aktuelle Sequenz vervollständigt.
 
-Auch solche Sequenzgenerierungsmodelle können für Klassifikationsaufgaben verwendet werden. Dazu wird die Wahrscheinlichkeit der verschiedenen Optionen verglichen.
-![](LlmForClassifikation.png)
+Auch solche Sequenzgenerierungsmodelle können für [Klassifikationsaufgaben](01%20Grundidee.md#Klassifikation) verwendet werden. Dazu wird die Wahrscheinlichkeit der verschiedenen Optionen verglichen.
+![](LlmForClassification.png)
+
+Auch Zusammenfassungen sind mit diesem Modell möglich. Es wird gelernt nach einem speziellen Delimiter z.B.`tldr` den vorherigen Text zusammenzufassen.
+![](DecoderForTldr.png)
+
+Das Modell generiert in jedem Schritt eine [Wahrscheinlichkeitsverteilung](Einführung.md#Wahrscheinlichkeitmaß%20/%20Wahrscheinlichkeitsverteilung) über alle Worte im [Korpus](02%20N-Gramm.md#Korpuslinguistik).
+Mittels [Sampling](#Sampling) wird aus den wahrscheinlichsten Worten eines ausgewählt und als Ausgabe verwendet.
 
 ### Sampling
 Beim Sampling wird zur Erstellung natürlicherer Texte ein Teil der Ausgabetokens zufällig gewählt. Es wird nicht das wahrscheinlichste Wort gewählt sondern eine seltenere Fortsetzung der Sequenz gewählt.
 So kann die Ausgabe vielfältiger und lebendiger wirken, opfert aber eventuell Genauigkeit der Ergebnisse.
+
+Es kommt häufig vor, dass auch sehr unwahrscheinliche Worte vorhergesagt werden. Grund ist, dass im sog. 'Tail' der Verteilung extrem viele, sehr unwahrscheinliche Worte liegen.
+Um dem entgegenzuwirken kann die Berechnung in zwei Schritten, mittels einer engeren Auswahl erfolgen.
 
 #### Top-k Sampling
 Es wird die Liste der Top $k$ wahrscheinlichsten Worten in eine engere Auswahl genommen. Mit nach einer Normierung der Wahrscheinlichkeiten wird eine gültige Verteilung erreicht, die aber Unterschiede in den Wahrscheinlichkeiten beibehält.
@@ -30,18 +40,31 @@ Statt einer festen Anzahl Wörter wie bei [Top-k Sampling](#Top-k%20Sampling) so
 
 Für eine Verteilung $P(w_t \mid w_{<t})$ ist das Top-p-Vokabular $V(p)$ die kleinste Menge von Wörtern mit 
 $$
-\sum_{w \in V(p)} P(w \mid w_{<t} \geq p)
+\sum_{w \in V(p)} P(w \mid w_{<t}) \geq p
 $$
 #### Temperature Sampling
 Statt die Verteilung abzuschneiden wird sie hier umgeformt. Beim Sampling mit 'niedriger' Temperatur $(\tau \leq 1)$ wird die Wahrscheinlichkeit der wahrscheinlichsten Wörter erhöht, während die der seltenen Wörter verringert wird. 
 
 Statt $\text{softmax}(u)$ wird $\text{softmax}\left(\dfrac{u}{\tau}\right)$ berechnet.
 
-> [!Missing] Fehlt
-> Seite 585-586
+Werte nahe $\tau = 0$ resultieren in einer weniger explorativen, nahezu deterministischen Wortwahl. Große Werte $(\tau > 1)$  bevorzugen die Wahl von selteneren Fortsetzungen und erhalten so eine vielfältige Sprache, opfern jedoch einen Teil der [Kohärenz](07%20Pragmatische%20Analyse.md#Kohärenz).
 
 # Pretraining
 Zentrale Idee ist das Training in zwei Stufen. Im ersten Schritt werden auf breiter Datenbasis allgemeine Muster und Sprachverständnis erlernt. In einem [zweiten Training](#Finetuning) wird das Modell speziell auf eine Aufgabe vorbereitet.
+
+Das Pretraining ist selbstüberwacht, dh. das keine explizit gelabelten Daten eingesetzt werden. Das Modell verwendet stattdessen immer das nächste Token als Label und versucht dieses vorherzusagen.
+
+Als [Loss-function](07%20Neural%20Nets.md#^522bcc) wird "Cross Entropy Loss" verwendet.
+Dabei ist $y_t$ die korrekte Wahrscheinlichkeitsverteilung und $\hat{y}_t$ die vorhergesagte Verteilung.
+Der Gesamtfehler berechnet sich nach folgender Vorschrift:
+$$
+L_{CE} = - \sum_{w \in V}y_t[w] \cdot \log(\hat{y}_t[w])
+$$
+Da die korrekte Verteilung das nächste Wort kennt, ist die Wahrscheinlichkeit für alle Wörter außer dem korrekten $0$.
+Somit vereinfacht sich die Berechnung in diesem Anwendungsfall:
+$$
+L_{CE} = - \log(\hat{y}_t[w])
+$$
 
 Es wird erlernt wie semantische Beziehungen in Sprachen funktionieren. Dabei wird auch der Wortschatz des Modells entwickelt.
 Kontextuelle Nuancen wie die Ähnlichkeit von 'kalt' und 'eisig' können erlernt werden, wenn die Begriffe oft genug im selben Kontext gesehen werden.
@@ -55,8 +78,10 @@ Mathematische und logische Zusammenhänge werden grundlegend erlernt, wobei dies
 ## Teacher Forcing
 An jeder Position $t$ sind die korrekten Tokens $w_{1:t}$ bekannt. Es wird der loss ($- \log \text{Wahrscheinlichkeit})$ für das nächste Token $w_{t+1}$ berechnet. Nach jeder Vorhersage wird das generierte Token bewertet und verworfen. Nur das bekannte korrekte Token wird angehängt und fortgefahren.
 
-## Quellen 
-Große Textsammlungen wie Wikipedia und StackExchange, verschiedene Bücher und wissenschaftliche Publikationen sind in 'The Pile' zusammengefasst. Dieser Datensatz bildet ein breites Spektrum von Themen und Sprachstilen ab.
+## Datenquellen 
+Große Textsammlungen wie Wikipedia und StackExchange, verschiedene Bücher und wissenschaftliche Publikationen sind in 'The Pile' zusammengefasst. Dieser Datensatz bildet in knapp 800GB ein breites Spektrum von Themen und Sprachstilen ab.
+
+![](ThePileComposition.png)
 
 Dabei ist es wichtig Duplikate zu entfernen und anstößige Inhalte zu filtern. Herausforderung ist der Umgang mit Dialekten, verschiedene Ausdrücke könnten in einem Dialekt verfasst sein und fälschlicherweise als problematischer Inhalt erkannt werden.
 
@@ -65,7 +90,7 @@ Fine-tuning hat vier verschiedene Bedeutungen. Dabei wird in allen Fällen ein T
 
 ## Fortgesetztes Pretraining
 Alle Parameter des Modells werden mit neuen Daten weiter trainiert.
-Unter Verwendung derselben Lossfunktion und Methodik wie im [Pretraining](#Pretraining) wird so gehandelt, als ob der ursprüngliche Datensatz erweitert wurde.
+Unter Verwendung derselben [Loss-function](07%20Neural%20Nets.md#^522bcc) und Methodik wie im [Pretraining](#Pretraining) wird so gehandelt, als ob der ursprüngliche Datensatz erweitert wurde.
 
 ## Parametereffizientes Finetuning (PEFT)
 Es werden aufgrund der großen Menge an Parametern nur ein Teil der Gewichte weiter Trainiert. Alle anderen werden 'eingefroren' und beibehalten.

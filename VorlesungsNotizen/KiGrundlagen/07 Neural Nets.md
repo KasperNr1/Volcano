@@ -14,7 +14,8 @@ Typischerweise ist jedes Neuron mit allen Neuronen der darauf folgenden Schicht 
 
 Die Ausgabe eines Neurons wird unverändert an alle mit ihm verbundenen Neuronen weitergegeben. Nicht benötigte Verbindungen können mit $0$ gewichtet werden. So sind sie effektiv deaktiviert.
 Es ist auch möglich Neuronen mit sich selbst ode auch vorangegangenen Neuronen zu verbinden. Man spricht hier von [Rekurrenten Neuronalen Netzen (RNNs)](08%20Transformer.md#Rekurrente%20Neuronale%20Netze%20(RNNs))
-Netze ohne solche Rückkopplung heißen **Feedforward-Netze**
+Netze ohne solche Rückkopplung heißen [Feed-Forward-Netze](09%20More%20Transformer.md#Feed-Forward-Netze)
+
 
 ## Neuronen
 Neuronen sind die Grundbausteine [Neuraler Netze](#Neural%20Nets). Jedes Neuron stellt eine einfache [Funktion von Mehreren Variablen](Funktionen%20von%20Mehreren%20Variablen.md) dar, die aus allen Eingabedaten $x_1, x_2, \dots, x_i$ eine Ausgabe $y$ berechnet.
@@ -52,6 +53,11 @@ C = \sum_{i=1}^{n} \left(\hat{y_i} - y_i\right)^{2}
 $$
 Bei einem perfekten Netz würde dieser Gesamtfehler den Wert $0$ erreichen. 
 Ziel des Trainings ist also, eine Kombination aus Gewichten für die einzelnen [Neuronen](#Neuronen) zu finden, bei denen $C$ minimal wird.
+
+
+> [!Info] Loss-Function
+> Diese Vorschrift um den Gesamtfehler $C$ zu berechnen ist nicht die einzige Möglichkeit. 
+> Ziel des Modells ist es nur, diesen Fehler zu minimieren. Durch die Wahl der Fehlerfunktion kann also gesteuert werden welche Art von Fehler stärker ins Gewicht fällt und bevorzugt vermieden werden soll. ^522bcc
 
 Der Gradient ist ein mathematisches Konzept das bei [Funktionen von Mehreren Variablen](Funktionen%20von%20Mehreren%20Variablen.md) die Richtung der größten [Steigung](Funktionen%20von%20Mehreren%20Variablen.md#Partielles%20Differenzieren) vorgibt.
 Für eine Funktion $f(x_1, x_2, \dots, x_n)$ von $n$ Variablen ist der Gradient $\nabla f$ der [Vektor](Vektoren%20und%20Vektorräume.md#Vektoren) der [Partiellen Ableitungen](Funktionen%20von%20Mehreren%20Variablen.md#Partielles%20Differenzieren) von $f$ nach jeder Variable.
