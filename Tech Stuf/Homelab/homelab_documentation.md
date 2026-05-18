@@ -13,6 +13,48 @@ On Mobile
 python -c "import socket; b=bytes.fromhex('f'*12 + '2c44fd151f56'*16); s=socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1); s.sendto(b, ('192.168.2.255', 9))"
 ```
 
+``` docker-compose.yml
+services:
+  # FILE SERVER (Samba)
+  samba:
+    image: dperson/samba
+    restart: always
+    ports:
+      - "139:139"
+      - "445:445"
+    volumes:
+      - /home/vanbos/homelab/data/samba:/mnt/share
+    command: -u "vanbos;rip-Windows10" -s "HomeFiles;/mnt/share;yes;no;no;vanbos" -g "force user = vanbos"
+  
+  # MINECRAFT (Vanilla/Paper)
+  minecraft:
+    image: itzg/minecraft-server
+    restart: always
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      MEMORY: "4G" # 4GB is plenty for a group of friends
+      CREATE_CONSOLE_IN_PIPE: "true"
+      ENFORCE_WHITELIST: "true"
+      ONLINE_MODE: "TRUE"
+    volumes:
+      - ./data/minecraft:/data
+  
+  # Scanner
+  scanservjs:
+    image: sbs20/scanservjs:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    privileged: true
+    user: root
+    volumes:
+      - /var/run/dbus:/var/run/dbus
+      - /dev/bus/usb:/dev/bus/usb
+      - ./data/samba/Scans:/var/lib/scanservjs/output
+```
+
 
 ---
 
