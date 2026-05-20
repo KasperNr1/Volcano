@@ -67,3 +67,57 @@ Bei Aufgaben die keine Wartezeiten haben, sollte ein Thread pro CPU-Kern verwend
 Bei mehr Wartezeit empfiehlt es sich auch mehr Threads zu verwenden.
 
 Bei $n$ CPU-Kernen und $p\%$ aktiver Rechenzeit ist als Richtwert der Einsatz von $n * \frac1p$ Threads zu empfehlen.
+
+# Koordination von Prozessen
+Manche [Verteilte Algorithmen](Verteilte%20Algorithmen.md) benötigen einen Koordinator oder Leader, der spezielle Aufgaben übernimmt.
+Ziel der Wahlalgorithmen ist es einen solchen Leader zu bestimmen.
+Die Aufgabe des Leaders ist dabei nicht besonders komplex, es muss nur sichergestellt sein, dass exakt ein Knoten diese Aufgaben ausführt.
+
+Annahmen:
+- Jeder Prozess im System hat eine eindeutige ID
+- Jeder Prozess kennt die IDs aller anderen Prozesse
+- Üblich wird ein Prozess nach willkürlichem Kriterium als Koordinator gewählt (Höchste / Geringste ID o.ä.)
+
+Algorithmus muss schnell ein Ergebnis liefern das allen Teilnehmern der Wahl bekannt ist, wobei er robust gegen Ausfälle während der Wahl sein muss.
+
+Verschiedene Wahlverfahren sind
+- [Heartbeat](#Heartbeat)
+- [Ringalgorithmen](#Ringalgorithmen)
+- [Heartbeat](#Heartbeat)
+- [Konsensbasierte Anätze](#Konsensbasierte%20Anätze)
+
+## Bully Algorithmus
+Wenn die Koordinatorlosigkeit festgestellt ist, wird ein Wahlprozess gestartet. Dabei wird der Prozess zum Koordinator, der während der Wahl die höchste ID hat.
+
+Ein Prozess startet den Wahlprozess und fragt alle anderen Prozesse mit höherer ID ob sie Koordinator sein wollen.
+Falls er nach einer gewissen Zeit keine Antwort erhält, ernennt sich der Prozess selbst zum Koordinator.
+
+Fall ein Prozess antwortet beendet der Initiator seine Wahl, der antwortende höhere Prozess startet seinerseits eine Wahl.
+
+![](BullyCoordinatorExample.png)
+
+## Ringalgorithmen
+Annahme ist, dass jeder Prozess in einem logischen Ring angeordnet ist und seine Nachbarn kennt.
+
+
+> [!NOTE] Sichtbarkeit
+> Alle Knoten kennen alle anderen Knoten, so kann auch bei fehlenden Antworten auf den nächsten Prozess weitergeleitet.
+> Die Beschränkung auf Kommunikation mit dem Nachbarn kommt nur aus dem Algorithmus
+
+
+Wahl läuft ab, indem eine Nachricht mit eigener Prozess ID an Nachbar geschickt wird. Wenn der Nachbar aktiv ist, fügt er seine eigene ID zur Nachricht hinzu und leitet sie weiter an seinen Nachfolger. Wenn ein Knoten nicht antwortet, wird die Nachricht unverändert an den nächsten Knoten weitergeleitet.
+
+Sobald die Nachricht beim Absender ankommt, enthält sie eine Liste aller aktiven Prozesse. Der Prozess mit höchster ID wird als Koordinator bestimmt, diese Nachricht wird entsprechend an die Nachfolger übermittelt.
+
+## Heartbeat
+Regelmäßige Nachrichten erkennen Ausfälle schnell. Die Erkennung eines Ausfalls löst Neuwahlen aus.
+
+> [!Info] Nicht Klausurrelevant
+> Wurde nur genannt, nicht näher behandelt
+
+
+## Konsensbasierte Ansätze
+Für robuste replizierte Systeme mit starker Konsistenz
+
+> [!Info] Nicht Klausurrelevant
+> Wurde nur genannt, nicht näher behandelt

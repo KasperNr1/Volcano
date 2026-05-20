@@ -13,7 +13,7 @@ Der Prozess ist ähnlich wie das Beispiel zur [Aufgabenteilung](Paraprog-Basics.
    Die vorbereiteten Zutaten werden kombiniert und das Ergebnis abgeliefert
 
 # Aktorensystem
-Jeder Beteiligte ist ein Aktor. Diese Aktoren haben jeweils eine Liste eingegangener Nachrichten, ähnlich zu einem Briefkasten. Jeder Aktor bearbeitet die an ihn zugestellten Nachrichten und kommuniziert mit Anderen ausschließlich indem er ihnen Nachrichten in ihr Postfach schickt.
+Jeder Beteiligte ist ein Aktor. Diese Aktoren haben jeweils eine [Liste eingegangener Nachrichten](Programmiermodelle.md#Message%20Oriented%20Model%20(MOM)), ähnlich zu einem Briefkasten. Jeder Aktor bearbeitet die an ihn zugestellten Nachrichten und kommuniziert mit Anderen ausschließlich indem er ihnen Nachrichten in ihr Postfach schickt.
 Dadurch ist eine extrem hohe Robustheit gegeben, da die Existenz aller Aktoren für die Arbeit eines einzelnen irrelevant ist. 
 In jedem Schritt kann ein Aktor 3 verschiedene Dinge tun. Er kann eine Nachricht verschicken, einen neuen Aktor erzeugen oder sein eigenes Verhalten ändern.
 Jede Nachricht wird exakt 1 mal verschickt und höchstens 1 Mal empfangen. Verlorene Nachrichten fallen also nicht unbedingt auf.
