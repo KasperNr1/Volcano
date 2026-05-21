@@ -7,9 +7,24 @@
 from reportlab.pdfgen import canvas
 from PyPDF2 import PdfReader, PdfWriter
 import os
+import tempfile
+import tkinter as tk
+from tkinter import filedialog
 
-input_pdf = "input.pdf"
-output_pdf = "numbered.pdf"
+root = tk.Tk()
+root.withdraw()
+
+input_pdf = filedialog.askopenfilename(
+    title="Select PDF file",
+    filetypes=[("PDF files", "*.pdf")]
+)
+
+if not input_pdf:
+    print("No file selected.")
+    exit(1)
+
+base, _ = os.path.splitext(input_pdf)
+output_pdf = base + "_numbered.pdf"
 
 reader = PdfReader(input_pdf)
 writer = PdfWriter()
@@ -20,7 +35,7 @@ for i, page in enumerate(reader.pages):
     height = float(page.mediabox.height)
 
     # Create overlay PDF
-    temp_pdf = "temp.pdf"
+    temp_pdf = os.path.join(tempfile.gettempdir(), "temp_overlay.pdf")
     c = canvas.Canvas(temp_pdf, pagesize=(width, height))
 
     page_number_text = str(i + 1)
@@ -38,6 +53,3 @@ for i, page in enumerate(reader.pages):
 # Write output
 with open(output_pdf, "wb") as f:
     writer.write(f)
-
-# Cleanup
-os.remove("temp.pdf")
