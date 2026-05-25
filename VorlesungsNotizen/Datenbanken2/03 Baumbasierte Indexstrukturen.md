@@ -134,11 +134,31 @@ Beispielsweise kann bei der Verwendung eines [Dichten Index](02%20Dateiorganisat
 SELECT COUNT(Nachname) FROM Mitarbeiter WHERE Nachname = 'Schmidt'
 ```
 
+Auch Zugriffe auf verschiedene Attribute sind möglich, wenn für jedes ein entsprechender Index vorhanden ist.
 
-> [!MISSING] Lesezeichen
-> 2 - 60
-
+Wenn die Attribute $A, B, C$ jeweils mit einem dichten Index gespeichert sind, kann folgende Abfrage bearbeitet werden:
+``` SQL
+SELECT A, B FROM R WHERE C = "Smth”;
+```
 
 # Zusammengesetzter Index
+Bei einem zusammengesetzten Index werden Kombinationen von Attributwerten abgespeichert.
+![](ZusammengesetzterIndex.png)
+
+Besonders die Bearbeitung von [Selektionen](Relationenalgebra.md#Selektionen) der Form
+```SQL
+A1 = “smth” AND A2 = “smth_else” AND A3 = “smth_third” ...
+```
+Können außerordentlich schnell bearbeitet werden. 
+
+Die Reihenfolge der Attribute im Index ist dabei sehr wichtig. Wenn wie im gezeigten Beispiel `NAME / Abteilung` gespeichert sind kann leicht nach allen "Müller” in Abteilung $3$ und $8$ gesucht werden. 
+Wenn jedoch alle Mitarbeiter aus Abteilung $3$ gefunden werden sollen, so ist der Index nicht hilfreich da er nur auf Mitarbeiter mit Name Müller begrenzt ist.
 
 # Mehrdimensionaler Index
+In eindimensionalen Indexen ist die lineare Ordnung durch die Sortierung der Indexeinträge gegeben.
+Bei mehrdimensionalen Indexen existiert eine solche lineare Ordnung ggf. nicht.
+Einträge können als Punkte im $k$-Dimensionalen Raum angesehen werden, wobei $k$ die Menge der Felder im Suchschlüssel ist.
+
+In diesem Raum können eigene Ordnungen enthalten sein, nach denen sich die Einträge sortieren lassen.
+Gewisse Anfragen die auf diesen mehrdimensionalen Attributen basieren können beschleunigt werden, eindimensionale Anfragen gegen einzelne der indexierten Attribute sind meist langsamer.
+
