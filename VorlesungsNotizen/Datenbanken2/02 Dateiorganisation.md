@@ -71,14 +71,7 @@ Idee: Hashwert mit $n$ Bit Ergebnis wird berechnet.
 
 Es wird versucht nur $b$ Buckets für alle Datensätze zu verwenden, Zuordnung über die letzten $b$ Bits des Hashwerts.
 
-
-> [!Example] Klausuraufgabe
-> Einfügen von mehreren Elementen mit Aufsplittung überlaufender Buckets
-> Siehe Folie 1 -- 45 bis 1 -- 58
-
-
-Siehe Folie 1 -- 44
-
+Ablauf:
 - Fall 1: Seite hat noch freien Platz: Füge Element ein
 - Fall 2: Seite ist voll:
 	- Fall 2.A: Lokale Tiefe = Globale Tiefe:
@@ -91,6 +84,41 @@ Siehe Folie 1 -- 44
 		- Splitte übergelaufenen Bucket auf
 		- Weise entsprechende Zeiger zu
 	- In beiden Fällen: Re-Hashing der Elemente des übergelaufenen Bucket
+
+### Beispiel Dynamisches Hashing
+Seien die folgenden Elemente und ihre Hashwerte gegeben:
+
+| Element | Hash-Wert |
+| ------- | --------- |
+| Z       | 101000    |
+| B       | 100101    |
+| V       | 001110    |
+| M       | 100110    |
+| F       | 110001    |
+| K       | 010110    |
+| X       | 010010    |
+
+Die Einträge sollen in der Gegebenen Reihenfolge eingefügt werden, Buckets haben die Größe $3$.
+Für die ersten drei Einträge ist das Einfügen trivial.
+![](DynamicHashingExample1.png)
+
+Um Platz für den vierten Wert zu schaffen, muss die Seite aufgeteilt werden. Da die lokale und globale Tiefe beide bei $0$ liegen, wird sie auf $1$ erhöht, die Seite aufgeteilt und alle enthaltenen Elemente erneut zugeordnet.
+
+![](DynamicHashingExample2.png)
+
+Das Einfügen von $F$ ist in diesem Zustand problemlos, bei Eintrag $K$ muss erneut aufgeteilt werden.
+
+![](DynamicHashingExample3.png)
+
+Bemerkenswert ist, dass die Bitkombinationen $01$ und $11$ beide auf den selben Bucket mit lokaler Tiefe von $1$ verweisen. So wird nur dort Speicherplatz allokiert, wo er auch wirklich notwendig ist.
+
+Der Effekt ist nach dem Einfügen von $X$ noch stärker sichtbar.
+![](DynamicHashingExample4.png)
+
+> [!Example] Klausuraufgabe
+> Einfügen von mehreren Elementen mit Aufsplittung überlaufender Buckets
+> Siehe Folie 1 -- 45 bis 1 -- 58
+
 ## Lesen
 Konstante Zugriffszeiten möglich
 ## Einfügen
@@ -134,17 +162,51 @@ Multi-Punktabfrage
 
 
 # Indexstrukturen
+## Primärindex
+Der Primärindex ist eine sortierte Datei mit Indexeinträgen.
+Jeder einzelne dieser Einträge besteht dabei aus einem Schlüssel und einem Zeiger auf den entsprechenden Datensatz / Block.
+
 ## Dichter Index
 Ein Eintrag pro Indexattributwert
 Alle Sätze direkt lokalisierbar
+
+![](DichterIndex.png)
 
 ## Dünner Index
 Jeweils erster Satz einer Seite wird indexiert 
 Setzt sortierte Datei voraus
 
-
-> [!Missing] Lücke
-> Hier fehlt Info zu Indexen
-> Seite 2 -- 11 bis 2 -- 31
+![](DünnerIndex.png)
 
 
+> [!Info] Vergleich
+> Bei einem dünnen Index muss die Relation nach diesem Indexattribut sortiert sein. Entsprechend kann nur maximal ein einzelner dünner Index pro Relation verwendet werden.
+> Ein dichter Index benötigt mehr Speicherplatz, hier gibt es aber keine Beschränkung bezüglich der Anzahl gleichzeitig eingesetzter Indixe.
+
+## Clusterindex
+Strategie ist das Speichern von logisch zusammenhängenden Datensätzen in physisch benachbarten Stellen. Dabei wird der Index (beinahe) gleich geordnet.
+Für jeden Eintrag wird die Form `<K(i), P(i)>` verwendet, wobei $K(i)$ Ein Eintrag pro Indexattributwert $A$ ist und $P(i)$ auf die Position verweist, an der $A$ zum ersten Mal vorkommt.
+Es wird dabei ein [dünner Index](#Dünner%20Index) verwendet.
+Besonders ist hier, dass zu jedem möglichen Wert von $A$ ein Eintrag im Index gespeichert wird.
+
+
+## Sekundärindex
+Hängt nicht mit der physischen Speicherung zusammen und kann über beliebige Attribute erstellt werden.
+- `<Value>, TID` (Eindeutige Werte)
+Für mehrdeutige Attribute wird dabei eine Liste mit allen Matches gespeichert (Invertierte Liste)
+- `<Value>, ListOfTIDs`
+
+![](Sekundärindex.png)
+
+Um konstante Größen zu erreichen kann die Liste der `TIDs` auch indirekt gespeichert werden. So verweist jeder Indexeintrag auf exakt eine Liste, diese enthalten dann jeweils beliebig viele `TIDs`.
+
+
+## Mehrstufiger Index
+Auch der Index einer entsprechend großen Datenmenge wird groß (= zu groß für den Hauptspeicher).
+Um weiterhin schnell zu suchen, kann ein Index über diesen Index gebildet werden.
+Mit mehreren Schichten kann so das Volumen des höchsten Levels reduziert werden, bis er vollständig im Hauptspeicher gehalten werden kann.
+
+![](MultiLevelIndex.png)
+
+![](IndexCategories.png)
+![](IndexCategories2.png)
