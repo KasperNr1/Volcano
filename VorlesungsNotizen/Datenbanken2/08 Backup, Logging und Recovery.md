@@ -30,11 +30,22 @@ In der Praxis werden oft zwei Logdateien gleichzeitig geschrieben, eine für Rü
 # Checkpoint Mechanismus
 Im Fehlerfall wird anhand der Log Datei ein gültiger Zustand wiederhergestellt. Um die korrekte Menge an Operationen zu bestimmen, wird häufig mit Checkpoints gearbeitet, damit DB und Log-Datei zu definierten Zeitpunkten synchronisiert sind.
 
+Das Erstellen eines Checkpoints läuft in 5 Schritten ab.
+1. Pausieren aller Transaktionsverarbeitungen
+2. Schreiben aller Log-Einträge aus dem Hauptspeicher in den Sekundärspeicher.
+3. Schreiben aller modifizierten Blöcke aus dem [DB-Puffer](04%20DB-Puffer.md) in den Sekundärspeicher.
+4. Checkpoint Eintrag in Log-Datei schreiben.
+   Der Eintrag enthält auch die IDs aller aktuell laufenden (bzw. pausierten) Transaktionen
+5. Wiederaufnahme der Transaktionsverarbeitung
+
+Im Fehlerfall können alle Transaktionen die seit dem letzten Checkpoint einen Commit ausgeführt haben wiederholt werden. Alle Transaktionen die zum Fehlerzeitpunkt noch aktiv waren werden zurückgerollt und erneut gestartet.
+
+
 # Recovery
 ## Fall 1: Plattenspeicher ist beschädigt
 Durch Physische Einflüsse wie Hochwasser / Erdbeben oder Softwareprobleme wurde der Sekundärspeicher zerstört.
 
-Um einen verwendbaren Stand wiederherzustellen wird das letzte Backup der Datenbank wieder eingespielt und mithilfe der [Log-dateien](#Log-Mechanismus) die Transaktionen seit dem Stand nachvollzogen.
+Um einen verwendbaren Stand wiederherzustellen wird das letzte [Backup](#Backup) der Datenbank wieder eingespielt und mithilfe der [Log-dateien](#Log-Mechanismus) die Transaktionen seit dem Stand nachvollzogen.
 Dies setz voraus, dass die Logdateien nicht ebenfalls zerstört sind. Sie sollten physisch getrennt an einem anderen Ort gelagert werden.
 
 ## Fall 2: Hauptspeicherverlust
@@ -49,7 +60,7 @@ Ursachen sind Fehler im Anwendungsprogramm, explizite Anweisungen durch `Rollbac
 Hier kann mit einem 'lokalen UNDO' im Hauptspeicher recovered werden, vor dem Ende einer Transaktion wird nichts im Sekundärspeicher geschrieben.
 
 ## Recovery-Techniken
-Für die Fälle [2](#Fall%202%20Hauptspeicherverlust) und [3](#Fall%203%20Transaktionsfehler) gibt es verschiedene Techniken.
+Für die [Fälle 2](#Fall%202%20Hauptspeicherverlust) [und 3](#Fall%203%20Transaktionsfehler) gibt es verschiedene Techniken.
 Sie unterscheiden sich in der Art und Reihenfolge, wie Aktualisierungen auf den Sekundärspeicher geschrieben werden.
 - Deferred Update
 - Immediate Update
@@ -57,9 +68,12 @@ Sie unterscheiden sich in der Art und Reihenfolge, wie Aktualisierungen auf den 
 
 ### Deferred Update
 Aktualisierungen werden generell nicht in die DB geschrieben, bis eine `Commit` Anweisung erreicht wird. So muss auch bei einem Abbruch keine Änderung zurückgenommen werden.
+Beim Erreichen eines `Commits` werden die im Log protokollierten Einträge dauerhaft in die Datenbank geschrieben.
 
 Im Log wird entsprechend mit einem 'Transaction Begin' gearbeitet um ein 'REDO' zu ermöglichen.
 Falls die Einträge bereits dauernd geschrieben wurden, so hat ein erneutes Schreiben keinen Effekt
+
+Logeinträge bei denen ein `Transaction Start` von einem Abbruchsignal beendet wird, werden ignoriert.
 
 ### Immediate Update
 Bei dieser Strategie werden alle Änderungen direkt in die DB geschrieben. Es wird nicht erst auf ein `Commit` gewartet.
