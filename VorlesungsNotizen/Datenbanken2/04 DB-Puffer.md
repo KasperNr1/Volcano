@@ -266,6 +266,3 @@ Es können auch Verkettungsbasierte Strategien oder [Hashing](Hashing.md) verwen
 
 In der Realität werden meist Hash-basierte Techniken verwendet die eventuelle Überläufer verketten.
 ![](SearchingInDbBuffer2.png)
-
-> [!Missing] Fehlt
-> Hier fehlt 3-55 bis 3-59
