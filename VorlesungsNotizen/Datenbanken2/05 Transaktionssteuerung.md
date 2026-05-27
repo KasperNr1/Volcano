@@ -91,6 +91,73 @@ Verhindert alle Anomalien indem seriell ausgeführt wird. Entsprechend ist die E
 Wird für Szenarien angewandt die höchste Anforderungen an Konsistenz haben.
 
 
+# Schedules
+Sei $T$ eine einzelne Transaktion die aus beliebig vielen read- oder Write-Operationen besteht. $T = \{t_1, t_2, \dots, t_n\}$
+
+Sie $\Psi$ eine Menge von Transaktionen $\Psi = \{T_1, T_2, \dots, T_m\}$
+
+Ein Schedule $S$ ist eine Reihenfolge der Einzelschritte aller $T_i$ in $\Psi$, wobei für jede einzelne Transaktion die vorgegebene Reihenfolge der Einzelschritte eingehalten wird.
+
+
+> [!NOTE] Begriff: Seriell
+> Falls alle Operationen der Transaktionen direkt hintereinander ausgeführt werden, heißt der Schedule 'seriell'.
+> Falls einzelne Transaktionen ineinander verzahnt ablaufen, so heißt der Schedule 'nicht-seriell'
+> ![](ScheduleSeriellVsNichtSeriell.png)
+> ^4c80f7
+
+Bei einem Seriellen Schedule wird die Konsistenz der Datenbank zu jedem Zeitpunkt gesichert. Es wird jede Form der parallelen Ausführung verhindert.
+
+Die Ausführungsreihenfolge ist relevant, evtl. kann eine andere Reihenfolge zu unterschiedlichen Resultaten führen, ohne dabei inkonsistente Zustände zu verwenden.
+
+## Serialisierbarkeit
+Wünschenswert sind [Nicht-Serielle Schedules](#^4c80f7) die diese Eigenschaft der Konsistenzerhaltung besitzen. Solche Schedules  nennt man 'serialisierbar'.
+
+Diese Schedules können systematisch gefunden werden.
+1. Zwei Transaktionen die einen Datenwert nur lesen, können keinen Konflikt verursachen
+2. Zwei Transaktionen die ausschließlich auf unterschiedlichen Daten lesen oder schreiben, können keinen Konflikt verursachen.
+3. Wenn zwei Transaktionen auf den selben Datenwert arbeiten und mindestens eine der beiden schreibt, kann es an dieser Stelle zu einem Konflikt kommen.
+
+### Konflikt-Serialisierbarkeit
+Die Serialisierbarkeit kann anhand eines Vorranggraphen (Serializable Graph) überprüft werden.
+- Jede Transaktion $T_i$ ist ein Knoten des Graphen
+- Wenn eine Transaktion $T_A$ auf einen zuvor von $T_B$ verwendeten Wert zugreift, so wird eine gerichtete Kante von $T_B$ nach $T_A$ eingefügt.
+  Es handelt sich jeweils um einen Konflikt der Form $\text{Op}(B)-\text{OP}(A)$.
+  Also dann ein "Read-Write-Konflikt" wenn das Lesen zeitlich früher stattgefunden hat.
+
+Für diesen Schedule ergibt sich nach den genannten Regeln ein Graph mit drei Knoten.
+![](SerialisableTestSchedule.png)
+
+Da der Graph einen Zyklus enthält ist der vorliegende Schedule nicht Konflikt-Serialisierbar.
+![](SerialisableTestScheduleGraph.png)
+
+### Sicht-Serialisierbarkeit
+Die [Konflikt-Serialisierbarkeit](#Konflikt-Serialisierbarkeit) ist sehr restriktiv.
+Eine weniger strenge Form der Serialisierbarkeit ist die sog. "Sicht-Serialisierbarkeit".
+Zwei Schedules $S_1$ und $S_2$ heißen "Sicht-äquivalent" g.d.w.
+1. Falls $T_A$ in $S_1$ den initialen Wert der Variable $x$ liest, muss $T_A$ auch in $S_2$ den initialen Wert von $x$ lesen.
+2. Falls einer Leseoperation auf einem Datenwert $x$ von Transaktion $T_A$ im Schedule $S_1$ eine Schreiboperation von $T_B$ vorausgeht dann muss dies auch in $S_2$ geschehen.
+   Die lesenden Operationen haben also in beiden Schedules dieselbe Sicht.
+3. Falls die letzte Schreibaktion auf einem Datenwert $x$ im Schedule $S_1$ von $T_A$ vorgenommen wurde, so muss auch in $S_2$ die letzte Schreibaktion von $T_A$ vorgenommen werden.
+
+Ein Schedule $S$ ist "Sicht-Serialisierbar" g.d.w. $S$ zu einem seriellen Schedule $S_\text{ser}$ Sicht-äquivalent ist.
+
+Im [gezeigten Beispiel](#Konflikt-Serialisierbarkeit) war der Schedule nicht Konflikt-Serialisierbar. Er ist jedoch Sicht-Serialisierbar da alle Bedingungen eingehalten werden. 
+Der Serielle Schedule sei hierzu $S_\text{ser} = T_1, T_2, T_3$
+1. $T_1$ liest in beiden Fällen den initialen Wert von $x$
+2. Ist eingehalten, das initiale Lesen ist die einzige lesende Operation und findet jeweils als erste Handlung im Schedule statt.
+3. Das letzte Schreiben wird jeweils von $T_3$ durchgeführt.
+
+
+## Recovery-Fähigkeit
+Ein Schedule ist Recovery-Fähig, wenn für jedes Paar $T_A$ und $T_B$ von Transaktionen gilt:
+Falls $T_B$ einen Wert liest der zuvor von $T_A$ geschrieben wurde, so muss die `COMMIT` Anweisung in $T_A$ vor der in $T_B$ stattfinden.
+![](RecoverableSchedules.png)
+
+In diesem Beispiel wäre $T_1$ nicht Recovery-fähig, da ab $t_{11}$ die auf $T_1$ basierenden Änderungen von $T_2$ bereits dauerhaft committed sind.
+
+
+
+
 > [!Example] Klausuraufgabe
 > Bestimmung von Sicht- und Konfliktserialisierbarkeit von gleichzeitigen Transaktionen.
 > Seite 4-38 bis 4-49
