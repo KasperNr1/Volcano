@@ -1,10 +1,9 @@
 # MVCC
 ## Motivation
-Lesende Transaktionen müssen niemals warten.
+Lesende Transaktionen sind sehr häufig und verändern die Daten nicht.
+Schreibende Operationen sollen auf einer Kopie der Daten arbeiten, damit Transaktionen die nur lesen niemals warten müssen.
 
-
-> [!Missing] Fehlt
-> Seite 5-58
+Um diese Kopien zu verwalten und nach Ende ihrer Verwendung wieder zu löschen ist eine Garbage-Collection notwendig.
 
 ## Basiskonzept
 Jede Transaktion erhält eine ID die als Zeitstempel verwendet wird. Jedes Datenobjekt speichert die ID der Transaktionen die es zuletzt gelesen oder geschrieben haben.
@@ -14,19 +13,21 @@ Bei Zugriffen werden mehrere Varianten der Datenobjekte gespeichert. Jeder Eintr
 
 ![](MvccExample.png)
 
-### Übung
+### Lesen
+Beim Lesenden Zugriff wird der neueste Wert bestimmt, der zum Zeitpunkt $t$ des Lesens verfügbar sein sollte. In den Metadaten wird der Eintragt für den letzten Zugriff ggf. angepasst.
+$$
+\text{RTS} = \max(\text{RTS}, t)
+$$
 
-| ID  | A   | WTS | RTS | TID  | Zeiger |
-| --- | --- | --- | --- | ---- | ------ |
-| 1   | 100 | 1   | 1   | 1000 | NULL   |
-| 1   | 100 | 1   | 6   | 1001 | 1000   |
-| 1   | 100 | 1   | 7   | 1002 | 1001   |
-| 1   | 110 | 7   | 7   | 1002 | 1001   |
-| 1   | 110 | 7   | 8   | 1003 | 1002   |
-| 1   | 110 | 7   | 9   | 1004 | 1003   |
-| 1   | 220 | 9   | 9   | 1004 | 1003   |
-| 1   | 220 | 9   | 10  | 1005 | 1004   |
-|     |     |     |     |      |        |
+Beim Schreiben wird unterschieden, ob die Anfragende Transaktion bereits den neuesten schreibenden Zugriff durchgeführt hat. 
+1. Falls $\text{WTS} = t$ gilt, wird der Wert aktualisiert und $\text{WTS} = \text{RTS} = t$ gesetzt.
+2. Andernfalls wird eine neue Kopie angelegt, die Zeitstempel werden eingetragen und ein Verweis auf die nächstältere Version gesetzt.
+
+
+
+> [!Example] Klausuraufgabe
+> Zugriffe eines gegebenen Schedules mit MVCC verwalten und Daten mit Metadaten [korrekt fortsetzen](#Ablauf)
+
 
 # Optimistische Techniken
 Ausführung  von Transaktionen in drei Phasen
@@ -38,10 +39,10 @@ Ausführung  von Transaktionen in drei Phasen
    Nach einer erfolgreichen Validierung kann in die Datenbank geschrieben werden. Lesetransaktionen werden ohne Aufwand beendet.
 
 Da Transaktionen bei Problemen abgebrochen werden, ist dieser Ansatz nur sinnvoll, wenn Konflikte zwischen Transaktionen nur selten sind. 
-Da wenig Aufwand während dem Bearbeiten von Transaktionen notwendig ist, kann so sehr performant gearbeitet werden und dabei Deadlocks, dirty Reads und Kaskadierende Rollbacks vermieden werden.
+Da wenig Aufwand während dem Bearbeiten von Transaktionen notwendig ist, kann so sehr performant gearbeitet werden. Deadlocks, [Dirty Reads](05%20Transaktionssteuerung.md#Dirty%20Read) und [Kaskadierende Rollbacks](06%20Concurrency%20Control.md#Kaskadierende%20Rollbacks) werden dabei vermieden.
 
 ## Rückwärtsorientierte Validierung
-Um eine Transaktion $T$ zu validieren wird geprüft, ob in allen Änderungen $T_j$ seit Beginn von $T$ validiert wurden Objekte vorkommen, die auch in $T$ verwendet werden. Falls keine Objekte geteilt sind, kann geschrieben werden. Sonst muss $T$ Zurückgerollt werden. 
+Um eine Transaktion $T$ zu validieren wird geprüft, ob in allen Änderungen $T_j$, die seit Beginn von $T$ validiert wurden, Objekte vorkommen, die auch in $T$ verwendet werden. Falls keine Objekte geteilt sind, kann geschrieben werden. Sonst muss $T$ Zurückgerollt werden. 
 
 ![](BackwardsorientedValidation.png)
 
@@ -56,3 +57,8 @@ Da nur die aktuell validierende Transaktion zurückgerollt werden kann, besteht 
 Zum Validierungszeitpunkt wird geprüft, ob eine andere, aktuell laufende Transaktion einen Wert gelesen hat, den die prüfende Transaktion verändern möchte.
 
 So lässt sich einige Arbeit vermeiden da Konflikte früher erkannt werden. Außerdem kann die ältere Transaktion bevorzugt werden um das Verhungern zu vermeiden.
+
+# Kombinationen
+Es gibt verschiedene Möglichkeiten die Vorteile von [Pessimistischen](06%20Concurrency%20Control.md#Pessimistisch) und [Optimistischen Techniken](#Optimistische%20Techniken) zu kombinieren. So wird die Geschwindigkeit der optimistischen Verfahren mit der Erfolgsrate der Pessimistischen kombiniert. Grundsätzlich kann z.B. immer Optimistisch gearbeitet werden und nur bei sehr langen oder fehlgeschlagenen Transaktionen auf ein pessimistisches Modell gewechselt werden.
+
+Auch ist eine Strategie denkbar, bei der Zugriffe auf 'Hot-Spots' pessimistisch gehandhabt werden, während Arbeit auf seltener verwendeten Daten optimistisch und schnell ist.

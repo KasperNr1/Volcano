@@ -2,7 +2,7 @@ Das Testen auf [Sicht-Serialisierbarkeit](05%20Transaktionssteuerung.md#Sicht-Se
 In der Praxis werden Protokolle verwendet die [serialiserbare](05%20Transaktionssteuerung.md#Serialisierbarkeit) [Schedules](05%20Transaktionssteuerung.md#Schedules) sicherstellen.
 
 Synchronisationsmethoden werden in die beiden Kategorien 'pessimistisch' und 'optimistisch' eingeteilt.
-Dabei gehen optimistische Verfahren von Konfliktfreiheit aus und überprüfen diese Annahme vor dem Abschluss einer Transaktion.
+Dabei gehen [Optimistische Techniken](07%20Multiversion%20Concurrency%20Control.md#Optimistische%20Techniken) von Konfliktfreiheit aus und überprüfen diese Annahme vor dem Abschluss einer Transaktion.
 In echten Systemen sind die [pessimistischen](#Pessimistisch) Verfahren, bei denen im Fall von möglichen Konflikten gesperrt wird, häufiger eingesetzt.
 
 # Synchronisationsmechanismen
