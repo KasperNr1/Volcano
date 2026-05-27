@@ -156,11 +156,6 @@ Falls $T_B$ einen Wert liest der zuvor von $T_A$ geschrieben wurde, so muss die 
 In diesem Beispiel wäre $T_1$ nicht Recovery-fähig, da ab $t_{11}$ die auf $T_1$ basierenden Änderungen von $T_2$ bereits dauerhaft committed sind.
 
 
-
-
 > [!Example] Klausuraufgabe
 > Bestimmung von Sicht- und Konfliktserialisierbarkeit von gleichzeitigen Transaktionen.
 > Seite 4-38 bis 4-49
-
-
-

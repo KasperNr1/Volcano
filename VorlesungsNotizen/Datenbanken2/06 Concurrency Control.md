@@ -1,7 +1,9 @@
-Das Testen auf [Sicht-Serialisierbarkeit](05%20Transaktionssteuerung.md#Serializable) ist ein NP-Vollständiges Problem. Aus Effizienzgründen kann daher nicht jede Transaktion auf Serialisierbarkeit geprüft werden.
-In der Praxis werden Protokolle verwendet die serialisierbare Schedules sicherstellen.
+Das Testen auf [Sicht-Serialisierbarkeit](05%20Transaktionssteuerung.md#Sicht-Serialisierbarkeit) ist ein NP-Vollständiges Problem. Aus Effizienzgründen kann daher nicht jede Transaktion auf Serialisierbarkeit geprüft werden.
+In der Praxis werden Protokolle verwendet die [serialiserbare](05%20Transaktionssteuerung.md#Serialisierbarkeit) [Schedules](05%20Transaktionssteuerung.md#Schedules) sicherstellen.
 
 Synchronisationsmethoden werden in die beiden Kategorien 'pessimistisch' und 'optimistisch' eingeteilt.
+Dabei gehen optimistische Verfahren von Konfliktfreiheit aus und überprüfen diese Annahme vor dem Abschluss einer Transaktion.
+In echten Systemen sind die [pessimistischen](#Pessimistisch) Verfahren, bei denen im Fall von möglichen Konflikten gesperrt wird, häufiger eingesetzt.
 
 # Synchronisationsmechanismen
 ## Pessimistisch
@@ -11,6 +13,7 @@ Diese Verfahren blockieren Transaktionen allgemein, falls Konflikte drohen.
 Alle benötigten Datenobjekte werden zu Beginn einer Transaktion gesperrt.
 So wird eine große Menge Resets vermieden, auch [Deadlocks](Parallele%20Probleme.md#Deadlocks) sind nicht möglich.
 Sperrzeiten sind insgesamt unnötig lang, außerdem ist es nicht immer bekannt welche Objekte im Verlauf der Transaktion verwendet werden.
+Daher wird diese Strategie kaum verwendet.
 
 ### Sperrverfahren
 Verwendet zwei Arten von Sperren.
@@ -26,8 +29,14 @@ Die Sperren können auf verschiedenen Objekten gesetzt werden.
 
 Feinere Granularität erlauben einen höheren Durchsatz an Transaktionen, verursachen allerdings auch mehr Verwaltungsaufwand da mehr Sperren gesetzt, geprüft und zurückgenommen werden müssen.
 
+Dabei gilt der [Fundamentalsatz des Sperrens](#Fundamentalsatz%20des%20Sperrens)
 ### Two Phase Locking 
 Mit dem 'Two phase locking' (2PL) Protokoll werden alle `lock` Operationen vor allen `unlock` Operationen durchgeführt. Somit genügt das Protokoll auch [Regel 4 des Fundamentalsatzes.](#Fundamentalsatz%20des%20Sperrens)
+
+Durch Verwendung von Locks können die [Mehrbenutzerprobleme](05%20Transaktionssteuerung.md#Mehrbenutzerprobleme) vermieden werden.
+Weiterhin auftreten können [Kaskadierende Rollbacks](#Kaskadierende%20Rollbacks), wenn der Rollback einer Transaktion auch eine auf ihrem Zwischenergebnis basierende nächste Transaktion zum Rollback zwingt. Dabei existiert kein Limit, es kann eine beliebig lange Kette vorkommen.
+
+Beim Anfordern von Sperren muss die Möglichkeit von [Deadlocks](Parallele%20Probleme.md#Deadlocks) vermieden werden, bei denen zwei Transaktionen aufeinander warten.
 
 #### Kaskadierende Rollbacks
 Der Fehlschlag einer Transaktion kann auch einen Rollback einer weiteren Transaktion erzwingen, wenn die Sperre auf ein Objekt vor dem finalen Commit freigegeben wurde und bereits von einer anderen Transaktion verwendet wird.
@@ -57,6 +66,11 @@ else
 	ROLLBACK(Ti) // Die
 ```
 
+![](WoundWait-WaitDieExample.png)
+
+Unter Anwendung des Wait-Die Algorithmus entsteht folgender Ablauf
+![](WaitDieSolution.png)
+
 ##### Wound-Wait
 Funktioniert umgekehrt zu [Wait-Die](#Wait-Die). Jüngere Transaktionen warten auf ältere.
 ```
@@ -70,6 +84,8 @@ else
 > [!Info] Rollback
 > Mit 'Rollback' in [Wait-Die](#Wait-Die) und [Wound-Wait](#Wound-Wait) ist kein vollständiger Rollback gemeint, sondern ein zurücksetzen auf den letzten vergangenen Checkpoint. (Siehe Abschnitt 'Recovery')
 
+Beim selben Beispiel ist die Ausführung mit dem Wound-Wait Algorithmus bereits nach $33$ Zeitschritten beendet.
+![](WoundWaitSolution.png)
 
 > [!Example] Klausuraufgabe
 > Bestimmung der Ausführungsreihenfolge bei mehreren Transaktionen mit [Wound-Wait](#Wound-Wait) und [Wait-Die](#Wait-Die) algorithmus.
@@ -100,6 +116,12 @@ else
 | 34   | 3 Erhält Lock        | 3          |            |            | 7          |
 | 42   | 3 Beendet            | -          |            |            | 15         |
 
+##### Waiting-For-Graph
+Siehe auch [Deadlocks](Parallele%20Probleme.md#Deadlocks).
+In einem Graph wird jede Transaktion als Knoten dargestellt.
+Beim Anfragen einer Sperre wird eine gerichtete Kante vom Anfragenden zum Besitzer der Sperre gezogen. Falls ein Zyklus entsteht, sind Deadlocks möglich.
+
+![](WaitingForGraphExample.png)
 
 | Zeit | 1                | 2                | 3                | 4     |
 | ---- | ---------------- | ---------------- | ---------------- | ----- |
@@ -156,7 +178,7 @@ Es wird neben read (R) und exclusive-write (X) noch eine analyse (A) Sperre eing
 
 ##### RAC Verfahren
 Lange Lesetransaktionen beim [RAX Verfahren](#RAX%20Verfahren) implizieren lange Wartezeiten für schreibende Transaktionen.
-Beim Ende einer Transaktion werden A-Sperren hier in C-Sperren verwandelt. Dabei wird eine Kopie des ursprünglichen Objekts erstellt die durch die C-Sperre angezeigt wird. Lesende Aktionen versuchen erst auf Kopie 1 zuzugreifen, greifen bei Problemen auf Kopie 2 zu.
+Beim Ende einer Transaktion werden A-Sperren hier in C-Sperren verwandelt. Dabei wird eine zusätzliche Kopie des ursprünglichen Objekts erstellt die durch die C-Sperre angezeigt wird. Lesende Aktionen versuchen erst auf Kopie 1 zuzugreifen, greifen bei Problemen auf Kopie 2 zu.
 
 
 |     | R   | A   | C   |
@@ -179,5 +201,5 @@ In $t_7$ kann hier gleichzeitig die neue, zweite Kopie gelesen werden und das Er
 
 > [!Info] Begründung
 > Während die Regeln 1-3 und 5 offensichtlich sind, scheint 4. nicht direkt sinnvoll. 
-> Diese Vorgabe ist allerdings notwendig, um Serialisierbarkeit herzustellen.
+> Diese Vorgabe ist allerdings notwendig, um [Serialisierbarkeit](05%20Transaktionssteuerung.md#Serialisierbarkeit) herzustellen.
 > 
