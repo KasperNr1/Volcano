@@ -1,16 +1,3 @@
-# Übung
-|![](ProbeAufgabeSupportUndKonfidenz.jpg)
-
-| Regel               | Support | Konfidenz |
-| ------------------- | ------- | --------- |
-| Milch -> Brot       | 5/12    | 5/8       |
-| Brot-> MIlch        | 5/12    | 5/7       |
-| Milch -> BUtter     | 3/12    | 3/8       |
-| Eier -> MIlch       | 2/12    | 2/4       |
-| Milch, Brot -> Eier | 1/12    | 1/5       |
-| Butter -> Brot      | 4/12    | 4/5       |
-
-
 # MVCC
 ## Motivation
 Lesende Transaktionen müssen niemals warten.
