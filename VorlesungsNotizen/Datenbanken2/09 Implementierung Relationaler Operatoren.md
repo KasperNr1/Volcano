@@ -316,13 +316,63 @@ Grund dafür sind die drei Folgen an Plattenzugriffen:
 
 Generell gibt es keinen der drei Algorithmen der immer zu bevorzugen ist. In unterschiedlichen Situationen haben verschiedene Algorithmen einen großen Vorteil.
 
+# Weitere Operationen
+## Projektion
+$$
+S = \Pi_{A_1, A_2, \dots, A_n}(R)
+$$
+Im ersten von zwei Teilschritten werden die nicht benötigten Attribute entfernt.
+Eventuell sind durch diese Operation unterscheidende Merkmale gelöscht worden, so dass nun Duplikate verbleiben. 
+
+Diese Duplikate können durch Hashing oder Sortierung entfernt werden.
+
+Falls die Projektion Schlüsselattribute enthält ist das Entfernen von Duplikaten nicht notwendig.
+$$
+\text{ntuples}(S) = \text{ntuples}(R)
+$$
+
+### Duplikatseliminierung
+Bei einer Projektion auf ein einzelnes Nicht-Schlüsselattribut
+$$
+(S = \Pi_A(R)) \Rightarrow \text{ntuples}(S) = \text{ndistinct}_A(R)
+$$
 
 
+Beim Sortieren werden Duplikate in benachbarten Plätzen positioniert. 
+Kosten dazu sind also
+$$
+\text{nblocks}(R) + \text{nblocks}(R) \cdot \left \lceil \log_2 (\text{nblocks}(R)) \right \rceil
+$$
 
 
+--- 
+
+Beim Einsatz von Hashing werden kleine Partitionen erzeugt in denen nur wenige Elemente eingeordnet sind. Diese Partitionen können leicht auf Duplikate überprüft werden.
+Dazu kann jeder Wert mit einer zweiten Hashfunktion $h_2$ verarbeitet werden. Falls es hier zu Kollisionen kommt handelt es sich mit hoher Wahrscheinlichkeit um ein Duplikat das entfernt werden kann.
+
+Mit diesem Verfahren werden nur sehr wenige Paare verglichen die keine echten Duplikate sind.
 
 
+## Aggregationen
+Wie auch bei der [Duplikatseliminierung](#Duplikatseliminierung) kann der große Datensatz mit Hashing in kleinere Gruppen aufgeteilt werden.
 
+Die Aggregatfunktion kann auf alle Gruppen einzeln angewendet werden, für Mittelwertbestimmungen kann die Summe aller Gruppen durch den Count geteilt werden, so ist es nicht notwendig den Mittelwert der Daten $0$ bis $i$ für jeden einzelnen Wert zu bestimmen.
 
+## Mengenoperationen
+Bei Mengenoperationen werden die Relationen zunächst nach dem gleichen Attribut sortiert. Dann werden die Relationen gescannt und dabei die Attribute verglichen.
+Für alle drei Operationen (Vereinigung, Schnitt, Differenz) kann der Algorithmus auf Basis des [Sort-Merge](Sortieralgorithmen.md#Externes%20Sort-Merge)-Verbund Algorithmus realisiert werden.
 
+In allen drei Fällen belaufen sich die geschätzten Kosten auf 
+$$
+\text{nblocks}(R) + \text{nblocks}(S) + \text{nblocks}(R) \cdot \left \lceil \log_2(\text{nblocks}(R)) \right \rceil + \text{nblocks}(S) \cdot \left \lceil \log_2(\text{nblocks}(S)) \right \rceil
+$$
 
+Die Abschätzung der Resultatsgröße ist schwierig. Es können folgende Obere und untere Schranke angegeben werden:
+$$
+\max(\text{ntuples}(R), \text{ntuples(S)}) \leq \text{ntuples}(T) \leq \text{ntuples}(R) + \text{ntuples(S)}
+$$
+
+Für Differenzoperationen gilt:
+$$
+0 \leq \text{ntuples}(T) \leq \text{ntuples}(R)
+$$
