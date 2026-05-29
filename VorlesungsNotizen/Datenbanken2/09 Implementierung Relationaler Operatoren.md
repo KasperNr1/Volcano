@@ -63,10 +63,6 @@ So ergibt sich für die Selektionskardinalität ein Fehler von $\pm 50 \%$ bei $
 # Implementierung der Selektion
 Basierend auf der Dateiorganisation und der möglichen Indexierung der Attribute in der Selektionsbedingung kann zwischen vielen bekannten Verfahren entschieden werden.
 
-
-> [!MISSING] TODO
-> Formeln für Kosten der Operationen einfügen
-
 ## Lineare Suche
 Wenn die Datei nicht sortiert ist und kein Index existiert, so muss linear jeder Wert geprüft werden.
 
