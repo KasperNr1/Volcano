@@ -92,30 +92,6 @@ Beim selben Beispiel ist die Ausführung mit dem Wound-Wait Algorithmus bereits 
 
 ![](Pasted%20image%2020260421114012.png)
 
-
-| Zeit | Aktion               | Lock-Owner | Pro 1 (21) | Pro 2 (15) | Pro 3 (15) |
-| ---- | -------------------- | ---------- | ---------- | ---------- | ---------- |
-| 1    | 1 Startet            |            | 0          | 0          |            |
-| 2    | 2 Startet            |            | 1          | 0          |            |
-| 3    | 3 Startet            |            | 2          | 1          | 0          |
-| 5    | 2 fragt Lock an      | 2          | 4          | 3          | 2          |
-| 10   | 3 fragt lock an      | 2          | 9          | 8          | 7          |
-| 10   | 3 muss auf 2 Warten  | 2          | 9          | 8          | 7          |
-| 14   | Checkpoint erreicht  | 2          | 13         | 12         | 7          |
-| 16   | 1 fragt Lock an      |            |            |            |            |
-| 16   | 2 wird abgebrochen   | 1          | 15         | 0          | 7          |
-| 19   | 2 Startet neu (CP 0) | 1          | 18         | 0          | 7          |
-| 22   | 1 Beendet            | -          | 21         | 3          | 7          |
-| 22   | 3 Erhält Lock        | 3          |            | 3          | 7          |
-| 22   | 2 Fragt Lock an      |            |            |            |            |
-| 22   | 3 Wird abgebrochen   | 2          |            | 3          | 0          |
-| 25   | 3 Startet neu (CP 0) | 2          |            | 6          | 0          |
-| 32   | 3 Fragt Lock an      | 2          |            | 13         | 7          |
-| 32   | 3 Muss auf 2 Warten  | 2          |            | 13         | 7          |
-| 34   | 2 Beendet            | -          |            | 15         | 7          |
-| 34   | 3 Erhält Lock        | 3          |            |            | 7          |
-| 42   | 3 Beendet            | -          |            |            | 15         |
-
 ##### Waiting-For-Graph
 Siehe auch [Deadlocks](Parallele%20Probleme.md#Deadlocks).
 In einem Graph wird jede Transaktion als Knoten dargestellt.
