@@ -73,34 +73,66 @@ Wenn die Datei nicht sortiert ist und kein Index existiert, so muss linear jeder
 Falls die Werte eindeutig sind, so ist im Mittel der Zugriff auf $\dfrac{n}{2}$ der Werte nötig.
 Falls Werte nicht-Eindeutig sind muss auf alle $n$ Werte zugegriffen werden.
 
+$$
+\text{cost}_\text{Lineare Suche} = \left \{ \begin{array}{} \left \lceil \frac{\text{nblocks}(R)}{2} \right \rceil & \text{Falls Gleichheitsbedingung über Schlüsselatribut}\\ \text{nblocks}(R) & \text{sonst} \end{array}\right .
+$$
+
 ## Binäre Suche
 Wie auch [Binary Search](Suchalgorithmen.md#Binary%20Search) für das durchsuchen des Hauptspeichers halbiert dieses Verfahren mit jedem Schritt den Suchraum.
 Der Inhalt der Blöcke muss dabei gemäß dem Suchkriterium und über Blöcke hinweg sortiert sein.
 So kann mit logarithmischen Kosten der passende Block gefunden werden.
 
+Ist Prädikat der Form $A = x$ und Datei nach Schlüsselattribut $A$ sortiert, dann gilt:
+$$
+\text{cost}_\text{Binäre Suche} = \left \lceil \log_2(\text{nblocks}(R)) \right \rceil
+$$
+Allgemeiner gilt die Kostenformel
+$$
+\text{cost}_\text{Binäre Suche} = \left \lceil \log_2(\text{nblocks}(R)) \right \rceil + \left \lceil \frac{\text{SC}_A(R)}{\text{bfactor}(R)} \right \rceil -1
+$$
+
 ## Gleichheit auf Hashschlüssel
 Falls das gesuchte Attribut $A$ ein Hashschlüssel ist, so kann dieser zur Berechnung der Zieladresse verwendet werden.
 Der Aufwand zur Suche ist damit Konstant.
 
+$$
+\text{cost}_\text{Hash-Suche} = 1 + \text{"Kosten Kollisionsbehandlung"}
+$$
 ## Gleichheit auf Primärschlüssel
 Für eine Bedinung $A = x$ auf dem Primärschlüsselattribut $A$ kann der [Primärindex](02%20Dateiorganisation.md#Primärindex) zur Suche verwendet werden. 
 Somit ist zur Suche ein Schritt für jedes Level im Indexbaum notwendig.
 
+$$
+\text{cost}_\text{Primärschlüssel - Suche Gleichheit} = \text{nlevels}_A(I) + 1
+$$
+
 Bei Ungleichheit kann zuerst nach dem Tupel mit exakt gleichen Wert gesucht werden. Im sortierten Index sind alle Werte davor oder danach größer oder kleiner.
+$$
+\text{cost}_\text{Primärschlüssel - Suche Ungleichheit} = \text{nlevels}_A(I) + \left \lceil \frac{\text{nblocks(R)}}{2} \right \rceil
+$$
 
 ## Gleichheit auf (Sekundärem) Clusterindex
 Wenn das Prädikat eine Gleichheitsbedingung über $A$ formuliert, das nicht Primärschlüssel ist, für das aber ein sekundärer [Clusterindex](02%20Dateiorganisation.md#Clusterindex) definiert ist, kann dieser Index verwendet werden.
 
+$$
+\text{cost}_\text{Suche geclusterter Sekundärindex Gleichheit} = \text{nlevels}_A(I) + \left \lceil \frac{\text{SC}_A(R)}{\text{bfactor}(R)} \right \rceil
+$$
 Es wird mit dem Index der Grenzwert gefunden bei dem die Bedingung zum ersten Mal erfüllt ist, die folgenden Blöcke werden linear durchsucht um das Ende des Clusters zu finden.
 
 ## Gleichheit auf (Sekundärem) Nicht-Clusterindex
 In einem nicht geclusterten [Sekundärindex](02%20Dateiorganisation.md#Sekundärindex) kann die Eigenschaft der Sortierung nicht verwendet werden.
+$$
+\text{cost}_\text{Suche Nicht-geclusterter Sekundärindex Gleichheit} = \text{nlevels}_A(I) + \left \lceil \text{SC}_A(R) \right \rceil
+$$
 
 Es müssen alle Einträge gelesen werden. Da die Daten nicht nach dem Indexattribut sortiert sind, muss angenommen werden, dass sie sich in jeweils unterschiedlichen Blöcken befinden.
 
 ## Ungleichheit auf B+ Baum-Index
 Im [B+ Bäume](03%20Baumbasierte%20Indexstrukturen.md#B+%20Bäume) muss in jedem Knoten im Mittel die Hälfte der Einträge gelesen werden um zum nächsten Knoten zu gelangen. Nachdem jedes Level des Baumes durchlaufen ist, gelangt man beim Datenpunkt an.
 
+$$
+\text{cost}_\text{Suche $B^*$-Baum Index} = \text{nlevels}_A(I) + \left \lceil \frac{\text{nlfblocks}_A(I)}{2} + \frac{\text{ntuples}(R)}{2} \right \rceil
+$$
 
 ## Zusammengesetzte Prädikate
 ### Konjunktive Selektionen
