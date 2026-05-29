@@ -246,10 +246,109 @@ Wenn die logischen Operationen angeordnet sind, kann noch deren technische Imple
 Die Erstellung dieses idealen Ausführungsplans ist aber aufgrund der großen Menge an Aktionen unrealistisch.
 
 
-Interessante Sortierreihenfolge:
-Mindestens eine Bedingung erfüllt, nicht zwingend alle.
-
 # Kostenbasierte Optimierung
+Ziel ist es, die Logischen Operationen auf physische Operatoren abzubilden.
+Also zu bestimmen, welche der [Implementierungen](09%20Implementierung%20Relationaler%20Operatoren.md) im aktuellen Kontext am optimalsten ist.
+Wesentlicher Faktor ist dabei die Anzahl der Plattenzugriffe, da sie sehr langsam sind.
+Weil diese Kosten von den Kardinalitäten der beteiligten Relationen abhängt und [kein pauschal bester Algorithmus](09%20Implementierung%20Relationaler%20Operatoren.md#Vergleich%20der%20Verbundimplementierungen) bestimmt werden kann, sind [Statistiken](09%20Implementierung%20Relationaler%20Operatoren.md#Datenbankstatistiken) zu den Daten notwendig.
 
-> [!MISSING] TODO
-> Ab 8-39
+Das Ersetzen der logischen Operationen durch Physische Operationen führt zu einem Ausführungsplan (Auch Ausführungsstrategie oder Zugriffsplan)
+
+![](Ausführungsplan.png)
+
+
+## Pipelining
+Auch 'Stream-Based-Processing' oder 'On-The-Fly-Processing' vermeidet das Speichern von Zwischenresultaten auf Platte.
+Ohne Pipelining werden Resultatet vollständig berechnet und ggf. zwischengespeichert bevor der nächste Verarbeitungsschritt auf sie zugreift.
+
+Mit Pipelining werden sie - falls möglich - direkt weiterverarbeitet.
+Daten werden nicht auf Platte geschrieben, sondern nur in kleine Puffer der Folgeschritte gelagert.
+![](PipelininingInDatabaseOperations.png)
+
+### Iteratoren
+Sind die kleinen Puffer zwischen Operanden des Pipelining. Ein Iterator stellt drei Methoden bereit:
+- `Open` um ihn zu initialisieren und Speicherplatz zu allokieren
+- `GetNext`  um auf den nächsten Wert im Puffer zuzugreifen
+- `Close` Terminiert den Iterator wenn alle Werte abgearbeitet wurden.
+
+Vorteil von Iteratoren ist, dass mehrere Operationen gleichzeitig aktiv sein können und sie Pipelining auf eine sehr natürliche Weise umsetzen.
+
+![](IteratorsInPipeline.png)
+
+Nicht alle Operationen können durch Pipelining umgesetzt werden.
+![](PipelineBreakers.png)
+- Sortierungen
+- Duplikatseliminierung
+- Aggregatoperationen
+- Mengendifferenzen
+- Manche Implementierungsarten von Join oder Union
+Diese Operationen können manchmal nicht vermieden werden. Alle ihre Eingabedaten müssen berechnet und ggf. auf Platte geschrieben werden. Somit sind diese Operationen sehr teuer.
+
+## Verbund-Reihenfolge
+Gemäß [Regel 5](#Regel%205) und [Regel 11](#Regel%2011) können Verbundoperationen in beliebiger Reihenfolge ausgeführt werden.
+Dabei ergeben sich bei $n$ Relationen $\dfrac{(2(n-1))!}{(n-1)!}$ mögliche Reihenfolgen.
+- $n = 7 \to 665.280$
+- $n=10 \to \; > 176 Mrd.$ 
+
+Durch Pruning wird der Lösungsraum eingeschränkt, da es nicht möglich oder sinnvoll ist jede einzelne Kombination zu berücksichtigen. 
+
+![](JoinTreeTypes.png)
+
+Die linearen Strukturen schränken die Anzahl an Möglichkeiten drastisch ein. Dabei darf bei einem Links/Rechtstiefen Baum nur jeweils eine Seite weiter verschachtelt sein. Die Andere Seite des Verbunds muss jeweils immer eine Basisrelation sein.
+
+Da die komplette innere Relation bei einem Verbund verwendet wird, muss diese immer materialisiert werden.
+
+> [!NOTE] Begriffe: Innere Relation & Materialisiert
+> Beim Verbund
+> $$
+> A \bowtie B
+> $$
+> Ist $A$ die äußere Relation und $B$ die "innere Relation". Der Begriff stammt aus der Implementierung, besonders aus dem [Block Nested Loop-Verbund](09%20Implementierung%20Relationaler%20Operatoren.md#Block%20Nested%20Loop-Verbund)
+>
+> ---
+> Eine Materialisierte Relation liegt als physische Tabelle auf der Platte gespeichert.
+> Gegenteil ist eine dynamisch berechnete Sicht.
+
+Linkstiefe Bäume sind daher besonders interessant, da die inneren Relationen stets Basisrelationen sind die materialisiert vorliegen.
+
+#### Reduzierung des Suchraums
+##### Join-Heuristik 1
+Unäre Operationen werden 'on-the-fly' berechnet.
+- Selektionen: Beim ersten Lesen der Relation
+- Projektion: Beim Bilden von Resultaten aus anderen Operationen
+Somit werden alle Operationen als Teil einer Verbundoperation ausgeführt.
+
+##### Join-Heuristik 2
+Kartesische Produkte werden nur gebildet, wenn die Anfrage selber auch ein kartesisches Produkt enthält.
+
+![](JoinHeuristic2.png)
+
+
+#### Aufzählen Linkstiefer Bäume
+1. Durchgang 1
+	- Aufzählung aller Strategien für alle Basisrelationen
+	- Partitioniere diese Strategien in Äquivalenzklassen basierend auf Attributen mit [Interessanter Sortierreihenfolge](#Interessante%20Reihenfolge)
+	- Bilde weitere Äquivalenzklasse mit allen anderen Strategien
+	- Wähle aus jeder ÄK. die beste Strategie
+	- Für jede Basisrelation können alle Attribute verworfen werden, die nicht in abschließender Projektion oder in Verbundoperationen benötigt werden.
+2. Durchgang 2
+	- Generiere Alle Strategien für zwei Relationen mit allen Kandidaten aus Durchgang 1 als linker Relation
+	- Entferne dabei Kartesische Produkte
+	- Bestimme erneut günstigste Strategien pro Äquivalenzklasse
+3. Durchgang k
+	- Generiere Alle Strategien für $k$ Relationen mit allen Kandidaten aus Durchgang $k-1$ als linke Relation
+	- Kartesische Produkte entfernen und beste Strategie pro Klasse bestimmen
+4. Durchgang $n$
+	 - Wiederhole Schritte
+	 - Vergleiche die günstigsten Strategien aller Äquivalenzklassen
+	 - Beste Strategie ist die Lösung
+	
+##### Interessante Reihenfolge
+Ein Zwischenresultat $Z$ hat eine 'interessante Reihenfolge' wenn mindestens eine der folgenden Bedingungen erfüllt ist.
+- Sortiert nach einem Attribut dass in `ORDER BY` vorkommt
+- Sortiert nach einem Attribut dass in `GROUP BY` vorkommt
+- Sortiert nach Attribut, das in nachfolgendem Verbund benötigt wird.
+
+Falls $Z$ eine solche interessante Reihenfolge besitzt muss er beim Optimieren berücksichtigt werden.
+
+Der [Finale Algorithmus](#Aufzählen%20Linkstiefer%20Bäume) berechnet Bottom-Up und berücksichtigt die [Restriktionen](#Reduzierung%20des%20Suchraums).
