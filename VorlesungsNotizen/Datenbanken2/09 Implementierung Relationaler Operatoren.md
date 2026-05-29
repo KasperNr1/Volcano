@@ -102,8 +102,8 @@ Es müssen alle Einträge gelesen werden. Da die Daten nicht nach dem Indexattri
 Im [B+ Bäume](03%20Baumbasierte%20Indexstrukturen.md#B+%20Bäume) muss in jedem Knoten im Mittel die Hälfte der Einträge gelesen werden um zum nächsten Knoten zu gelangen. Nachdem jedes Level des Baumes durchlaufen ist, gelangt man beim Datenpunkt an.
 
 
-# Zusammengesetzte Prädikate
-## Konjunktive Selektionen
+## Zusammengesetzte Prädikate
+### Konjunktive Selektionen
 Bei Anfragen der Art $A = x \wedge B = y \wedge C = z$ kann durch die Wahl der Reihenfolge optimiert werden.
 Attribute mit Index oder Sortierung sollen dabei bevorzugt werden. Auch sollen stärker selektierende Attribute vor solchen bevorzugt werden, die schwächer selektieren und somit größere Zwischenergebnisse liefern würden.
 
@@ -118,9 +118,211 @@ Fall im genannten Beispiel ein Index über $A$ und $B$ existiert und $\text{ndis
 Alternativ könnten die beiden Indexe durchsucht werden und die Schnittmenge der Zeiger als Zwischenresultat weitergegeben werden.
 ![](SqlSelectionThroughIndexCombination.png)
 
-## Disjunktive Selektionen
+### Disjunktive Selektionen
 Bei Anfragen der Art $A = x \vee B = y \vee C = z$ muss immer linear gesucht werden, falls mindestens eines der Attribute nicht sortiert ist oder über einen Index verfügt.
 Es ist möglich alle Bedingungen [parallel](Paraprog-Basics.md#Aufgabenparallelismus) abzuarbeiten.
 
 Falls Indexe oder Sortierungen für alle Attribute vorhanden sind, kann wie im zweiten Beispiel zur [Konjunktiven Selektion](#Konjunktive%20Selektionen) gearbeitet werden, hier wird aber die Vereinigung anstelle der Schnittmenge gebildet.
+
+# Implementierung des Verbunds
+## Kardinalität des Verbunds
+Beim [Kartesischen Produkt](Relationenalgebra.md#Kartesisches%20Produkt) von $R$ und $S$ gilt:
+$$
+\text{card}_{R\times S} = \text{ntuples}(R) \cdot \text{ntuples}(S)
+$$
+Die Berechnung der exakten Kardinalität ist komplex, häufig wird von diesem 'worst-Case' des Kreuzprodukts ausgegangen.
+$$
+\text{card}_{R\bowtie_{R.a = S.b} S} \leq \text{ntuples}(R) \cdot \text{ntuples}(S)
+$$
+Im Allgemeinen ist diese Aussage zu pessimistisch.
+Unter der Annahme von Gleichverteilung der Attributwerte in beiden Relationen können teilweise bessere Abschätzungen getroffen werden.
+
+Falls $A$ ein Schlüsselattribut ist, so kann ein Tupel aus $S$  maximal einem Tupel aus $R$ gleich sein.
+$$
+\text{ntuples}(T) \leq \text{ntuples}(S)
+$$
+Wenn weder $A$ noch $B$ Schlüssel sind, kann die Kardinalität des Ergebnisses wie folgt abgeschätzt werden.
+$$
+\text{ntuples}(T) = \text{SC}_A(R) \cdot \text{ntuples}(S) = \text{SC}_B(S) \cdot \text{ntuples}(R)
+$$
+Für jedes Tupel $s$ aus $S$ werden im Durchschnitt $\text{SC}_A(R)$ Tupel für das gegebene Attribut $A$ angenommen.
+Die zweite Formel begründet sich analog.
+
+## Block Nested Loop-Verbund
+Ist der einfachste Algorithmus um einen Verbund zu implementieren.
+Es wird in zwei verschachtelten Schleifen jede Kombination von Tupeln auf die Bedingung geprüft und ggf. zum Ergebnis hinzugefügt.
+
+$$
+\text{cost}_{\text{BNL}} = \text{nblocks}(R) + (\text{nblocks}(R) \cdot \text{nblocks}(S))
+$$
+Dabei kann durch Vertauschen der erste Term variiert werden.
+
+Im Code sind vier Schleifen vorhanden da jeweils die Daten aus den Blöcken gelesen werden müssen.
+``` Java
+for iblock = 1 to nblocks(R){
+	Rblock = read_block(R,iblock);
+	
+	for jblock = 1 to nblocks(S){ 
+		Sblock = read_block(S,jblock);
+		
+		for i = 1 to ntuples(Rblock){
+		
+			for j = 1 to ntuples(Sblock){
+			if (Join(Rblock.tuple[i].A,Sblock.tuple[j].B)){ 
+				T := T ∪ (Rblock.tuple[i],Sblock.tuple[j]);
+				}
+			}
+		}
+	}
+}
+```
+
+Durch Pufferung der Blöcke von $R$ können die Kosten optimiert werden. Im besten Fall ergibt sich ein Aufwand von 
+$$
+\text{cost}_{\text{BNL}} = \text{nblocks}(R) + \text{nblocks}(S)
+$$
+Falls mit Schlüsselattributen gearbeitet wird kann ggf. früher abgebrochen werden.
+
+## Indexed Nested Loop-Verbund
+Voraussetzung ist ein Index $I$ über das Verbundattribut in der inneren Relation.
+Somit kann dieser Index statt der inneren Schleife verwendet werden um die passenden Tupel schneller zu finden.
+
+```Java
+ for iblock = 1 to nblocks(R){ 
+	 Rblock = read_block(R,iblock); 
+	 
+	 for i = 1 to ntuples(Rblock){ 
+		 for j = 1 to m{
+		 if (Rblock.tuple[i].A = I[j]){
+			 T := T ∪ Rblock.tuple[i];
+			 }
+		 }
+	 }
+ }
+```
+
+Auch hier kann analog zum [Block-nested-Join](#Block%20Nested%20Loop-Verbund) optimiert werden indem möglichst große Teile von $R$ gepuffert werden und bei Schlüsselattributen die Berechnung früher beendet werden kann.
+
+Falls das Verbundattribut $B$ in der inneren Relation $S$ ein Primärschlüssel ist, gelten folgende Kosten:
+$$
+\text{cost}_{\text{INL}} = \text{nlbocks}(R) + \text{ntuples}(R) \cdot (\text{nlevels}_{B}(I)+1)
+$$
+
+Wenn für das Attribut $B$ ein [Clusterindex](02%20Dateiorganisation.md#Clusterindex) definiert ist, so bleibt:
+$$
+\text{cost}_{\text{INL}} = \text{nlbocks}(R) + \text{ntuples}(R) \cdot \left(\text{nlevels}_{B}(I) + \left \lceil \frac{\text{SC}_B(S)}{\text{bfactor}(S)} \right \rceil \right)
+$$
+
+## Sort Merge Join
+Voraussetzung ist, dass die Dateien (oder Zwischenresultate) nach den beiden Verbundattributen sortiert sind. In diesem Fall kann das Resultat durch Mischen ermittelt werden.
+![](SortMergeJoin.png)
+
+```Java
+sort(R);
+sort(S);
+// Führe Mischen aus
+nextR = 1;
+nextS = 1;
+while(nextR <= ntuples(R) and nextS <= ntuples(S)){ 
+	join_value = R.tuples[nextR].A;
+	// Scanne S bis Wert kleiner als aktueller
+	// Verbundwert gefunden wird
+	while( S.tuples[nextS].A < join_value and nextS <= ntuples(S)){
+		nextS = nextS + 1;
+		}
+	// Eventuell übereinstimmendes Tupel von R und S gefunden
+	// Jedes Tupel aus S mit join_value muss mit jedem 
+	// Tupel aus R mit join_value zusammengeführt werden 
+	while( S.tuples[nextS].A = join_value and nextS <= ntuples(S)){
+		m = nextR;
+		while( R.tuples[m].A = join_value and m <= ntuples(R)){
+			T := T ∪ S.tuples[nextS]+R.tuples[m] 
+			m = m + 1;
+			}
+		nextS = nextS + 1; 
+		}
+	// Jetzt sind alle matchende Paare in R und S 
+	// gefunden. Jetzt muss nächstes Tupel in R mit 
+	// nächstem Verbundwert gesucht werden
+	while( R.tuples[nextR].A = join_value
+	and nextR <= ntuples(R)){
+	nextR = nextR + 1;
+	}
+}
+```
+
+Die Kosten bei bestehender Sortierung belaufen sich auf:
+$$
+\text{cost}_{\text{SMJ}} = \text{nblocks}(R) + \text{nblocks}(S)
+$$
+
+Falls die Relation unsortiert ist kommen die Kosten hierzu als Vorverarbeitungsschritt dazu.
+$$
+\text{cost}_\text{sorting} = \text{nblocks}(R) \cdot \left \lceil \log_2(\text{nblocks}(R)) \right \rceil + \text{nblocks}(S) \cdot \left \lceil \log_2(\text{nblocks}(S)) \right \rceil
+$$
+
+
+## Hash-Join
+In zwei Phasen werden die Relationen $R$ und $S$ erst Partitioniert und anschließend gematched.
+Gemäß einer [Hashfunktion](Hashing.md) $h()$ entstehen die Partitionen $R_1, R_2, \dots, R_m$ und $S_1, S_2, \dots, S_m$.
+Die Entsprechenden Partitionen enthalten die möglichen Matches und können verglichen werden. So ist die Anzahl an negativer Vergleiche deutlich reduziert.
+
+``` Java
+// Partitionierung-Phase 
+for i = 1 to ntuples(R){ 
+	hash_value = h(R.tuple[i].A);
+	Füge Tupel R.tuple[i].A zur Partition Rj mit 
+	hash_value = Rj hinzu
+}
+for j = 1 to ntuples(S){
+	hash_value = h(S.tuple[j].B);
+	Füge Tupel S.tuple[j].A zur Partition Sj mit 
+	hash_value = Sj hinzu
+}
+// Matching-Phase
+for ihash = 1 to number_partitions{
+	Lese die R-Partition zum Hash-Wert ihash;
+	RP = Rpartition[ihash];
+	for i = 1 to max_tuples_in_R_partition(RP){
+		// Baue im Speicher Hash-Index unter Verwendung 
+		// von Hashfunktion h2(), verschieden h() 
+		new_hash = h2(RP.tuple[i].A);
+		Füge new_hash zu neuem Hash-Index hinzu;
+	}
+	// Scan Partition von S nach matchenden Tupeln von R 
+	SP = Spartition[ihash];
+	for j = 1 to max_tuples_in_S_partition(SP){
+		Lese SP und sondiere Hash-Tabelle unter Verwendung 
+		von h2(SP.tuple[j].B);
+		Füge alle matchenden Tupel zum Resultat hinzu; 
+	}
+	Lösche Hash-Tabelle für nächste Partition; 
+}
+```
+
+Die Kosten hierfür belaufen sich auf die dreifache Summe der Blöcke.
+$$
+\text{cost}_{\text{HashJ}} = 3 \cdot \left( \text{nblocks}(R) + \text{nblocks}(S) \right)
+$$
+Grund dafür sind die drei Folgen an Plattenzugriffen:
+1. Lesen der Relationen zum Partitionieren
+2. Schreiben der Partitionen
+3. Nochmaliges Lesen bei der Matching-Phase
+
+## Vergleich der Verbundimplementierungen
+![](JoinImplementationComparisonExample1.png)
+
+![](JoinImplementationComparisonExample2.png)
+
+Generell gibt es keinen der drei Algorithmen der immer zu bevorzugen ist. In unterschiedlichen Situationen haben verschiedene Algorithmen einen großen Vorteil.
+
+
+
+
+
+
+
+
+
+
 
