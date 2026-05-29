@@ -60,4 +60,67 @@ So ergibt sich für die Selektionskardinalität ein Fehler von $\pm 50 \%$ bei $
 > [!NOTE] Vermeidung
 > In echten Datenbanksystemen wird die Selektionskardinalität nicht direkt gespeichert. Öfter wird ein Histogramm der tatsächlichen Verteilung abgespeichert.
 
+# Implementierung der Selektion
+Basierend auf der Dateiorganisation und der möglichen Indexierung der Attribute in der Selektionsbedingung kann zwischen vielen bekannten Verfahren entschieden werden.
+
+
+> [!MISSING] TODO
+> Formeln für Kosten der Operationen einfügen
+
+## Lineare Suche
+Wenn die Datei nicht sortiert ist und kein Index existiert, so muss linear jeder Wert geprüft werden.
+
+Falls die Werte eindeutig sind, so ist im Mittel der Zugriff auf $\dfrac{n}{2}$ der Werte nötig.
+Falls Werte nicht-Eindeutig sind muss auf alle $n$ Werte zugegriffen werden.
+
+## Binäre Suche
+Wie auch [Binary Search](Suchalgorithmen.md#Binary%20Search) für das durchsuchen des Hauptspeichers halbiert dieses Verfahren mit jedem Schritt den Suchraum.
+Der Inhalt der Blöcke muss dabei gemäß dem Suchkriterium und über Blöcke hinweg sortiert sein.
+So kann mit logarithmischen Kosten der passende Block gefunden werden.
+
+## Gleichheit auf Hashschlüssel
+Falls das gesuchte Attribut $A$ ein Hashschlüssel ist, so kann dieser zur Berechnung der Zieladresse verwendet werden.
+Der Aufwand zur Suche ist damit Konstant.
+
+## Gleichheit auf Primärschlüssel
+Für eine Bedinung $A = x$ auf dem Primärschlüsselattribut $A$ kann der [Primärindex](02%20Dateiorganisation.md#Primärindex) zur Suche verwendet werden. 
+Somit ist zur Suche ein Schritt für jedes Level im Indexbaum notwendig.
+
+Bei Ungleichheit kann zuerst nach dem Tupel mit exakt gleichen Wert gesucht werden. Im sortierten Index sind alle Werte davor oder danach größer oder kleiner.
+
+## Gleichheit auf (Sekundärem) Clusterindex
+Wenn das Prädikat eine Gleichheitsbedingung über $A$ formuliert, das nicht Primärschlüssel ist, für das aber ein sekundärer [Clusterindex](02%20Dateiorganisation.md#Clusterindex) definiert ist, kann dieser Index verwendet werden.
+
+Es wird mit dem Index der Grenzwert gefunden bei dem die Bedingung zum ersten Mal erfüllt ist, die folgenden Blöcke werden linear durchsucht um das Ende des Clusters zu finden.
+
+## Gleichheit auf (Sekundärem) Nicht-Clusterindex
+In einem nicht geclusterten [Sekundärindex](02%20Dateiorganisation.md#Sekundärindex) kann die Eigenschaft der Sortierung nicht verwendet werden.
+
+Es müssen alle Einträge gelesen werden. Da die Daten nicht nach dem Indexattribut sortiert sind, muss angenommen werden, dass sie sich in jeweils unterschiedlichen Blöcken befinden.
+
+## Ungleichheit auf B+ Baum-Index
+Im [B+ Bäume](03%20Baumbasierte%20Indexstrukturen.md#B+%20Bäume) muss in jedem Knoten im Mittel die Hälfte der Einträge gelesen werden um zum nächsten Knoten zu gelangen. Nachdem jedes Level des Baumes durchlaufen ist, gelangt man beim Datenpunkt an.
+
+
+# Zusammengesetzte Prädikate
+## Konjunktive Selektionen
+Bei Anfragen der Art $A = x \wedge B = y \wedge C = z$ kann durch die Wahl der Reihenfolge optimiert werden.
+Attribute mit Index oder Sortierung sollen dabei bevorzugt werden. Auch sollen stärker selektierende Attribute vor solchen bevorzugt werden, die schwächer selektieren und somit größere Zwischenergebnisse liefern würden.
+
+> [!Info] Sortierung Großer Relationen
+> Wenn Relationen sehr groß werden können sie nicht mehr mit klassischen Sortieralgorithmen sortiert werden, da diese aufgrund der langsamen Zugriffszeiten auf den Sekundärspeicher nicht optimal sind.
+> 
+> Stattdessen werden spezialisierte Algorithmen wie [Externes Sort-Merge](Sortieralgorithmen.md#Externes%20Sort-Merge) verwendet.
+
+Fall im genannten Beispiel ein Index über $A$ und $B$ existiert und $\text{ndistinct}_A(R) < \text{ndistinct}_B(R)$ gilt, so würde in der folgenden Reihenfolge gearbeitet werden:
+![](SqlSelectionExecutionOrderExample.png)
+
+Alternativ könnten die beiden Indexe durchsucht werden und die Schnittmenge der Zeiger als Zwischenresultat weitergegeben werden.
+![](SqlSelectionThroughIndexCombination.png)
+
+## Disjunktive Selektionen
+Bei Anfragen der Art $A = x \vee B = y \vee C = z$ muss immer linear gesucht werden, falls mindestens eines der Attribute nicht sortiert ist oder über einen Index verfügt.
+Es ist möglich alle Bedingungen [parallel](Paraprog-Basics.md#Aufgabenparallelismus) abzuarbeiten.
+
+Falls Indexe oder Sortierungen für alle Attribute vorhanden sind, kann wie im zweiten Beispiel zur [Konjunktiven Selektion](#Konjunktive%20Selektionen) gearbeitet werden, hier wird aber die Vereinigung anstelle der Schnittmenge gebildet.
 
