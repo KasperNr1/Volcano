@@ -132,10 +132,13 @@ Manche Nullen sind gewünscht, etwa wenn die Kombination von zwei Wörter Gramma
 
 ### Zipfsches Gesetz
 Häufige Wörter kommen oft vor, seltene nur wenige Male.
+Präziser ausgedrückt erscheint das Wort das auf Platz $n$ der Häufigkeitsrangliste mit einer Wahrscheinlichkeit von $\dfrac{1}{n}$ an einer beliebigen Stelle im Text.
+
+![](ZipfDistribution.png)
+
 Somit sind [Bigramme](#N-Gramm%20Modell) mit zwei seltenen Wörtern statistisch nicht belastbar.
 
 Jedes N-Gramm-Trainingsmatrix ist aufgrund dieses Gesetzes dünn besetzt.
-
 
 > [!Info] Hinweis
 > "Dünn besetzt" bedeutet, dass die Mehrheit der Einträge Null ist

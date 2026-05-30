@@ -155,10 +155,7 @@ Ebenfalls können unterschiedliche Strukturen die selbe Rollenverteilung behalte
 - Eine Kasusrolle pro Konstituente (Pro Subjekt / Objekt nur eine Rolle)
 - Keine doppelten Rollen.
   Innerhalb einer Regel darf keine Rolle mehrfach erscheinen
-- Koordinierung von NPs: Nur NPs derselben Kasusrolle können kombiniert werden. In "Der Lehrer und die Schüler sind hier" sind beide Subjekte Agenten
-
-> [!Missing] Wort
-> Was heißt 'NPs'?
+- Koordinierung von [NPs](04%20Syntax.md#Nominalphrasen): Nur NPs derselben Kasusrolle können kombiniert werden. In "Der Lehrer und die Schüler sind hier" sind beide Subjekte Agenten
 
 ### Auswahlbeschränkungen
 Sind Regeln die festlegen, welche Kasusrollen in bestimmten Kontexten verwendet werden dürfen.
