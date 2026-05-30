@@ -29,7 +29,7 @@ Wörter und Sätze bedeuten oft verschiedene Dinge, abhängig von ihrem Kontext.
 ## Phonologie
 - Untersucht Regeln und Strukturen von Lauten
 ## Morphologie
-- Form und Struktur von Wörtern die durch Grammatik und [Syntax](#Syntax) 
+- Form und Struktur von Wörtern die durch Grammatik und [Syntax](#Syntax) bestimmt wird.
 ## Syntax
 - Untersucht Struktur von Sätzen und Klauseln
 - Organisiert Bedeutung und Reihenfolge von Wörtern

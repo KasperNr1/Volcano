@@ -87,9 +87,24 @@ Diese Berechnung ist allerdings sehr mühsam. Mithilfe von [Markov Ketten](#Mark
 ## Markov Ketten
 Wandelt diese langen Folgen an Wahrscheinlichkeiten in Zustände um, die nur jeweils vom vorherigen Zustand abhängen. Somit wird die Berechnung deutlich erleichtert
 
+Es entsteht für beliebig komplexe Pfade durch die gegebenen Zustände jeweils ein Produkt aus den Übergangswahrscheinlichkeiten, das leicht berechnet werden kann.
 
-> [!MISSING] Markov Chains
-> Seite 68-80 im Skript
+![](MarkovChain.png)
+
+Während die Berechnung der Einzelwahrscheinlichkeiten der jeweiligen Fortsetzung korrekt ist, ist die Bestimmung dieser Wahrscheinlichkeiten aufgrund der Vielzahl möglicher Kombinatinoen extrem mühsam.
+Wenn diese Wahrscheinlichkeiten aus einem Text erlernt werden sollen, müsste ein enorm riesiges Volumen an Trainingsdaten verwendet werden, um auch die seltenen Kombinationen sinnvoll abzubilden.
+
+Markov hat gezeigt, dass sich diese Wahrscheinlichkeiten mit einem deutlich simpleren Verfahren approximieren lassen.
+$$
+P(w_n \mid w_1^{n-1}) \approx P(w_n \mid w_{n-N+1}^{n-1})
+$$
+Dabei ist mit $w_a^b$ die Wortfolge von $a$ bis $b$ und mit $N$ die Länge des von Markov verwendeten Kontexts gemeint.
+Im linken Term wird jeweils der gesamte Kontext verwendet, im rechten nur die letzten $N$ Wörter. Somit skaliert das Verfahren deutlich besser.
+Allgemein lässt sich für die Wahrscheinlichkeit einer Wortfolge somit sagen:
+$$
+P(n_1^n) \approx \prod_{k=1}^{n}P(w_k \mid w_{k-1})
+$$
+Die Ursprünglich komplexe Wahrscheinlichkeit kann also durch eine Folge von Bigrammen berechnet werden.
 
 # Language Model Evaluation
 Testdaten stammen aus der selben Quelle wie Trainingsdaten, ohne in den Trainingsdaten enthalten zu sein.
