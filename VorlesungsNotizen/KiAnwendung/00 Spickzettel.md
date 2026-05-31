@@ -218,71 +218,25 @@ Hat das Ziel ein tieferes Verständnis für die Struktur und Funktion von Wörte
 > [!MISSING] Lesezeichen
 > Contents
 
-
-# Lexikalische Einheit
-Umfasst Wörter, Wortbestandteile und Affixe (Präfixe und Suffixe) sowie zusammengesetzte Wörter und Phrasen
-
-## Lexikon einer Sprache
-Ist ein Katalog aller [Lexikalische Einheiten](#Lexikalische%20Einheit) einer Sprache.
-
-# Lexikalische Beziehungen
-Manche Wörter stehen in festen Beziehung zueinander.
-Im folgenden sind einige der Beziehungsarten gelistet.
 ## Homonymie
 Wörter die gleich klingen, aber verschiedene Bedeutungen haben
-
-> [!Quote] Beispiel
-> "Bank" als Geldinstitut vs. "Bank" als Sitzgelegenheit
-
 ## Polysemie
 Mehrdeutigkeiten desselben Wortes
-
-> [!Quote] Beispiel
-> "Kopf" kann das Körperteil bedeuten, oder den Anführer einer Gruppe meinen
-
 ## Metonymie
 Übertragung der Bedeutung durch Assoziation
-
-> [!Quote] Beispiel
-> "Das Weiße Haus" als Begriff für die US-Regierung
-
 ## Synonyme und Antonyme
 Wörter mit sehr ähnlicher oder gegenteiliger Bedeutung
-
-> [!Quote] Beispiel
-> "Auto" oder "Fahrzeug" als Synonyme,
-> "Heiß" und "Kalt" als Antonyme
-
 ## Hyponyme und Hypernyme
 Unter- und Oberbegriffe
-
-> [!Quote] Beispiel
-> "Apfel" als Hyponym von "Frucht"
-> "Frucht" als Hypernym von "Apfel"
-
 # Komplexe Spracheinheiten
-Die Bedeutung von Aussagen basiert neben der Bedeutung der einzelnen Wörter auch auf ihren syntaktischen Verbindungen.
-
-`Andrew likes Jane` $\to \text{likes}(Andrew, Jane)$ 
-`Jane likes Andrew` $\to \text{likes}(Jane, Andrew)$  
-
-Nur durch Ändern der Reihenfolge erhält der Satz eine andere Bedeutung.
-Ziel ist es, die Informationen in formale Repräsenationen zu transformieren. 
-
 ## Symbolische Repräsentation
 Stellt Logische Formeln durch inferelle oder Graphenbasierte Mechanismen dar.
 
 ## Vektorielle Darstellung
-![](WordVector.png)
-
 Ordnet Wörter in einem hochdimensionalen Raum an, sodass Beziehungen als Abstände codiert werden. Beispielsweise ist der Verbindungsvektor zwischen Frankreich und Paris sehr ähnlich zu dem, der Deutschland und Berlin verbindet.
-
-Diese Technik wird in aktuellen Modellen am häufigsten verwendet.
-
 
 > [!NOTE] Word Sense
 > Die Wortbedeutung ist entscheidend für die Position im [Vektorraum](Vektoren%20und%20Vektorräume.md). Bei [Homonymen](#Homonymie) würden beide Bedeutungen des Wortes separat im Raum positioniert werden.
-
 
 # Word Sense Disambiguation (WSD)
 Syntaktische Mehrdeutigkeit wird durch [PoS Tagging](03%20PartOfSpeech.md#PoS%20Tagging) aufgelöst, WSD ist für die semantische Mehrdeutigkeit zuständig.
@@ -290,14 +244,6 @@ Syntaktische Mehrdeutigkeit wird durch [PoS Tagging](03%20PartOfSpeech.md#PoS%20
 Ein Problem für die WSD sind die Unterschiedlichen Definitionen von Wörtern in verschiedenen Wörterbüchern.
 
 PoS Tagging basiert auf der unmittelbaren Umgebung von Wörtern während WSD auch weiter entfernte Kontexte berücksichtigen kann.
-
-
-> [!NOTE] Inter-Judge Variance
-> Beim Vergleich von WSD Ergebnissen mit menschlichen Einordnungen von Wörtern fallen Unterschiede auf.
-> Allerdings werden die von Menschen Labels von äußeren Faktoren wie Stimmung, Tageszeit und persönlichen Vorlieben beeinflusst.
-> 
-> Menschen sind insgesamt besser in der groben Unterscheidung als in der feingranularen Analyse der Bedeutungen
-
 
 ## Methoden
 ### Wissensbasierte Methode
@@ -331,9 +277,7 @@ Keine Notwendigkeit für manuelle Annotation, die Bedeutung von Wörtern wird an
 Da keine definierten Trainingsdaten vorhanden sind, kann hier die Genauigkeit des Modells nur schwer validiert werden.
 
 # Synsets
-![](Synset.webp)
-
-"Synonym Sets" sind Graphen die jeweils Synonyme mit einander verbinden
+“Synonym Sets" sind Graphen die jeweils Synonyme mit einander verbinden
 
 ## Pfadbasierte Ähnlichkeit
 Der Abstand in der Bedeutung zweier Wörter kann anhand der Abstände in einem [Synset](#Synsets) erkannt werden.
@@ -346,12 +290,10 @@ Die Pfad-basierte Ähnlichkeit $\text{simpath}(c_1, c_2)$ von zwei Knoten berech
 $$
 \text{simpath}(c_1, c_2) = \frac{1}{\text{pathlen}(c_1, c_2)}
 $$
-Die Wortähnlichkeit berücksichtigt auch die verschiedenen Bedeutungen von Wörtern. Es wird die maximale Distanz aller Kombinationen von Definitionen verwendet.
+Die Wortähnlichkeit berücksichtigt auch die verschiedenen Bedeutungen von Wörtern. Es wird die maximale Ähnlichkeit aller Kombinationen von Definitionen verwendet.
 $$
 \text{wordsim}(w_1, w_2) = \max \left( \text{simpath}(c_1, c_2) \right) \qquad \forall c_1 \in \text{senses}(w_1), c_2 \in \text{senses}(w_2)
 $$
-
-Schwächen dieses Ansatzes sind die konstanten Abstände innerhalb des Graphen. Daher werden Ähnlichkeiten zu abstrakteren Worten tendenziell immer als größer berechnet. 
 
 # Term Dokument Matrix
 Zeigt die Häufigkeit und Verteilung von Begriffen in einem Dokument.
@@ -388,32 +330,8 @@ Ist eine Variante von [Pointwise mutual Information (PMI)](#Pointwise%20mutual%2
 $$
 \text{PPMI}(x;y) = \max \left( \text{PMI}\left(x,y\right), 0 \right)
 $$
-Grund ist, dass mit negativen Werten in vielen Modellen nur schlecht umgegangen werden kann.
 # Pragmatik und Diskursanalyse
 Bezieht sich auf das Studium der Sprache im Kontext. 
-
-Pragmatische Analyse konzentriert sich auf kontextuelle Bedeutung.
-Diskursanalyse untersucht Kontext in geschriebener und Gesprochener Sprache.
-
-# Diskurs
-Mehrere Sätze werden durch thematische Ähnlichkeit oder mithilfe von Konnektoren ("und", "aber", "weil", ...) verbunden. Idealerweise trägt jede Information zur Gesamtbedeutung des Textes bei.
-
-> [!NOTE] Kohäsion
-> Ist ein Maß mit dem gemessen werden kann, wie sehr Sätze innerhalb eines Textes zusammenhängen.
-
-## Monolog
-Einweg-Kommunikation zwischen einem Sprecher / Schreiber und einem Publikum.
-
-# Dialog
-Teilnehmer wechseln zwischen den Rollen "Sprecher" und "Publikum".
-Erfordert mindestens zwei Teilnehmer.
-- Mensch zu Mensch: Tägliche Gespräche
-- Mensch zu Computer (HCI): Interaktion mit Chatbots
-- Computer zu Computer (CCI)
-
-## Diskursphenomäne
-Werden von Menschen durch Kontext und Weltwissen oft natürlich gelöst.
-Besonders die "[Koreferenzauflösung](#Koreferenzauflösung)" ist für Maschinen sehr schwierig.
 
 ### Koreferenzauflösung
 Identifikation linguistischer Ausdrücke, die einer realen Entität im Text entsprechen. Erwähnungen werden durch korrekte Pronomen und Nominalphrasen ersetzt.
@@ -422,16 +340,6 @@ Identifikation linguistischer Ausdrücke, die einer realen Entität im Text ents
 2.  "Jack saw the student in the examination hall. He looked nervous."
 
 Im ersten Satz wird "he" eher auf Andrew bezogen, im zweiten eher auf den Student.
-
-
-> [!Quote] Beispiel
-> Standardsituation der Koreferenzauflösung
-> 
-> Original:
-> "Jack gives Ian 1000 Dollars. He is generous"
-> 
-> Aufgelöst:
-> "Jack gives Ian 1000 Dollars. Jack is generous"
 
 ### Weitere Phänomene
 - Kataphor
@@ -445,9 +353,6 @@ Im ersten Satz wird "he" eher auf Andrew bezogen, im zweiten eher auf den Studen
   "$\boxed{\text{Peter}}$ ist glücklich. $\boxed{\text{Peter}}$ hat einen Hund."
 
 # Kohärenz
-Bezieht sich auf die Bedeutungsbeziehungen zwischen einzelnen Einheiten, wie Sätzen oder Aussagen.
-[Koreferenz](#Koreferenzauflösung) und Kohärenz sind eng miteinander verbunden. Beide Konzepte trage dazu bei, dass Texte und Diskurse logisch und angenehm zu lesen sind.
-
 ## Entity-basierte Kohärenzmodelle
 Kohärenz wird gemessen, indem zentrale Entitäten über Äußerungen hinweg verfolgt werden.
 
@@ -465,23 +370,11 @@ Die zentrale Entität (CE) beginnt in 1-4 bei Hellen, wechselt dann vom Supermar
 # Diskurssegmentierung
 ## Definition
 Bestimmung der kleinsten, nicht überlappenden Diskurseinheiten, auch "Elementare Diskurseinheiten" (EDUs)
-
-Kategorien:
-- Satzsegmentierung
-- Satzebenen-Diskurssegmentierung
-## Ziel
-Unterteilung eines Dokuments in eine Liste von Unterthemen.
-
-## Methoden
-- [Unüberwachte Methoden](08%20Unüberwachtes%20Lernen.md)
-- [Überwachte Methoden](01%20Grundidee.md#^cf5d0b)
 ### Unüberwachte Diskurssegmentierung
 Lineare Segmentierung von Rohdaten. 
 
 > [!NOTE] Was heißt Linear?
 > Bedeutet, dass der Text in Blöcke zerteilt wird, die ein Label erhalten. Es werden nicht einzelne Sätze zu zusammenhängenden Blöcken gefasst.
-
-Ein Kohäsionsbasierter Ansatz teilt den Text in Unterthemen. Beispiel für ein solches Verfahren ist "[TextTiling](#TextTiling)" von Marti Hearst.
 
 #### TextTiling
 Basiert auf der Idee, dass längere Texte in kleinere, kohärente Abschnitte unterteilt werden können.
@@ -505,17 +398,6 @@ Die Verteilung ausgewählter Begriffe über den Text wird betrachtet. Dabei werd
 ![](SimilarityDetection.png)
 
 Stellen mit besonders niedriger Ähnlichkeit werden als Grenzen zwischen verschiedenen Themen erkannt.
-
-## Anwendungen
-- Informationsextraktion / -Abruf
-- Textzusammenfassung für jedes Segment
-
-# Überwachte Diskurssegmentierung
-Verwendet unterschiedliche Modelle wie [Support Vector Machines](05%20SVM.md#Support%20Vector%20Machines), [Naiver Bayes](04%20Wälder.md#Naiver%20Bayes) oder andere um zu bestimmen ob Satzgrenzen auch Absatzgrenzen sind.
-
-# Rhetorische Strukturtheorie
-Eine Theorie zur Organisation von Texten. Erklärt wie Teile eines Textes miteinander in Beziehung stehen. 
-
 # Verweisende Ausdrücke
 Nominalphrasen: "Die Präsidentin" "Das rote Auto"
 Pronomina: "Er", "sie" "jener"
@@ -524,38 +406,22 @@ Titel / Rollen: "Der Bürgermeister"
 Demonstrativa: "Diese Theorie" "Jene Ergebnisse"
 
 # Kohärenzrelationen
-Beziehen sich auf die Eigenschaften eines Diskurses, die es ermöglichen, dass dieser im Kontext als sinnvoll oder zusammenhängend wahrgenommen wird.
-
 Es gibt dabei fünf Haupttypen von Relationen:
-- Parallelbeziehung
-- Ausarbeitungsbeziehung
-- Ursache und Wirkung
-- Kontrastbeziehung
-- Gelegenheitsbeziehung
-
 ## Parallelbeziehung
 Beispiel:
-"Rich man wants more power. Poor man wants more food"
-
+“Rich man wants more power. Poor man wants more food"
 ## Ausarbeitungsbeziehung
 Beispiel:
-"Dorothy was from Kansas. She lived in the great Kansas prairies"
-
+“Dorothy was from Kansas. She lived in the great Kansas prairies"
 ## Ursache und Wirkung
 Beispiel:
-"Jack cannot afford to buy a car. He lost his Job"
-
+“Jack cannot afford to buy a car. He lost his Job"
 ## Kontrast
 Beispiel:
-"Hope for the best. Prepare for the worst."
-
+“Hope for the best. Prepare for the worst."
 ## Gelegenheit
 Beispiel:
-"Jack failed in the exam. He started to work hard."
-
----
-
-Diskurskohärenz kann auch durch die Hierarchie zwischen Kohärenzrelationen verdeutlicht werden.
+“Jack failed in the exam. He started to work hard."
 
 1. Jack went to town to buy a toy
 2. He took a bus to the shopping mall
@@ -564,11 +430,6 @@ Diskurskohärenz kann auch durch die Hierarchie zwischen Kohärenzrelationen ver
 5. He also wanted to buy some books for weekend reading
 
 ![](RelationHierarchy.png)
-
-# Interpretation von Pronomen
-Es gibt sechs grundlegende Prinzipien von denen die Interpretation eines Pronomens beeinflusst wird.
-
-![](PronomenInterpretation.png)
 
 # Algorithmen zur Koreferenzauflösung
 Englisch: "Coreference Resolution (CR)"
@@ -579,63 +440,7 @@ Verbreitet sind drei Algorithmen:
 - Centering-Algorithmus 
 - Log-lineares Modell
 
-## Hobbs Algorithmus
-Gilt heute als Benchmark und ist in zwei Varianten verfügbar.
-
-Verwendet nur Parsbaum und Grammatikregeln, somit ist kein Diskursmodell erforderlich.
-
-### Hobbs-Ablauf
-1. Startpunkt:
-   Beginne mit dem Knoten der [Nominalphrase (NP)](04%20Syntax.md#Nominalphrasen)  die das Pronomen direkt dominiert
-2. Aufwärtsbewegung:
-   Gehe den Baum hinauf zum ersten besuchten NP- oder Satzknoten (S), benenne diesen Knoten als $X$ und den Weg dorthin als $p$
-3. Seitliche Suche:
-   Besuche alle Äste unter Knoten $X$ links von Pfad $p$, von links nach rechts und betrachte jeden gefundenen NP-Knoten als [Antezendens](#Weitere%20Phänomene), wenn dazwischen ein NP- oder S-Knoten liegt.
-4. Satzübergreifende Suche:
-   Wenn $X$ der höchste S-Knoten im Satz ist, besuche die Parsbäume vorheriger Sätze, beginnend mit dem neuesten, von links nach rechts und in Breite. Empfohlene NP-Knoten werden als Antezedens betrachtet
-5. Weiteres Aufsteigen:
-   Steige weiter von Knoten $X$ zum ersten NP- oder S-Knote auf und benenne diesen neuen Knoten als $X$
-6. NP-Überprüfung:
-   Wenn $X$ ein NP-Knoten ist, und der Pfad $p$ nicht durch einen nominalen Knoten direkt unter $X$ verläuft, wird $X$ als Antezedens bezeichnet
-7. Breitensuche:
-   Besuche alle Äste unter Knoten $X$ links von $p$, von links nach rechts und betrachte jeden NP-Knoten als Antezedens
-8. Rechte Suche bei S:
-   Besuche alle Äste von Knoten $X$ rechts von Pfad $p$, von links nach rechts, aber gehe nihct unter NP- oder S-Kntoen die als Antezedens betrachtet werden
-9. Wiederholung:
-   Gehe zu Schritt 4 zurück
-
-### Hobbs-Beispiel
-Im folgenden Beispiel wird der Ablauf veranschaulicht. Im Satz `"The castle in Camelot remained the residence of the king until 536 when he moved it to London"` wird das `it` am Ende des Satzes aufgelöst.
-
-1. Start
-   Beginne bei $NP_1$, gehe in Schritt 2 zu $S_1$ hoch
-2. Seitliche Suche
-   Die linke Seite von S1 wird durchsucht, findet jedoch keine geeigneten NP-Knoten
-3. Satzübergreifende Suche:
-   Nicht Anwendbar
-4. Weiteres Aufsteigen:
-   Gehe zu $NP_2$ das in Schritt 6 '536' als Antezedens von 'it' vorschlägt.
-5. Verbesserung durch Einschränkungen:
-   Daten können sich nicht bewegen; Große oder feste Objekte können sich nicht bewegen.
-6. Ablehnung von $NP_2$:
-   Schritte 7 und 8 finden nichts, Kontrolle kehrt zu Schritt 4 zurück
-7. Weiteres Aufsteigen zu $S_2$
-   Schritt 6 ist nicht anwendbar
-8. Breitensuche
-   $NP_3$ 'the castle' wird aufgrund der Einschränkung in 5. abgelehnt
-9. Weiter zu $NP_4$
-   Empfiehlt korrekt "the residence" als Antezedens
-
-![](HobbsAlgorithmExample.png)
-
-Der Algorithmus berücksichtigt keine [Diskurssegmentierung](#Diskurssegmentierung), somit werden gelegentlich auch weit zurückliegende Textstellen vorgeschlagen.
-Mit einer Genauigkeit von $ca. 72\%$ ist der Ansatz ein wichtiger Benchmark in der Forschung.
-
 ## Centering-Algorithmus
-Die Grammatikalische Rollenhierarchie ordnet syntaktische Funktionen nach ihrer Wichtigkeit im Satz.
-
-![](GrammaticalHierarchy.png)
-
 Der Algorithmus basiert auf der Annahme, dass jeder Diskurs einen zentralen Fokus besitzt. Dieses bleibt über mehrere Sätze hinweg konstant, bevor es wechselt.
 
 Dieses Zentrum ist oft der Bezugspunkt der Pronomen oder Referenzen. Dabei können einige Zentren in der Zukunft und in der Vergangenheit liegen.
@@ -670,9 +475,6 @@ Für jede Äußerung $U_i$ mit $i = 1 \ldots m$ in einem Diskurssegment $D$:
 Die Beziehungen zwischen $C_b$ und $C_p$ zweier Äußerungen bestimmt die Kohärenz zwischen zwei Worten. Die Centering Theory stuft die Kohärenz benachbarter Äußerungen mit Übergängen, die durch folgende Kriterien bestimmt werden:
 - $C_b$ bleibt von $U_{n-1}$ zu $U_n$ gleich oder nicht
 - Diese Entität stimmt mit dem höchstrangigen vorausblickenden Zentrum $C_p$ von $U_n$ überein oder nicht
-
-
-Die folgende Übergangstabelle beschreibt die Handlungen in den möglichen Situationen
 
 |                                  | $C_b(U_{n+1}) = C_b(U_n) \; \text{OR} \; \text{undefined} \; C_b(U_n)$ | $C_b(U_{n+1}) \neq C_b(U_n)$ |
 | -------------------------------- | ---------------------------------------------------------------------- | ---------------------------- |
@@ -712,7 +514,7 @@ $\to$ `Continue`, da $C_p(U_2) = C_b(U_2)$ und $C_b(U_1)$ nicht definiert ist.
 Da beide auf `Continue` abbilden, wird auf "music" statt auf "CD Store" verwiesen.
 
 Nun wird $U_3$ betrachtet:
-"She" ist entweder mit "Jane" oder "Mary" kompatibel, während "it" mit "music" kompatibel ist.
+“She" ist entweder mit "Jane" oder "Mary" kompatibel, während "it" mit "music" kompatibel ist.
 Wenn "She" sich auf "Mary" bezieht ($C_p(U_3) = \text{Mary}$) lautet das Ergebnis:
 - $C_f(U_3)$: {Mary, music}
 - $C_p(U_3)$: Mary
@@ -721,30 +523,8 @@ Ergebnis ist `Smooth-Shift` da $C_p(U_3) = C_b(U_3)$ aber $C_b(U_3) \neq C_b(U_2
 
 Da  `Continue` gemäß [Regel 2](#Algorithmus) gegenüber `Smooth-Shift` bevorzugt wird, sollte "Jane" als Referent zugewiesen werden, sodass der Centering-Algorithmus in dieser Situation funktioniert.
 
-## Log-Lineares Modell
-Ist ein [Klassifikationsmodell](01%20Grundidee.md#Klassifikation) um Paaren von Pronomen und Entitäten (Antezedenspaaren) vorherzusagen, ob sie koreferieren (1) oder nicht (0)
-
-Berücksichtigt die grammatikalischen Rollen, Satzdistanz, Geschlechts- und Zahlübereinstimmungen.
-Das Modell bietet eine Datengetriebene Methode zur Verbesserung der Genauigkeit bei der Bestimmung von Pronomenreferenzen.
-Transfer Learning gilt als Schlüssel zur Leistungsfähigkeit großer Sprachmodelle.
-
 # Transfer Learning in LLMs
-![](TransferLearningStepsInLlm.png)
-
-Beim Finetuning werden ggf. Firmeninterne Dokumente zum Training verwendet. So kann sich ein Modell an den Kontext bestimmter Aufgaben anpassen.
-
-Transfer Learning ist deutlich effizienter als Modelle für jeden Kontext von Grund auf neu zu trainieren. Das teure Basismodell kann flexibel auf verschiedene Aufgaben spezialisiert werden.
-
 Mit diesem Ansatz ist es lohnenswert das Basismodell mit mehr Daten zu trainieren, da es für verschiedene Aufgaben weiterverwendet werden kann.
-![](TransferLearningTraningData.png)
-
-Beispielsweise könnte ein auf Buchrezensionen trainiertes Basismodell auf Filmrezensionen spezialisiert werden, da die Anwendungen ähnlich sind.
-
-# Randwahrscheinlichkeit
-Die [Randwahrscheinlichkeit](Mehrdimensionale%20Verteilungen.md#Mehrdimensionale%20WS-Verteilungen) beschreibt die Wahrscheinlichkeit eines Datenpunktes zu einer bestimmten Klasse zu gehören, unabhängig von anderen Parametern.
-
-$P(\text{Katze})$ Ist die Wahrscheinlichkeit dass ein zufällig ausgewähltes Bild eine Katze zeigt, ohne weitere Merkmale zu beachten.
-
 # Transfer Learning
 ## Homogenes Transfer Learning
 Quell- und Zieldomäne haben ähnliche Aufgaben und Daten. Die erlernten Merkmale und Strukturen lassen sich effizienter übertragen und liefern mit kleinen Anpassungen bereits gute Resultate.
@@ -754,14 +534,12 @@ Hier sind Daten und Aufgaben sehr verschieden. Beispielsweise wenn ein Basismode
 
 Die Unterschiede erschweren die Anwendbarkeit des Basismodells, es sind umfangreiche Anpassungen nötig.
 
-
 > [!Info] Warum ist das besser als eine untrainiertes Modell?
 > Auch wenn die Art der Aufgaben sehr unterschiedlich ist, kann ein Teil der Muster übereinstimmen. 
 > Beim weiteren Training kann eine Art "Converter" entstehen um die zunächst inkompatiblem Formate an Informationen ineinander zu wandeln
 
 ## Domänenunterschiede
 Die Unterschiede zwischen den Domänen werden mit vier grundlegenden Ansätzen reduziert.
-
 - Instanzbasiert
 - Merkmalbasiert
 - Parameterbasiert
@@ -787,13 +565,8 @@ Es werden beide Domänen in einen gemeinsamen Merkmalsraum transformiert (symmet
 Basiert auf der Annahme, dass ähnliche Aufgaben auch ähnliche Modellstrukturen aufweisen.
 Wissen wird übertragen, indem Parameter zwischen den Modellen der Quell- und Zieldomäne geteilt werden.
 
-![](TransferLearningParameterBased.png)
-
 ### Relationalbasierte Methoden
 Relationale Methoden übertragen Wissen, indem sie Muster in den Strukturen von Quell- und Zieldaten erkennen. Trotz Unterschiede in den Inhalten selbst können die Beziehungen ähnlich sein.
-
-![](RelationalBasedMethod.png)
-
 
 # Rekurrente Neuronale Netze (RNNs)
 Sprache enthält einen fundamentalen Aspekt der Zeit. Sowohl gesprochene Sprache, als auch schriftliche Texte enthalten eine zeitliche Reihenfolge.
@@ -803,8 +576,6 @@ Bei [Feed-Forward Netzen](07%20Neural%20Nets.md#Neural%20Nets) wird mit einem Sl
 
 In RNNs ist ein Mechanismus integriert, der direkt mit der sequenziellen Natur der Sprache umgeht und sie ohne willkürlich festgelegten Fenstergrößen behandelt. 
 Durch Rückkopplung können sie vorherige Kontexte repräsentieren, somit können Entscheidungen auch aufgrund von vorherigen Entscheidungen getroffen werden.
-
-![](RnnCycle.png)
 
 Typische Anwendung von RNNs sind
 - Sprachmodellierung:
@@ -829,8 +600,6 @@ Da deutlich weniger Verbindungen vorhanden sind ist das Training und die Nachvol
 Bei der Berechnung eines Ergebnis werden dabei die neuen Eingaben mit Informationen aus vorherigen Zeitpunkten kombiniert.
 Dabei kann der Kontext bis zum Beginn der Sequenz zurückreichen.
 
-![](RecurrentNeuralNet.png)
-
 Um $h_t$ zu berechnen, wird der Eingang $x_t$ mit der Gewichtsmatrix $W$ multipliziert und die versteckte Schicht des vorherigen Zeitschritts $h_{h-1}$ mit der Gewichtsmatrix $U$.
 Diese Werte werden addiert und durch eine gewählte [Aktivierungsfunktion](07%20Neural%20Nets.md#Aktivierungsfunktion) $g$ geleitet um den Aktivierungswert der aktuellen versteckten Schicht $h_t$ zu erhalten.
 
@@ -840,54 +609,31 @@ $$
 $$
 y_t = f(V \cdot h_t)
 $$
-
-Um die Rekurrenz zu eliminieren kann man das Netz "entrollt" darstellen. 
-![](UnrolledRnn.png)
 In der Darstellung sind $x_i$ die jeweiligen Eingaben aus der Eingabesequenz.
 Die $h_i$ sind das Feedback aus allen vorherigen Schritten.
 
 ### Wortschatz
 Der Wortschatz $V$ eines Modells ist die [Menge](Intervalle%20und%20Mengen.md#Mengen) aller einzigartigen Wörter die verwendet werden.
 Die Größe des Wortschatzes wird mit $|V|$ dargestellt. Sie gibt die Anzahl der in Trainings- und Testdatensatz vorkommenden Wörter an.
-
-Dabei hat jedes Wort im Wortschatz ein zugehöriges [Embedding](#Embedding) die in der [Embedding Matrix](#Embedding%20Matrix) gespeichert ist. Die Dimension der Embedding ist in der Regel sehr viel kleiner als die Dimension des Wortschatzes selbst.
-
-
 ### Embedding Matrix
 Repräsentiert die Einbettung der Wörter im Wortschatz. Jedes Wort wird durch einen [Vektor](Vektoren%20und%20Vektorräume.md#Vektoren) in einem kontinuierlichen Raum dargestellt.
 
 Bei einem Wortschatz der Größe $|V|$ und einer Embedding-Dimensinon $d$ hat die Embedding-Matrix die Dimension $|V| \times d$.
 Jede Spalte der Matrix stellt den Embedding Vektor eines bestimmten Wortes dar.
-
-Bei der Verarbeitung einer Eingabesequenz wird der entsprechende Embedding-Vektor von jedem Wort abgerufen. 
-Dabei haben ähnliche Worte auch ähnliche Vektoren, um semantische Beziehungen zu erfassen.
-Während dem Training wird auch die Embedding-Matrix optimiert, um Beziehungen besser abzubilden. 
-Die [Matrix](Matrizen.md#Definition) spielt dabei eine entscheidende Rolle um die diskreten Eingabeworte in stetige Zahlenwerte umzuwandeln, die für die Verarbeitung durch das [neuronale Netz](07%20Neural%20Nets.md#Neural%20Nets) notwendig sind.
-
 ### Architektur
 Die Eingabe $X = (x_1, x_2, \dots, x_n)$ besteht dabei aus einer Reihe aus Wörtern $x_i$, jedes dargestellt als ein [One-Hot-Vektor](02%20Modellauswahl.md#One%20Hot%20Encoding) der Größe $|V|$.
 Die [Embedding Matrix](#Embedding%20Matrix) $E$ enthält die Embeddings $e_t$ für alle Wörter $x_t$. 
 ![](RnnArchitecture.png)
-Das Embedding wird mit der Gewichtsmatrix $W$ multipliziert und zum versteckten Layer des vorherigen Schritts (gewichtet durch die Gewichtsmatrix $U$) addiert, um einen neuen versteckten Layer zu berechnen.
-Der neue versteckte Layer wird verwendet, um eine Ausgabeschicht zu erzeugen, die durch eine Softmax-Schicht geleitet wird um eine [Wahrscheinlichkeitsverteilung](Einführung.md#Wahrscheinlichkeitmaß%20/%20Wahrscheinlichkeitsverteilung) über den gesamten Wortschatz zu generieren.
 Die Wahrscheinlichkeit, dass das Wort am Index $k$ das nächste Wort ist, beträgt $\hat{y}_t[k]$ 
-
 - $e_t = E \cdot x_t$
 - $h_t = g(U\cdot h_{t-1} + W \cdot e_t)$
 - $\hat{y}_t = \text{Softmax}(V \cdot h_t)$
-
-
-> [!NOTE] Modell-Dimensionen
-> Bei der Sprachmodellierung mit RNNs nehmen wir an, dass die Embedding-Dimension $d_e$ und die verborgene Dimension $d_h$ gleich sind. Wir bezeichnen beide als Modell-Dimension $d$
-
 ### Bewertung
 RNNs sind besonders gut im Umgang mit Sequenzdaten, wie Sprache, Zeitreihen oder Musik.
 Sie können Eingaben beliebiger Länge verarbeiten, was sie von den klassischen Neuronalen Netzen mit fester Eingabegröße abhebt.
 
 Durch das Vanishing Gradient Problem haben diese Modelle teilweise Schwierigkeiten von langfristigen Abhängigkeiten zu lernen. Sie werden aufgrund ihrer Natur nicht parallelisiert trainiert, da jeder Schritt auf dem vorherigen aufbaut.
 Auch neigen sie besonders zu Overfitting, insbesondere bei kleineren Datensätzen.
-
-
 ## Long Short-Term Memory (LSTM) Network
 Ist eine besondere Art von RNN um das Problem der explodierenden oder verschwindenden Gradienten zu umgehen.
 Bei längeren Sequenzen zeigt diese Architektur bessere Leistungen als ein naives RNN.
@@ -901,9 +647,6 @@ Im Gegensatz zu klassischen RNNs wird eine innere Zelle und drei spezielle "Gate
 - Ausgangsgate
   Kontrolliert, wie stark der Zellwert für die nächste Berechnung verwendet wird
 
-![](LstmArchitecture.png)
-![](LstmArchitectureForgetGate.png)
-
 Alle Gates werden durch die Eingangsdaten aktiviert oder deaktiviert. Dabei werden ebenfalls Gewichte berechnet, die während dem Training angepasst werden.
 
 Die Zustände des Gates werden aus den Vektoren $x_t$ und $h_{t-1}$ berechnet.
@@ -916,13 +659,11 @@ Dabei hat das Netz drei logische Eingaben:
 
 ### Gate-Berechnungen
 Jedes Gate ist ein Vektor. Es wird berechnet als die gewichtete Summe der Eingabedaten $x_t$ und $h_{t-1}$ die dann in eine [Aktivierungsfunktion](07%20Neural%20Nets.md#Aktivierungsfunktion) $\in \text{Abb}(\mathbb{R}^n \to \mathbb{R}^n)$ (z.b. Sigmoid) gegeben werden.
-
 - Forget Gate: $f_t = \sigma(U_fh_{t-1} + W_fx_t)$
 - Input Gate: $i_t = \sigma(U_ih_{t-1} + W_ix_t)$
 - Output Gate: $o_t = \sigma(U_oh_{t-1} + W_ox_t)$
 
 Dabei sind mit $U$ und $W$ jeweils die beim Training erlernten Gewichtsmatrizen gemeint.
-
 
 Bei jeder Berechnung werden zuerst die eigentlichen Eingabedaten aus dem neuen Input und dem bisherigen Zustand berechnet.
 $$
@@ -938,15 +679,11 @@ $$
 h_t = o_t \odot \tanh (c_t)
 $$
 Hier sind $U_g$ und $W_g$ wieder trainierte Matrizen.
-Das Symbol $\odot$ steht führ die elementweise Multiplikation zweier Vektoren. (["Hadamard-Produkt"](Vektoren%20und%20Vektorräume.md#Rechenoperationen)) 
-
-
+Das Symbol $\odot$ steht führ die elementweise Multiplikation zweier Vektoren. 
 ## Gated Recurrent Unit (GRU)
 Sind eine Art von [RNN](#Rekurrente%20Neuronale%20Netze%20(RNNs)).
 Sie lösen ebenfalls das Problem der exploding Grandients und sind eine neuere und vereinfachte Variante der [LSTMs](#LSTM).
 Die Funktion von Forget-Gates und Input Gates wird in einem einzelnen Gate kombiniert.
-
-![](GruArchitecture.png)
 
 Eine GRU-Einheit hat zwei Hauptzustände:
 - $h_t$: Der verborgene Zustand zur Zeit $t$
@@ -965,10 +702,6 @@ GRU-Netze sind aufgrund der einfacheren Architektur leichter zu trainieren als [
 Sie sind also eine leistungsfähige und effiziente Alternative zu LSTM-Netzen.
 
 # Transformer
-Bestehen aus zwei Hauptkomponenten, Encoder und Decoder.
-
-![](TransformerEncoderDecoder.png)
-
 Sie wandeln jeweils von oder in eine interne Informationsdarstellung um. Der Encoder verwendet dabei [Attention](#Attention-Mechanismus) um Informationen zu gewichten, bevor sie in der internen Darstellung gespeichert werden.
 
 ## Attention-Mechanismus
@@ -1339,104 +1072,3 @@ B: Ugh, I need to be there for a meeting from the 12th to the 15th.
 
 Die gewünschte Reisezeit ist vermutlich einen Tag vor dem Termin des Meetings.
 
-# Chatbots
-## Regelbasierte Chatbots
-### ELIZA
-ELIZA basierte auf simplen REGEX, um die Aussagen der Probanten näher zu hinterfragen.
-Dabei folgte auf ein `feel like X` stets ein `why do you feel like X`. Durch die Stellung als Psychater ist eine Stellung akzeptabel, bei der kein Weltwissen vorhanden ist und quasi nur mit Fragen gearbeitet wird.
-
-Obwohl nur feste Regeln befolgt werden, verknüpften einige Benutzer menschliche Attribute mit dem System.
-
-### PARRY
-Verwendet Variablen um einen internen Zustand für Angst, Wut und Mistrauen zu halten. Alle Werte starten niedrig und werden durch bestimmte Schlüsselworte verändert um einen paranoiden Menschen zu simulieren.
-
-Dieser Chatbot konnte erstmals eine Form des Turing-Test bestehen.
-
-## Korpusbasierte Chatbots
-Sie benötigen keine explizite Programmierung der Antwortregeln. 
-Aus einem Korpus werden Muster erkannt, um Gespräche zu vervollständigen.
-
-Da die Trainingsprozesse sehr datenintensiv sind, ist es nötig eine große Menge von Gesprächen aus Telefonaten / Filmen / Büchern zu verwenden.
-
-### Information Retrieval
-
-> [!Missing] Fehlt
-> Seite 687-693
-
-
-## Bewertung
-Gut für enge, skriptbare Anwendungen. 
-Für Nutzer kann die Illusion des Verständnis problematisch sein.
-Regelbasierte Chatbots sind sehr aufwändig zu implementieren, [IR](#Information%20Retrieval)-basierte Modelle spiegeln nur ihre Trainingsdaten wieder.
-
-Nächste Schritte sind die Integration der Chatbots in frame-basierte Agenten. Damit können Anfragen frei formuliert werden, die Chatbots formen diese dann in die entsprechende Zielstruktur um.
-
-# Frame-basierte Dialogagenten
-Grundlegend in einer von zwei Architekturen:
-1. GUS-Architektur
-   Auch als "Frame-Basierte Architektur" bekannt.
-   Wird in den meisten industriellen Anwendungen verwendet
-2. Dialogzustandarchitektur
-   Erweiterung von GUS
-   Häufiger in Forschungssystemen
-
-Das System stellt dem Benutzer fragen, um die Slots zu füllen. Dabei können aus einer Antwort mehrere Informationen extrahiert werden.
-
-![](GusInference.png)
- Auch einfache Inferenzen sind mit Hilfe von [NLP](VorlesungsNotizen/KiAnwendung/01%20Einführung.md#Natural%20Language%20Processing)möglich.
-![](NlpToFillSlots.png)
-
-
-Problem bei solchen Systemen ist der Recall. Eventuell werden nicht alle relevanten Daten direkt erkannt oder nicht korrekt aus dem Kontext erschlossen.
-
-## Dialogakte
-Die Ideen von Sprechakten und Grounding werden in einer einzelnen Repräsentation kombiniert.
-![](Dialogakte.png)
-
-### BIO-Tagging
-BIO-Tagging ist eine Methode um Slots besser zu füllen. Jedes Wort im Satz erhält eine der folgenden Kategorien:
-- B (Beginning) Anfang eines Slot-Fillers
-- I (Inside) Teil derselben Slot-Filler-Einheit
-- O (Outside) Kein Teil eines Slot-Fillers
-
-Somit soll die Information präzise aus Benutzeräußerungen extrahiert werden.
-
-![](Bio-Tagging.png)
-
-Dieses Tagging kann durch einen eigens dafür trainierten [Klassifikator](01%20Grundidee.md#Klassifikation) erfolgen.
-
-## Erkennung von Korrekturen
-Korrekturen in der gesprochenen Sprache werden deutlich häufiger missverstanden als normale Anweisungen. 
-Aufgrund der Tendenz zur Hyperartikulation (BAL-TI-MORE statt Baltimore) haben Systeme Schwierigkeiten, da sie auf normaler Aussprache der Worte trainiert wurden.
-
-Typische Merkmale von Korrekturen sind die Einleitung durch spezifische Worte ("NEIN" oder "Ich meinte") oder Wiederholungen.
-
-Um Fehler frühzeitig zu erkennen wird mit verschiedenen Bestätigungen gearbeitet. Aussagen die sehr extrem vom bisherigen Kontext abweichen, können stärker misstraut werden als solche, die sehr ähnlich zur vorherigen Aussage sind.
-
-Diese Bestätigungen können auch implizit geschehen, um den Gesprächsfluss weniger stark zu bremsen.
-![](ImpliciteConfirmation.png)
-
-Bei Eingaben in denen kein eindeutiger Inhalt erkannt wird, kann die wahrscheinlichste Möglichkeit bestätigt werden, oder mit einer Ablehnung gearbeitet werden.
-"Ich suche nach X" vs. "Das habe ich leider nicht verstanden"
-
-Diese Techniken können auch kombiniert werden, um einen Kompromiss aus Korrektheit und Geschwindigkeit zu erhalten und nicht bei Problemen stecken zu bleiben.
-![](FehlerbehandlungsKompromiss.png)
-
-Es kann auch konkret nach den Informationen gefragt werden, falls sie nicht im Text erkannt wurden.
-![](PreciseQuestionAfterProblem.png)
-
-Wenn mit einem Konfidenzscore gearbeitet wird, kann dynamisch zwischen den verschiedenen Möglichkeiten der Fehlererkennung gearbeitet werden. So wird bei eindeutigen Aussagen nicht unnötig oft nachgefragt oder bestätigt.
-
-# Bewertung von Chatbots
-Um die Qualität eines Systems zu bestimmen, wird bei Chatbots mit direkten Fragen an den Benutzer gearbeitet. 
-Anhand verschiedener Metriken wie 
-- Wiederholungen
-- Flüssigkeit
-- Neugier
-- Unterhaltsamkeit
-
-Wird die Performance des Systems bewertet.
-
-Für Aufgabenbasierte Systeme kann die Erfolgsrate und Dauer der Bearbeitung einer Aufgabe gemessen und automatisch verglichen werden.
-
-![](TaskSuccessEvaluation.png)
