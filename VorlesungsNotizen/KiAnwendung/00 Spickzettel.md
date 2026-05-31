@@ -768,21 +768,12 @@ Sind eine Möglichkeit gleichzeitig mehrere Aspekte der Eingabedaten zu analysie
 ![](SelfAttentionSummary.png)
 
 
-## Fazit
-[Self-Attention](#Self-Attention) mit mehreren Heads ermöglicht es mehrere Aspekte des Kontext zu berücksichtigen. Auch die Berechnung lässt sich im Gegensatz zu den [RNNs](#Rekurrente%20Neuronale%20Netze%20(RNNs)) parallelisieren und ist somit deutlich effizienter beim Training mit großen Daten.
-Der Mechanismus ist grundlegend für die Leistung von Modellen wie GPT oder [BERT](09%20More%20Transformer.md#BERT), da er ihnen die Möglichkeit gibt menschenähnlichen Text zu verstehen und zu generieren.
-
 # Feed-Forward-Netze
-Werden in den Encoder- und [Decoder](#Decoder)-Teilen der [Transformer](08%20Transformer.md#Transformer)-Architektur verwendet.
-Dabei lernen die Netze Beziehungen zwischen den Eingabe- und Ausgabesequenzen.
-
 ## Residuenverbindungen
 Auch "Skip-Verbindungen" umgehen Schichten in einem [Neuronalen Netz](07%20Neural%20Nets.md#Neural%20Nets) um einen einfacheren Informationsfluss zu ermöglichen.
 In der Transformer Architektur werden solche Verbindungen im Encoder- und im Decoder Teil verwendet.
 
 In tieferen Netzen wird so die Informationspropagation durch das Netz verbessert und somit die Lernfähigkeit erhöht.
-
-![](SkipLayersInTransformer.png)
 
 Das Lernen komplexer Zuordnungen zwischen Eingabe- und Ausgabesequenzen wird erleichtert, das Lernen allgemeiner Merkmale wird gefördert.
 Modelle mit diesen Skip-Layern sind weniger zu Overfitting geneigt und verallgemeinern besser auf neuen Daten.
@@ -793,8 +784,6 @@ Wie auch der Decoder enthält der Encoder die folgenden Komponenten:
 - [Feed-Forward-Netze](#Feed-Forward-Netze)
 - [Residualverbindungen](#Residuenverbindungen)
 - Layer Normalisierung
-
-![](EncoderAndDecoder.png)
 
 Der Encoder nimmt eine Sequenz von [Token](02%20N-Gramm.md#Token) als Eingabe und berechnet eine Sequenz von Vektoren, die eine Codierung der Eingabe darstellen.
 
@@ -821,60 +810,19 @@ Die Normalisierung erfolgt abhängig von beiden Zahlen:
 $$
 \text{Norm}(X) = \frac{X - \mu}{\sigma - \mathcal{E}}
 $$
-
-Durch die Normalisierung ist das Modell weniger empfindlich gegenüber den Initialisierungswerten und trainiert somit stabiler. 
-Da die Eingaben jeder Schicht eine ähnliche Verteilung erhalten, kann die Konvergenz beschleunigt werden.
-
 # Decoder
 Erhält als Eingabe die Ausgabe des [Encoders](#Encoder), zusammen mit dem bisher generierten Ausgabetext.
-Alle Generierten Wörter $0$ bis $i-1$ wird verwendet um Wort $i$ zu generieren.
-Zu Beginn wird ein Token `<start>` übergeben, das Vorgehen wiederholt sich, bis ein spezielles Token `<eos>` (End Of Sequence) erzeugt wurde.
-
-Dabei wird bei der Berechnung der Attention mit Maskierung gearbeitet, so dass nur die bereits generierten Tokens mit in die Berechnung einfließen. Da die zukünftigen Token noch nicht existieren, ist es nicht sinnvoll sie in diesem Schritt zu beachten.
-
-Die Sublayer funktionieren identisch zu [denen der Encoder](#Encoder%20Feed-Forward-Netz-Schicht). Nicht-Lineare Transformationen und [Skip-layer](#Residuenverbindungen) mit Normalisierung.
-
+Alle Generierten Wörter $0$ bis $i-1$ werden verwendet um Wort $i$ zu generieren.
 # Grenzen der Transformer
 Hauptproblem ist die Skalierung des 'self-Attention-Mechanismus'. Da jedes Token mit jedem anderen kombiniert werden muss, liegt hier eine Quadratische Abhängigkeit in Größe und Rechenzeit vor.
 
 Bei sehr langen Sequenzen werden erhebliche Mengen Speicher und Rechenzeit zur Verarbeitung notwendig. Aus diesem Grund sind Kontextfenster in ihrer Größe begrenzt.
 
 ## Optimierungsansätze
-Effizientere Implementierung:
-Bessere Soft- und Hardware zur Verarbeitung dieser (Matrix-) Berechnungen. Spezialisierte Techniken wie 'Batch-Verarbeitung' oder andere Algorithmen um die Speicherverwendung zu optimieren.
-
 Sparse Attention Mechanismen:
 Statt alle Kombinationen zu erlauben, reduziert dieser Ansatz die Zahl der erlaubten Kombinationen. Nur eine Teilmenge der Tokens wird miteinander in Beziehung gesetzt.
 Für die genaue Einschränkung gibt es verschiedene Ansätze.
 ![](SparseAttention.png)
-
-# Training von Transformern
-Vielfältige Daten:
-- Bücher
-- Artikel
-- Webseiten
-- Dialoge
-
-Hohe Qualität und Menge notwendig für effektives Lernen. 
-Vermeidung von Verzerrungen durch ausgewogene Datensätze, diese müssen zuvor bereinigt und tokenisiert werden.
-
-Beim [Pretraining](10%20LLMs.md#Pretraining) wird durch die
-Nutzung großer Mengen ungelabelter Daten ein Verständnis für grundlegende Sprachmuster und Kontextinformationen erlernt.
-
-## Fine-Tuning
-Anpassung des vortrainierten Modells auf spezifische Anwendungen durch weiteres Training mit speziell gelabelten Daten. So wird die Leisungsfähigkeit und Genauigkeit bei einzelnen Aufgaben erhöht.
-
-## Masked Language Modeling (MLM)
-Training von Modellen um maskierte Wörter in einem Text zu erkennen und vorherzusagen.
-
-Beispiel:
-`Das Wetter ist <MASK>`, Modell sagt "schön"
-
-Einfaches füllen eines Lückentextes. Ermöglicht das Erlernen kontextueller Beziehungen und semantischer Bedeutungen.
-
-## Autoregressives Lernen
-Modell sagt Tokens für das Ende der gegebenen Sequenz vorher. 
-Wiederholte Anwendung kann ganze Texte generieren.
 
 # BERT
 Bidirectional Encoder Representation from Transcoders ist ein Vortrainiertes Modell von Google.
@@ -887,8 +835,6 @@ Wie auch einfache N-Gramm Modelle werden bei Large Language Models Wahrscheinlic
 Obwohl  nur trainiert wird einzelne Worte vorherzusagen, wird nützliches Sprachwissen erworben.
 
 # Architekturen
-![](LlmArchitekturen.png)
-
 ## Encoder only
 Diese Architektur ist besonders gut geeignet für Aufgaben bei denen keine großen Sequenzen generiert werden müssen. Für [Klassifikationsaufgaben](01%20Grundidee.md#Klassifikation) ist die Fähigkeit nützlich, große Texte umfassend zu analysieren und zu verstehen.
 
@@ -903,11 +849,6 @@ Modelle wie GPT oder auch "Left-To-Right LLMs" oder "Autoregressive LLMs" generi
 
 Auch solche Sequenzgenerierungsmodelle können für [Klassifikationsaufgaben](01%20Grundidee.md#Klassifikation) verwendet werden. Dazu wird die Wahrscheinlichkeit der verschiedenen Optionen verglichen.
 ![](LlmForClassification.png)
-
-Auch Zusammenfassungen sind mit diesem Modell möglich. Es wird gelernt nach einem speziellen Delimiter z.B.`tldr` den vorherigen Text zusammenzufassen.
-![](DecoderForTldr.png)
-
-Das Modell generiert in jedem Schritt eine [Wahrscheinlichkeitsverteilung](Einführung.md#Wahrscheinlichkeitmaß%20/%20Wahrscheinlichkeitsverteilung) über alle Worte im [Korpus](02%20N-Gramm.md#Korpuslinguistik).
 Mittels [Sampling](#Sampling) wird aus den wahrscheinlichsten Worten eines ausgewählt und als Ausgabe verwendet.
 
 ### Sampling
@@ -935,8 +876,6 @@ Statt $\text{softmax}(u)$ wird $\text{softmax}\left(\dfrac{u}{\tau}\right)$ bere
 Werte nahe $\tau = 0$ resultieren in einer weniger explorativen, nahezu deterministischen Wortwahl. Große Werte $(\tau > 1)$  bevorzugen die Wahl von selteneren Fortsetzungen und erhalten so eine vielfältige Sprache, opfern jedoch einen Teil der [Kohärenz](07%20Pragmatische%20Analyse.md#Kohärenz).
 
 # Pretraining
-Zentrale Idee ist das Training in zwei Stufen. Im ersten Schritt werden auf breiter Datenbasis allgemeine Muster und Sprachverständnis erlernt. In einem [zweiten Training](#Finetuning) wird das Modell speziell auf eine Aufgabe vorbereitet.
-
 Das Pretraining ist selbstüberwacht, dh. das keine explizit gelabelten Daten eingesetzt werden. Das Modell verwendet stattdessen immer das nächste Token als Label und versucht dieses vorherzusagen.
 
 Als [Loss-function](07%20Neural%20Nets.md#^522bcc) wird "Cross Entropy Loss" verwendet.
@@ -950,26 +889,6 @@ Somit vereinfacht sich die Berechnung in diesem Anwendungsfall:
 $$
 L_{CE} = - \log(\hat{y}_t[w])
 $$
-
-Es wird erlernt wie semantische Beziehungen in Sprachen funktionieren. Dabei wird auch der Wortschatz des Modells entwickelt.
-Kontextuelle Nuancen wie die Ähnlichkeit von 'kalt' und 'eisig' können erlernt werden, wenn die Begriffe oft genug im selben Kontext gesehen werden.
-Faktenwissen wie Autorenschaft oder kulturelle Referenzen werden erfasst.
-Mathematische und logische Zusammenhänge werden grundlegend erlernt, wobei diese Beziehungen deutliche Schwierigkeiten bei komplexen Aufgaben haben können.
-
-
-> [!Info] How-To-Mathe
-> Wenn Chatbots Berechnungen durchführen sollen, so generieren sie teilweise Pythonprogramme. Diese Programme können die Berechnung ausführen und liefern die Ergebnisse an das Sprachmodell.
-
-## Teacher Forcing
-An jeder Position $t$ sind die korrekten Tokens $w_{1:t}$ bekannt. Es wird der loss ($- \log \text{Wahrscheinlichkeit})$ für das nächste Token $w_{t+1}$ berechnet. Nach jeder Vorhersage wird das generierte Token bewertet und verworfen. Nur das bekannte korrekte Token wird angehängt und fortgefahren.
-
-## Datenquellen 
-Große Textsammlungen wie Wikipedia und StackExchange, verschiedene Bücher und wissenschaftliche Publikationen sind in 'The Pile' zusammengefasst. Dieser Datensatz bildet in knapp 800GB ein breites Spektrum von Themen und Sprachstilen ab.
-
-![](ThePileComposition.png)
-
-Dabei ist es wichtig Duplikate zu entfernen und anstößige Inhalte zu filtern. Herausforderung ist der Umgang mit Dialekten, verschiedene Ausdrücke könnten in einem Dialekt verfasst sein und fälschlicherweise als problematischer Inhalt erkannt werden.
-
 # Finetuning
 Fine-tuning hat vier verschiedene Bedeutungen. Dabei wird in allen Fällen ein Teil der Parameter an neue Daten angepasst werden.
 
@@ -995,14 +914,8 @@ Da die Perplexität sensibel gegenüber Länge von Eingaben und Tokens ist, funk
 - Größe: Die verwendete Menge an Speicherplatz und GPU Verbrauch
 - Energieverbrauch: Kann in kWh gemessen werden, oder in ausgestoßenem CO2
 - Fairness: Prüft das Vorhandensein von Stereotypen
-
-
 # Skalierung
 Die Leistung von großen Modellen hängt von ihrer Größe ab. Mit mehr Parametern und größeren Trainingsdatensätzen steigt die Qualität der Modelle. 
-
-
-> [!Info] LLM Overfitting
-> Die Grenze zum Overfitting ist noch nicht erreicht. Aufgrund der hohen Kosten wird typischerweise das Training bereits beendet, wenn eine Konvergenz annähernd erreicht ist.
 
 Es wird unterschieden zwischen reinen Chatbots und (Aufgabenbasierten) Dialogsystemen unterschieden.
 Während die Chatbots nur für Unterhaltungen gebraucht werden können, sind die Agenten auch in der Lage mit Schnittstellen von Autos/Robotern oder anderen Smarten Geräten zu kommunizieren.
@@ -1011,19 +924,11 @@ Während die Chatbots nur für Unterhaltungen gebraucht werden können, sind die
 Bisherige Systeme verwenden eine Rahmenbasierte Architektur, bei der die Struktur der Aufgabe fest vorgegeben ist und gewisse Slots mit dynamischen Werten gefüllt werden.
 
 ![](FrameArchitecture.png)
-
 # Konversationsregeln
 Da Konversationen abwechselnde Handlungen der beiden Partner erfordern, ist es wichtig diese Wechselpunkte im Gespräch zu erkennen.
 
-![](LengthOfSpeechTurns.png)
-
 Dabei kann die Länge eines vollständigen "Zugs" stark variieren.
 Auch sind Pausen im Satz häufig, wenn ein Teilnehmer innehält um beispielsweise seine nächsten Worte zu wählen.
-
-
-> [!QUOTE] Sprache als Aktion
-> Each turn in a dialogue is a kind of action.
-
 
 ## Sprechakte
 - Konstative Akte
@@ -1041,9 +946,6 @@ In Gesprächen wird dies durch direkte Bestätigungen ('ja', 'genau' etc.) oder 
 Auch Nonverbale Signale wie Kopfnicken haben diesen Effekt.
 
 In anderen Mensch-Maschine-Interaktionen wird Grounding auch verwendet. Beispielsweise bei Aufzugknöpfen. Das Leuchten nach der Betätigung dient nur dazu, dem Nutzer die Aktivierung zu bestätigen.
-
-![](ElevatorButton.png)
-
 ## Konversationsstruktur
 Bestimmte Strukturen sind sehr häufig. Beispielsweise folgt auf eine Frage meist eine Antwort, auf einen Vorschlag eine Akzeptanz oder eine Ablehnung.
 Diese Muster helfen Systemen dabei, geeignete Aktionen zu bestimmen.
