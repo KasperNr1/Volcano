@@ -53,7 +53,7 @@ Da die Eingaben jeder Schicht eine ähnliche Verteilung erhalten, kann die Konve
 
 # Decoder
 Erhält als Eingabe die Ausgabe des [Encoders](#Encoder), zusammen mit dem bisher generierten Ausgabetext.
-Alle Generierten Wörter $0$ bis $i-1$ wird verwendet um Wort $i$ zu generieren.
+Alle Generierten Wörter $0$ bis $i-1$ werden verwendet um Wort $i$ zu generieren.
 Zu Beginn wird ein Token `<start>` übergeben, das Vorgehen wiederholt sich, bis ein spezielles Token `<eos>` (End Of Sequence) erzeugt wurde.
 
 Dabei wird bei der Berechnung der Attention mit Maskierung gearbeitet, so dass nur die bereits generierten Tokens mit in die Berechnung einfließen. Da die zukünftigen Token noch nicht existieren, ist es nicht sinnvoll sie in diesem Schritt zu beachten.
