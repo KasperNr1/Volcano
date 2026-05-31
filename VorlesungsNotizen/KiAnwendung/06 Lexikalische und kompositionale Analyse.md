@@ -127,7 +127,7 @@ Die Pfad-basierte Ähnlichkeit $\text{simpath}(c_1, c_2)$ von zwei Knoten berech
 $$
 \text{simpath}(c_1, c_2) = \frac{1}{\text{pathlen}(c_1, c_2)}
 $$
-Die Wortähnlichkeit berücksichtigt auch die verschiedenen Bedeutungen von Wörtern. Es wird die maximale Distanz aller Kombinationen von Definitionen verwendet.
+Die Wortähnlichkeit berücksichtigt auch die verschiedenen Bedeutungen von Wörtern. Es wird die maximale Ähnlichkeit aller Kombinationen von Definitionen verwendet.
 $$
 \text{wordsim}(w_1, w_2) = \max \left( \text{simpath}(c_1, c_2) \right) \qquad \forall c_1 \in \text{senses}(w_1), c_2 \in \text{senses}(w_2)
 $$
