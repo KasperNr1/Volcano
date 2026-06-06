@@ -59,6 +59,30 @@ Mit freundlichen Grüßen
 Matti Bos 
 01512-9887913
 
+### Zentrum 2
+![](Zentrum2Wohnen.png)
+![](Zentrum2Grundriss.png)
+- 600
+- $26m^2$
+- [Link](https://www.immobilienscout24.de/expose/168015155?referrer=HYBRID_VIEW_LISTING&searchId=723dbcf7-975b-3fcf-b1f5-f595e45dd00e&searchType=district&fairPrice=GOOD_OFFER#/)
+
+- [x] Beworben
+
+#### Text
+Guten Tag,
+
+wir sind absolut begeistert von der angebotenen Wohnung! Sie entspricht mit diesem frisch renovierten Zustand in genialer Lage genau unseren Vorstellungen, weshalb wir uns sehr über die Möglichkeit einer Besichtigung freuen würden!
+
+Kurz zu uns: Ich bin 22 Jahre alt und stehe kurz vor dem Abschluss meines Bachelorstudiums (B. Sc. Informatik). Meine Freundin (22) studiert im 4. Semester Pharmazie. Wir sind ruhige Nichtraucher aus der Nähe von Freudenstadt und suchen ein schönes, gemeinsames Zuhause.
+
+Zeitlich sind wir sehr flexibel und können uns bei einem Besichtigungstermin gerne ganz nach Ihnen richten.
+
+Wir würden uns über eine positive Rückmeldung riesig freuen.
+
+Mit freundlichen Grüßen
+
+Matti Bos 
+
 # Bühl
 ### Schloss
 ![](BurgAussen.png)
