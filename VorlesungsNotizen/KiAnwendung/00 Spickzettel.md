@@ -213,11 +213,6 @@ Ebenfalls können unterschiedliche Strukturen die selbe Rollenverteilung behalte
 Wörter können falsch interpretiert werden, dadurch wird die Verarbeitung deutlich erschwert.
 Im Englischen gibt es für jedes Substantiv ca. 5-8 Synonyme.
 Hat das Ziel ein tieferes Verständnis für die Struktur und Funktion von Wörtern innerhalb der Sprache zu entwickeln.
-
-
-> [!MISSING] Lesezeichen
-> Contents
-
 ## Homonymie
 Wörter die gleich klingen, aber verschiedene Bedeutungen haben
 ## Polysemie
@@ -591,8 +586,6 @@ Auch das Training ist schwieriger, da bei besonders langen Sequenzen der [Gradie
 
 ## Elman-Netze
 Auch "einfache rekurrente Netze" sind eine eingeschränkte Architektur die sich für die Sprachverarbeitung als äußerst effektiv erwiesen haben.
-
-![](ElmanNetsVsFullyConnectedRnn.png)
 
 Links dargestellt ist ein Elman-Netz, bei dem nur die [Neuronen](07%20Neural%20Nets.md#Neuronen) in einer versteckten Schicht rekurrent verbunden sind. Rechts in der Abbildung ist ein vollständig verbundenes rekurrentes neuronales Netz dargestellt.
 Da deutlich weniger Verbindungen vorhanden sind ist das Training und die Nachvollziehbarkeit von Ergebnissen erleichtert.
@@ -973,4 +966,3 @@ B: Ugh, I need to be there for a meeting from the 12th to the 15th.
 ```
 
 Die gewünschte Reisezeit ist vermutlich einen Tag vor dem Termin des Meetings.
-
