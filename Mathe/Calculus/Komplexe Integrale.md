@@ -93,7 +93,7 @@ H(x) = -\dfrac{1}{2\left( 1+x^2 \right)^2}
 \end{array}
 $$
 
-# Integration durch Parzialbruchzerlegung
+# Integration durch Partialbruchzerlegung
 Bekannt:
 $$
 f(x) = \frac{1}{x^n} = x^{-n} \rightarrow \left\{\begin{array}{l}n=1 & \rightarrow F(x) = \ln(|x|) \\ n>1 & \rightarrow F(x) = \dfrac{1}{1-n}*x^{1-n} = -\dfrac{1}{n-1}*\dfrac{1}{x^{n-1}} 

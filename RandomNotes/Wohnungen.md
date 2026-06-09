@@ -31,7 +31,16 @@ Matti Bos
 - $60m^2$ 
 - [Link](https://www.immobilienscout24.de/expose/168178945?utm_medium=social&utm_source=whatsapp&utm_campaign=expose_sharing&utm_content=expose_buttonbox&referrer=taf#/)
 
-- [ ] Beworben
+- [x] Beworben
+Sehr geehrter Herr Brack,  
+wir interessieren uns sehr für die von Ihnen angebotene 2-Zimmer-Wohnung. Als junges Paar auf der Suche nach der ersten gemeinsamen Wohnung spricht uns der Schnitt der Räumlichkeiten sehr an.  
+
+Kurz zu uns: Ich bin Matti Bos (22) und stehe kurz vor dem Abschluss meines Bachelorstudiums in Informatik. Meine Freundin (22) studiert im 4. Semester Pharmazie in Tübingen. Wir sind ruhige Nichtraucher und bringen keine Haustiere mit.  
+Der bezugsfreie Termin zum 1. August 2026 passt für uns zeitlich hervorragend.  
+
+Da wir zeitlich flexibel sind, richten wir uns bei einem Besichtigungstermin ganz nach Ihnen und der aktuellen Mieterin. Wir würden uns über ein persönliches Kennenlernen sehr freuen!  
+Mit freundlichen Grüßen  
+Matti Bos
 
 ## Tübi-Zentrum
 ### Zentrum 1
@@ -91,5 +100,16 @@ Matti Bos
 - $72,2m^2$
 - [Link](https://www.immobilienscout24.de/expose/166381301?utm_medium=social&utm_source=whatsapp&utm_campaign=expose_sharing&utm_content=expose_buttonbox&referrer=taf#/)
 
-- [ ] Beworben
+- [x] Beworben
+
+Sehr geehrte Familie Knott,  
+die Beschreibung Ihrer Wohnung im Schloss Bühl hat uns absolut begeistert! Der historische Charme mit den Fachwerkbalken und dem Schlossgarten klingt traumhaft und wäre für uns das perfekte gemeinsame Zuhause.  
+Kurz zu uns: Ich bin Matti Bos (22) und stehe kurz vor dem Abschluss meines Bachelorstudiums in Informatik und strebe ab Oktober ein Masterstudium in Tübingen an. Meine Freundin (22) studiert im 4. Semester Pharmazie in Tübingen. Wir sind ruhige Nichtraucher, bringen keine Haustiere mit und suchen eine langfristige Wohnung für den Rest unseres Studiums.
+
+Da wir zeitlich sehr flexibel sind, richten wir uns bei einem Besichtigungstermin ganz nach Ihnen und den aktuellen Mietern.  
+
+Wir würden uns über die Chance, die Wohnung und Sie persönlich kennenzulernen, riesig freuen!  
+
+Mit freundlichen Grüßen  
+Matti Bos
 
