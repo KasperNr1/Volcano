@@ -42,6 +42,24 @@ Da wir zeitlich flexibel sind, richten wir uns bei einem Besichtigungstermin gan
 Mit freundlichen Grüßen  
 Matti Bos
 
+---
+
+Sehr geehrter Herr Brack,
+
+nach meinem kommenden Masterstudium strebe ich eine Promotion an, 
+meine Freundin hat ihrerseits noch mindestens 4 Semester bis zum Abschluss vor sich und plant im Anschluss ebenfalls ein Masterstudium. Entsprechend würden wir die Wohnung durchaus gerne einige Jahre mieten, in etwa 4-6 halte ich für eine realistische Schätzung.
+
+Finanziell werden wir jeweils von unseren Familien unterstützt. 
+Da ich bisher im Haus meiner Eltern wohne, hatte ich die Möglichkeit dual bei einer Firma in direkter Nähe zu studieren und so während dem kompletten Studium ein Ausbildungsgehalt zu erhalten, sowie einen Großteil dessen anzusparen. 
+Somit können wir neben monatlichen Zahlungen durch Kindergeld und Bafög auch mit einem Sparvermögen von ca. 25TEUR die Miete garantieren.
+
+Während den Semesterferien gehen wir zusätzlich arbeiten, was vermutlich wenig überraschend sein dürfte.
+
+Ich hoffe, dass ich Ihnen hiermit ihre Fragen zufriedenstellend beantworten konnte.
+
+Mit Freundlichen Grüßen
+Matti Bos
+
 ## Tübi-Zentrum
 ### Zentrum 1
 ![](ZentrumWohnen.png)
