@@ -13,6 +13,23 @@ On Mobile
 python -c "import socket; b=bytes.fromhex('f'*12 + '2c44fd151f56'*16); s=socket.socket(socket.AF_INET, socket.SOCK_DGRAM); s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1); s.sendto(b, ('192.168.2.255', 9))"
 ```
 
+## Shutdown
+On Mac
+``` 
+stop-server
+```
+Der Command ist ein Alias der das Skript auf dem Server `~/shutdown_homelab.sh` ausführt. Dieses Skript stoppt alle Container und Prozesse sauber und fährt das System herunter.
+
+On Mobile:
+```
+ssh bos
+
+~/shutdown_homelab.sh
+```
+
+
+
+
 ``` docker-compose.yml
 services:
   # FILE SERVER (Samba)
