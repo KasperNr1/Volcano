@@ -61,6 +61,21 @@ Bewerbungsfrist bis zum
 - Theoretischen Informatik 2: Formale Sprachen, Berechenbarkeit und Komplexität
 - Technische Informatik 2: Informatik der Systeme
 
+## Unterlagen
+- [ ] Antrag auf Immatrikulation
+- [ ] Passbild
+- [ ] Kopie Ausweis
+- [ ] Beglaubigtes Zeugnis (Abi)
+- [ ] Elektronische Meldung Krankenkasse
+- [ ] Zulassungsbescheid
+- [ ] Zeugnis Bachelor
+- [ ] Ordentliche Exmatrikulationsbescheinigung Bachelor
+	Ordentliche Exmatrikulationsbescheinigung der bisherigen Hochschule (mit Angaben zu den bisherigen Studienzeiten: Anzahl Hochschul - und Urlaubssemester, Studienbeginn und - ende)
+      
+	Wenn Sie bisher in Deutschland studiert haben, benötigen wir die Bescheinigung in einfacher, unbeglaubigter Kopie.  
+	  
+	Alternativ können Sie auch Studienverlaufsbescheinigung(en) mit Angaben zu den bisherigen Studienzeiten (Zahl Hochschul- und Urlaubssemester, Studienbeginn und -ende) der bereits besuchten deutschen Hochschulen mit dem letzten Abgangsvermerk vorlegen.
+
 ---
 
 # Informatik Master TUM (Mathebuch-Klumpen)
