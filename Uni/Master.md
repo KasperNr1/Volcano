@@ -64,7 +64,7 @@ Bewerbungsfrist bis zum
 ## Unterlagen
 - [x] Antrag auf Immatrikulation
 - [ ] Passbild
-- [ ] Kopie Ausweis
+- [x] Kopie Ausweis
 - [x] Beglaubigtes Zeugnis (Abi)
 - [ ] Elektronische Meldung Krankenkasse
 - [x] Zulassungsbescheid
