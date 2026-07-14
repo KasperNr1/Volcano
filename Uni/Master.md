@@ -62,13 +62,13 @@ Bewerbungsfrist bis zum
 - Technische Informatik 2: Informatik der Systeme
 
 ## Unterlagen
-- [ ] Antrag auf Immatrikulation
+- [x] Antrag auf Immatrikulation
 - [ ] Passbild
 - [ ] Kopie Ausweis
-- [ ] Beglaubigtes Zeugnis (Abi)
+- [x] Beglaubigtes Zeugnis (Abi)
 - [ ] Elektronische Meldung Krankenkasse
-- [ ] Zulassungsbescheid
-- [ ] Zeugnis Bachelor
+- [x] Zulassungsbescheid
+- [x] Zeugnis Bachelor
 - [ ] Ordentliche Exmatrikulationsbescheinigung Bachelor
 	Ordentliche Exmatrikulationsbescheinigung der bisherigen Hochschule (mit Angaben zu den bisherigen Studienzeiten: Anzahl Hochschul - und Urlaubssemester, Studienbeginn und - ende)
       
@@ -181,14 +181,14 @@ The importance of digitalization
 
 ## Bewerbung
 - [x] Essay zu den vorgegebenen [Themen](#Themen) (~1000 Wörter)
-- [ ] Begründungsschreiben - eine von Ihnen selbst verfasste schriftliche Begründung für die Wahl des Studiengangs und für die Wahl der Technischen Universität München als Hochschule (max. 2 Seiten)
+- [x] Begründungsschreiben - eine von Ihnen selbst verfasste schriftliche Begründung für die Wahl des Studiengangs und für die Wahl der Technischen Universität München als Hochschule (max. 2 Seiten)
 - [x] [Englisch-Nachweis](#Englisch-Nachweis)
 - [x] Offizielles Transkript über die bisherigen Studienleistung
 - [x] Formblatt zur [Curricularanalyse](https://apply.db.in.tum.de/)
 - [x] Tabellarischer Lebenslauf
-- [ ] Das dem Hochschulabschluss zugrunde liegende [Modulhandbuch](https://www.dhbw.de/fileadmin/user/public/SP/HOR/Informatik/Informatik.pdf)
-- [ ] Passfoto
-- [ ] Kopie des Ausweises
+- [x] Das dem Hochschulabschluss zugrunde liegende [Modulhandbuch](https://www.dhbw.de/fileadmin/user/public/SP/HOR/Informatik/Informatik.pdf)
+- [x] Passfoto
+- [x] Kopie des Ausweises
 - [ ] Nachweis der studentischen Krankenversicherung (Erst zur Immatrikulation)
 - [ ] Nachweis über Hochschulabschluss (Kann nachgereicht werden)
 
