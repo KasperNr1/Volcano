@@ -63,13 +63,13 @@ Bewerbungsfrist bis zum
 
 ## Unterlagen
 - [x] Antrag auf Immatrikulation
-- [ ] Passbild
+- [x] Passbild
 - [x] Kopie Ausweis
 - [x] Beglaubigtes Zeugnis (Abi)
 - [ ] Elektronische Meldung Krankenkasse
 - [x] Zulassungsbescheid
 - [x] Zeugnis Bachelor
-- [ ] Ordentliche Exmatrikulationsbescheinigung Bachelor
+- [x] Ordentliche Exmatrikulationsbescheinigung Bachelor
 	Ordentliche Exmatrikulationsbescheinigung der bisherigen Hochschule (mit Angaben zu den bisherigen Studienzeiten: Anzahl Hochschul - und Urlaubssemester, Studienbeginn und - ende)
       
 	Wenn Sie bisher in Deutschland studiert haben, benötigen wir die Bescheinigung in einfacher, unbeglaubigter Kopie.  
