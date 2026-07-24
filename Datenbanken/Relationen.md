@@ -78,7 +78,7 @@ Dabei können verschiedene Scopes miteinbegriffen werden. Man unterscheidet die 
 - **Tupellokal** Bezieht sich auf einen Datensatz (Personalnummer muss vorhanden sein)
 - **Tupelübergreifend** Bezug auf mehrere Datensätze innerhalb einer Relation (Summe aller Einkommen muss geringer als 50.000 sein)
 - **Intrarelational** Bezug auf eine einzelne Relation (Alle bisherigen Beispiele sind intrarelational)
-- **Interrelational** Bezug auf mehrere Relationen (Vergleiche [[Relationen.md#Kardinalitätsbedingung]]) TODO Link anpassen
+- **Interrelational** Bezug auf mehrere Relationen (vergleiche [referentielle Integrität](#Referentielle%20Integrität))
 
 
 ## Zeitliche Scopes

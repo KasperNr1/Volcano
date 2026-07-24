@@ -9,7 +9,7 @@ Spezifikation in `Spez.x` speichern.
 ```
 Alex spez.x
 ```
-erzeug eine Datei `spez.hs`
+erzeugt eine Datei `spez.hs`
 Diese wird wieder kompiliert
 ```
 ghc spez.hs

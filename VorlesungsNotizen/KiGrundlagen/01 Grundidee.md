@@ -77,7 +77,7 @@ Wegen der zufälligen Aufteilung in Test- und Trainingsdaten werden Modelle nie 
 
 Um diese Schwankungen auszugleichen wird mit mehreren Durchgängen trainiert und bewertet. 
 
-Ein Gängiges Verfahren ist die **k-fache Kreuzvalidierung** (k-fold Cross Validation)
+Ein gängiges Verfahren ist die **k-fache Kreuzvalidierung** (k-fold Cross Validation)
 
 ![](kFoldDataSplit.png)
 

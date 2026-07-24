@@ -29,7 +29,7 @@ Router und L3 Switche unterteilen Kollisionsdomäne ebenfalls
 Globales Addressieren über physische MAC Adressen nicht sinnvoll
 IP Adressen sind logisch und Hardware-unabhängig
 
-# Internet Protocoll
+# Internet Protocol
 Internet ist eine Sammlung Teilnetze
 IP ist verbindungslos und unzuverlässig (Keine Empfangsgarantie, so gut wie möglich)
 Zuverlässige Verbindungen werden von Schicht 4 gewährleistet

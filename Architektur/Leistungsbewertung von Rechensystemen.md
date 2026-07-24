@@ -135,7 +135,7 @@ Eigenschaft von Programmen:
 - Blinde Wiederverwendung von Code & Daten (Cache) die kürzlich verarbeitet wurden (Kontrolle im Hintergrund)
 - 10% Code werden in 90% der Zeit tatsächlich verwendet
 
-Örtliche Lokalität (Nah beinander) vs. Temporale Lokalität (Vor kurzem verwendet)
+Örtliche Lokalität (nah beieinander) vs. temporale Lokalität (vor Kurzem verwendet)
 
 ## Mögliche Irrtümer
 - Gleicher Befehlssatz der CPU ist bedeutet nicht, dass diese Rechner nur anhand der Taktrate vergleichbar sind.

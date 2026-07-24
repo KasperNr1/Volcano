@@ -1,5 +1,5 @@
 # Internet of Things
-Network of uniquely adressable objects based on standard communication protocolls
+Network of uniquely addressable objects based on standard communication protocols
 
 Internetfähige Geräte mit Sensoren.
 

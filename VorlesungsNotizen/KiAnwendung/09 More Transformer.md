@@ -88,7 +88,7 @@ Beim [Pretraining](10%20LLMs.md#Pretraining) wird durch die
 Nutzung großer Mengen ungelabelter Daten ein Verständnis für grundlegende Sprachmuster und Kontextinformationen erlernt.
 
 ## Fine-Tuning
-Anpassung des vortrainierten Modells auf spezifische Anwendungen durch weiteres Training mit speziell gelabelten Daten. So wird die Leisungsfähigkeit und Genauigkeit bei einzelnen Aufgaben erhöht.
+Anpassung des vortrainierten Modells auf spezifische Anwendungen durch weiteres Training mit speziell gelabelten Daten. So wird die Leistungsfähigkeit und Genauigkeit bei einzelnen Aufgaben erhöht.
 
 ## Masked Language Modeling (MLM)
 Training von Modellen um maskierte Wörter in einem Text zu erkennen und vorherzusagen.
@@ -103,7 +103,7 @@ Modell sagt Tokens für das Ende der gegebenen Sequenz vorher.
 Wiederholte Anwendung kann ganze Texte generieren.
 
 # BERT
-Bidirectional Encoder Representation from Transcoders ist ein Vortrainiertes Modell von Google.
+Bidirectional Encoder Representations from Transformers ist ein vortrainiertes Modell von Google.
 
 Bietet eine umfassende Kontextanalyse durch sein Vortraining mit [MLM](#Masked%20Language%20Modeling%20(MLM)).
 

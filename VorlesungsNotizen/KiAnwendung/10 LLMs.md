@@ -22,7 +22,7 @@ Auch solche Sequenzgenerierungsmodelle können für [Klassifikationsaufgaben](01
 Auch Zusammenfassungen sind mit diesem Modell möglich. Es wird gelernt nach einem speziellen Delimiter z.B.`tldr` den vorherigen Text zusammenzufassen.
 ![](DecoderForTldr.png)
 
-Das Modell generiert in jedem Schritt eine [Wahrscheinlichkeitsverteilung](Einführung.md#Wahrscheinlichkeitmaß%20/%20Wahrscheinlichkeitsverteilung) über alle Worte im [Korpus](02%20N-Gramm.md#Korpuslinguistik).
+Das Modell generiert in jedem Schritt eine [Wahrscheinlichkeitsverteilung](Einführung.md#Wahrscheinlichkeitsmaß%20/%20Wahrscheinlichkeitsverteilung) über alle Worte im [Korpus](02%20N-Gramm.md#Korpuslinguistik).
 Mittels [Sampling](#Sampling) wird aus den wahrscheinlichsten Worten eines ausgewählt und als Ausgabe verwendet.
 
 ### Sampling
@@ -52,7 +52,7 @@ Werte nahe $\tau = 0$ resultieren in einer weniger explorativen, nahezu determin
 # Pretraining
 Zentrale Idee ist das Training in zwei Stufen. Im ersten Schritt werden auf breiter Datenbasis allgemeine Muster und Sprachverständnis erlernt. In einem [zweiten Training](#Finetuning) wird das Modell speziell auf eine Aufgabe vorbereitet.
 
-Das Pretraining ist selbstüberwacht, dh. das keine explizit gelabelten Daten eingesetzt werden. Das Modell verwendet stattdessen immer das nächste Token als Label und versucht dieses vorherzusagen.
+Das Pretraining ist selbstüberwacht, d. h., dass keine explizit gelabelten Daten eingesetzt werden. Das Modell verwendet stattdessen immer das nächste Token als Label und versucht, dieses vorherzusagen.
 
 Als [Loss-function](07%20Neural%20Nets.md#^522bcc) wird "Cross Entropy Loss" verwendet.
 Dabei ist $y_t$ die korrekte Wahrscheinlichkeitsverteilung und $\hat{y}_t$ die vorhergesagte Verteilung.

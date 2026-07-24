@@ -15,7 +15,7 @@ Lösungsansätze sind
 - Token-Ring
 
 ## Zentraler Server
-Ein Koordinator verwaltet die Ressource und eine Warteschlange. Dieser wird z.B. per [Wahlalgorithmus](05%20Logische%20Uhren.md#Wahlalgorithmen) bestimmt.
+Ein Koordinator verwaltet die Ressource und eine Warteschlange. Dieser wird z.B. per [Wahlalgorithmus](../Programmieren/Prozessverwaltung.md#Koordination%20von%20Prozessen) bestimmt.
 Dieser bestimmt die Vergabe und Reihenfolge des Zugriffs auf die Ressource.
 
 1. Prozess $P$ sendet Request

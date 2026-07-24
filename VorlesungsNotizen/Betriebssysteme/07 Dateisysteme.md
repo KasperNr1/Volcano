@@ -2,7 +2,7 @@ Neben den klassischen Dateisystemen gibt es auch solche, die speziell auf einer 
 
 # Verteilte Dateisysteme
 Ziel ist das gemeinsame Nutzen von Dateien im Netz. Dabei gibt es verschiedene Anforderungen die für den korrekten Betrieb notwendig sind.
-- [Verschiedene Transparenzen](VorlesungsNotizen/VerteilteSysteme/01%20Grundlagen.md#Transparenz)
+- [Verschiedene Transparenzen](../../Architektur/Verteilte%20Systeme.md#Transparenz)
 - Konsistenz & Nebenläufigkeit um gleichzeitige Updates zu behandeln
 - Replikation und Caching um Latenz und Verfügbarkeit zu verbessern
 - Unterstützung verschiedener Betriebssysteme

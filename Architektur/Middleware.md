@@ -340,7 +340,7 @@ Die Tasks werden als DAG (Directed, Acyclical Graph) modelliert.
 
 In den Knoten steht der Name des Prozess, sowie seine Ausführungszeit.
 Die Gewichte der Kanten beschreiben den Aufwand für die Kommunikation zwischen zwei Tasks.
-Diese Zeitwerte werden vorrausgesetzt, sie müssen aus historischen Aufzeichnungen oder anderen Quellen stammen.
+Diese Zeitwerte werden vorausgesetzt, sie müssen aus historischen Aufzeichnungen oder anderen Quellen stammen.
 
 Priorisierung kann veschieden erfolgen, (High Level First with Estimated Time) oder (Earliest Time First)
 

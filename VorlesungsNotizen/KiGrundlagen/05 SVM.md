@@ -63,7 +63,7 @@ Nur wenige Punkte sind für die Positionierung der Trennebene wirklich relevant.
 > ![](Scaling.png)
 
 
-In Realen Datensätzen lässt sich jedoch oftmals keine Fehlerfreie Trennlinie finden. Aus diesem Grund wird eine **Soft Margin** verwendet.
+In realen Datensätzen lässt sich jedoch oftmals keine fehlerfreie Trennlinie finden. Aus diesem Grund wird eine **Soft Margin** verwendet.
 ![](SoftMargin.png)
 
 Es wird ein Parameter $C$ eingeführt, der beschreibt wie stark Fehlklassifikationen vermieden werden sollen. Er kann wenige Fehler erlauben um die Entscheidungsgrenze für alle anderen Werte breiter zu halten.

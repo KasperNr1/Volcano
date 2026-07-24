@@ -1,7 +1,7 @@
 # Koordination
 In verteilten Systemen wird [Parallel](Paraprog-Basics.md#Parallel%20vs%20Nebenläufig) gearbeitet. Daher gibt es keine gemeinsame Uhr, was einige Schwierigkeiten bringt.
 
-Es werden Logiken wie "[Vektor Uhren](05%20Logische%20Uhren.md#Vektor%20Uhren)" "[TimeStamps](05%20Logische%20Uhren.md#Lamport%20Timestamp)" oder [konsensbasierte Protokolle](05%20Logische%20Uhren.md#Konsensbasierte%20Ansätze) nötig.
+Es werden Logiken wie "[Vektor Uhren](#Vektor%20Uhren)" "[TimeStamps](#Lamport%20Timestamp)" oder [konsensbasierte Protokolle](../Programmieren/Prozessverwaltung.md#Konsensbasierte%20Ansätze) nötig.
 
 Jeder Knoten besitzt eine lokale Uhr, Ereignisse können nur in Bezug auf eine solche Uhr eindeutig zugeordnet werden.
 
@@ -50,7 +50,7 @@ Diese Regeln bilden die "happened-before" Relation $\rightarrow$
 ![](HappenedBefore.png)
 
 Physikalische Uhren sind nicht exakt synchronisierbar. Daher sind sie nicht geeignet um die Reihenfolge von Ereignissen sicher zu bestimmen.
-Mit logischen Uhren kann die Reihenfolge von Ereignissen mithilfe der [Happened-Before](04%20Prozessmanagement.md#Happened-Before) Kausalität bestimmt werden. Die realen Zeitpunkte der Ereignisse sind dabei nicht in fester Beziehung.
+Mit logischen Uhren kann die Reihenfolge von Ereignissen mithilfe der [Happened-Before](#Happened-Before) Kausalität bestimmt werden. Die realen Zeitpunkte der Ereignisse sind dabei nicht in fester Beziehung.
 
 # Lamport Timestamp
 Jeder Prozess $i$ hat einen Lamport-Timestamp $L_i$ .
@@ -123,7 +123,7 @@ Ein Zustand ist dabei alles "links" der Schnittkante.
 
 ## Snapshot Algorithmus nach Chandy & Lamport
 Ziel ist die Erstellung eines konsistenten globalen Zustands in einem verteilten System, ohne die Prozesse zu blockieren.
-Vorraussetzung dafür sind zuverlässige FIFO Kanäle und starker Zusammenhang des Prozessgraphen. Jeder Prozess kann einen Snapshot initiieren.
+Voraussetzung dafür sind zuverlässige FIFO Kanäle und starker Zusammenhang des Prozessgraphen. Jeder Prozess kann einen Snapshot initiieren.
 
 > [!NOTE] Starker Zusammenhang
 > Bedeutet, dass im gerichteten Graph jeder Knoten von jedem Startpunkt erreichbar ist.

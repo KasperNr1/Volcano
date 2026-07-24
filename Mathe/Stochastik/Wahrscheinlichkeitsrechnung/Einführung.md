@@ -24,7 +24,7 @@ $$
 \end{array}
 $$
 
-## Wahrscheinlichkeitmaß / Wahrscheinlichkeitsverteilung
+## Wahrscheinlichkeitsmaß / Wahrscheinlichkeitsverteilung
 Dies ist eine Funktion 
 $P : \mathcal{P}(\Omega) \rightarrow [0;1]$ 
 $A \mapsto P(A) \in [0;1]$ 

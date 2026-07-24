@@ -26,7 +26,7 @@
 
 
 # Mermaid
-Eine Bibliothek die es erlaub Diagramme durch textuelle Beschreibungen zu erstellen und in Markdown einzufügen.
+Eine Bibliothek, die es erlaubt, Diagramme durch textuelle Beschreibungen zu erstellen und in Markdown einzufügen.
 
 [Mermaid | Diagramming and charting tool](https://mermaid.js.org/)
 

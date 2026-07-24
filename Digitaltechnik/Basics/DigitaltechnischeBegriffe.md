@@ -57,14 +57,14 @@ Dabei ist $b$ die Basis des [Zahlensystems](Umrechnung%20von%20Zahlensystemen.md
 Vergleichbar ist die Operation mit dem [additiven Invers](Modulare%20Arithmetik.md#Addition) in $\Bbb{Z}_n$
 
 Für $110001_2$ ist das 1er-Komplement also $001110_2$ oder $1110_2$
-Bei $123890_{10}$ ist es $876109_{10}$ da die beiden Zahlen jeweils $111111_2$ oder $999999_{10}$ als Summ haben.
+Bei $123890_{10}$ ist es $876109_{10}$, da die beiden Zahlen jeweils $111111_2$ oder $999999_{10}$ als Summe haben.
 
 ## 2er Komplement
 Bestimmt wird das 2er Komplement indem erst das [1er-Komplement](#1er-Komplement) gebildet wird. Zu diesem wird zusätzlich $1$ addiert.
-Bei Verwendung der [Codierung für negative Zahlen im Binärsystem](Rechenwerk.md#Negative%20Zahlen%20im%20Binärsystem) ist das 2er Komplement einer Zahl ihr additives Invers.
+Bei Verwendung der [Codierung für negative Zahlen im Binärsystem](../Zahlen%20in%20Binär.md#Negative%20Zahlen) ist das 2er Komplement einer Zahl ihr additives Invers.
 Somit kann die [Differenz zweier Zahlen durch Addition gebildet](Rechenwerk.md#Beispielrechnung) werden.
 
-Das Bilden des 2er Komplements ist eine [Involution](https://de.wikipedia.org/wiki/Involution_(Mathematik).
+Das Bilden des 2er-Komplements ist eine [Involution](https://de.wikipedia.org/wiki/Involution_(Mathematik)).
 Die Operation ist also ihr eigenes Invers.
 
 $$

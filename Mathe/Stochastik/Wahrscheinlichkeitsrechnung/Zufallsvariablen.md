@@ -99,7 +99,7 @@ $\displaystyle  E(X) = \sum_{i} x_i * f(x_i) = \sum_{i} x_i * P(X=x_i)$
 $\displaystyle  Var(X) = \sigma^2$
 $\displaystyle Var(X) = \sum_{i}(x_i - E(X))^2*f(x_i)$ 
 
-#### Standartabweichung
+#### Standardabweichung
 $\sigma = \sqrt{Var(X)}$ 
 Ist ein gutes Streumaß, da die Einheit und Dimensionen mit denen des [Erwartungswerts](#Erwartungswert) übereinstimmen.
 

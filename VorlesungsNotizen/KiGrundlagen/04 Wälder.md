@@ -8,7 +8,7 @@ Das liegt daran, dass weitere Entscheidungsknoten angefügt werden, bis diese nu
 ## Einschränkungen
 Es gibt unterschiedliche Möglichkeiten die Bäume zu beeinflussen. Die simpelsten sind eine Begrenzung der Tiefe oder der Anzahl an verwendeter Knoten.
 
-Auch die Anzahl an Beispielen pro Knoten kann angehoben werden. So wird verhindert, dass wegen einem potentiell fehlerhaft gelabeltem Datum tiefe Unterbäume entstehen.
+Auch die Anzahl an Beispielen pro Knoten kann angehoben werden. So wird verhindert, dass wegen eines potenziell fehlerhaft gelabelten Datums tiefe Unterbäume entstehen.
 
 ![](OptimizedTree.png)
 

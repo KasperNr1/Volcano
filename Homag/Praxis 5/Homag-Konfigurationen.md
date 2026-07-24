@@ -1,5 +1,5 @@
 # NPM
-Der [Node Package Manager]([npm | Home](https://www.npmjs.com/)) kann nicht verwendet werden. Um die Verwendung gefährlicher Pakete auszuschließen wird ein Homag-eigener Proxy genutzt.
+Der [Node Package Manager](https://www.npmjs.com/) kann nicht verwendet werden. Um die Verwendung gefährlicher Pakete auszuschließen wird ein Homag-eigener Proxy genutzt.
 
 Unter [https://nexus.durr.com/](https://nexus.durr.com/ "https://nexus.durr.com/") kann im Menü "Browse" eine Liste von Repositories angezeigt werden. (Eventuell muss man sich zuerst einloggen, das funktioniert im Login Menü oben rechts über SingleSignOn)
 

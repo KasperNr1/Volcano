@@ -114,7 +114,7 @@ Ein Zustand ist dabei alles "links" der Schnittkante.
 
 ## Snapshot Algorithmus nach Chandy & Lamport
 Ziel ist die Erstellung eines konsistenten globalen Zustands in einem verteilten System, ohne die Prozesse zu blockieren.
-Vorraussetzung dafür sind zuverlässige FIFO Kanäle und starker Zusammenhang des Prozessgraphen. Jeder Prozess kann einen Snapshot initiieren.
+Voraussetzung dafür sind zuverlässige FIFO Kanäle und starker Zusammenhang des Prozessgraphen. Jeder Prozess kann einen Snapshot initiieren.
 
 > [!NOTE] Starker Zusammenhang
 > Bedeutet, dass im gerichteten Graph jeder Knoten von jedem Startpunkt erreichbar ist.
@@ -140,7 +140,7 @@ Ein Datenspeicher ist sequentiell konsistent, wenn jede Programmausführung so e
 
 ## Linearisierbarkeit
 Ist noch stärker als Sequentielle Konsistenz.
-Vorrausgesetzt ist hierbei eine globale Uhrzeit die in allen Prozessen gelesen werden kann.
+Vorausgesetzt ist hierbei eine globale Uhrzeit die in allen Prozessen gelesen werden kann.
 Die Reihenfolge der Operationen muss hier mit der Reihenfolge ihrer Zeitstempel konsistent sein.
 Sehr schwer zu implementieren, oft nur für formale Verifikation von nebenläufigen Algorithmen verwendet.
 

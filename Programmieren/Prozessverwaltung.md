@@ -84,7 +84,7 @@ Verschiedene Wahlverfahren sind
 - [Heartbeat](#Heartbeat)
 - [Ringalgorithmen](#Ringalgorithmen)
 - [Heartbeat](#Heartbeat)
-- [Konsensbasierte Anätze](#Konsensbasierte%20Anätze)
+- [Konsensbasierte Ansätze](#Konsensbasierte%20Ansätze)
 
 ## Bully Algorithmus
 Wenn die Koordinatorlosigkeit festgestellt ist, wird ein Wahlprozess gestartet. Dabei wird der Prozess zum Koordinator, der während der Wahl die höchste ID hat.

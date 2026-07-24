@@ -25,7 +25,7 @@ Wenn neue Änderungen aus dem Unter-Repo verwendet werden sollen, muss ein Befeh
 Es wird der Befehl `add` durch `pull` ersetzt, die Parameter und ihre Bedeutung bleiben unverändert.
 
 ### Push
-Änderungen werden standartmäßig nur im Main-Repo getrackt. Wenn ein aktualisierter Stand auch ins Unter-Repo gepusht werden soll, muss dies explizit geschehen.
+Änderungen werden standardmäßig nur im Main-Repo getrackt. Wenn ein aktualisierter Stand auch ins Unter-Repo gepusht werden soll, muss dies explizit geschehen.
 1. `cd Main-Repo`
 2. `git subtree push --prefix <sub-Dir-Name> <sub-Repo-URL> <sub-Repo-Branch>`
 

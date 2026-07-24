@@ -43,7 +43,7 @@ Ein Lemma ist die Grundform von Wörtern mit gleichem [Stamm](#Stamm), Wortart u
 
 
 # Wahrscheinlichkeitsmethode
-Bei der klassischen "Autovervollständigung" wird meist simpel mit den [Wahrscheinlichkeitsverteilung](Einführung.md#Wahrscheinlichkeitmaß%20/%20Wahrscheinlichkeitsverteilung) der Wörter im Korpus gelernt.
+Bei der klassischen "Autovervollständigung" wird meist simpel mit den [Wahrscheinlichkeitsverteilungen](Einführung.md#Wahrscheinlichkeitsmaß%20/%20Wahrscheinlichkeitsverteilung) der Wörter im Korpus gelernt.
 
 ![](AutoComplete.png)
 

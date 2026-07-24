@@ -3,7 +3,7 @@ Transfer Learning gilt als Schlüssel zur Leistungsfähigkeit großer Sprachmode
 # Transfer Learning in LLMs
 ![](TransferLearningStepsInLlm.png)
 
-Beim Finetuning werden ggf. Firmeninterne Dokumente zum Training verwendet. So kann sich ein Modell an den Kontext bestimmter Aufgaben anpassen.
+Beim Finetuning werden ggf. firmeninterne Dokumente zum Training verwendet. So kann sich ein Modell an den Kontext bestimmter Aufgaben anpassen.
 
 Transfer Learning ist deutlich effizienter als Modelle für jeden Kontext von Grund auf neu zu trainieren. Das teure Basismodell kann flexibel auf verschiedene Aufgaben spezialisiert werden.
 
@@ -27,9 +27,9 @@ Hier sind Daten und Aufgaben sehr verschieden. Beispielsweise wenn ein Basismode
 Die Unterschiede erschweren die Anwendbarkeit des Basismodells, es sind umfangreiche Anpassungen nötig.
 
 
-> [!Info] Warum ist das besser als eine untrainiertes Modell?
+> [!Info] Warum ist das besser als ein untrainiertes Modell?
 > Auch wenn die Art der Aufgaben sehr unterschiedlich ist, kann ein Teil der Muster übereinstimmen. 
-> Beim weiteren Training kann eine Art "Converter" entstehen um die zunächst inkompatiblem Formate an Informationen ineinander zu wandeln
+> Beim weiteren Training kann eine Art "Converter" entstehen, um die zunächst inkompatiblen Informationsformate ineinander umzuwandeln.
 
 ## Domänenunterschiede
 Die Unterschiede zwischen den Domänen werden mit vier grundlegenden Ansätzen reduziert.
@@ -86,7 +86,7 @@ Typische Anwendung von RNNs sind
 - Sequenzmodellierung
   Aufgaben wie [PoS Tagging](03%20PartOfSpeech.md#PoS%20Tagging)
 
-Die zyklische Struktur mach RNNs besonders leistugsstark bei der Verarbeitung zeitlicher Daten, birgt jedoch auch einige Herausforderungen.
+Die zyklische Struktur macht RNNs besonders leistungsstark bei der Verarbeitung zeitlicher Daten, birgt jedoch auch einige Herausforderungen.
 Die Struktur erschwert das Verständnis der Funktionsweise des Netzwerks.
 Auch das Training ist schwieriger, da bei besonders langen Sequenzen der [Gradient](07%20Neural%20Nets.md#Gradientenabstieg) verschwinden oder explodieren kann (Diminishing and Exploding Gradients)
 
@@ -98,12 +98,12 @@ Auch "einfache rekurrente Netze" sind eine eingeschränkte Architektur die sich 
 Links dargestellt ist ein Elman-Netz, bei dem nur die [Neuronen](07%20Neural%20Nets.md#Neuronen) in einer versteckten Schicht rekurrent verbunden sind. Rechts in der Abbildung ist ein vollständig verbundenes rekurrentes neuronales Netz dargestellt.
 Da deutlich weniger Verbindungen vorhanden sind ist das Training und die Nachvollziehbarkeit von Ergebnissen erleichtert.
 
-Bei der Berechnung eines Ergebnis werden dabei die neuen Eingaben mit Informationen aus vorherigen Zeitpunkten kombiniert.
+Bei der Berechnung eines Ergebnisses werden dabei die neuen Eingaben mit Informationen aus vorherigen Zeitpunkten kombiniert.
 Dabei kann der Kontext bis zum Beginn der Sequenz zurückreichen.
 
 ![](RecurrentNeuralNet.png)
 
-Um $h_t$ zu berechnen, wird der Eingang $x_t$ mit der Gewichtsmatrix $W$ multipliziert und die versteckte Schicht des vorherigen Zeitschritts $h_{h-1}$ mit der Gewichtsmatrix $U$.
+Um $h_t$ zu berechnen, wird der Eingang $x_t$ mit der Gewichtsmatrix $W$ multipliziert und die versteckte Schicht des vorherigen Zeitschritts $h_{t-1}$ mit der Gewichtsmatrix $U$.
 Diese Werte werden addiert und durch eine gewählte [Aktivierungsfunktion](07%20Neural%20Nets.md#Aktivierungsfunktion) $g$ geleitet um den Aktivierungswert der aktuellen versteckten Schicht $h_t$ zu erhalten.
 
 $$
@@ -128,12 +128,12 @@ Dabei hat jedes Wort im Wortschatz ein zugehöriges [Embedding](#Embedding) die 
 ### Embedding Matrix
 Repräsentiert die Einbettung der Wörter im Wortschatz. Jedes Wort wird durch einen [Vektor](Vektoren%20und%20Vektorräume.md#Vektoren) in einem kontinuierlichen Raum dargestellt.
 
-Bei einem Wortschatz der Größe $|V|$ und einer Embedding-Dimensinon $d$ hat die Embedding-Matrix die Dimension $|V| \times d$.
+Bei einem Wortschatz der Größe $|V|$ und einer Embedding-Dimension $d$ hat die Embedding-Matrix die Dimension $|V| \times d$.
 Jede Spalte der Matrix stellt den Embedding Vektor eines bestimmten Wortes dar.
 
 Bei der Verarbeitung einer Eingabesequenz wird der entsprechende Embedding-Vektor von jedem Wort abgerufen. 
 Dabei haben ähnliche Worte auch ähnliche Vektoren, um semantische Beziehungen zu erfassen.
-Während dem Training wird auch die Embedding-Matrix optimiert, um Beziehungen besser abzubilden. 
+Während des Trainings wird auch die Embedding-Matrix optimiert, um Beziehungen besser abzubilden.
 Die [Matrix](Matrizen.md#Definition) spielt dabei eine entscheidende Rolle um die diskreten Eingabeworte in stetige Zahlenwerte umzuwandeln, die für die Verarbeitung durch das [neuronale Netz](07%20Neural%20Nets.md#Neural%20Nets) notwendig sind.
 
 ### Architektur
@@ -141,7 +141,7 @@ Die Eingabe $X = (x_1, x_2, \dots, x_n)$ besteht dabei aus einer Reihe aus Wört
 Die [Embedding Matrix](#Embedding%20Matrix) $E$ enthält die Embeddings $e_t$ für alle Wörter $x_t$. 
 ![](RnnArchitecture.png)
 Das Embedding wird mit der Gewichtsmatrix $W$ multipliziert und zum versteckten Layer des vorherigen Schritts (gewichtet durch die Gewichtsmatrix $U$) addiert, um einen neuen versteckten Layer zu berechnen.
-Der neue versteckte Layer wird verwendet, um eine Ausgabeschicht zu erzeugen, die durch eine Softmax-Schicht geleitet wird um eine [Wahrscheinlichkeitsverteilung](Einführung.md#Wahrscheinlichkeitmaß%20/%20Wahrscheinlichkeitsverteilung) über den gesamten Wortschatz zu generieren.
+Der neue versteckte Layer wird verwendet, um eine Ausgabeschicht zu erzeugen, die durch eine Softmax-Schicht geleitet wird, um eine [Wahrscheinlichkeitsverteilung](Einführung.md#Wahrscheinlichkeitsmaß%20/%20Wahrscheinlichkeitsverteilung) über den gesamten Wortschatz zu generieren.
 Die Wahrscheinlichkeit, dass das Wort am Index $k$ das nächste Wort ist, beträgt $\hat{y}_t[k]$ 
 
 - $e_t = E \cdot x_t$
@@ -176,7 +176,7 @@ Im Gegensatz zu klassischen RNNs wird eine innere Zelle und drei spezielle "Gate
 ![](LstmArchitecture.png)
 ![](LstmArchitectureForgetGate.png)
 
-Alle Gates werden durch die Eingangsdaten aktiviert oder deaktiviert. Dabei werden ebenfalls Gewichte berechnet, die während dem Training angepasst werden.
+Alle Gates werden durch die Eingangsdaten aktiviert oder deaktiviert. Dabei werden ebenfalls Gewichte berechnet, die während des Trainings angepasst werden.
 
 Die Zustände des Gates werden aus den Vektoren $x_t$ und $h_{t-1}$ berechnet.
 Dabei hat das Netz drei logische Eingaben:
@@ -210,12 +210,12 @@ $$
 h_t = o_t \odot \tanh (c_t)
 $$
 Hier sind $U_g$ und $W_g$ wieder trainierte Matrizen.
-Das Symbol $\odot$ steht führ die elementweise Multiplikation zweier Vektoren. (["Hadamard-Produkt"](Vektoren%20und%20Vektorräume.md#Rechenoperationen)) 
+Das Symbol $\odot$ steht für die elementweise Multiplikation zweier Vektoren. (["Hadamard-Produkt"](Vektoren%20und%20Vektorräume.md#Rechenoperationen))
 
 
 ## Gated Recurrent Unit (GRU)
 Sind eine Art von [RNN](#Rekurrente%20Neuronale%20Netze%20(RNNs)).
-Sie lösen ebenfalls das Problem der exploding Grandients und sind eine neuere und vereinfachte Variante der [LSTMs](#LSTM).
+Sie lösen ebenfalls das Problem der Exploding Gradients und sind eine neuere und vereinfachte Variante der [LSTMs](#Long%20Short-Term%20Memory%20(LSTM)%20Network).
 Die Funktion von Forget-Gates und Input Gates wird in einem einzelnen Gate kombiniert.
 
 ![](GruArchitecture.png)
@@ -256,7 +256,7 @@ Welche Teile im Fokus stehen hängt dabei von der Eingabe selbst ab.
 	1. Abfragevektor $Q$
 	   Repräsentiert das Wort für das Informationen gefunden werden sollen
 	2. Schlüsselvektor $K$
-	   Repräsenstiert potentielle Wörter, die relevante Informationen liefern könnten
+     Repräsentiert potenzielle Wörter, die relevante Informationen liefern könnten
 	3. Wertvektor $V$
 	   Enthält die tatsächlichen Informationen die aus den Attention Scores aggregiert wurden
 3. Berechnung der Attention-Scores

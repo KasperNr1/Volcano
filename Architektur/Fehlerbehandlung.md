@@ -27,7 +27,7 @@ Jede Komponente wird dreifach umgesetzt, nach jeder Stufe sitzt ein Mehrheitssch
 Da dieser Einsatz vieler Redundanter Bauteile sehr teuer ist, wird es typischerweise nur bei sehr kritischen Systemen angewendet (Raumfahrt / Industrie)
 
 # Prozess-Elastizität
-Prozesse werden in Gruppen repliziert. Nachrichten an eine Gruppe werden von allen Mitgliedern empfangen. (Typisch: [Totally ordered Multicast](06%20Verteilte%20Mutexe.md#Empfangsreihenfolge))
+Prozesse werden in Gruppen repliziert. Nachrichten an eine Gruppe werden von allen Mitgliedern empfangen. (Typisch: [Totally ordered Multicast](Verteilte%20Algorithmen.md#Empfangsreihenfolge))
 
 Organisiert können diese Gruppen flach (symmetrisch) sein oder hierarchisch mit einem zentralen Koordinator.
 
@@ -59,7 +59,7 @@ Der Einsatz von Checkpoints vereinfacht die Recovery, verwendet allerdings Speic
 Prozesse Speichern ihren Zustand unabhängig voneinander. Die Implementierung ist hier sehr einfach, aber beim Rollback kann es zu einem Domino-Effekt kommen. Abhängige Prozesse müssen ggf. ebenfalls zurückrollen, eventuell sogar bis zum Anfang.
 
 ### Koordinierte Checkpoints
-Es wird ein global konsistenter Checkpoint erzeugt. Mit dem [Algorithmus von Lamport](05%20Logische%20Uhren.md#Snapshot%20Algorithmus%20nach%20Chandy%20&%20Lamport) können diese erzeugt werden.
+Es wird ein global konsistenter Checkpoint erzeugt. Mit dem [Algorithmus von Lamport](Logisches%20Timing.md#Snapshot%20Algorithmus%20nach%20Chandy%20&%20Lamport) können diese erzeugt werden.
 
 Alternativ kann ein blockierendes 2 Phasen Modell verwendet werden. Dies vereinfacht das Erstellen der Checkpoints, blockiert aber alle Prozesse im Verlauf.
 

@@ -55,7 +55,8 @@ $$
 Dichtefunktion 
 $$
 f(k) = P(X=k) = \binom{n}{k}*p^k*(1-p)^{n-k} \qquad k\in \{0; 1; \dots; n\}
-$$ Verteilungsfunktion
+$$
+Verteilungsfunktion
 $$
 F(k) = P(X \leq k) = \sum_{i=0}^{k} \binom{n}{i} * p^i * (1-p)^{n-i}
 $$

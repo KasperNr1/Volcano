@@ -2,7 +2,7 @@
 Ein Entity/Relationship Modell dient zur Konzeptionellen Programmierung einer Datenbank.
 Es enthält die notwendigen Informationen über die Entitäten, Attribute und Beziehungen des Systems.
 
-Die verbreitetste Form der Darstellung ist die sogenannte [Chen Notation]([Chen-Notation – Wikipedia](https://de.wikipedia.org/wiki/Chen-Notation)) 
+Die verbreitetste Form der Darstellung ist die sogenannte [Chen-Notation](https://de.wikipedia.org/wiki/Chen-Notation).
 
 > [!Info] Modellierungswillkür
 > Es gibt zu einem realen Sachverhalt nicht immer eine eindeutige, einzig korrekte Art diesen zu modellieren. Diese Existenz verschiedener korrekter Lösungen wird auch als **"Modellierungswillkür"** bezeichnet.

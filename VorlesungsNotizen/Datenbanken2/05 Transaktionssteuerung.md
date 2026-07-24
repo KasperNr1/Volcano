@@ -63,7 +63,7 @@ Werte für Isolationslevel
 - `READ COMMITTED`
   Nicht wiederholbares Lesen ist möglich
 - `READ UNCOMMITTED`
-  Zusätlich sind dirty Reads möglich
+  Zusätzlich sind Dirty Reads möglich
 
 ![](IsolationsLevel.png)
 

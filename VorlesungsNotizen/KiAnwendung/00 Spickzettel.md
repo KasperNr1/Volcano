@@ -1,7 +1,7 @@
 ## Typen
 Bezeichnet die [Menge](Intervalle%20und%20Mengen.md) der einzigartigen Wörter in einem Korpus, unabhängig wie oft sie tatsächlich vorkommen.
 
-> [!Info] Unterschied [Stamm](#Stamm) und [Lemma](#Lemma)
+> [!Info] Unterschied [Stamm](02%20N-Gramm.md#Stamm) und [Lemma](02%20N-Gramm.md#Lemma)
 > ![](StemmingVsLemma.jpeg)
 
 > [!Example] Klausuraufgabe
@@ -176,14 +176,14 @@ In der Sprachverarbeitung können verschiedene Sätze mit identischer Bedeutung 
 ## Inferenz
 Das Ableiten von neuen Erkenntnissen aus vorhandenen Informationen.
 
-Teilt sich in [Deduktion](#Deduktion) und [Induktion](#Induktion).
+Teilt sich in [Deduktion](05%20Bedeutungsdarstellung.md#Deduktion) und [Induktion](05%20Bedeutungsdarstellung.md#Induktion).
 
 Eine Inferenz ist im Allgemeinen gültig, wenn sie durch korrekte Schlussfolgerungen logisch aus Beweisen abgeleitet wird.
 # Kasusgrammatik
 Die gleiche Bedeutung kann in unterschiedlichen Sprachen mit verschieden Strukturen und Wörtern codiert werden.
 Die Kasusgrammatik ist ein System das die Beziehungen zwischen Subjekten, Objekten und der [Valenz](#Valenz) von Verben analysiert.
 
-Die Grundlegenden Rollen einer Aussage bleiben gleich, unabhängig von der Sprache die verwendet wird um diese Information auszudrücken. Man spricht auch von [Semantischen Rollen](#Semantische%20Rollen).
+Die Grundlegenden Rollen einer Aussage bleiben gleich, unabhängig von der Sprache die verwendet wird um diese Information auszudrücken. Man spricht auch von [Semantischen Rollen](05%20Bedeutungsdarstellung.md#Semantische%20Rollen).
 
 ## Valenz
 Verben verlangen eine unterschiedliche Anzahl von Argumenten oder Satzteilen.
@@ -529,9 +529,9 @@ Hier sind Daten und Aufgaben sehr verschieden. Beispielsweise wenn ein Basismode
 
 Die Unterschiede erschweren die Anwendbarkeit des Basismodells, es sind umfangreiche Anpassungen nötig.
 
-> [!Info] Warum ist das besser als eine untrainiertes Modell?
+> [!Info] Warum ist das besser als ein untrainiertes Modell?
 > Auch wenn die Art der Aufgaben sehr unterschiedlich ist, kann ein Teil der Muster übereinstimmen. 
-> Beim weiteren Training kann eine Art "Converter" entstehen um die zunächst inkompatiblem Formate an Informationen ineinander zu wandeln
+> Beim weiteren Training kann eine Art "Converter" entstehen, um die zunächst inkompatiblen Informationsformate ineinander umzuwandeln.
 
 ## Domänenunterschiede
 Die Unterschiede zwischen den Domänen werden mit vier grundlegenden Ansätzen reduziert.
@@ -580,7 +580,7 @@ Typische Anwendung von RNNs sind
 - Sequenzmodellierung
   Aufgaben wie [PoS Tagging](03%20PartOfSpeech.md#PoS%20Tagging)
 
-Die zyklische Struktur mach RNNs besonders leistugsstark bei der Verarbeitung zeitlicher Daten, birgt jedoch auch einige Herausforderungen.
+Die zyklische Struktur macht RNNs besonders leistungsstark bei der Verarbeitung zeitlicher Daten, birgt jedoch auch einige Herausforderungen.
 Die Struktur erschwert das Verständnis der Funktionsweise des Netzwerks.
 Auch das Training ist schwieriger, da bei besonders langen Sequenzen der [Gradient](07%20Neural%20Nets.md#Gradientenabstieg) verschwinden oder explodieren kann (Diminishing and Exploding Gradients)
 
@@ -590,10 +590,10 @@ Auch "einfache rekurrente Netze" sind eine eingeschränkte Architektur die sich 
 Links dargestellt ist ein Elman-Netz, bei dem nur die [Neuronen](07%20Neural%20Nets.md#Neuronen) in einer versteckten Schicht rekurrent verbunden sind. Rechts in der Abbildung ist ein vollständig verbundenes rekurrentes neuronales Netz dargestellt.
 Da deutlich weniger Verbindungen vorhanden sind ist das Training und die Nachvollziehbarkeit von Ergebnissen erleichtert.
 
-Bei der Berechnung eines Ergebnis werden dabei die neuen Eingaben mit Informationen aus vorherigen Zeitpunkten kombiniert.
+Bei der Berechnung eines Ergebnisses werden dabei die neuen Eingaben mit Informationen aus vorherigen Zeitpunkten kombiniert.
 Dabei kann der Kontext bis zum Beginn der Sequenz zurückreichen.
 
-Um $h_t$ zu berechnen, wird der Eingang $x_t$ mit der Gewichtsmatrix $W$ multipliziert und die versteckte Schicht des vorherigen Zeitschritts $h_{h-1}$ mit der Gewichtsmatrix $U$.
+Um $h_t$ zu berechnen, wird der Eingang $x_t$ mit der Gewichtsmatrix $W$ multipliziert und die versteckte Schicht des vorherigen Zeitschritts $h_{t-1}$ mit der Gewichtsmatrix $U$.
 Diese Werte werden addiert und durch eine gewählte [Aktivierungsfunktion](07%20Neural%20Nets.md#Aktivierungsfunktion) $g$ geleitet um den Aktivierungswert der aktuellen versteckten Schicht $h_t$ zu erhalten.
 
 $$
@@ -611,7 +611,7 @@ Die Größe des Wortschatzes wird mit $|V|$ dargestellt. Sie gibt die Anzahl der
 ### Embedding Matrix
 Repräsentiert die Einbettung der Wörter im Wortschatz. Jedes Wort wird durch einen [Vektor](Vektoren%20und%20Vektorräume.md#Vektoren) in einem kontinuierlichen Raum dargestellt.
 
-Bei einem Wortschatz der Größe $|V|$ und einer Embedding-Dimensinon $d$ hat die Embedding-Matrix die Dimension $|V| \times d$.
+Bei einem Wortschatz der Größe $|V|$ und einer Embedding-Dimension $d$ hat die Embedding-Matrix die Dimension $|V| \times d$.
 Jede Spalte der Matrix stellt den Embedding Vektor eines bestimmten Wortes dar.
 ### Architektur
 Die Eingabe $X = (x_1, x_2, \dots, x_n)$ besteht dabei aus einer Reihe aus Wörtern $x_i$, jedes dargestellt als ein [One-Hot-Vektor](02%20Modellauswahl.md#One%20Hot%20Encoding) der Größe $|V|$.
@@ -640,7 +640,7 @@ Im Gegensatz zu klassischen RNNs wird eine innere Zelle und drei spezielle "Gate
 - Ausgangsgate
   Kontrolliert, wie stark der Zellwert für die nächste Berechnung verwendet wird
 
-Alle Gates werden durch die Eingangsdaten aktiviert oder deaktiviert. Dabei werden ebenfalls Gewichte berechnet, die während dem Training angepasst werden.
+Alle Gates werden durch die Eingangsdaten aktiviert oder deaktiviert. Dabei werden ebenfalls Gewichte berechnet, die während des Trainings angepasst werden.
 
 Die Zustände des Gates werden aus den Vektoren $x_t$ und $h_{t-1}$ berechnet.
 Dabei hat das Netz drei logische Eingaben:
@@ -672,10 +672,10 @@ $$
 h_t = o_t \odot \tanh (c_t)
 $$
 Hier sind $U_g$ und $W_g$ wieder trainierte Matrizen.
-Das Symbol $\odot$ steht führ die elementweise Multiplikation zweier Vektoren. 
+Das Symbol $\odot$ steht für die elementweise Multiplikation zweier Vektoren.
 ## Gated Recurrent Unit (GRU)
 Sind eine Art von [RNN](#Rekurrente%20Neuronale%20Netze%20(RNNs)).
-Sie lösen ebenfalls das Problem der exploding Grandients und sind eine neuere und vereinfachte Variante der [LSTMs](#LSTM).
+Sie lösen ebenfalls das Problem der Exploding Gradients und sind eine neuere und vereinfachte Variante der [LSTMs](#Long%20Short-Term%20Memory%20(LSTM)%20Network).
 Die Funktion von Forget-Gates und Input Gates wird in einem einzelnen Gate kombiniert.
 
 Eine GRU-Einheit hat zwei Hauptzustände:
@@ -710,7 +710,7 @@ Welche Teile im Fokus stehen hängt dabei von der Eingabe selbst ab.
 	1. Abfragevektor $Q$
 	   Repräsentiert das Wort für das Informationen gefunden werden sollen
 	2. Schlüsselvektor $K$
-	   Repräsenstiert potentielle Wörter, die relevante Informationen liefern könnten
+     Repräsentiert potenzielle Wörter, die relevante Informationen liefern könnten
 	3. Wertvektor $V$
 	   Enthält die tatsächlichen Informationen die aus den Attention Scores aggregiert wurden
 3. Berechnung der Attention-Scores
@@ -818,9 +818,9 @@ Für die genaue Einschränkung gibt es verschiedene Ansätze.
 ![](SparseAttention.png)
 
 # BERT
-Bidirectional Encoder Representation from Transcoders ist ein Vortrainiertes Modell von Google.
+Bidirectional Encoder Representations from Transformers ist ein vortrainiertes Modell von Google.
 
-Bietet eine umfassende Kontextanalyse durch sein Vortraining mit [MLM](#Masked%20Language%20Modeling%20(MLM)).
+Bietet eine umfassende Kontextanalyse durch sein Vortraining mit [MLM](09%20More%20Transformer.md#Masked%20Language%20Modeling%20(MLM)).
 
 Nach dem Vortraining kann das Modell auf spezifische Anwendungsarten trainiert werden
 
@@ -869,7 +869,7 @@ Statt $\text{softmax}(u)$ wird $\text{softmax}\left(\dfrac{u}{\tau}\right)$ bere
 Werte nahe $\tau = 0$ resultieren in einer weniger explorativen, nahezu deterministischen Wortwahl. Große Werte $(\tau > 1)$  bevorzugen die Wahl von selteneren Fortsetzungen und erhalten so eine vielfältige Sprache, opfern jedoch einen Teil der [Kohärenz](07%20Pragmatische%20Analyse.md#Kohärenz).
 
 # Pretraining
-Das Pretraining ist selbstüberwacht, dh. das keine explizit gelabelten Daten eingesetzt werden. Das Modell verwendet stattdessen immer das nächste Token als Label und versucht dieses vorherzusagen.
+Das Pretraining ist selbstüberwacht, d. h., dass keine explizit gelabelten Daten eingesetzt werden. Das Modell verwendet stattdessen immer das nächste Token als Label und versucht, dieses vorherzusagen.
 
 Als [Loss-function](07%20Neural%20Nets.md#^522bcc) wird "Cross Entropy Loss" verwendet.
 Dabei ist $y_t$ die korrekte Wahrscheinlichkeitsverteilung und $\hat{y}_t$ die vorhergesagte Verteilung.

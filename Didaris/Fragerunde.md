@@ -29,7 +29,7 @@
 
 # Fragen
 - Was genau muss ich beim FinAmt anmelden (Und wie?)
-- Was heißt Gewinn (Thema [Rente](#Rente)) Kann ich einfach teure Sachen kaufen (Die ich sowieso möchte) wenn sie einigermaßen relevant sein könnten (PC, Schreibtisch, Bildschirme, Mikrophon... ) um den finanziellen Gewinn zu drücken? 
+- Was heißt Gewinn (Thema [Rente](#Sozialversicherung)) Kann ich einfach teure Sachen kaufen (die ich sowieso möchte), wenn sie einigermaßen relevant sein könnten (PC, Schreibtisch, Bildschirme, Mikrofon ...), um den finanziellen Gewinn zu drücken?
 - Zählt meine Homag-Sozialversicherung + Rente 
 - Kann ich während dem (Vollzeit-)Master-Studium weitermachen? 
   (Stichwort: "Mehrere Auftraggeber" / Krankenversicherung)

@@ -45,7 +45,7 @@ Nachdem keine neuen Läufe mehr nachgeladen werden können, ist der Datensatz so
 
 #### 2. Fall: N $\geq$ M
 In diesem Fall sind mehrere Mischphasen notwendig.
-Es werden in jeder Phase $M-1$ benachbarte Gruppen gemischt. So reduziert sich die Anzahl der Läufe um den Faktor $M-1$ und erzeug Läufe die maximal um diesen Faktor angewachsen sind.
+Es werden in jeder Phase $M-1$ benachbarte Gruppen gemischt. So reduziert sich die Anzahl der Läufe um den Faktor $M-1$ und erzeugt Läufe, die maximal um diesen Faktor angewachsen sind.
 
 Das Verfahren lässt sich wiederholen bis die Zahl der Läufe gering genug ist um wie in [Fall 1](#1.%20Fall%20N%20<%20M) behandelt zu werden.
 

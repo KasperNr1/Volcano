@@ -25,7 +25,7 @@ Block-Konstrukt durch Einrückung in Zeichen. Einrücken der nächsten Zeile wir
 
 ## Let-Where-Konstrukt
 Beispiel Länge einer Liste.
-Funktion braucht mangels globaler Variablen Parameter um das Ergebnis rekursiv zu übergeben. Let-in Konstrukt ermöglicht "Standartwerte" Für ersten Aufruf der Hilfsfunktion
+Funktion braucht mangels globaler Variablen Parameter um das Ergebnis rekursiv zu übergeben. Let-in Konstrukt ermöglicht "Standardwerte" für den ersten Aufruf der Hilfsfunktion
 
 Where Konstrukt erfüllt den selben Zweck
 

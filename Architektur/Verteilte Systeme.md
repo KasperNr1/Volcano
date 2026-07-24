@@ -46,7 +46,7 @@ Moderne Grid-Systeme werden zunehmend hybrid mit [Cloud-Ressourcen](#Cloud%20Com
 Anwendungen werden i.d.R. containerisiert und mit Docker / Kubernetes ausgeführt.
 
 ### Cloud Computing
-Bietet ein breiteres Dienstleisungsmodell als [Grid-Computing](#Grid-Computing)
+Bietet ein breiteres Dienstleistungsmodell als [Grid-Computing](#Grid-Computing)
 Skalierbarkeit und Flexibilität
 
 Virtueller Ressourcenpool, dynamisch anpassbar und Benutzerfreundlich.
@@ -94,7 +94,7 @@ Skalierbarkeit und Ausfallsicherheit sprechen für die Verteilung eines Systems.
 
 ## Charakteristika
 - Ressourcen sind (weltweit) verteilt
-- Kooperation nur über Nachrichtenaustausch ([IP](04%20Network%20Layer.md#Internet%20Protocoll), [TCP/UDP](05%20Transport%20Layer.md), HTTP, [MQTT](08%20IoT.md#MQTT))
+- Kooperation nur über Nachrichtenaustausch ([IP](04%20Network%20Layer.md#Internet%20Protocol), [TCP/UDP](05%20Transport%20Layer.md), HTTP, [MQTT](08%20IoT.md#MQTT))
 - [Nebenläufigkeit](Paraprog-Basics.md#Parallel%20vs%20Nebenläufig) ist gegeben, jedoch nicht das primäre Ziel
 - Keine Globale Uhr
 - Kein eindeutiger Zustand
@@ -143,7 +143,7 @@ Ein verteiltes System soll bei der Benutzung nicht unbedingt als solches erkennb
 
 # Betriebstypen
 ## Network Operating System
-Klassische Betriebssysteme, erweitert um Netzwerkunterstützung. Die Exsitenz der anderen Rechner ist sichtbar, sie kommunizieren über verschiedene Protokolle.
+Klassische Betriebssysteme, erweitert um Netzwerkunterstützung. Die Existenz der anderen Rechner ist sichtbar, sie kommunizieren über verschiedene Protokolle.
 
 ## Distributed Operating System
 Einheitliches Betriebssystem für ein ganzes Netzwerk von Rechnern. Soll Transparenz erreichen, erfordert aber enge Kooperation der OS-Kerne und ist daher eher weniger weit verbreitet.
@@ -153,7 +153,7 @@ Mehrere Prozesse können parallel auf unterschiedliche Repliken zugreifen, somit
 Auch die Latenz kann verbessert werden, indem Anfragen an Kopien geleitet werden, die dem Client am nächsten sind.
 
 # Konsistenz
-Bei Änderungen müssen alle Repliken konsistent bleiben. Dies kann simpel durch [total geordnete atomare Multicasts](06%20Verteilte%20Mutexe.md#Multicast) erreicht werden. Dabei wird allerdings ein großer Teil der Performance geopfert.
+Bei Änderungen müssen alle Repliken konsistent bleiben. Dies kann simpel durch [total geordnete atomare Multicasts](Verteilte%20Algorithmen.md#Multicast) erreicht werden. Dabei wird allerdings ein großer Teil der Performance geopfert.
 
 Man wählt oft andere Konsistenzformen wie 'eventual Consistency'.
 
@@ -177,7 +177,7 @@ Die Operationen aller Prozess werden zu einer globalen Reihenfolge zusammengefü
 
 ## Linearisierbarkeit
 Ist noch stärker als Sequentielle Konsistenz.
-Vorrausgesetzt ist hierbei eine globale Uhrzeit die in allen Prozessen gelesen werden kann.
+Vorausgesetzt ist hierbei eine globale Uhrzeit die in allen Prozessen gelesen werden kann.
 Die Reihenfolge der Operationen muss hier mit der Reihenfolge ihrer Zeitstempel konsistent sein.
 Sehr schwer zu implementieren, oft nur für formale Verifikation von nebenläufigen Algorithmen verwendet.
 
@@ -242,7 +242,7 @@ Der Client bewegt sich logisch nur vorwärts in der Zeit.
 - $x_i$ entsteht durch eine Folge von Schreiboperationen. 
   Diese Menge an Änderungen wird mit $WS(x_i)$ bezeichnet
 - Mit neuen Writes entsteht aus der aktuellen Version $x_i$ eine aktualisierte Version $x_j$.
-  $x_j$ folg aus $x_i$ wird dargestellt als $W(x_i; x_j)$ 
+  $x_j$ folgt aus $x_i$ wird dargestellt als $W(x_i; x_j)$
 - Wenn unklar ist, ob $x_i$ aus $x_j$ folgt, so schreibt man $W(x_i \mid x_j)$ 
 
 ![](MonotonicReads.png)
@@ -251,7 +251,7 @@ Der Client bewegt sich logisch nur vorwärts in der Zeit.
 Sind gegeben, wenn eine ältere Schreiboperation niemals sichtbar wird, nachdem bereits eine neuere stattgefunden hat.
 Umgesetzt wird ein solches Verhalten mit Strategien wie Sequenznummern, monotonen Timestamps oder Sequencern.
 
-Die [kausale Konsistenz](04%20Prozessmanagement.md#Happened-Before) wird dadurch nicht ersetzt.
+Die [kausale Konsistenz](Logisches%20Timing.md#Happened-Before) wird dadurch nicht ersetzt.
 
 Jeder Prozess sieht stets die Effekte seiner eigenen Änderungen. Nach einer Änderung ist mindestens diese eigene Änderung in allen folgenden Leseoperationen sichtbar.
 
@@ -259,7 +259,7 @@ Jeder Prozess sieht stets die Effekte seiner eigenen Änderungen. Nach einer Än
 Wo wann und von wem werden Replikate erstellt?
 
 Platzierung und Verteilungsstrategie beeinflussen Verfügbarkeit, Latenz, Bandbreite, Konsistenz und Kosten.
-Trade-Off zwischen ressourcenintensiverer, proaktiver Replikation und reaktivem Kopieren. Hier entsteht potentiel eine größere Latenz.
+Trade-Off zwischen ressourcenintensiverer, proaktiver Replikation und reaktivem Kopieren. Hier entsteht potenziell eine größere Latenz.
 
 ## Server Initiierte Replikate
 Permanente Replikate:

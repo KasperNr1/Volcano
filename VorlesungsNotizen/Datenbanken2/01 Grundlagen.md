@@ -64,8 +64,8 @@ Beim Einfügen muss nach Stelle mit passender Größe gesucht werden.
 
 ![](VariableLengthOrga.png)
 Links sind die "Globalen Adressen" der Datensätze. Zu lesen als "Block 123, Stelle n".
-Im Header der Blöcke (Unten rechts in der Abbildung) ist für jeden Eintrag im Block seine Adress im Block hinterlegt.
-An dieser Adress im Block liegen die tatsächlichen Werte.
+Im Header der Blöcke (unten rechts in der Abbildung) ist für jeden Eintrag im Block seine Adresse im Block hinterlegt.
+An dieser Adresse im Block liegen die tatsächlichen Werte.
 
 Wenn durch Änderung in einem Datensatz der verfügbare Platz nicht ausreicht, wird er in einen andern Block verschoben und durch "Chaining" eine Referenz auf seinen neuen, größeren Speicherort hinterlegt. Das [DBMS](#Datenbankmanagementsystem%20(DBMS)) sorgt typischerweise dafür, dass maximal eine Stufe an Chaining eingesetzt wird. So bleiben die Zugriffszeiten konsistent.
 

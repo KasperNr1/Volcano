@@ -196,7 +196,7 @@ Alle der Bits der 6 Byte-Adresse sind also mit $1$ belegt.
 ### MAC-Spoofing
 Moderne Geräte können ihre MAC-Adresse dynamisch ändern. Sie sollte daher nicht für Authentifizierung oder sonstige Vergabe von Berechtigungen verwendet werden.
 
-### Adress Resolution Protocoll (ARP)
+### Address Resolution Protocol (ARP)
 Dieses Protokoll bestimmt die MAC Adresse eines Gerätes für die [Sicherungsschicht](ISO-OSI%20Referenzmodell.md#2%20Sicherungsschicht) aus der IP-Adresse der [Vermittlungsschicht](ISO-OSI%20Referenzmodell.md#3%20Vermittlungsschicht)
 Dazu wird die IP Adresse des gesuchten Geräts per [Broadcast](Basics.md#Broadcast) an die [Spezielle Broadcast Adresse](#Spezielle%20Broadcast%20Adresse) gesendet. Das Gerät mit der entsprechenden Adresse antwortet dem Sender, dieser speichert die empfangene MAC Adresse.
 ![](AdressResolutionProtocoll.png)

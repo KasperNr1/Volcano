@@ -222,7 +222,7 @@ $$
 	\beta = 9^{17} = 19 \mod 31 \\
 \end{array}
 $$
-Diese berechnete Zahl wird nun dem jeweils anderen Partner unverschlüsselt übermittelt und erlaub es diesem den Austausch zu vollenden.
+Diese berechnete Zahl wird nun dem jeweils anderen Partner unverschlüsselt übermittelt und erlaubt es diesem, den Austausch zu vollenden.
 Zum Abschluss wird der finale Schlüssel $K$ berechnet, wobei nur die übermittelte Zahl mit der selben geheimen Zahl exponiert wird.
 $$
 \begin{array}{}

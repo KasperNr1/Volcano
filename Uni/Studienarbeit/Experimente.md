@@ -42,7 +42,7 @@ struct ContentView: View {
 > [!Tip] Sichtbarkeit
 > Da die Variable als Environment einer äußeren Schicht gesetzt wurde, ist sie in allen Unterelementen  erreichbar. Die Zeile
 > `@Environment(Theme.self) var theme`
-> Definiert die lokale Variable theme auf Basis der Umgebungsvariable vom Typ ´Theme´. Es kann nur eine Env-Variablen von jedem Datentyp exisitieren.
+> Definiert die lokale Variable theme auf Basis der Umgebungsvariable vom Typ ´Theme´. Es kann nur eine Env-Variable von jedem Datentyp existieren.
 
 ## Smarte Modifier
 Ziel war es, einen Modifier `foo` zu erstellen, sodass `Button.foo` im Normalen Modus regulär aussieht und im Glovemode eine alternative Darstellung erhält.
@@ -74,7 +74,7 @@ public extension View {
 
 
 # Buttons
-## Controll-Sizes
+## Control Sizes
 [Swift stellt 5 unterschiedliche Größen bereit](https://developer.apple.com/documentation/appkit/nscontrol/controlsize-swift.enum), jedoch werden bei der Anwendung auf IOS Buttons nur drei verschiedene Varianten tatsächlich angezeigt.
 
 ![](IosButtonSizes.png)
