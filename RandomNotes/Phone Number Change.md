@@ -1,11 +1,11 @@
 # Verbleibend
-- supercell (2FA noch nicht aktiv)
-- Volksbank Depot (Auftrag abgeschickt)
 - Tinder (Hamacher???)
 
 
 # Fertig
 - ING (Oma)
+- supercell 
+- Volksbank Depot 
 - Whatsapp
 - Spotify
 - PayPal
