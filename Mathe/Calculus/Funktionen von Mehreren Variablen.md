@@ -91,6 +91,7 @@ $$
 ![](BedingungenExtremwerte.png)
 
 # Extremwertaufgaben
+## Direktes Lösen
 ![](ExtremwertBeispielaufgabe.png)
 
 Maximiert werden soll
@@ -128,11 +129,38 @@ b_{1/2} = \pm \frac23 \sqrt3 R
 $$
 Da aus geometrischen Gründen $0< b <2R$ gelten muss, kommt nur der positive Wert in Frage.
 
+## Lagrange Multiplikatoren
+Falls die Auflösung der Nebenbedingung nach einer der Variablen zu aufwändig ist gibt es einen alternativen Lösungsweg.
+
+> [!Missing] Fehlt
+> Im Buch (DOI 10.1007/978-3-658-07790-7) ab Seite 254
+> Oder in [diesem Video](https://youtu.be/T0eYueba4WM?si=0K5iSlSaa5kH-loT)
+
+
 # Integrale von mehreren Variablen
+[Integrale](Integrale%20&%20Rotationskörper.md) können auch bei mehrdimensionalen Funktionen gebildet werden.
+
+Dabei wird ähnlich wie beim [Partiellen Differenzieren](#Partielles%20Differenzieren) nur jeweils einzelne Variablen betrachtet. Um das Volumen eines Funktionsgraphen zu berechnen wird nacheinander über beide Variablen integriert.
+
+## Beispiel
+$$
+\int_{x=0}^{1}\int_{y=0}^{\frac{\pi}{4}} x \cdot \cos(2y) \, dy \, dx
+$$
+Es wird erst das innere Integral berechnet
+$$
+x \cdot \int_{y=0}^{\frac{\pi}{4}} \cos(2y) \, dy = x \cdot \left[ \frac12 \sin(2y)\right]_{y=0}^{\frac{\pi}{4}} = \frac12 x \left( \sin \left(\frac\pi2\right) - \sin \left( 0 \right)\right) = \frac12x
+$$
+Und anschließend das äußere
+$$
+\int_{x=0}^1 \frac12x \, dx = \frac12 \cdot \left[ \frac12 x^2\right]_{x=0}^1 = \frac14
+$$
 
 
-> [!Missing] TODO
-> DH3 in OneNote
+> [!Example] Reihenfolge
+> Wenn die Integrale konstante Grenzen haben, darf die Reihenfolge der Integrationen vertauscht werden.
+> $$
+> \int_{x=a}^b\int_{y=c}^d f(x,y) \,dy \,dx = \int_{y=c}^d\int_{x=a}^b f(x,y) \,dx \,dy  
+> $$
 
 
 # Polarintegrale
