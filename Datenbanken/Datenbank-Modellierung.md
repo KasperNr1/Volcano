@@ -142,3 +142,72 @@ Wie bei [1 zu 1](#1%20zu%201) kann die Beziehung durch Erweiterung um ein Attrib
 > - Ersetzen mit einem Standardwert
 
 # Normalisierung
+Die Normalisierung einer Datenbank ist ein Prozess mit dem Ziel die Datenintegrität zu erhöhen, Redundanzen zu vermeiden und einige [Anomalien](05%20Transaktionssteuerung.md#Mehrbenutzerprobleme) zu vermeiden.
+
+Dabei gibt es verschiedene Normalisierungslevel, die jeweils zusätzliche Eigenschaften gewährleisten.
+Praktisch relevant sind meist nur die Normalformen 1 bis 3.
+
+## 1. Normalform
+Alle Attribute müssen atomare Werte enthalten. 
+
+| ID   | Name           |
+| ---- | -------------- |
+| 0815 | Max Mustermann |
+wird zu
+
+| ID   | Vorname | Nachname   |
+| ---- | ------- | ---------- |
+| 0815 | Max     | Mustermann |
+
+## 2. Normalform
+Die Daten befinden sich in der [1. Normalform](#1.%20Normalform). Zusätzlich ist in jeder Relation jedes Nicht-Schlüsselattribut vom gesamten [Primärschlüssel](Relationen.md#Primärschlüssel) abhängig.
+
+| BuchungsNr | KursNr | KursName                |
+| ---------- | ------ | ----------------------- |
+| 123        | 0815   | Informatik-Für-Anfänger |
+
+> [!NOTE]- Anmerkung
+> Der Primärschlüssel besteht in diesem Beispiel aus der Buchungsnummer und der KursNr
+
+Wird zu
+
+| BuchungsNr | KursNr |
+| ---------- | ------ |
+| 123        | 0815   |
+und 
+
+| KursNr | KursName                |
+| ------ | ----------------------- |
+| 0815   | Informatik-Für-Anfänger |
+
+## 3. Normalform
+Bei der dritten Normalform muss zusätzlich zu den Bedingungen der [2. Normalform](#2.%20Normalform) auch keine transitive Abhängigkeit von einem Nicht-Schlüsselattribut zum Primärschlüssel besteht. 
+
+
+> [!NOTE]- Anmerkung
+> Der Primärschlüssel besteht in diesem Beispiel aus der Buchungsnummer und der KursNr
+
+| Buchung | KursNr | KundenNr | KundenName |
+| ------- | ------ | -------- | ---------- |
+| 123     | 0815   | 67       | Bodobert   |
+
+Wird zu 
+
+| Buchung | KursNr | KundenNr |
+| ------- | ------ | -------- |
+| 123     | 0815   | 67       |
+und 
+
+| KundenNr | KundenName |
+| -------- | ---------- |
+| 67       | Bodobert   |
+
+## Boyce-Codd Normalform
+Berücksichtigt zusätzlich zu den Eigenschaften der [3. Normalform](#3.%20Normalform) auch die Transitiven Abhängigkeiten zwischen allen [Schlüsselkandidaten](Relationen.md#Schlüsselkandidat) und nicht nur die der Primärschlüssel.
+
+Diese Normalform befindet sich zwischen der [3. Normalform](#3.%20Normalform) und der [Vierten Normalform](#Weitere%20Normalformen)
+
+## Weitere Normalformen
+Durch entfernen Nicht-Trivialer mehrwertiger Abhängigkeiten aus der [Boyce-Codd Normalform](#Boyce-Codd%20Normalform) wird die vierte Normalform erreicht.
+
+Die fünfte Normalform kann erreicht werden, wenn auch Verbundabhängigkeiten beseitigt werden.
