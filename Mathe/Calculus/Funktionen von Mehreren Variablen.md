@@ -131,6 +131,121 @@ Da aus geometrischen Gründen $0< b <2R$ gelten muss, kommt nur der positive Wer
 # Integrale von mehreren Variablen
 
 
+> [!Missing] TODO
+> DH3 in OneNote
+
 
 # Polarintegrale
+![](Polarkoordinaten.png)
+$$
+    r = \sqrt{x^2+y^2}
+$$
 
+$$
+    tan({\phi})=\frac{x}{y}
+$$
+
+Berechnung von $\phi$:
+
+
+| Quadrant | I                               | II                                    | III & IV                              |
+| -------- | ------------------------------- | ------------------------------------- | ------------------------------------- |
+| $y$      | $\arctan \left(\frac xy\right)$ | $\arctan \left(\frac xy\right) + 180$ | $\arctan \left(\frac xy\right) + 360$ |
+
+
+$$
+    z=f(x,y)=f(r*cos(\phi), r*sin(\phi))
+$$
+
+## Integrationsbereich
+![](Polarflächeninhalt.png)
+
+
+> [!Note] Wiederholung
+> Bogenlänge $b = \frac{\pi*r*\alpha}{180°} = r * \phi$ wobei $\alpha$ der Winkel im Gradmaß ist und $\phi$ der Winkel im Bogenmaß
+
+$$
+    dA = rd\phi dr = rdr d\phi
+$$
+
+## Doppelintegral in Polarkoordinaten
+$$
+    \int_{A}{\int f(x,y) dA} = \int^{\phi_2}_{\phi=\phi_1}\int^{r_a(\phi)}_{r=r[\phi]}f(r*cos(\phi), r*sin\phi)
+$$
+
+Bsp:
+
+$$
+\begin{align*}
+    f(x,y) = xy \\
+    \int_{(A)}{\int{xy} \, dA}
+\end{align*}
+$$
+![](IntegralBeispiel.png)
+Transformation des Integranden
+
+$$
+    f(x,y)=x*y=r^2*sin(\phi)*cos(\phi)
+$$
+
+Integrationsgrenzen
+$r$-Integration von $r=0$ bis $r=2$
+$\phi$ von $\phi = 0$ bis $\phi = \frac{\pi}{4}$
+
+$$
+    dA=r dr d\phi
+$$
+
+Doppelintegral in Polarkoordinaten
+
+$$
+\begin{align*}
+        \int_{\phi=0}^{\frac{\pi}{4}}{\int_{0}^{2} r^3*r*cos(\phi)*sin(\phi) \, dr \, d\phi} &= sin(\phi)*cos(\phi)\left[\frac{1}{4}r^4\right]^{2}_{0} \\
+        &= 4 * \int^{\frac{\pi}{4}}_{\phi=0}sin(\phi)*cos(\phi) \, d\phi \\
+        &= ProduktRegel \\
+        &= \left[sin(\phi)^2\right]^{\frac{\pi}{4}}_{0} = 1
+\end{align*}
+$$
+
+Rotationskörper:
+$z = 4-x^2$ (Halbkreis) mit Rotation um z-Achse
+In Polarkoordinaten:
+
+$$
+    z=4-(r^2cos(\phi)^2+r^2sin(\phi)^2)=4-r^2
+$$
+
+Integrationsbereich $(A \mid \text{mit} \; 0\le r \le 2, \quad 0 \le \phi \le 2\pi)$
+
+Rotationsvolumen
+
+$$
+\begin{align*}
+    V &= \int_{A}{\int{z, dA}} \\
+      &= \int_{0}^{2\pi} \int_{0}^{2} \left(4 - r^2\right) r \, dr \, d\phi \\
+      &= \left[ \frac{4}{2}r^2 - \frac{1}{4}r^4 \right]_{0}^{2} \\
+      &= 8\pi
+\end{align*}
+$$
+
+Flächeninhalt $r(\phi)=1+cos(\phi), 0 \le \phi \le 2\pi$
+Kardioide
+![](Kardioide.jpg)
+
+Integrationsgrenzen
+$$
+\begin{align*}
+    r_{i}(\phi) &=0, \\
+    r_{a}(\phi) &=1+cos(\phi) \\
+    \phi &= 0, \\
+    \phi &= 2 \pi \\
+\end{align*}
+$$
+$$
+\begin{align*}
+    A &=\int^{2\pi}_{0}{\int^{1+cos(\phi)}_{0}{r}dr}d\phi \\ 
+      &= \int^{2\pi}_{\phi=0}{\left(1+cos(\phi)\right)^2}d\phi \\
+      &= \frac{1}{2}\left[\frac{3}{2}\phi+2sin(\phi)+\frac{1}{4}sin(2\phi)\right]^{2\pi}_{0} \\ 
+      &= \frac{3}{2}\pi
+\end{align*}
+$$
