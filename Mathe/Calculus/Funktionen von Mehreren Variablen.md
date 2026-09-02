@@ -77,20 +77,60 @@ Ellipse:
 $$
 \begin{array}{r l}
 F(x,y) &= \dfrac{x^2}{9} + \dfrac{y^2}{4} - 1 = 0 \\
+F(x,y) &= 4x^2 + 9y^2 -36 = 0\\
+\\
 F_x(x,y) &= 8x \\
 F_y(x,y) &= 18y \\
 \end{array}
 $$
 
 $$
-y\prime = -\frac{8x}{18y}
+y\prime = -\frac{8x}{18y} = -\frac{4x}{9y}
 $$
 ## Extremstellen in Dreidimensionalen Funktionen
 ![](BedingungenExtremwerte.png)
 
 # Extremwertaufgaben
+![](ExtremwertBeispielaufgabe.png)
+
+Maximiert werden soll
+$$
+W = \frac{1}{6}bh^2
+$$
+wobei aufgrund des Satz des Pythagoras folgende Nebenbedingung gilt:
+$$
+b^2 + h^2 = \left(2R\right)^2
+$$
+
+Es kann nach $h^2$ aufgelöst werden, einsetzen ergibt:
+$$
+W(b) = \frac16 b \cdot \left(\left(2R\right)^2 - b^2 \right) = \frac16 \cdot \left( 4R^2b - b^3 \right)
+$$
+
+[Partielles Differenzieren](#Partielles%20Differenzieren) liefert
+$$
+W^\prime(b) = \frac16 \left( 4R^2 - 3b^2 \right)
+$$
+$$
+W^{\prime\prime} (b) = \frac16 \left(0-6b\right) = -b
+$$
+
+Mit den hinreichenden Bedingungen $W^\prime=0$ und $W^{\prime\prime} < 0$ kann eine Extremstelle gefunden werden
+
+$$
+W^\prime(b) = \frac16 \left( 4R^2 - 3b^2 \right) = 0
+$$
+$$
+\Longrightarrow 4R^2 -3b^2 = 0 \Longrightarrow b^2 = \frac43 R^2
+$$
+$$
+b_{1/2} = \pm \frac23 \sqrt3 R
+$$
+Da aus geometrischen Gründen $0< b <2R$ gelten muss, kommt nur der positive Wert in Frage.
 
 # Integrale von mehreren Variablen
+
+
 
 # Polarintegrale
 
