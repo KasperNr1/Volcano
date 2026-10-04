@@ -1,1 +1,0 @@
-[Programmiermodelle](Programmiermodelle.md)
