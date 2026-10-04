@@ -69,10 +69,6 @@ Ein Anbieter: Monopol
 Wenige Anbieter: Oligopol
 Viele Anbieter: Polypol
 
-
-> [!Missing] Fehlt
-> Seite 61 Grafik ???
-
 # Primär und Sekundärforschung (Marktforschung) Unterschiede
 Primärforschung erhebt alle Daten direkt. Dabei können Umfragen, Experimente, Beobachtungen oder sonstige Formen der Informationsgewinnung verwendet werden.
 
