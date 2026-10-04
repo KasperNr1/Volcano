@@ -33,7 +33,7 @@ Für den Zustand einer ganzen Notiz sind optional genau ein `#status/entwurf`, `
 - [ ] Angaben zu Rentenpflicht, Grenzen und Rückwirkung unter [Sozialversicherung](Didaris/Fragerunde.md#Sozialversicherung) anhand einer aktuellen Primärquelle prüfen und mit Prüfdatum versehen. #review/source
 
 ### Offene Verweise
-- [ ] Für den Verweis aus [Diffie-Hellman](VorlesungsNotizen/Security/04%20Authentification.md#Diffie-Hellman%20Key-Exchange) eine Notiz oder einen vorhandenen Abschnitt zu symmetrischen Verschlüsselungsverfahren zuordnen. #review/link
+- [ ] Für den Verweis aus [Diffie-Hellman](Kryptographie.md#Diffie-Hellman%20Key-Exchange) eine Notiz oder einen vorhandenen Abschnitt zu symmetrischen Verschlüsselungsverfahren zuordnen. #review/link
 
 ### Markierte Lücken
 - [ ] [Pipelining](Architektur/Pipelining.md) ausarbeiten oder den Platzhalter entfernen. #review/completeness
@@ -43,7 +43,7 @@ Für den Zustand einer ganzen Notiz sind optional genau ein `#status/entwurf`, `
 - [ ] Den unspezifizierten Marker im Abschnitt [Stetig](Mathe/Stochastik/Wahrscheinlichkeitsrechnung/Stetige%20Zufallsvariablen.md#Stetig) konkretisieren oder erledigen. #review/completeness
 - [ ] Den fehlenden Inhalt zu [gRPC](Programmieren/Programmiermodelle.md#gRPC) ergänzen. #review/completeness
 - [ ] Im [Compiler-Überblick](Theo/Compiler.md#Compiler%20Überblick) die fehlende Abbildung der Compilerphasen ergänzen. #review/completeness
-- [ ] Die fehlende Beschreibung der [Marktformen](VorlesungsNotizen/Consulting/Themenabgrenzung.md#Marktformen) ergänzen. #review/completeness
+- [ ] Die fehlende Beschreibung der [Marktformen](ConsultingZusammenfassung.md#Marktformen) ergänzen. #review/completeness
 - [ ] Den Abschnitt [Rangfunktionen](VorlesungsNotizen/Datenbanken2/DataWarehouse/09%20Analytische%20Funktionen.md#Rangfunktionen) vervollständigen. #review/completeness
 - [ ] Den fehlenden Inhalt zu [Information Retrieval](VorlesungsNotizen/KiAnwendung/11%20Chatbots.md#Information%20Retrieval) ergänzen. #review/completeness
 - [ ] Unter [Bewertung von Entscheidungsbäumen](VorlesungsNotizen/KiGrundlagen/03%20Entscheidungsbäume.md#Bewertung) den fehlenden Text und die Hyperparameter für Baumhöhe oder Knotenzahl ergänzen. #review/completeness
