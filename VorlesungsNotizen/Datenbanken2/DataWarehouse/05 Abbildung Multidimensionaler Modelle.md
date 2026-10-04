@@ -258,7 +258,7 @@ Für mobile Verarbeitung kann der Ansatz praktikabel sein.
 
 Die zu speichernde Datenmenge nimmt im Zeitverlauf zu. Aufgrund verschiedener Aufbewahrungsfristen oder Bedarf an umfassenderen Analysen können sie nicht unbedingt gelöscht werden.
 
-Um die Systeme performant zu halten muss die Infrastruktur verbessert werden um mehr Speicher und Verarbeitungskapazität zu bieten. Die Leistung von [Backups](02%20Physische%20Sicherheit.md#Datensicherung), generellen Ladezeiten und dem Aufbau von [Indexstrukturen](02%20Dateiorganisation.md#Indexstrukturen) wird schlechter.
+Um die Systeme performant zu halten muss die Infrastruktur verbessert werden um mehr Speicher und Verarbeitungskapazität zu bieten. Die Leistung von [Backups](Sicherheit.md#Datensicherung), generellen Ladezeiten und dem Aufbau von [Indexstrukturen](02%20Dateiorganisation.md#Indexstrukturen) wird schlechter.
 
 Typischerweise wird die Hardware aufgerüstet oder Daten gelöscht. 
 Besser ist ein definierter Archivierungsprozess, der Daten beibehält und trotzdem finanziell sinnvoller ist.

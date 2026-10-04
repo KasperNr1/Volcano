@@ -1,0 +1,1 @@
+[Kryptographische HASH-Funktionen](Kryptographie.md#Kryptographische%20HASH-Funktionen)

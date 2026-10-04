@@ -121,7 +121,7 @@ Abstraktion des Zugriffs auf persistente Speicher
 Erstellen, Lesen und Löschen von Dateien und Ordnern
 Caching-Mechanismen
 Zugriffssicherheit und Verwaltung von Berechtigungen
-Verwaltung physischer / Logischer Speicher (Massenspeicher-Verbund: RAID)
+Verwaltung physischer / Logischer Speicher (Massenspeicher-Verbund: [RAID](Sicherheit.md#RAID))
 Defragmentierung / Partitionierung
 ## Sicherheit und Rechteverwaltung
 Authentifizierung : Wer ist es

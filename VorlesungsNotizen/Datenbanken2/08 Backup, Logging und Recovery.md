@@ -13,7 +13,7 @@ Insgesamt werden verschiedene Konzepte zur Sicherung verwendet, oft auch in Komb
 - Recovery-Manager
 
 # Backup
-Siehe auch [Datensicherung](02%20Physische%20Sicherheit.md#Datensicherung)
+Siehe auch [Datensicherung](Sicherheit.md#Datensicherung)
 
 # Log-Mechanismus
 Jeder Eintrag im Log umfasst einige Informationen
