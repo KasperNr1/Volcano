@@ -200,7 +200,7 @@ Moderne Geräte können ihre MAC-Adresse dynamisch ändern. Sie sollte daher nic
 Dieses Protokoll bestimmt die MAC Adresse eines Gerätes für die [Sicherungsschicht](ISO-OSI%20Referenzmodell.md#2%20Sicherungsschicht) aus der IP-Adresse der [Vermittlungsschicht](ISO-OSI%20Referenzmodell.md#3%20Vermittlungsschicht)
 Dazu wird die IP Adresse des gesuchten Geräts per [Broadcast](Basics.md#Broadcast) an die [Spezielle Broadcast Adresse](#Spezielle%20Broadcast%20Adresse) gesendet. Das Gerät mit der entsprechenden Adresse antwortet dem Sender, dieser speichert die empfangene MAC Adresse.
 ![](AdressResolutionProtocoll.png)
-Das [Betriebssystem](02%20Grundlagen.md#Definition%20Betriebssystem) führt eine Tabelle mit den ARP Einträgen. Die Tabelle enthält IP-Adressen, MAC-Adressen, Netzwerk-Interfaces.
+Das [Betriebssystem](Betriebssyteme.md#Definition%20Betriebssystem) führt eine Tabelle mit den ARP Einträgen. Die Tabelle enthält IP-Adressen, MAC-Adressen, Netzwerk-Interfaces.
 Es existiert ein Protokoll für die Rückrichtung, das bestimmen der Netzwerkadresse aus einer MAC Adresse (RARP).
 ## IPv4
 

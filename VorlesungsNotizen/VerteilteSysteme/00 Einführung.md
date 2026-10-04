@@ -3,7 +3,7 @@ Keine Hilfsmittel (?)
 2 Blatt Papier
 
 ## Nicht Relevant
-[Verteilte Dateisysteme](../Betriebssysteme/07%20Dateisysteme.md#Verteilte%20Dateisysteme) und [Verteilter Shared Memory](../Betriebssysteme/07%20Dateisysteme.md#Verteilter%20Shared%20Memory)
+[Verteilte Dateisysteme](Betriebssyteme.md#Verteilte%20Dateisysteme) und [Verteilter Shared Memory](Betriebssyteme.md#Verteilter%20Shared%20Memory)
 
 # Fragen
 ## Verteilter Algorithmus für Mutexe
