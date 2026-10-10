@@ -1,3 +1,4 @@
+# Informatik Einführung
 36 ECTS aus Bachelor
 
 3 Versuche pro Kurs,
@@ -85,4 +86,169 @@ Deadline ist dabei die Abgabe / Präsentation der Masterarbeit.
 > 4. Random Vorlesung (1,0)
 > 
 > Gute Vorlesung kann nicht angerechnet werden
+
+
+# Semestereinführung
+## Deep Learning
+Basic Backprop bis simple LLMs
+
+## Effective Programming with Effects
+?
+
+## Selected Topics in PL Semantics
+Programmiersprachenkonzepte
+
+## Advanced Computer Architecture
+Instruction level / Data Level parallelisierung zur Performancesteigerung
+GPUs
+
+## Modeling and Analysis of Embedded
+Modeling
+Real-Time Analyis / Scheduling / Energy Management
+
+## Kryptologie und Datensicherheit
+
+## Introduction to Statistical ML für BioInfo / Med-Info
+Wenig Theorie
+
+## Summer of Innovation
+Hiwi-Jobangebot
+Unterschiedlichste Probleme von Museum / etc.
+
+## Numerics of ML
+Von PhD, neueste Mathematische Methoden um ML zu implementieren
+
+## The Future of Work
+Seminar zum Einfluss von KI auf CS Karriere
+
+## Aktuelle Themen der Mensch-Computer-Interaktion
+Mixed Reality 
+
+## Empirische Methoden Mensch Computer Interaktion
+Evaluation von Systemen
+
+## User Experience
+Intro to H-C-Interaction
+
+## AI for Scienctific Discovery
+Seminar:
+Moderne Papers zum Einfluss von AI auf unterschiedliche Aspekte
+
+## Computer Graphics
+Ray-Tracing / Images / Modeling / Colours / Signalverarbeitung
+
+## Rendering
+Simulation von Licht in 3d Szenen
+
+## Massively Parallel Computing
+Map-Reduce / CUDA 
+
+## Complex Networks
+Modellierung unterschiedlicher Systeme als Graphen
+
+## Math for ML
+Partly Recap, partly advanced
+
+Linear Algebra
+Calc
+Optimization
+Statistics
+
+
+> [!NOTE] Dringend Empfohlen für alle ML Kurse
+
+## Explainable ML
+Seminar:
+How to ‘Nicht Black Box’
+
+## Data Literacy
+Was mit Statistik beantwortet werden kann / sollte und wie
+
+## Reinforcement Learning
+MDPs und Mathematische Grundlagen
+Abschlussprojekt statt Klausur
+
+## Machine Learning Governance
+Legal Aspects of AI and Its Use
+
+## Grundlagen des Internets
+Netztechnik, Vorraussetzung für einige andere Vorlesungen wie Pentesting
+
+## Internet Praktikum
+Nach Klausurenphase
+Praktische Anwendung zu Netzwerken
+
+## Pentesting
+(Ende März)
+Viele Anwendungen 
+
+## Modellierung und Simulation
+Oktober - November
+Wann sind Simulationen genau genug? Und wie baut man solche Simulationen. Und wo lohnt es sich zu simulieren
+
+## Modellierung und Simulation 2
+Dez - Jan
+Diskrete Zeit in Markov Ketten
+Der “Bessere” Part der Vorlesung
+
+## Nonconvex Optimization for Deep Learning
+Wie werden DL Systeme Optimiert? 
+
+## Duality in Programming Languages
+Strict vs. Lazy Evaluation
+Data vs. Codata
+
+Unterschiedliche Designentscheidungen die bei Programmiersprachen getroffen werden
+
+## Implementierung von Betriebssystemen
+Memory Management / Scheduling
+
+## Programming in Rust
+Praktikum:
+Parallelität und generelle Programmierung in Rust
+
+## Programmiersprachen 2
+Typisierung und Lambda Kalkül
+
+## Interactive Theorem Proving
+Automatisiertes Beweisen Mathematischer Sätze
+Formalisierung von Beweisen mit Rocq
+
+## Compilerbau
+Plümicke
+
+## Virtual Humans
+Darstellung von Objekten und Oberflächen
+
+übertragung von Skills auf Maschinen
+
+## Advanced Information Retrieval
+Vergleich verschiedener Strategien in Suchmaschinen
+Very Hands-on
+
+## Parallel and Dist. Programming
+Praktischer Kurs
+
+## Angewandte Statistik
+Programmieren von Statistischen Problemen
+
+## Foundation of Robotics
+
+## Artificial Intelligence
+Intro zur Mathematischen Grundlage
+
+## Mobile Robots Lab Course
+Umgang mit Mobilen Robotern
+Programmierung mit C++
+
+## Methoden der Algorithmik
+Spannbäume / Lineare Programmierung
+
+## Kombinatische Geometrie und Graphenzeichnen
+Algorithmen zum Zeichnen von Graphen
+
+## Quantum Computing und Artificial Intelligence
+
+
+
 
