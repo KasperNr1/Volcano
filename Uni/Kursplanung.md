@@ -1,4 +1,12 @@
 # WS 2026
+## Deep Learning
+6 Credits  
+ML4103
+- [ ] Info-Basis
+- [ ] Info-Fokus
+- [ ] Info-Info
+- [x] Info-Prak
+
 ## Mathematics for ML
 9 Credits
 ML4101
@@ -17,7 +25,7 @@ INF4345
 - [ ] Info-Theo
 
 ## Modellierung und Simulation 2
-3 Credits
+6 Credits
 INF4346
 
 
