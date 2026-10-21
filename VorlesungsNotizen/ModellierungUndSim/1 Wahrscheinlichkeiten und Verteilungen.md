@@ -6,13 +6,14 @@ date: 2026-10-18
 tags:
   - lecture
 ---
-# Exponentialverteilung
+# Verteilungen
+## Exponentialverteilung
 Beschreibt oft die Länge von zufälligen Zeitintervallen (Wie die Dauer zwischen zwei Anrufen) in Abhängigkeit von der erwarteten Anzahl $\lambda$ pro Zeiteinheit. Der Mittelwert $\mu$ der Verteilung ist dabei der Kehrwert $\frac{1}{\mu} = \lambda$.
 $$
 \text{Exp}(\lambda) = f_\lambda(x) = \left\{ \begin{array}{ll} \lambda e ^{-\lambda x} & x \geq 0 \\ 0 & x <0\end{array}\right.
 $$
 
-## Visualisierung
+### Visualisierung
 Durch die exponentiell abnehmende Wahrscheinlichkeit größerer Werte ergibt sich folgende [Dichtefunktion](Zufallsvariablen.md#Definition%20Diskrete%20ZV). Dabei ist $f(0) =\lambda$ und somit auch einzelne Werte über $1$ möglich. Durch die Normierungseigenschaft verläuft der Rest der Kurve deutlich flacher.
 
 ![](https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/ExpDichteF.svg/960px-ExpDichteF.svg.png?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail)
@@ -20,11 +21,17 @@ Durch die exponentiell abnehmende Wahrscheinlichkeit größerer Werte ergibt sic
 Die [Verteilungsfunktion](Zufallsvariablen.md#Definition%20Verteilungsfunktion) verläuft entsprechend
 ![](https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/ExpVerteilungF.svg/960px-ExpVerteilungF.svg.png?utm_source=de.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail)
 
-## Rechenregeln
+### Rechenregeln
 
 > [!Missing] TODO
 > Rechenregeln für den Umgang mit Exponentialverteilungen
 > $P(X=a), P(X>a), P(X\leq a)$
+
+## Geometrische Verteilung
+Anzahl Fehlversuche bis ein Erfolg eintritt
+
+> [!Info] Verschobene Geometrische Verteilung
+> Ist nur um 1 verschoben, somit wird die Anzahl der Versuche bis zum Erfolg, inklusive des Erfolgsversuch beschrieben.
 
 
 #  Summe zweier Zufallsvariablen
