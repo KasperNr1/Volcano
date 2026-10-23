@@ -1,4 +1,5 @@
 # Verschiedene Strukturen von Mengen
+## Gruppe
 Sei $G$ eine [Menge](Intervalle%20und%20Mengen.md) und $\circ$ eine Verknüpfung, die je zwei Elemente $a,b \in G$ ein Element $a \circ b \in G$ zugeordnet.
 $(G,\circ)$ heißt "Gruppe" wenn gilt:
 1. $(a \circ b) \circ c = a \circ (b \circ c)$ für alle $a,b,c \in G$ 
@@ -8,6 +9,13 @@ $(G,\circ)$ heißt "Gruppe" wenn gilt:
    $a \circ i(a) = i(a) \circ a = n$ 
 4. Gilt zusätzlich
    $a \circ b = b \circ a$ für alle $a,b \in G$ so heißt $(G, \circ)$ "kommutative Gruppe" bzw. "abelsche Gruppe"
+
+## Feld
+Eine Menge $G$ mit den Operatoren $+, \cdot : F\times F \to F$ wird Feld genannt, wenn die folgenden Bedingungen erfüllt sind:
+1. $(F,+)$ ist eine [Kommutative Gruppe](#Gruppe), mit dem neutralen Element $0$
+2. $(F,\cdot)$ ist eine [Kommutative Gruppe](#Gruppe), mit dem neutralen Element $1$
+3. Distributivgesetz: $\forall a,b,c \in F: a \cdot (b+c) = a \cdot b + a \cdot c$
+
 
 ## Beispiele
 ### Verknüpfung: Addition
