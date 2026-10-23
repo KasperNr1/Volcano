@@ -36,3 +36,23 @@ Eine Menge $G$ mit den Operatoren $+, \cdot : F\times F \to F$ wird Feld genannt
 - $(\Bbb{Z}_p \setminus \{0\}, *) p=$ Primzahl und $(\Bbb{R}\setminus , * )$ sind kommutative Gruppen
 - $(\Bbb{N}, * )$ ist keine Gruppe, da keine Inversen Elemente existieren
   Bsp: $a=3 \quad i(a)=\frac13 \notin \Bbb{N}$ 
+
+# Relationen
+## Injektiv
+Unterschiedliche Elemente werden durch die Abbildung auf unterschiedliche Abbildungselemente übertragen.
+Es gilt:
+$$
+f(x) = f(y) \Longrightarrow x = y
+$$
+Keine zwei Eingaben teilen sich einen Output.
+## Surjektiv
+Jedes Element der Zieldomäne $B$ wird von mindestens einem transformierten Element der Ausgangsdomäne $A$ erreicht. Es gibt durch das Mapping keine unerreichbaren Punkte.
+$$
+\forall_{b \in B} \;\exists_{a \in A} \; f(a) = b
+$$
+## Bijektiv
+Beschreibt das gleichzeitige Vorhandensein von [Injektivität](#Injektiv) und [Surjektivität](#Surjektiv).
+Jedem Element beider Mengen ist exakt ein Element der jeweils anderen Menge zugeordnet.
+
+Bijektivität garantiert die Existenz einer inversen Funktion $f^{-1}$.
+Ebenfalls haben beide Domänen dieselbe Kardinalität / Größe.

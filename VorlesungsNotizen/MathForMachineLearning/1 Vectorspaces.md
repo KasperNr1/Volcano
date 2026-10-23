@@ -1,3 +1,11 @@
+---
+course: Math for Machine Learning
+lecture: "1"
+source: https://www.tml.cs.uni-tuebingen.de/teaching/2026_maths_for_ml/index.php
+date: 2026-10-13
+tags:
+  - lecture
+---
 # Vectorspace
 ## Definition Vectorspace
 Let $F$ be a [field](Gruppen%20Ringe%20und%20Körper.md#Feld) with Operations $\bigoplus, \bigodot$.
@@ -59,3 +67,10 @@ A subset $B$ of a vector space $V$ is called a (Hamel) basis if:
 
 As an example:
 One basis of $\mathbb{R}^3$ is: $\left(\begin{array}{c} 1 \\ 0 \\ 0 \end{array}\right), \left(\begin{array}{c} 0 \\ 1 \\ 0 \end{array}\right), \left(\begin{array}{c} 0 \\ 0 \\ 1 \end{array}\right)$
+
+
+> [!tip] Size of Basis and Dimension
+> Any two (finitely large) bases of a vector space have the same length.
+> 
+> The length of a basis is called the `dimension` of the vectorspace $V$.
+
