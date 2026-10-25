@@ -35,11 +35,18 @@ Es fallen einzelne Anfragen mit unterschiedlichen Zeitabständen an und werden v
 Der Systemzustand $X(t)$ beschreibt die Anzahl der zum Zeitpunkt $t$ im System enthaltenen Pakete (Aktive in Bearbeitung + Aktuell Wartende).
 Der Zustand kann sich durch Ankunfts- und Bedienereignisse verändern.
 
-![](Pasted%20image%2020261025184638.png)
+![](EinführungsbeispielEreignistreueSimulation.png)
 
 Der Zustand wird beim Eintreffen eines neuen Pakets inkrementiert. Das Abarbeiten eines Pakets reduziert den Zustand um eins.
 
 # Discrete Event Simulation (DES)
+
+> [!Tip] Definition
+> Eine Ereignistreue Simulation (Event Discrete Simulation) ist die Modellierung der zeitlichen Entwicklung eines Systems durch eine Darstellung, bei der sich die Zustandsvariablen des Systems an diskreten Zeitpunkten augenblicklich ändern. Diese Zeitpunkte werden als ‘Ereignisse’ bezeichnet.
+
+Es gibt allerdings auch Ereignisse, die nicht zu Zustandsänderungen führen.
+
+
 ## Bestandteile
 - Simulation Clock
   Bestimmt die Zeitpunkte in denen sich das System befindet. Abhängig vom Kontext kann hier Echtzeit, diskrete Schritte mit Tages-Präzision oder beliebige andere Größen verwendet werden.
@@ -77,3 +84,30 @@ Das Ablaufdiagramm zeigt eine Prozessorientierte Sichtweise.
 
 # Klassifikation von Simulationsmodellen
 Modelle können stochastisch oder deterministisch sein. Bei Stochastischen Systemen muss generell länger oder öfter simuliert werden, um Aussagen über den [Erwartungswert](Zufallsvariablen.md#Erwartungswert) treffen zu können.
+
+Auch die Unterscheidung zwischen kontinuierlichen und Diskreten Zeitschritten ist sehr wichtig. Z.B. Chemische Reaktionen sind kontinuierlich während Lagebestände nur an einzelnen Tagen bestimmt werden.
+Innerhalb dieser Vorlesung werden nur diskrete Simulationen betrachtet.
+
+Statische Simulationen haben maximal einen relevanten Zeitpunkt. Es kann auch Simulationen geben die ohne Zeit stattfinden. Z.B. das Bestimmen von stochastischen Werten beim Wurf von Würfeln.
+Dynamische Simulationen hingegen entwickeln sich im Verlauf einer Zeit.
+
+# Fokus von Simulationen
+Die Fragestellungen die mit einer Simulation beantwortet werden soll können sehr unterschiedlich sein und bedürfen verschiedener Modelle und Simulationen.
+- Bestimmung der Durchlaufzeit eines Produkts in einer Fabrik bei einem bestimmten Produktmix
+- Vergleich unterschiedlicher [Scheduling](Middleware.md#Scheduling)-Mechanismen in einer Maschine
+
+# Bestandteile einer Simulationsstudie
+1. Formulierung des Problems (Meist ist die zu Beginn noch nicht fest / final)
+2. Sammeln von Daten und Erstellung eines konzeptionellen Modells
+3. Verifizierung des Modells (Bei Fehlern weiter mit Schritt 2)
+4. Implementierung des Modells in einem Computerprogramm
+5. Erste Läufe des Programms
+6. Validierung der Programm-Outputs (Bei Fehlern zurück zu Schritt 2)
+7. Design der Experimente
+8. Durchführen der Experimente
+9. Analyse der Ausgabedaten
+10. Dokumentation, Präsentation und Verwendung der Ergebnisse
+
+> [!Info] Anwendung in der Praxis
+> Die Kenntnis des Modells wächst mit dem Verlauf der Zeit.
+> In der Praxis werden daher oft mehrere Iterationen durchgeführt um das Modell zu verfeinern
