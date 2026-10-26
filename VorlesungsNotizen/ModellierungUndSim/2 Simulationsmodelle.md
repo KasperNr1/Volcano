@@ -6,6 +6,18 @@ date: 2026-10-25
 tags:
   - lecture
 ---
+Die Abbildgung zeigt die verschiedenen Klassen von Simulationsmodellen.
+Die Präzisesten Werte liefert Messung am echten System, wobei der Aufwand höher ist die Messungen alle exakt durchzuführen.
+In Abstrakten Modellen wird die Simulation auf einige wenige Kernelemente des Systems beschränkt und ist damit deutlich einfacher.
+
+![](KategorienVonSimulationen.png)
+
+
+> [!Info] Vorlesungsinhalt
+> In der Vorlesung MuS wird der Fokus auf System- und abstrahierende Modelle gelegt
+
+
+# Warteschlangenmodelle
 In einem Warteschlangenmodell werden ankommende Anforderungen / Ankünfte / Kunden von Bedieneinheiten (oftmals nur eine einzelne) abgearbeitet.
 Bei mehr als $0$ freien Bedieneinheiten kann jeder neue Kunde sofort bedient werden.
 Falls keine Bedieneinheiten verfügbar sind, müssen neue Anfragen in einem Warteraum warten. Dieser Warteraum kann endlich groß, unendlich groß oder nicht vorhanden sein.
@@ -14,8 +26,14 @@ Bei endlich großen Warteräumen kann der Raum voll sein. Neue Anfragen werden d
 
 Die Wartezeit und Bearbeitungszeit zusammen ergeben die Durchlaufzeit einer Anforderung.
 
-# Kendall Notation
+## Kendall Notation
 Spezielle Schreibweise um die gebräuchlichsten Modelle zu beschreiben.
+
+> [!Info]- Nicht in Notation darstellbares Beispiel
+> Warteschlangenmodell mit Blockabfertigung. Z.b. IP-Pakete bei Live-Übertragung oder Achterbahnen. Die Bedieneinheit soll bei geringen Anfrageaufkommen möglichst warten um viele Anfragen gleichzeitig zu bearbeiten. Gleichzeitig soll eine maximale Wartedauer für einzelne Anfragen sichergestellt werden.
+> 
+> Diese Zeitliche Schranke lässt sich beispielsweise nicht in der Notation darstellen.
+
 $$
 \text{GI}^{[X]} / \text{GI} / n-S
 $$
