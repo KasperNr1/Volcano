@@ -36,6 +36,23 @@ $D=D_1=D_2=0 \rightarrow$ Unendlich viele Lösungen
 $D=0$ und $(D_1 \vee D_2) \neq 0 \rightarrow$ Keine Lösung ($D=0$ und nicht alle $D_i=0$) 
 
 # Determinanten 3. und höherer Ordnung
+## Spezialfall
+Im Fall einer [Dreiecksmatrix](Matrizen.md#Spezielle%20Matrizen) ist die Determinante gleich dem Produkt der Terme auf der Diagonale.
+$$
+A = \left(
+\begin{array}{}
+\lambda_1 & * & \dots & * \\
+0 & \ddots & \ddots & \vdots \\
+\vdots & \ddots & \ddots & * \\
+0 & \dots & 0 & \lambda_n  \\
+\end{array}
+\right)
+
+\qquad
+\det(A) = \lambda_1 \cdot \ldots \cdot \lambda_n
+$$
+Dabei ist nicht relevant ob eine obere oder untere Dreiecksmatrix vorliegt, da $\det(A) = \det(A^T)$ immer gilt.
+
 ## 3. Ordnung
 In einem $(3\times3)$ [LGS](Lineare%20Gleichungssysteme.md) lässt sich die Determinante analog zum $(2\times2)$ System herleiten.
 $$

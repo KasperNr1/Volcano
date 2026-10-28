@@ -74,3 +74,16 @@ One basis of $\mathbb{R}^3$ is: $\left(\begin{array}{c} 1 \\ 0 \\ 0 \end{array}\
 > 
 > The length of a basis is called the `dimension` of the vectorspace $V$.
 
+
+# Sum of Vectorspaces
+Assume $V$ is a vectorspace and $U_1, U_2$ are [Subspaces](#Subspaces) of $V$.
+The Sum of two spaces is defined as
+$$
+U_1 + U_2 := \left\{u_1 + u_2 \mid u_1 \in U_1, u_2 \in U_2\right\}
+$$
+
+This sum is called a `direct Sum` if each Element in the sum can be written in exactly one way.
+If this is the case we denote the sum by $U_1 \bigoplus U_2$ 
+
+## Complement of a subspace
+If $V$ is finite dimensional and $U \subset V$ is a [subspace](#Subspaces), there exists a subspace $W \subset V$ such that $U \bigoplus W = V$
