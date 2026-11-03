@@ -90,7 +90,7 @@ Die Kenngrößen sind somit die mit $p$ gewichteten Mittelwerte der Kenngrößen
 - Verteilungsfunktion $F(x) = 1 - \sum_{0 \leq i < k} p_i \cdot e^{\lambda_i  \cdot x}$ 
 - Range $[0, \infty)$
 - $E[X] = \sum_{0 \leq i < k} \frac{p_i}{\lambda_i}$ 
-- Variationskoeffizient sehr komplex, nachschlagen.
+- [Variationskoeffizient](1%20Wahrscheinlichkeiten%20und%20Verteilungen.md#Variationskoeffizient) sehr komplex, nachschlagen.
 - Erzeugung durch Komposition
 	1. Erzeuge Zufallszahlen $U_1, U_2$ 
 	2. Bestimmen der zu verwendenden Exponentialverteilung
@@ -98,7 +98,7 @@ Die Kenngrößen sind somit die mit $p$ gewichteten Mittelwerte der Kenngrößen
 	3. Verwende $U_2$ zur Erzeugung von $X \sim \exp(\lambda_i)$ 
   $X = \left\{ \begin{array}{}X_0 \sim \exp(\lambda_0) & \text{with probaility } p_0 \\ \vdots & \vdots \\ X_{k-1} \sim \exp(\lambda_{k-1}) & \text{with probaility } p_{k-1} \end{array}\right.$
 
-  ## Vergleich
+## Vergleich
   ![](ComparisonOfContinousDistributions.png)
 
 Alle Funktionen besitzen einen Wertebereich von $[0,\infty)$ und konvergiergen für $\lim_{x \to \infty}$ gegen $0$. 

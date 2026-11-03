@@ -43,6 +43,9 @@ $$
 - $n$ beschreibt die Anzahl der Bedieneinheiten
 - $s$ ist die Anzahl der Warteplätze. Bei einem endlichen Wert spricht man auch von einem `Verlustsystem`
 
+> [!NOTE] Weglassen der Beschriftung
+> Wenn der Parameter für die Anzahl der Warteplätze nicht explizit angegeben wird, so ist von einem System mit unbegrenzter Anzahl an Warteplätzen auszugehen.
+
 Anstelle der $\text{GI}$ Verteilung ist auch $\text{D}$ für Deterministisch, $\text{M}$ für Markov (Also [exponentiell verteilt](1%20Wahrscheinlichkeiten%20und%20Verteilungen.md#Exponentialverteilung). Ein M-Ankunftsprozess ist dementsprechend ein [Poisson](Spezielle%20Verteilungen.md#Poissonverteilung)-Prozess), $\text{E}_k$ für Erlang-k und $\text{H}_k$ für Hyperexponentiell k-ter Ordnung verteilt.
 
 # Ereignistreue Simulationen

@@ -82,6 +82,23 @@ Siehe auch [Binomialverteilung](Spezielle%20Verteilungen.md#Binomialverteilung)
 > 
 > Für $n \to \infty$ kann die Binomialverteilung durch die Normalverteilung $N(E[X], VAR[X])$ approximiert werden.
 
+## Polynomialverteilung
+Beispiel bei Urnen-experimenten mit mehreren Farben von Kugeln.
+
+- Rot $\frac12$
+- Grün $\frac13$
+- Blau $\frac16$
+
+Wahrscheinlichkeit für “Rot=2, Grün=1, Blau=1” bei 4 gezogenen Kugeln mit Zurücklegen.
+
+$$
+P(X) = \frac{4!}{2! \cdot 1! \cdot 1!} \cdot \left(\frac{1}{2}\right)^2 \cdot \frac{1}{3} \cdot \frac16 = \frac{1}{6}
+$$
+
+> [!Missing] Fehlt
+> Skript Kapitel 3:
+> Abschnitt 3.3.6
+
 
 ## Geometrische Verteilung
 Beschreibt die Anzahl der Fehlversuche bis zum Erfolg eines [Bernoulli Experiments](#Bernoulli%20Verteilung).
@@ -102,6 +119,11 @@ Beschreibt die Anzahl aller Versuche bis das Bernoulli Experiment einen Erfolg e
 - $E[X] = \dfrac{1-p}{p}+1, p\geq0$ 
 - $VAR[X] = \dfrac{1-p}{p^2}$ 
 - $c_\text{var}[X] = \sqrt{1-p}$ 
+
+
+> [!Error] Korrektur
+> Erwartungswert der Geometrischen Verteilung ist 1/p? Ist das gleich wie der obere Term?
+> Um 1 Verschoben scheint korrekt.
 
 
 > [!Warning] Namenskonvention

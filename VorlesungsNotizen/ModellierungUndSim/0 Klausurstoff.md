@@ -30,3 +30,24 @@ Wertebereich, Mittelwert (Dichte-Funktionen sind nicht relevant)
 Was ist eine $\text{H}_2$
 - Hyperexponentiale Verteilung 2ter Ordnung
 
+# Vorlesung 4
+Gesamtes Kapitel 3 ([3 Verteilungsfunktionen](3%20Verteilungsfunktionen.md) und [4 Diskrete Verteilungen](4%20Diskrete%20Verteilungen.md)) sehr relevant für Klausur, besonders die Wahl von Verteilungsfunktionen um verschiedene Systeme zu modellieren und die Übertragbarkeit von diskreten auf stetige Verteilungen.
+
+Vergleichsdiagramm [Vergleich](3%20Verteilungsfunktionen.md#Vergleich) beschriften können und die Verwandtschaft zwischen den Verteilungen kennen.
+
+Wissen, dass Normalverteilung per Accept-Reject erzeugt wird. Algorithmus muss nicht exakt auswendig gewusst sein.
+
+Erzeugungsalgorithmus [Beliebige Diskrete Verteilung](4%20Diskrete%20Verteilungen.md#Beliebige%20Diskrete%20Verteilung)
+
+Summe einer unendlichen Reihe mit unendlich vielen Termen
+
+Erzeugungsalgorithmus der Poisson-Verteilung durch Quasi-Komponente
+
+Konfidenzintervalle (Sehr wichtig)
+Unterschied Standardabweichung und Standardfehler, beide Begriffe existieren Separat
+
+Begriffe
+- Freiheitsgrade
+- Quantile
+- OneSided
+- TwoSided
