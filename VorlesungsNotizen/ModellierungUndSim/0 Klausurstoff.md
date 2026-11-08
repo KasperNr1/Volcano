@@ -51,3 +51,8 @@ Begriffe
 - Quantile
 - OneSided
 - TwoSided
+
+# Vorlesung 5
+Konfidenzintervalle, Herleitung und Bedeutung
+
+Gleichung zur empirischen Berechnung der [Autokovarianz](5%20Fehler%20und%20Konfidenzintervalle.md#Autokovarianz) wiedergeben.
