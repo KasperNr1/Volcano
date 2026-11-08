@@ -202,6 +202,9 @@ Dazu wird die IP Adresse des gesuchten Geräts per [Broadcast](Basics.md#Broadca
 ![](AdressResolutionProtocoll.png)
 Das [Betriebssystem](Betriebssyteme.md#Definition%20Betriebssystem) führt eine Tabelle mit den ARP Einträgen. Die Tabelle enthält IP-Adressen, MAC-Adressen, Netzwerk-Interfaces.
 Es existiert ein Protokoll für die Rückrichtung, das bestimmen der Netzwerkadresse aus einer MAC Adresse (RARP).
+
+Um gespeicherte Einträge zu verifizieren deren Zeitlimit abgelaufen ist, kann die ARP-Request auch per [Unicast](#Unicast) an die gespeicherte Adresse gesendet werden. Falls der Host noch erreichbar ist kann er antworten und erspart allen anderen Geräte im Netz somit die Last einer [Broadcast](#Broadcast)-Nachricht.
+
 ## IPv4
 
 ## IPv6
