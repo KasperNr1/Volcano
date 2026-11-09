@@ -56,3 +56,4 @@ Begriffe
 Konfidenzintervalle, Herleitung und Bedeutung
 
 Gleichung zur empirischen Berechnung der [Autokovarianz](5%20Fehler%20und%20Konfidenzintervalle.md#Autokovarianz) wiedergeben.
+Ebenfalls Gleichungen zu [Korrelation](5%20Fehler%20und%20Konfidenzintervalle.md#Korrelation) und [Kovarianz](5%20Fehler%20und%20Konfidenzintervalle.md#Kovarianz) angeben können (Jeweils Zufallsvariable und Empirisch zu Zeitreihen).

@@ -99,3 +99,4 @@ $$
 > Generell ist die Berechnung dieser Kenngrößen nur sinnvoll, wenn $j << n$ also die Anzahl der Werte die Länge des Lags deutlich übersteigt.
 
 
+# Auswertung von Simulationen
