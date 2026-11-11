@@ -23,3 +23,37 @@ Reservierte Adressbereiche nicht (224.0.0.0/8-239.0.0.0/8)
 IP / ARP Adressauflösung
 Foliensatz 2, Seite 30
 Aufgaben ähnlich zu den Beispielen im video
+
+
+Pseudocode für Algorithmen wie Dijkstra
+
+Folie 33 in Foliensatz 2 (Network Layer) Erklären können 
+![](GdISlideScreenshot.png)
+Time To Live erklären können (Handling von loops)
+
+IPv6 Adressen verstehen
+
+IPv4 und IPv6 Vergleichen.
+Z.B. Aufbau der Header und Features der Standards (was fällt weg / kommt dazu / bleibt)
+- Fragmentierung
+- Checksumme
+- Time To Live
+- ...
+
+Extension headers (IPv6)
+Konzept erklären und wichtige Kennen
+- Encrypted Security Payload
+- Source-Routing
+- Destination Options
+
+
+Gateway Protokolle Abkürzungen
+- BGP
+- IGP
+- EGP
+- ...
+
+Count to $\infty$ Problem grundlegend erklären können.
+
+Bellman-Ford Algorithmus kennen und Zusammenhang zu Routing erklären
+
