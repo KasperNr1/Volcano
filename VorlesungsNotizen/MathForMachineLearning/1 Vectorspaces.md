@@ -24,6 +24,8 @@ Elements of $V$ are called vectors, elements of $F$ are called scalars.
 > [!Info] Complex vector spaces
 > Some literature uses the word ‘complex vector space’ to refer to vector spaces where $F = \mathbb{C}$
 
+^6855be
+
 ## Subspaces
 Let $V$ be a [Vectorspace](#Vectorspace), $U \subset V$ non-empty set.
 We call $U$ a subspace of $V$ if it is closed under linear combinations:
