@@ -100,3 +100,13 @@ $$
 
 
 # Auswertung von Simulationen
+> [!Missing] Video 5_2-6_1
+> [Link zum Video](https://unitc-my.sharepoint.com/personal/iinme01_cloud_uni-tuebingen_de/_layouts/15/stream.aspx?id=%2Fpersonal%2Fiinme01%5Fcloud%5Funi%2Dtuebingen%5Fde%2FDocuments%2FTeaching%2DGITs%2Fmodellierung%5Fund%5Fsimulation%2FOnline%2FVideos%2FMuS%5F5%2D2%5F6%2D1%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Eedcf2b2c%2Dcd48%2D4748%2Dba61%2Dc991f353795b)
+## Dauer von Simulationen: Benötigte Stichprobengröße
+
+## Absoluter Fehler
+
+## Relativer Fehler
+
+# Terminierende Simulationen
+# Nicht-Terminierende Simulationen
