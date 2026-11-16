@@ -57,3 +57,16 @@ Count to $\infty$ Problem grundlegend erklären können.
 
 Bellman-Ford Algorithmus kennen und Zusammenhang zu Routing erklären
 
+Bellman-Ford Und Dijkstra Erklären + Pseudocode
+
+Inter- vs. Intradomain Routing
+Wann wird was eingesetzt?
+
+
+> [!DANGER] Philosophie
+> verstehen, nicht auswendig
+
+
+Fusionieren von BGP und IGP Routing-Tabellen zu einer Forwarding-Tabelle
+
+

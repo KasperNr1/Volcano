@@ -57,3 +57,35 @@ Konfidenzintervalle, Herleitung und Bedeutung
 
 Gleichung zur empirischen Berechnung der [Autokovarianz](5%20Fehler%20und%20Konfidenzintervalle.md#Autokovarianz) wiedergeben.
 Ebenfalls Gleichungen zu [Korrelation](5%20Fehler%20und%20Konfidenzintervalle.md#Korrelation) und [Kovarianz](5%20Fehler%20und%20Konfidenzintervalle.md#Kovarianz) angeben können (Jeweils Zufallsvariable und Empirisch zu Zeitreihen).
+
+# Vorlesung 6
+Batch Mean Verfahren
+Warum kann man die normale Statistischen methoden nicht verwenden? (Korrelation der einzelnen Werte - Für viele Methoden wird unabhängigkeit angenommen)
+Replicate-Delete-Verfahren
+Vor- und Nachteile kennen
+Vorteile
+- Einfach
+- Nicht anfällig gegen Korrelation
+- In Software breit als Packages Verbreitet
+Nachteile
+- Korrekte Bestimmung der Transienten Phase ist notwendig
+- Dadurch höherer simulationsaufwand
+
+Bei Batch-Mean Verfahren sind Vor-und Nachteile exakt gegenteilig
+
+Check-Knife Estimator verstehen, nicht auswendig
+
+Definitionen Zeit-Mittel und Ensemble-Mittel
+
+Was ist ein (Nicht)-Ergodischer Prozess?
+Jeweils Beispiele
+
+Ein Unterschied zwischen zwei Systemen ist statistisch Relevant wenn die 0 nicht im Konfidenzintervall der Differenz liegt.
+Diese Erkenntnis ist essentiell und leicht zu berechnen.
+
+6.8.2.3
+Argumentation verstehen
+Vergleichbare Bedingungen -> Kleine Varianz -> Schmaleres Konfidenzintervall -> Kürzere Simulation notwendig bis 0 nicht im Konf.Intervall liegt.
+
+
+
