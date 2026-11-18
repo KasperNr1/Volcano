@@ -14,9 +14,9 @@ $$
 This is not always the case.
 
 $T$ is diagonalizable if any one of these equivalent statements is true
-1. $V$ has a basis consisting of [Eigenvectors](4%20Eigenvalues%20and%20Determinant.md#Eigenvalues) of $T$.
+1. $V$ has a basis consisting of [Eigenvectors](04%20Eigenvalues%20and%20Determinant.md#Eigenvalues) of $T$.
 2. $\dim V = \dim(\text{eigenspace}(\lambda_1)) + \dots + \dim(\text{eigenspace}(\lambda_m))$
-3. $V$ has $n$ eigenvalues (if counted with multiplicity) and for all of them, the [algebraic and geometric multiplicities](4%20Eigenvalues%20and%20Determinant.md#Multiplicities) are the same.
+3. $V$ has $n$ eigenvalues (if counted with multiplicity) and for all of them, the [algebraic and geometric multiplicities](04%20Eigenvalues%20and%20Determinant.md#Multiplicities) are the same.
 
 # Triangular matrices
 Let $T\in \mathcal{L}(V), \mathcal{B} = \{v_1, v_2, \dots v_n \}$  a basis. Then the following two statements are equivalent:
@@ -35,7 +35,7 @@ An upper triangular matrix with all $0$ for values below the diagonal is inverti
 $$
 M(T,\mathcal{B},\mathcal{B}) = \left(\begin{array}{}\lambda_1 & \dots & * \\ \vdots & \ddots & \vdots \\ 0 & \dots & \lambda_n \end{array}\right)
 $$
-Since a matrix is invertable if the [Determinant](4%20Eigenvalues%20and%20Determinant.md#Important%20Properties%20of%20the%20Determinant) is non-zero and the determinant of a triangular matrix is the product of the value on its diagonal, only the values on the diagonal are relevant for this property.
+Since a matrix is invertable if the [Determinant](04%20Eigenvalues%20and%20Determinant.md#Important%20Properties%20of%20the%20Determinant) is non-zero and the determinant of a triangular matrix is the product of the value on its diagonal, only the values on the diagonal are relevant for this property.
 
 
 # Normed Spaces
@@ -48,7 +48,7 @@ Let $X$ be a [set](Intervalle%20und%20Mengen.md#Mengen). A function $d: X \times
 ![](TriangleInequality.png)
 
 ## Definition Norm on a Vector Space
-Let $V$ be a [Vectorspace](1%20Vectorspaces.md#Vectorspace). A `norm` on $V$ is a function $\left|\left|\cdot\right|\right| : V \to \mathbb{R}$ such that for all $x,y \in V, \quad \lambda \in \mathbb{F}$ where $\mathbb{F}$ is the field of the vectorspace.
+Let $V$ be a [Vectorspace](01%20Vectorspaces.md#Vectorspace). A `norm` on $V$ is a function $\left|\left|\cdot\right|\right| : V \to \mathbb{R}$ such that for all $x,y \in V, \quad \lambda \in \mathbb{F}$ where $\mathbb{F}$ is the field of the vectorspace.
 1. $\left|\left|\lambda x\right|\right| = \left|\lambda \right| \cdot \left|\left|x\right|\right|$ (Homogeneous)
 2. $\left|\left|x + y\right|\right| \leq \left| \left| x \right| \right| + \left|\left|y\right|\right|$ (Triangle Inequality)
 3. $\left|\left|x\right|\right| = 0 \Longleftarrow x = 0$ (Definiteness)
@@ -99,7 +99,7 @@ If $p<1$ they become concave and converge to the axies as $p$ approaches $0$
 ![](ConcaveUnitBalls.png)
 
 # Scalar Product
-Consider a [Vectorspace](1%20Vectorspaces.md#Vectorspace) $V$. A Mapping $\left< \cdot, \cdot \right> : V \times V \to \mathbb{R}$ is called a `scalar Product` if:
+Consider a [Vectorspace](01%20Vectorspaces.md#Vectorspace) $V$. A Mapping $\left< \cdot, \cdot \right> : V \times V \to \mathbb{R}$ is called a `scalar Product` if:
 1. Linearity
    $\left<x_1 +x_2, y\right> = \left<x_1, y\right> + \left<x_2, y\right>$
    $\left<\lambda x ,y\right> = \lambda \left<x,y\right>$ 
@@ -116,7 +116,7 @@ $$
 ![](ScalarProductWithAngles.png)
 
 ## Banach and Hilbert Spaces
-- A [Vectorspace](1%20Vectorspaces.md) with a norm is called a `normed space`
+- A [Vectorspace](01%20Vectorspaces.md) with a norm is called a `normed space`
 - If a normed space is complete (meaning that every [Cauchy Sequence](https://de.wikipedia.org/wiki/Cauchy-Folge) converges) then it is called a `Banach Space`
 - A vector space with a [Scalar Product](#Scalar%20Product) is called a `pre-Hilbert Space`
 - If it is additionally complete, it is called a `Hilbert Space`

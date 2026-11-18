@@ -8,7 +8,7 @@ tags:
 ---
 # Orthogonal and normal things
 ## Orthogonal Vectors and Sets
-Consider a [pre-Hilbert Space](5%20Diagonalization%20and%20Normed%20Spaces.md#Banach%20and%20Hilbert%20Spaces) $V$.
+Consider a [pre-Hilbert Space](05%20Diagonalization%20and%20Normed%20Spaces.md#Banach%20and%20Hilbert%20Spaces) $V$.
 - Two vectors $v_1, v_2 \in V$ are called `orthogonal` if their scalar product is $0$: $\left<v_1, v_2 \right> =0$ This can also be written as $v_1 \bot v_2$ 
 - Two [sets](Intervalle%20und%20Mengen.md#Mengen) $V_1, V_2 \subseteq V$ are called `orthogonal` if every vector in one set is orthogonal to every vector in the other set
 $$
@@ -20,14 +20,14 @@ S^\bot := \left\{v \in V \mid v \bot s \forall s \in S \right\}
 $$
 
 ## Orthonormal vectors and sets
-Two vectors are called `orthonormal` if they are [orthogonal](#Orthogonal%20Vectors%20and%20Sets) and additionally have [norm](5%20Diagonalization%20and%20Normed%20Spaces.md#Definition%20Norm%20on%20a%20Vector%20Space) 1
+Two vectors are called `orthonormal` if they are [orthogonal](#Orthogonal%20Vectors%20and%20Sets) and additionally have [norm](05%20Diagonalization%20and%20Normed%20Spaces.md#Definition%20Norm%20on%20a%20Vector%20Space) 1
 $$
 \left<v_1, v_2\right> = 0, \quad \left|\left|v_1\right|\right| = 1, \; \left|\left|v_2\right|\right| = 1
 $$
 	A set of vectors $v_1, v_2, \dots v_n$ is called `orthonormal` if any two vectors are orthonormal.
 
 ## Orthogonal / Normal Basis
-In an orthonormal [Basis](1%20Vectorspaces.md#Basis) $u_1, u_2, \dots u_n$ the representation of a vector $v$ is given as:
+In an orthonormal [Basis](01%20Vectorspaces.md#Basis) $u_1, u_2, \dots u_n$ the representation of a vector $v$ is given as:
 $$
 v = \sum_{i=1}^n \left<v, u_i\right> u_i, \qquad \text{with} \; v = \sum a_iu_i
 $$
@@ -48,7 +48,7 @@ This means that applying the operator more than one time has no result on the ou
 > Applying this transformation multiple times does not change the result, hence $A^2 = A$
 
 ## Orthogonal Projection
-Let $U$ be a finite-dimensional [Subspace](1%20Vectorspaces.md#Subspaces) of a [pre-Hilbert space](5%20Diagonalization%20and%20Normed%20Spaces.md#Banach%20and%20Hilbert%20Spaces) $H$. Then there exists a linear [Projection](#Projections)
+Let $U$ be a finite-dimensional [Subspace](01%20Vectorspaces.md#Subspaces) of a [pre-Hilbert space](05%20Diagonalization%20and%20Normed%20Spaces.md#Banach%20and%20Hilbert%20Spaces) $H$. Then there exists a linear [Projection](#Projections)
 $$
 P_U: H \to U
 $$
@@ -57,7 +57,7 @@ with $\ker(P_U) = U^\bot$. $P_U$ is called the `orthogonal projection` of $H$ on
 
 # Orthogonal Matrices
 Let $Q \in \mathbb{R}^{n \times n}$ be a matrix with [orthonormal](#Orthonormal%20vectors%20and%20sets)
- column vectors (with respect to the [euclidian scalar product](5%20Diagonalization%20and%20Normed%20Spaces.md#Scalar%20Product)) Then $Q$ is called an `orthogonal` matrix
+ column vectors (with respect to the [euclidian scalar product](05%20Diagonalization%20and%20Normed%20Spaces.md#Scalar%20Product)) Then $Q$ is called an `orthogonal` matrix
 
 > [!Error] Naming
 > While the column vectors are orthonormal, the matrix itself is called orthogonal
@@ -98,17 +98,17 @@ A = A^T = \overline{A}^T = \overline{A^T}
 $$
 
 > [!NOTE] Eigenvalues of hermitian matrices
-> A hermitian matrix has all $n$ [Eigenvalues](4%20Eigenvalues%20and%20Determinant.md#Eigenvalues) live in $\mathbb{R}$ For a complex matrix the eigenvectors might still live in $\mathbb{C}^n$. For a symmetrical matrix the eigenvector always live in $\mathbb{R}^n$.
+> A hermitian matrix has all $n$ [Eigenvalues](04%20Eigenvalues%20and%20Determinant.md#Eigenvalues) live in $\mathbb{R}$ For a complex matrix the eigenvectors might still live in $\mathbb{C}^n$. For a symmetrical matrix the eigenvector always live in $\mathbb{R}^n$.
 
 ## Self-Adjoint operators
-An Operator $T \in \mathcal{L}(V)$ on a [pre-Hilbert space](5%20Diagonalization%20and%20Normed%20Spaces.md#Banach%20and%20Hilbert%20Spaces) $V$ is called `self-adjoint` if:
+An Operator $T \in \mathcal{L}(V)$ on a [pre-Hilbert space](05%20Diagonalization%20and%20Normed%20Spaces.md#Banach%20and%20Hilbert%20Spaces) $V$ is called `self-adjoint` if:
 $$
 \left<Tv, w\right> = \left<v, Tw\right>
 $$
 Sometimes it is also called a `Hermitian operator` (on $\mathbb{C}^n$) or a `symmetric operator` on $\mathbb{R}^n$.
 
 Self adjoint operators are represented by hermitian or symmetric matrices.
-The representing matrix has at least one real-valued [Eigenvalue](4%20Eigenvalues%20and%20Determinant.md#Eigenvalues).
+The representing matrix has at least one real-valued [Eigenvalue](04%20Eigenvalues%20and%20Determinant.md#Eigenvalues).
 
 # Spectral Theorem for symmetric matrices
 A symmetric matrix $A \in \mathbb{R}^{n\times n}$ is `orthogonally diagonalizable`:

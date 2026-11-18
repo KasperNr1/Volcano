@@ -9,9 +9,9 @@ tags:
 # Definition of a Matrix
 A Matrix has [rectangular Shape](Matrizen.md#Definition) with $m$ rows and $n$ columns
 
-With a [Linear Map](2%20Mappings.md#Linear%20Mappings) $T \in \mathcal{L}(V,W)$ and $V, W$ being finite-dimensional [Vectorspaces](1%20Vectorspaces.md#Vectorspace) with the [Basis](1%20Vectorspaces.md#Basis) $v_1, \dots, v_n$ and $w_1, \dots, w_m$ respectively.
+With a [Linear Map](02%20Mappings.md#Linear%20Mappings) $T \in \mathcal{L}(V,W)$ and $V, W$ being finite-dimensional [Vectorspaces](01%20Vectorspaces.md#Vectorspace) with the [Basis](01%20Vectorspaces.md#Basis) $v_1, \dots, v_n$ and $w_1, \dots, w_m$ respectively.
 
-The Linear Map transforms a vector $v\in V$ into some vector $w \in W$ that can be written as a [Linear Combination](1%20Vectorspaces.md#Linear%20Combinations)  of the basis vectors in $W$.
+The Linear Map transforms a vector $v\in V$ into some vector $w \in W$ that can be written as a [Linear Combination](01%20Vectorspaces.md#Linear%20Combinations)  of the basis vectors in $W$.
 $$
 T(v) = T(\lambda_1v_1 + \ldots + \lambda_nv_n) = \mu_1w_2 + \ldots + \mu_mw_m
 $$
@@ -59,7 +59,7 @@ $$
 Denotes the matrix corresponding to $T$ with respect to the bases $\mathcal{B}$ and $\mathcal{C}$ 
 
 # Properties of Matrices
-Let $U,V,W$ be [Vectorspaces](1%20Vectorspaces.md#Vectorspace) and consider the bases fixed. Let $S,T \in \mathcal{V}, \mathcal{W}$ 
+Let $U,V,W$ be [Vectorspaces](01%20Vectorspaces.md#Vectorspace) and consider the bases fixed. Let $S,T \in \mathcal{V}, \mathcal{W}$ 
 Then:
 - $\mathcal{M}(S + T) = \mathcal{M}(S) + \mathcal{M}(T)$ 
 - $\mathcal{M}(\lambda S) = \lambda \mathcal{M}(S)$ 
@@ -79,8 +79,8 @@ $$
 The map $S$ is called the `Inverse` of $T$ and denoted by $T^{-1}$.
 
 Inverse Maps are unique.
-Not Every [Linear Map](2%20Mappings.md#Linear%20Mappings) is invertible.
-Specifically, a linear map is invertible if and only if it is [injective](Gruppen%20Ringe%20und%20Körper.md#Injektiv) and [surjective](Gruppen%20Ringe%20und%20Körper.md#Surjektiv). This is intuitive when looking at the [Kernel and Range](2%20Mappings.md#Kernel%20and%20Range) of a map. Every Element must be reachable through exactly one element in the other set.
+Not Every [Linear Map](02%20Mappings.md#Linear%20Mappings) is invertible.
+Specifically, a linear map is invertible if and only if it is [injective](Gruppen%20Ringe%20und%20Körper.md#Injektiv) and [surjective](Gruppen%20Ringe%20und%20Körper.md#Surjektiv). This is intuitive when looking at the [Kernel and Range](02%20Mappings.md#Kernel%20and%20Range) of a map. Every Element must be reachable through exactly one element in the other set.
 
 Additionally, inverting linear maps and inverting matrices are equivalent operations.
 

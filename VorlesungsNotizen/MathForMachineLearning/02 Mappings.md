@@ -8,7 +8,7 @@ tags:
 ---
 # Linear Mappings
 ## Definition
-Let $U,V$ be a [Vectorspace](1%20Vectorspaces.md#Vectorspace) over $F$. A mapping $f: U \to V$ is called `linear` if $\forall u_1, u_2 \in U, \forall \lambda \in F:$
+Let $U,V$ be a [Vectorspace](01%20Vectorspaces.md#Vectorspace) over $F$. A mapping $f: U \to V$ is called `linear` if $\forall u_1, u_2 \in U, \forall \lambda \in F:$
 $$
 \begin{align}{}
 f(u_1 + u_2) &= f(u_1) + f(u_2) \\
@@ -32,7 +32,7 @@ $$
 $$
 Every element of $V$ that can be reached by applying the mapping $T$ to any element of $U$ is part of the range.
 
-Both, the $\text{kernel}(T)$ and the $\text{range}(T)$ are [subspaces](1%20Vectorspaces.md#Subspaces) of $V$.
+Both, the $\text{kernel}(T)$ and the $\text{range}(T)$ are [subspaces](01%20Vectorspaces.md#Subspaces) of $V$.
 - $T$ is [injective](Gruppen%20Ringe%20und%20Körper.md#Injektiv) $\Leftrightarrow \text{ker}(T)=0$ 
 - $T$ is [surjective](Gruppen%20Ringe%20und%20Körper.md#Surjektiv) $\Leftrightarrow \text{range}(T)=V$ 
 
@@ -44,12 +44,12 @@ $$
 ![](PreImage.png)
 
 ## Fundamental theorem for linear mappings
-Let $V$ be finite-dimensional, $W$ any [VS](1%20Vectorspaces.md#Vectorspace) $T \in \mathcal{L}(V,W)$
+Let $V$ be finite-dimensional, $W$ any [VS](01%20Vectorspaces.md#Vectorspace) $T \in \mathcal{L}(V,W)$
 Let $u_1, \dots, u_n$ be a basis of the [Kernel](#Kernel%20and%20Range) $\text{ker}(T) \subset V$
 Let $w_1, \dots, w_m$ be a basis of $\text{range}(T) \subset W$
 Let $z_1 \in T^{-1}(w_1), \dots, z_m \in T^{-1}(w_m)$ 
 
-Then $u_1, \dots, u_n, z_1, \dots, z_m \subset V$ form a [basis](1%20Vectorspaces.md#Basis) of $V$.
+Then $u_1, \dots, u_n, z_1, \dots, z_m \subset V$ form a [basis](01%20Vectorspaces.md#Basis) of $V$.
 
 In particular:
 $$

@@ -13,16 +13,16 @@ Let $U$ be the Unit Cube and $P = T(U)$ its image under $T$.
 The volume of $P$ is then $\lambda_1 \cdot \lambda_2 \cdot \lambda_3$  
 ![](UnitCubeTransformation.png)
 The derterminant describes this change of the unit volume. 
-If the [Linear Map](2%20Mappings.md#Linear%20Mappings) does not have [full Rank](3%20Linear%20Maps%20as%20Matrices.md#Rank%20of%20a%20Matrix), (the image of $T$ is not fully dimensional) the unit cube gets mapped into a plane / line / lower dimensional cube. Therefore its volume in 3D Space becomes $0$.
+If the [Linear Map](02%20Mappings.md#Linear%20Mappings) does not have [full Rank](03%20Linear%20Maps%20as%20Matrices.md#Rank%20of%20a%20Matrix), (the image of $T$ is not fully dimensional) the unit cube gets mapped into a plane / line / lower dimensional cube. Therefore its volume in 3D Space becomes $0$.
 
 
 > [!Note] Linear Dependency
-> If the matrix has [Linear dependencies](1%20Vectorspaces.md#Linear%20Independence) columns, it cannot also have full [Rank](3%20Linear%20Maps%20as%20Matrices.md#Rank%20of%20a%20Matrix). So the determinant becomes $0$
+> If the matrix has [Linear dependencies](01%20Vectorspaces.md#Linear%20Independence) columns, it cannot also have full [Rank](03%20Linear%20Maps%20as%20Matrices.md#Rank%20of%20a%20Matrix). So the determinant becomes $0$
 
 ## Important Properties of the Determinant
 1. It always exists and is unique
 2. The determinant of a mapping $T$ does `not` depend on the basis
-3. $\det(c\cdot A) = c^n \det(A)$ with $n$ being the dimension of the [Vectorspace](1%20Vectorspaces.md#Vectorspace).
+3. $\det(c\cdot A) = c^n \det(A)$ with $n$ being the dimension of the [Vectorspace](01%20Vectorspaces.md#Vectorspace).
 4. $\det(A \cdot B) = \det(A) \cdot \det(B)$
 5. $A$ is invertible $\Leftrightarrow \det(A) \neq 0$ 
 6. If $A$ is invertible, then $\det(A^{-1}) = \frac{1}{\det(A)}$ 
@@ -33,7 +33,7 @@ For Upper / Lower [triangular matrices](Matrizen.md#Dreiecksmatrizen) the determ
 > [!Tip] Alternative Definition
 > The Determinant of a matrix is the product of all its [Eigenvalues](Matrizen.md#Eigenwerte%20&%20Eigenvektoren).
 > 
-> If $V$ is a [Vectorspace](1%20Vectorspaces.md#Vectorspace) over $\mathbb{R}$ and $T: V\to V$, then $\det(T)$ is the product of all eigenvalues `over` $\mathbb{C}$, repeated according to multiplicity.
+> If $V$ is a [Vectorspace](01%20Vectorspaces.md#Vectorspace) over $\mathbb{R}$ and $T: V\to V$, then $\det(T)$ is the product of all eigenvalues `over` $\mathbb{C}$, repeated according to multiplicity.
 > 
 
 # Eigenvalues
@@ -47,7 +47,7 @@ The scaling factor is the eigenvalue $\lambda$ to this eigenvector.
 Not all mappings have eigenvalues, for example the rotation matrix does not have any real eigenvectors.
 
 > [!INFO] Existance of Eigenvalues
-> Every Operator $T: V \to V$ on a finite-dimensional, [complex Vectorspace](1%20Vectorspaces.md#^6855be) has at least one eigenvalue.
+> Every Operator $T: V \to V$ on a finite-dimensional, [complex Vectorspace](01%20Vectorspaces.md#^6855be) has at least one eigenvalue.
 
 Eigenvalues are not unique, when $v$ is an eigenvector, $u = a\cdot v$ is also an eigenvector.
 
@@ -57,9 +57,9 @@ Because $Tv = \lambda  v \Leftrightarrow Tv - \lambda v = 0 \Leftrightarrow Tv -
 
 
 > [!INFO] Properties
-> Eigenvectors corresponding to different Eigenvalues are always [linearly independent](1%20Vectorspaces.md#Linear%20Independence).
+> Eigenvectors corresponding to different Eigenvalues are always [linearly independent](01%20Vectorspaces.md#Linear%20Independence).
 > 
-> The Eigenspace $E(\lambda, T)$ is always a linear [Subspace](1%20Vectorspaces.md#Subspaces) of $V$.
+> The Eigenspace $E(\lambda, T)$ is always a linear [Subspace](01%20Vectorspaces.md#Subspaces) of $V$.
 
 ## Characteristic polynomial
 The characteristic polynomial of an $n\times n$-matrix $A$ is defined as 
