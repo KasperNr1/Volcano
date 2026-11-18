@@ -28,7 +28,7 @@ Elements of $V$ are called vectors, elements of $F$ are called scalars.
 
 ## Subspaces
 Let $V$ be a [Vectorspace](#Vectorspace), $U \subset V$ non-empty set.
-We call $U$ a subspace of $V$ if it is closed under linear combinations:
+We call $U$ a subspace of $V$ if it is `closed` under linear combinations:
 $$
 \forall \lambda, \mu \in F \quad \forall u,v \in U : \quad\lambda \cdot u + \mu \cdot v \in U
 $$
