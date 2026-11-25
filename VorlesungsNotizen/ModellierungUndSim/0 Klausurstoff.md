@@ -88,4 +88,54 @@ Argumentation verstehen
 Vergleichbare Bedingungen -> Kleine Varianz -> Schmaleres Konfidenzintervall -> Kürzere Simulation notwendig bis 0 nicht im Konf.Intervall liegt.
 
 
+## Vorlesung 7
+6.7
+
+> [!Info] Unsure
+> Nicht-Korrelierte Stichproben erzeugen korrelierte Mittelwerte, normale Statistische Methoden sind daher trotzdem anwendbar.
+
+
+> [!NOTE] Begriff
+> `IID` Identically and independently distributed (Identisch != konstant, lediglich nach der selben Verteilungsfunktion)
+
+Größere Intervalle haben höheren Einfluss als kleine, da sie bei zufälliger Auswahl eines Ereignisses eher in dem Intervall enthalten sind.
+
+Erklären wie Algorithmus 7.3.3 Instationäre Poisson Prozesse funktioniert und Reproduzieren
+
+Angeben von Rekurrenzzeiten 7.3.4
+- Ob man in der Lage ist sich in das System hineinzudenken
+- Vorher reinschauen -> Kleinere Zeit
+- Nachher reinschauen -> höherere Zeit
+
+
+
+
+
+
+
+
+$$
+\text{Gamma}\gamma
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
