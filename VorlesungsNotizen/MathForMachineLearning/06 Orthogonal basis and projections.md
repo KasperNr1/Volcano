@@ -92,7 +92,7 @@ $$
 A  = \overline{A}^T
 $$
 
-A Matrix $A \in \mathbb{R}^{n\times n}$ is symmetric if it is identical to its transpose. This is a special case of the hermitian matrix
+A Matrix $A \in \mathbb{R}^{n\times n}$ is `symmetric` if it is identical to its transpose. This is a special case of the hermitian matrix
 $$
 A = A^T = \overline{A}^T = \overline{A^T}
 $$
