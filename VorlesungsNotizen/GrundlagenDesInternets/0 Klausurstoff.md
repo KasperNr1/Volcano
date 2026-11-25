@@ -70,3 +70,28 @@ Wann wird was eingesetzt?
 Fusionieren von BGP und IGP Routing-Tabellen zu einer Forwarding-Tabelle
 
 
+LISP
+
+TCP:
+- Besonders Congestion Control
+- Flow Control
+
+UPD
+- Source-Port
+- Dest-Port
+- Checksum
+- noch ein viertes im Header
+
+
+
+Connectionless and Connection-Oriented Multiplexing
+
+Stop-And-Wait
+- Einsatz und Schwachstellen
+- Einsatz in Bluetooth, schlecht bei Hoher RoundTripTime und großen Datenmengen
+
+Go-Back-N
+Zustandsautomat-Darstellung lesen können
+
+Historie aus gesendeten Nachrichten / Acks / Timeouts und vervollständigen unter der Annahme verschiedener Algorithmen (GoBackN / Selective Repeat...)
+
