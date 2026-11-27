@@ -24,3 +24,12 @@ $A = \{x \in \mathbb{N} \mid x < 5\} \qquad B=\{x \in \mathbb{N} x>0\}$
 - $(A; B]$ "Halboffenes Intervall"
 - $(A; B)$"Offenes Intervall"
 - Mit $\infty$ "Unendliches Intervall"
+
+Die runde Klammer bringt dabei zum Ausdruck, dass der Randwert selbst nicht im Intervall enthalten ist.
+Alternativ wird in manchen Quellen auch die umgekehrte eckige Klammer verwendet. Folgende Schreibweisen sind also equivalent:
+$$
+(A,B) = ]A,B[
+$$
+Da $\infty$ keine Zahl beschreibt wird bei solchen unendlichen Intervallen stets die Schreibweise des offenen Intervalls verwendet.
+
+
