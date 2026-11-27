@@ -1,3 +1,4 @@
+# Big O
 # NP-Schwere
 
 # NP-Vollständigkeit

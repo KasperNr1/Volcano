@@ -80,23 +80,62 @@ While the [Determinant](04%20Eigenvalues%20and%20Determinant.md#Determinant) $\d
 > 
 
 
-# TODO
-Matrix Series 
-Page 265 onwards
+# Matrix series
+## Spectral Radius
+The `spectral radius` of a matrix $A \in \mathbb{R}^{n \times n}$ or $A \in \mathbb{C}^{n \times n}$ is defined as:
+$$
+\rho(A) := \max\left\{\left|\lambda\right| : \lambda \in \mathbb{C} \; \text{eigenvalue of} \; A\right\}
+$$
+Meaning the largest absolute value of all [Eigenvalues](04%20Eigenvalues%20and%20Determinant.md#Eigenvalues) of $A$.
+For complex numbers, the [absolute value is defined as the distance to the origin](Funktionen.md#Betrag%20einer%20Zahl),
+
+## Convergence of matrix series
+If and only if the spectral radius of a matrix is less than $1$ applying it repeatedly converges to $0$.
+$$
+\lim_{k \to \infty}A^k = 0 \Longleftrightarrow \rho(A) <0
+$$
+
+## Neumann series
+Using the [Convergence of matrix series](#Convergence%20of%20matrix%20series) we can find that if $\rho(A)<1$ then $(I - A)$ is invertible.
+Its invers is given as the sum over all powers of $A$.
+$$
+\left(I - A\right)^{-1} = \sum_{k=0}^{\infty} A^k
+$$
+
+> [!Info] Relation to real numbers
+> This is related to the fact that for a real number $a \in \mathbb{R}$ with $\left|a\right| < 1$
+> $$
+> \sum_{k=0}^\infty a^k = \dfrac{1}{1-a} 
+> $$
 
 
+## Matrix exponential
+For any Matrix $A$ the series
+$$
+\sum_{n=0}^{\infty} \dfrac{A^n}{n!} = I + A + \dfrac{A^2}{2!} + \dots
+$$
+converges. It is called the `matrix exponential` $\exp(A)$.
 
+The Matrix $E = \exp(A)$ is always invertible and $E^{-1} = \exp(-A)$
 
+# Triangular matrices
+Also see [Dreiecksmatrizen](Matrizen.md#Dreiecksmatrizen).
+They have very nice properties for numeric operations.
 
+The Gaussian algorithm to solve linear systems of equations turns any matrix into a triangular matrix to solve it.
+This idea is more general and can be used to prove that some matrices can be decomposed into a product.
+$$
+A = L \cdot U
+$$
+Where $U$ is upper-triangular and $L$ is lower triangular.
+This decomposition has [computational complexity](Komplexität.md#Big%20O) on the order of $\mathcal{O}(n^3)$ 
 
+This decomposition exists under some conditions.
+In particular it always exists if $A$ is [Positive Definite](07%20Positive%20Definite%20Matrices%20and%20SVD.md#Positive%20Definite%20Matrices) and [Symmetric](06%20Orthogonal%20basis%20and%20projections.md#Symmetric%20matrices).
 
-
-
-
-
-
-
-
-
-
+A weaker form of this composition is given for any matrix $A \in \mathbb{R}^{m \times n}$
+$$
+A = QR
+$$
+Where $Q$ is an [Orthogonal Matrix](06%20Orthogonal%20basis%20and%20projections.md#Orthogonal%20Matrices) and $R$ is upper-triangular.
 

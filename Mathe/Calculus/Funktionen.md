@@ -115,6 +115,13 @@ Eine Funktion heißt Betragsfunktion wenn in beliebiger Weise ein $x$ zwischen B
 2. $g(x)=|x-2|+3=\left\{ \begin{array}{rll} x^2-4 & \text{ bei } & x \geq 2 \\ -x+5 & \text{ bei } & x < 2 \end{array} \right.$ 
 3. $h(x)=|x^2-4|=\left\{ \begin{array}{rll} x^2-4 & \text{ bei } & x<-2 \cup 2<x \\ -x^2+4 & \text{ bei } & -2 \leq x \leq 2 \end{array} \right.$ 
 
+## Betrag einer Zahl
+Der Betrag einer komplexen Zahl $x = a + b\cdot i \in \mathbb{C}$ ist definiert als der euklidische Abstand der Zahl zum Ursprung des Koordinatensystems.
+$$
+\left|x\right| := \sqrt{a^2 + b^2}
+$$
+Für reelle Zahlen gilt $b =0$ und $\left|x\right| = \sqrt{a^2}$  ist der numerische Wert von $a$ mit positivem Vorzeichen.
+
 # Umkehrfunktion
 $f(x)=\dfrac{1}{2}x + 2$ Stellt die Kosten pro Stückzahl dar, die Umkehrung ist diejenige Zuordnung, die aus der Stückzahl jeweils die entsprechenden Kosten liefert.
 Hier wäre es $U(x)$ mit $U(x)=2x-4$
